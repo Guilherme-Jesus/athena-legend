@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "json": "json-server --watch C19.json --port 7010",
+    "start": "concurrently \"npm run dev\" \"npm run json\""
   },
   "dependencies": {
     "concurrently": "^7.5.0",
