@@ -1,3 +1,9 @@
 export function Header() {
-  return <h3>header</h3>
+  return (
+    <header>
+      <div>icon</div>
+      <div>History</div>
+      <div>Avatar</div>
+    </header>
+  )
 }
