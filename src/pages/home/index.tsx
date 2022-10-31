@@ -6,7 +6,7 @@ export function Home() {
       <div>
         <Header />
       </div>
-      <div>{/* <Header /> //Blocos */}</div>
+      <div>{/* <Blocks /> */}</div>
       <div>{/* <Header /> //Mapa */}</div>
       <div>{/* <Header /> //Timeline */}</div>
     </div>
