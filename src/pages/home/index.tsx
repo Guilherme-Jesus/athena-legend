@@ -1,4 +1,5 @@
 import { Header } from '../../components/Header'
+import Blocos from '../Blocos'
 
 export function Home() {
   return (
@@ -6,7 +7,9 @@ export function Home() {
       <div>
         <Header />
       </div>
-      <div>{/* <Blocks /> */}</div>
+      <div>
+        <Blocos />
+      </div>
       <div>{/* <Header /> //Mapa */}</div>
       <div>{/* <Header /> //Timeline */}</div>
     </div>
