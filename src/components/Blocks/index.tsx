@@ -163,11 +163,9 @@ const Blocks: React.FC = (): React.ReactElement => {
         </svg>
         <div>
           <span className="block--body__data">
-            {rain
-              ? rain.toFixed(1).toString().replace('.', ',').replace(',0', '')
-              : '--'}
+            {rain.toFixed(1).toString().replace('.', ',').replace(',0', '')}
           </span>
-          {rain && <span className="block--body__unit">{dataUnit.rain}</span>}
+          <span className="block--body__unit">{dataUnit.rain}</span>
         </div>
       </>
     ),
@@ -188,16 +186,12 @@ const Blocks: React.FC = (): React.ReactElement => {
           <div>
             <span className="block--body__data">
               {temperature
-                ? temperature
-                    .toFixed(1)
-                    .toString()
-                    .replace('.', ',')
-                    .replace(',0', '')
-                : '--'}
+                .toFixed(1)
+                .toString()
+                .replace('.', ',')
+                .replace(',0', '')}
             </span>
-            {temperature && (
-              <span className="block--body__unit">{dataUnit.temperature}</span>
-            )}
+            <span className="block--body__unit">{dataUnit.temperature}</span>
           </div>
         </>
       )
@@ -218,13 +212,9 @@ const Blocks: React.FC = (): React.ReactElement => {
         </svg>
         <div>
           <span className="block--body__data">
-            {relativeHumidity ? Math.round(relativeHumidity) : '--'}
+            {Math.round(relativeHumidity)}
           </span>
-          {relativeHumidity && (
-            <span className="block--body__unit">
-              {dataUnit.relativeHumidity}
-            </span>
-          )}
+          <span className="block--body__unit">{dataUnit.relativeHumidity}</span>
         </div>
       </>
     ),
@@ -232,7 +222,7 @@ const Blocks: React.FC = (): React.ReactElement => {
   )
 
   const displayAtmosphericPressure = useCallback(
-    (atmosphericPressure: number): React.ReactElement => {
+    (atmosphericPressure?: number): React.ReactElement => {
       return (
         <>
           <svg
@@ -257,7 +247,7 @@ const Blocks: React.FC = (): React.ReactElement => {
           </svg>
           <div>
             <span className="block--body__data h5 mb-0">
-              {atmosphericPressure
+              {atmosphericPressure !== undefined
                 ? atmosphericPressure
                     .toFixed(1)
                     .toString()
@@ -265,7 +255,7 @@ const Blocks: React.FC = (): React.ReactElement => {
                     .replace(',0', '')
                 : '--'}
             </span>
-            {atmosphericPressure && (
+            {atmosphericPressure !== undefined && (
               <span className="block--body__unit">
                 {dataUnit.atmosphericPressure}
               </span>
@@ -278,7 +268,7 @@ const Blocks: React.FC = (): React.ReactElement => {
   )
 
   const displayWindSpeed = useCallback(
-    (windSpeed: number): React.ReactElement => {
+    (windSpeed?: number): React.ReactElement => {
       return (
         <>
           <svg
@@ -294,7 +284,7 @@ const Blocks: React.FC = (): React.ReactElement => {
           </svg>
           <div>
             <span className="block--body__data h5 mb-0">
-              {windSpeed
+              {windSpeed !== undefined
                 ? windSpeed
                     .toFixed(1)
                     .toString()
@@ -302,7 +292,9 @@ const Blocks: React.FC = (): React.ReactElement => {
                     .replace(',0', '')
                 : '--'}
             </span>
-            <span className="block--body__unit">{dataUnit.windSpeed}</span>
+            {windSpeed !== undefined && (
+              <span className="block--body__unit">{dataUnit.windSpeed}</span>
+            )}
           </div>
         </>
       )
@@ -311,7 +303,7 @@ const Blocks: React.FC = (): React.ReactElement => {
   )
 
   const displaySolarIrradiation = useCallback(
-    (solarIrradiation: number): React.ReactElement => (
+    (solarIrradiation?: number): React.ReactElement => (
       <>
         <svg
           className="block--body__icon"
@@ -332,9 +324,11 @@ const Blocks: React.FC = (): React.ReactElement => {
         </svg>
         <div>
           <span className="block--body__data h5 mb-0">
-            {solarIrradiation ? Math.round(solarIrradiation) : '--'}
+            {solarIrradiation !== undefined
+              ? Math.round(solarIrradiation)
+              : '--'}
           </span>
-          {solarIrradiation && (
+          {solarIrradiation !== undefined && (
             <span className="block--body__unit">{dataUnit.solarRadiation}</span>
           )}
         </div>
