@@ -106,19 +106,23 @@ type Block = {
 const Blocks: React.FC = (): React.ReactElement => {
   const [blocks, setBlocks] = useState<Block[]>([])
   const [currentBlockId, setCurrentBlockId] = useState<string>('')
-  const [isLoadingBlocks, setIsLoadingBlocks] = useState<boolean>(true)
+  const [isLoadingBlocks, setIsLoadingBlocks] = useState<boolean>(false)
 
   useEffect(() => {
-    fetch('C19.json', {
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then((mockData) => setBlocks(mockData.blocks))
-      .then(() => setCurrentBlockId(blocks[0].blockId))
-      .then(() => setIsLoadingBlocks(false))
+    if (blocks.length === 0) {
+      setIsLoadingBlocks(true)
+      fetch('C19.json', {
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+      })
+        .then((response) => response.json())
+        .then((mockData) => setBlocks(mockData.blocks))
+    } else {
+      setCurrentBlockId(blocks[0].blockId)
+      setIsLoadingBlocks(false)
+    }
   }, [blocks])
 
   const handleBlockClick = useCallback(
