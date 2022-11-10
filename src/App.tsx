@@ -4,14 +4,12 @@ import React, { useCallback, useEffect, useState } from 'react'
 
 import Blocks from './components/Blocks'
 import { IListBlocks, IListBlocksLeaf } from './types/types'
-import useRequestData, { apiFake } from './hooks/useRequestData'
+import axios from 'axios'
 
 const App: React.FC = (): React.ReactElement => {
   const [blocks, setBlocks] = useState<IListBlocks[]>([])
   const [currentBlockId, setCurrentBlockId] = useState<string>('C19')
   const [blockLeaf, setBlockLeaf] = useState<IListBlocksLeaf[]>([])
-
-  // const { data: blockLeaf } = useRequestData<IListBlocksLeaf[]>(`/blockLeaf`)
 
   useEffect(() => {
     if (blocks.length === 0) {
@@ -36,15 +34,15 @@ const App: React.FC = (): React.ReactElement => {
   }, [blocks])
 
   useEffect(() => {
-    apiFake
-      .get(`/blockLeaf`)
+    axios
+      .get(`http://localhost:7010/blockLeaf/?blockParent=${currentBlockId}`)
       .then((response) => {
         setBlockLeaf(response.data)
       })
       .catch((err) => {
         console.log(err)
       })
-  }, [])
+  }, [currentBlockId])
 
   const handleBlockClick = useCallback(
     (id: string, leaf: boolean): void => {
