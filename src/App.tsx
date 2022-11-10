@@ -3,111 +3,15 @@ import './app.scss'
 import React, { useCallback, useEffect, useState } from 'react'
 
 import Blocks from './components/Blocks'
-
-type BlockData = {
-  atmosphericPressure: number // <-- pode ser undefined?
-  rain: number
-  relativeHumidity: number
-  solarIrradiation: number // <-- pode ser undefined?
-  temperature: number
-  windSpeed: number // <-- pode ser undefined?
-}
-
-export type Block = {
-  abrv: string
-  blockId: string
-  blockParent: string
-  data: BlockData
-  date: Date
-  leafParent: boolean
-  name: string
-}
-
-// type ForecastPast = {
-//   date: string
-//   rain: number
-//   relativeHumidity: number
-//   solarIrradiation: number
-//   temperatureAverage: number
-//   temperatureMax: number
-//   temperatureMin: number
-//   windSpeed: number
-// }
-
-// type ForecastPresent = {
-//   date: string
-//   rain: number
-//   relativeHumidity: number
-//   solarIrradiation: number
-//   temperatureAverage: number
-//   temperatureMax: number
-//   temperatureMin: number
-//   windSpeed: number
-// }
-
-// type ForecastType = {
-//   date: string
-//   rain: number
-//   rainPrediction: string
-//   rainProbability: number
-//   temperatureMax: number
-//   temperatureMin: number
-// }
-
-// export type Forecast = {
-//   blockId: string
-//   forecast: ForecastType[]
-//   name: string
-//   past: ForecastPast[]
-//   present: ForecastPresent[]
-// }
-
-// type TreeBounds = {
-//   bounds: number[]
-// }
-
-// type TreeIdData = {
-//   rain: number
-//   relativeHumidity: number
-//   solarIrradiation: number
-//   temperature: number
-//   windSpeed: number
-// }
-
-// export type TreeId = {
-//   abrv: string
-//   blockId: string
-//   blockParent: string
-//   bounds: TreeBounds[]
-//   centroid: number[]
-//   data: TreeIdData
-//   date: Date
-//   leafParent: boolean
-//   name: string
-// }
-
-// export type Users = {
-//   displayName: string
-//   email: string
-//   id: string
-//   phone: string
-//   photoURL: string
-// }
-
-// export type MockData = {
-//   blocks: Block[]
-//   forecast: Forecast[]
-//   treeId: TreeId[]
-//   users: Users[]
-// }
+import { IListBlocks } from './types/types'
 
 const App: React.FC = (): React.ReactElement => {
-  const [blocks, setBlocks] = useState<Block[]>([])
-  const [currentBlockId, setCurrentBlockId] = useState<string>('')
+  const [blocks, setBlocks] = useState<IListBlocks[]>([])
+  const [currentBlockId, setCurrentBlockId] = useState<string>('C19')
 
   useEffect(() => {
     if (blocks.length === 0) {
-      fetch('C19.json', {
+      fetch('http://localhost:7010/blocks', {
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
@@ -116,17 +20,26 @@ const App: React.FC = (): React.ReactElement => {
         .then((response) => response.json())
         .then((mockData) =>
           setBlocks(
-            mockData.blocks.filter((block: Block) => block.blockParent !== '0'),
+            mockData.filter(
+              (block: IListBlocks) => currentBlockId === block.blockParent,
+            ),
           ),
         )
     } else {
       setCurrentBlockId(blocks[0].blockId)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [blocks])
 
   const handleBlockClick = useCallback(
-    (id: string): void => setCurrentBlockId(id === currentBlockId ? '' : id),
-    [currentBlockId, setCurrentBlockId],
+    (id: string, leaf: boolean): void => {
+      if (currentBlockId !== id) {
+        setCurrentBlockId(id)
+      } else if (!leaf) {
+        setBlocks(blocks.filter((item) => item.blockParent === id))
+      }
+    },
+    [blocks, currentBlockId],
   )
 
   return (

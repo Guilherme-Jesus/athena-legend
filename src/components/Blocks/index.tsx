@@ -4,13 +4,13 @@ import React, { useCallback, useEffect, useState } from 'react'
 
 import { Scrollbars as ScrollContainer } from 'react-custom-scrollbars-2'
 
+import { IListBlocks } from '../../types/types'
 import { dataUnit } from '../utils'
-import { Block } from '../../App'
 
 type BlocksProps = {
-  blocks: Block[]
+  blocks: IListBlocks[]
   currentBlockId: string
-  handleBlockClick(id: string): void
+  handleBlockClick(id: string, leaf: boolean): void
 }
 
 const Blocks: React.FC<BlocksProps> = ({
@@ -242,7 +242,7 @@ const Blocks: React.FC<BlocksProps> = ({
               className={`block${
                 block.blockId === currentBlockId ? ' active' : ''
               } rounded-1 d-flex flex-column p-2`}
-              onClick={() => handleBlockClick(block.blockId)}
+              onClick={() => handleBlockClick(block.blockId, block.leafParent)}
             >
               {block.blockId === currentBlockId ? (
                 <>
@@ -257,11 +257,11 @@ const Blocks: React.FC<BlocksProps> = ({
                     <li className="d-flex align-items-baseline mt-1">
                       {displayRelativeHumidity(block.data.relativeHumidity)}
                     </li>
-                    <li className="d-flex align-items-baseline mt-1">
+                    {/* <li className="d-flex align-items-baseline mt-1">
                       {displayAtmosphericPressure(
                         block.data.atmosphericPressure,
                       )}
-                    </li>
+                    </li> */}
                     <li className="d-flex align-items-baseline mt-1">
                       {displayWindSpeed(block.data.windSpeed)}
                     </li>
