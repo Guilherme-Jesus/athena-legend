@@ -3,11 +3,15 @@ import './app.scss'
 import React, { useCallback, useEffect, useState } from 'react'
 
 import Blocks from './components/Blocks'
-import { IListBlocks } from './types/types'
+import { IListBlocks, IListBlocksLeaf } from './types/types'
+import useRequestData, { apiFake } from './hooks/useRequestData'
 
 const App: React.FC = (): React.ReactElement => {
   const [blocks, setBlocks] = useState<IListBlocks[]>([])
   const [currentBlockId, setCurrentBlockId] = useState<string>('C19')
+  const [blockLeaf, setBlockLeaf] = useState<IListBlocksLeaf[]>([])
+
+  // const { data: blockLeaf } = useRequestData<IListBlocksLeaf[]>(`/blockLeaf`)
 
   useEffect(() => {
     if (blocks.length === 0) {
@@ -31,15 +35,26 @@ const App: React.FC = (): React.ReactElement => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [blocks])
 
+  useEffect(() => {
+    apiFake
+      .get(`/blockLeaf`)
+      .then((response) => {
+        setBlockLeaf(response.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }, [])
+
   const handleBlockClick = useCallback(
     (id: string, leaf: boolean): void => {
       if (currentBlockId !== id) {
         setCurrentBlockId(id)
       } else if (!leaf) {
         setBlocks(blocks.filter((item) => item.blockParent === id))
-      }
+      } else setBlocks(blockLeaf?.filter((item) => item.blockParent === id))
     },
-    [blocks, currentBlockId],
+    [blocks, blockLeaf, currentBlockId],
   )
 
   return (
