@@ -5,130 +5,20 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { Scrollbars as ScrollContainer } from 'react-custom-scrollbars-2'
 
 import { dataUnit } from '../utils'
+import { Block } from '../../App'
 
-type BlockData = {
-  atmosphericPressure: number // <-- pode ser undefined?
-  rain: number
-  relativeHumidity: number
-  solarIrradiation: number // <-- pode ser undefined?
-  temperature: number
-  windSpeed: number // <-- pode ser undefined?
+type BlocksProps = {
+  blocks: Block[]
+  currentBlockId: string
+  handleBlockClick(id: string): void
 }
 
-type Block = {
-  abrv: string
-  blockId: string
-  blockParent: string
-  data: BlockData
-  date: Date
-  leafParent: boolean
-  name: string
-}
-
-// type ForecastPast = {
-//   date: string
-//   rain: number
-//   relativeHumidity: number
-//   solarIrradiation: number
-//   temperatureAverage: number
-//   temperatureMax: number
-//   temperatureMin: number
-//   windSpeed: number
-// }
-
-// type ForecastPresent = {
-//   date: string
-//   rain: number
-//   relativeHumidity: number
-//   solarIrradiation: number
-//   temperatureAverage: number
-//   temperatureMax: number
-//   temperatureMin: number
-//   windSpeed: number
-// }
-
-// type ForecastType = {
-//   date: string
-//   rain: number
-//   rainPrediction: string
-//   rainProbability: number
-//   temperatureMax: number
-//   temperatureMin: number
-// }
-
-// type Forecast = {
-//   blockId: string
-//   forecast: ForecastType[]
-//   name: string
-//   past: ForecastPast[]
-//   present: ForecastPresent[]
-// }
-
-// type TreeBounds = {
-//   bounds: number[]
-// }
-
-// type TreeIdData = {
-//   rain: number
-//   relativeHumidity: number
-//   solarIrradiation: number
-//   temperature: number
-//   windSpeed: number
-// }
-
-// type TreeId = {
-//   abrv: string
-//   blockId: string
-//   blockParent: string
-//   bounds: TreeBounds[]
-//   centroid: number[]
-//   data: TreeIdData
-//   date: Date
-//   leafParent: boolean
-//   name: string
-// }
-
-// type Users = {
-//   displayName: string
-//   email: string
-//   id: string
-//   phone: string
-//   photoURL: string
-// }
-
-// type MockData = {
-//   blocks: Block[]
-//   forecast: Forecast[]
-//   treeId: TreeId[]
-//   users: Users[]
-// }
-
-const Blocks: React.FC = (): React.ReactElement => {
-  const [blocks, setBlocks] = useState<Block[]>([])
-  const [currentBlockId, setCurrentBlockId] = useState<string>('')
+const Blocks: React.FC<BlocksProps> = ({
+  blocks,
+  currentBlockId,
+  handleBlockClick,
+}): React.ReactElement => {
   const [isLoadingBlocks, setIsLoadingBlocks] = useState<boolean>(false)
-
-  useEffect(() => {
-    if (blocks.length === 0) {
-      setIsLoadingBlocks(true)
-      fetch('C19.json', {
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-      })
-        .then((response) => response.json())
-        .then((mockData) => setBlocks(mockData.blocks))
-    } else {
-      setCurrentBlockId(blocks[0].blockId)
-      setIsLoadingBlocks(false)
-    }
-  }, [blocks])
-
-  const handleBlockClick = useCallback(
-    (id: string): void => setCurrentBlockId(id),
-    [],
-  )
 
   const displayRain = useCallback(
     (rain: number): React.ReactElement => (
@@ -337,9 +227,11 @@ const Blocks: React.FC = (): React.ReactElement => {
     [],
   )
 
+  useEffect(() => setIsLoadingBlocks(blocks.length === 0), [blocks.length])
+
   return (
     <ScrollContainer autoHide className="blocks-container">
-      <div className="blocks d-flex">
+      <div className="d-flex flex-column gap-3 p-3">
         {isLoadingBlocks ? (
           <p>Carregando...</p>
         ) : (

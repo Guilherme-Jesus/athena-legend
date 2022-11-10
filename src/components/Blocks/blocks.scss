@@ -1,8 +1,5 @@
 .blocks-container {
   background-color: lightgray;
-  .blocks {
-    padding: 0 var(--spacer);
-  }
   .block {
     background-image: linear-gradient(var(--gray-700), var(--dark));
     box-shadow: 0 calc(var(--spacer) * 0.25) calc(var(--spacer) * 0.25) rgba(var(--black), 0.2),
