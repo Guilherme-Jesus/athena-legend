@@ -1,0 +1,30 @@
+.App {
+  --nav-link-size: calc(var(--spacer) * 6);
+
+  display: grid;
+  grid-template-areas:  "nav header header"
+                        "nav blocks main";
+  grid-template-columns: var(--nav-link-size) calc(var(--spacer) * 12) auto;
+  grid-template-rows: calc(var(--spacer) * 2.375 + var(--spacer) * 1.5 * 2) auto;
+  min-height: 100vh;
+  nav {
+    background-color: lightblue;
+    display: flex;
+    flex-direction: column;
+    grid-area: nav;
+    padding: var(--spacer);
+  }
+  header {
+    background-color: wheat;
+    grid-area: header;
+    padding: var(--spacer);
+  }
+  /* .blocks-container {
+    // CSS dos blocos está dentro do próprio componente
+  } */
+  main {
+    background-color: lightgreen;
+    grid-area: main;
+    padding: var(--spacer);
+  }
+}

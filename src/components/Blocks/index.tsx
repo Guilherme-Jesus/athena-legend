@@ -1,0 +1,399 @@
+import './blocks.scss'
+
+import React, { useCallback, useEffect, useState } from 'react'
+
+import { Scrollbars as ScrollContainer } from 'react-custom-scrollbars-2'
+
+import { dataUnit } from '../utils'
+
+type BlockData = {
+  atmosphericPressure: number // <-- pode ser undefined?
+  rain: number
+  relativeHumidity: number
+  solarIrradiation: number // <-- pode ser undefined?
+  temperature: number
+  windSpeed: number // <-- pode ser undefined?
+}
+
+type Block = {
+  abrv: string
+  blockId: string
+  blockParent: string
+  data: BlockData
+  date: Date
+  leafParent: boolean
+  name: string
+}
+
+// type ForecastPast = {
+//   date: string
+//   rain: number
+//   relativeHumidity: number
+//   solarIrradiation: number
+//   temperatureAverage: number
+//   temperatureMax: number
+//   temperatureMin: number
+//   windSpeed: number
+// }
+
+// type ForecastPresent = {
+//   date: string
+//   rain: number
+//   relativeHumidity: number
+//   solarIrradiation: number
+//   temperatureAverage: number
+//   temperatureMax: number
+//   temperatureMin: number
+//   windSpeed: number
+// }
+
+// type ForecastType = {
+//   date: string
+//   rain: number
+//   rainPrediction: string
+//   rainProbability: number
+//   temperatureMax: number
+//   temperatureMin: number
+// }
+
+// type Forecast = {
+//   blockId: string
+//   forecast: ForecastType[]
+//   name: string
+//   past: ForecastPast[]
+//   present: ForecastPresent[]
+// }
+
+// type TreeBounds = {
+//   bounds: number[]
+// }
+
+// type TreeIdData = {
+//   rain: number
+//   relativeHumidity: number
+//   solarIrradiation: number
+//   temperature: number
+//   windSpeed: number
+// }
+
+// type TreeId = {
+//   abrv: string
+//   blockId: string
+//   blockParent: string
+//   bounds: TreeBounds[]
+//   centroid: number[]
+//   data: TreeIdData
+//   date: Date
+//   leafParent: boolean
+//   name: string
+// }
+
+// type Users = {
+//   displayName: string
+//   email: string
+//   id: string
+//   phone: string
+//   photoURL: string
+// }
+
+// type MockData = {
+//   blocks: Block[]
+//   forecast: Forecast[]
+//   treeId: TreeId[]
+//   users: Users[]
+// }
+
+const Blocks: React.FC = (): React.ReactElement => {
+  const [blocks, setBlocks] = useState<Block[]>([])
+  const [currentBlockId, setCurrentBlockId] = useState<string>('')
+  const [isLoadingBlocks, setIsLoadingBlocks] = useState<boolean>(true)
+
+  useEffect(() => {
+    fetch('C19.json', {
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((mockData) => setBlocks(mockData.blocks))
+      .then(() => setCurrentBlockId(blocks[0].blockId))
+      .then(() => setIsLoadingBlocks(false))
+  }, [blocks])
+
+  const handleBlockClick = useCallback(
+    (id: string): void => setCurrentBlockId(id),
+    [],
+  )
+
+  const displayRain = useCallback(
+    (rain: number): React.ReactElement => (
+      <>
+        <svg
+          className="block--body__icon"
+          viewBox="0 0 512 512"
+          aria-hidden="true"
+        >
+          <path d="M431.978,167.288C423.534,77.626,347.833,7.239,256,7.239S88.466,77.626,80.022,167.288 C34.57,175.558,0,215.438,0,263.239c0,53.775,43.749,97.524,97.524,97.524h36.571v-36.571H97.524 c-33.609,0-60.952-27.343-60.952-60.952c0-33.609,27.343-60.952,60.952-60.952h18.286v-18.286 c0-77.301,62.889-140.19,140.19-140.19s140.19,62.889,140.19,140.19v18.286h18.286c33.609,0,60.952,27.343,60.952,60.952 c0,33.609-27.343,60.952-60.952,60.952h-36.571v36.571h36.571c53.775,0,97.524-43.749,97.524-97.524 C512,215.438,477.43,175.558,431.978,167.288z" />
+          <rect
+            x="122.518"
+            y="360.775"
+            transform="matrix(0.2079 -0.9781 0.9781 0.2079 -175.0179 541.9899)"
+            width="249.246"
+            height="36.57"
+          />
+          <rect
+            x="225.806"
+            y="336.415"
+            transform="matrix(0.2079 -0.9781 0.9781 0.2079 -89.1225 599.3422)"
+            width="199.39"
+            height="36.57"
+          />
+          <rect
+            x="79.494"
+            y="336.383"
+            transform="matrix(0.2079 -0.9781 0.9781 0.2079 -204.9837 456.2015)"
+            width="199.39"
+            height="36.57"
+          />
+        </svg>
+        <div>
+          <span className="block--body__data">
+            {rain
+              ? rain.toFixed(1).toString().replace('.', ',').replace(',0', '')
+              : '--'}
+          </span>
+          {rain && <span className="block--body__unit">{dataUnit.rain}</span>}
+        </div>
+      </>
+    ),
+    [],
+  )
+
+  const displayTemperature = useCallback(
+    (temperature: number): React.ReactElement => {
+      return (
+        <>
+          <svg
+            className="block--body__icon"
+            viewBox="0 0 290 290"
+            aria-hidden="true"
+          >
+            <path d="M144.998,0.004 c-4.318,0-8.636,1.117-12.5,3.348c-7.728,4.462-12.5,12.727-12.5,21.65l0.164,182.652c-15.904,10.584-23.605,30.141-18.674,48.826 c5.195,19.686,23.025,33.461,43.385,33.518c20.359,0.056,38.266-13.619,43.57-33.275c5.038-18.669-2.549-38.364-18.418-49.051 l-0.025-182.676c-0.001-8.923-4.773-17.187-12.5-21.648C153.637,1.117,149.319,0,145.001,0L144.998,0.004z M144.998,10.002 c2.588,0,5.176,0.672,7.5,2.014c4.648,2.684,7.5,7.623,7.5,12.99v5h-5c-6.762-0.096-6.762,10.096,0,10H160v10h-5.004 c-6.762-0.096-6.762,10.096,0,10h5.006v10h-5.006c-6.762-0.096-6.762,10.096,0,10h5.008l0.019,130.264 c0,1.785,0.952,3.435,2.498,4.328c13.729,7.941,20.402,24.203,16.266,39.527c-4.137,15.33-18.01,25.925-33.889,25.881 c-15.878-0.044-29.692-10.718-33.744-26.07c-4.052-15.353,2.697-31.451,16.486-39.324c1.56-0.891,2.523-2.549,2.521-4.346 l-0.166-185.264c0-5.365,2.853-10.303,7.5-12.986c2.324-1.342,4.912-2.014,7.5-2.014H144.998z M144.922,91.498 c-2.759,0.042-4.963,2.311-4.924,5.07v129.098c-8.821,2.278-14.989,10.229-15,19.34c0,11.046,8.954,20,20,20l0,0 c11.046,0,20-8.954,20-20l0,0c-0.007-9.114-6.175-17.071-15-19.35V96.568c0.039-2.761-2.168-5.031-4.93-5.07 C145.02,91.497,144.971,91.497,144.922,91.498z" />
+          </svg>
+          <div>
+            <span className="block--body__data">
+              {temperature
+                ? temperature
+                    .toFixed(1)
+                    .toString()
+                    .replace('.', ',')
+                    .replace(',0', '')
+                : '--'}
+            </span>
+            {temperature && (
+              <span className="block--body__unit">{dataUnit.temperature}</span>
+            )}
+          </div>
+        </>
+      )
+    },
+    [],
+  )
+
+  const displayRelativeHumidity = useCallback(
+    (relativeHumidity: number): React.ReactElement => (
+      <>
+        <svg
+          className="block--body__icon"
+          viewBox="0 0 512 512"
+          aria-hidden="true"
+        >
+          <path d="M409.9,205.8L256,0L102.2,205.9c-24.8,33.2-37.9,72.8-37.9,114.4C64.3,426,150.3,512,256,512s191.7-86,191.7-191.7 C447.7,278.6,434.6,239.2,409.9,205.8z M256,480.3c-88.2,0-160-71.8-160-160c0-34.7,11-67.8,31.6-95.4L256,52.9l128.4,171.9 c20.7,27.8,31.6,60.8,31.6,95.5C416,408.5,344.2,480.3,256,480.3z" />
+          <path d="M135,271.8c0-17.6,5.7-32.3,17-44c11.4-11.7,25.8-17.5,43.5-17.5c14.2,0,25.2,3.6,32.8,10.9c7.6,7.3,11.4,17.8,11.4,31.5 c0,7.5-1.5,15.6-4.6,24.4c-3,8.8-7.2,16.4-12.5,22.9c-5.6,7-12.2,12.2-19.7,15.6c-7.5,3.5-16,5.2-25.3,5.2 c-13.7,0-24.3-4.4-31.6-13.1C138.7,299.1,135,287.1,135,271.8z M197.5,262.4c0-9-0.8-15.8-2.3-20.5c-1.5-4.7-3.7-7-6.6-7 c-3.9,0-7,2.8-9.2,8.5c-2.2,5.7-3.3,13.3-3.3,23c0,8.3,0.9,15.3,2.8,21.1c1.9,5.8,4.4,8.6,7.6,8.6c3.6,0,6.3-3,8.1-8.9 C196.6,281.4,197.5,273.1,197.5,262.4z M279.4,205.7c6.3,1,12.6,3.3,19.1,6.7c6.4,3.5,12.1,7.8,17,12.8 c-13.6,31.5-28.4,62.8-44.6,93.8c-16.2,31-35.4,64.7-57.6,101.2c-5.4-1.2-10.4-2.9-15-5.2c-4.6-2.3-9.2-5.4-14-9.3 c20.3-34.6,39.1-69.8,56.2-105.7C257.6,264.1,270.6,232.7,279.4,205.7z M272.3,365.9c0-17.6,5.7-32.3,17-44 c11.4-11.7,25.8-17.5,43.5-17.5c14.2,0,25.2,3.6,32.8,10.9c7.6,7.3,11.4,17.8,11.4,31.5c0,7.5-1.5,15.6-4.6,24.4 c-3,8.8-7.2,16.4-12.5,22.9c-5.6,7-12.2,12.2-19.7,15.6c-7.5,3.5-16,5.2-25.3,5.2c-13.7,0-24.3-4.4-31.6-13.1 C276,393.1,272.3,381.1,272.3,365.9z M334.8,356.5c0-9-0.8-15.8-2.3-20.5c-1.5-4.7-3.7-7-6.6-7c-3.9,0-7,2.8-9.2,8.5 c-2.2,5.7-3.3,13.3-3.3,23c0,8.3,0.9,15.3,2.8,21.1c1.9,5.8,4.4,8.6,7.6,8.6c3.6,0,6.3-3,8.1-8.9 C333.9,375.5,334.8,367.1,334.8,356.5z" />
+        </svg>
+        <div>
+          <span className="block--body__data">
+            {relativeHumidity ? Math.round(relativeHumidity) : '--'}
+          </span>
+          {relativeHumidity && (
+            <span className="block--body__unit">
+              {dataUnit.relativeHumidity}
+            </span>
+          )}
+        </div>
+      </>
+    ),
+    [],
+  )
+
+  const displayAtmosphericPressure = useCallback(
+    (atmosphericPressure: number): React.ReactElement => {
+      return (
+        <>
+          <svg
+            className="block--body__icon"
+            viewBox="0 0 512 512"
+            aria-hidden="true"
+          >
+            <g transform="translate(256,256)">
+              <path d="M-217.9,130c-4.1,0-8.1-2.3-10-6.2c-21.7-45-31.1-94.5-27.4-143c3.9-50.4,22.1-97.4,52.5-136 c33.3-42.2,75.8-71.9,126.4-88.2c25.2-8.1,52.2-12.6,76-12.6c90.4,0,180.8,53.1,224.9,132.1C252.4-74.3,262-16.8,252.4,42.2 c-7.5,46.2-24.3,78.4-26.1,82c-2.9,5.4-9.6,7.4-14.9,4.5c-5.4-2.9-7.4-9.5-4.5-14.9c2.5-4.7,60.7-115.9-1.4-227 C164.9-185.5,82.3-234-0.3-234c-26.3,0-117.5,6.7-185.1,92.3c-55,69.7-63.8,170.2-22.6,255.9c2.6,5.5,0.3,12.1-5.2,14.7 C-214.6,129.7-216.3,130-217.9,130z" />
+              <use xlinkHref="#barometerTick" transform="rotate(-115)" />
+              <use xlinkHref="#barometerTick" transform="rotate(-76.666)" />
+              <use xlinkHref="#barometerTick" transform="rotate(-38.333)" />
+              <path
+                id="barometerTick"
+                d="M0-170c-6.1,0-11-4.9-11-11v-22c0-6.1,4.9-11,11-11s11,4.9,11,11v22C11-174.9,6.1-170,0-170z"
+              />
+              <use xlinkHref="#barometerTick" transform="rotate(38.333)" />
+              <use xlinkHref="#barometerTick" transform="rotate(76.666)" />
+              <use xlinkHref="#barometerTick" transform="rotate(115)" />
+              <path d="M0.9,171c-0.9,0-1.7,0-2.3-0.1c-0.2,0-0.5-0.1-0.7-0.1c-0.4-0.1-1.2-0.2-1.9-0.3c-5.1-0.7-14.6-2-23.7-9.8 c-5.7-4.9-8.3-10.4-10.1-14.1c-0.4-0.8-0.7-1.5-1-1.9c-0.2-0.4-0.4-0.7-0.5-1.1c-0.3-0.7-0.5-1.5-0.7-2.2c-2.3-9-1.9-18.7,1.3-27.3 c1.3-3.4,3-6.7,5.1-9.7c1.8-2.6,2.9-5.7,3.2-8.8L-11-117.5c0.5-5.7,5.3-10,11-10s10.4,4.3,11,10L30.3,93.2c0.3,3.8,1.9,7.3,4.3,10.3 c1.8,2.2,3.7,5,5.5,8.7c5.4,11.5,3.1,26.4,1.2,31.9c-1.8,5.4-8,14-14.7,18.9C18.3,169,7,171,0.9,171z" />
+            </g>
+          </svg>
+          <div>
+            <span className="block--body__data h5 mb-0">
+              {atmosphericPressure
+                ? atmosphericPressure
+                    .toFixed(1)
+                    .toString()
+                    .replace('.', ',')
+                    .replace(',0', '')
+                : '--'}
+            </span>
+            {atmosphericPressure && (
+              <span className="block--body__unit">
+                {dataUnit.atmosphericPressure}
+              </span>
+            )}
+          </div>
+        </>
+      )
+    },
+    [],
+  )
+
+  const displayWindSpeed = useCallback(
+    (windSpeed: number): React.ReactElement => {
+      return (
+        <>
+          <svg
+            className="block--body__icon"
+            viewBox="0 0 512 512"
+            aria-hidden="true"
+          >
+            <path d="M193,449.5c16.3,13,36.6,20.2,57.4,20.2c50.5,0,91.7-41.2,91.7-91.7c0-50.5-41-91.7-91.7-91.7H15c-8.3,0-15,6.6-15,15 c0,8.3,6.6,15,15,15h235.4c34,0,61.7,27.6,61.7,61.7c0,34-27.6,61.7-61.7,61.7c-14,0-27.7-4.8-38.6-13.6 c-6.5-5.2-15.8-4.2-21.1,2.3C185.5,435,186.5,444.3,193,449.5z" />
+            <path d="M196.1,361c0-8.3-6.6-15-15-15H91c-8.3,0-15,6.6-15,15c0,8.3,6.6,15,15,15h90.1C189.4,376,196.1,369.3,196.1,361z" />
+            <path d="M79.2,181.3c0,8.3,6.6,15,15,15h160.3c8.3,0,15-6.6,15-15c0-8.3-6.6-15-15-15H94.2C86,166.3,79.2,173,79.2,181.3z" />
+            <path d="M405,42.2c-24.2,0-48,8.5-66.9,23.6c-6.4,5.2-7.5,14.6-2.3,21.1c5.2,6.4,14.6,7.5,21.1,2.3c13.7-10.9,30.8-17,48.2-17 c42.4,0,77,34.5,77,77s-34.5,77-77,77H123.1c-8.3,0-15,6.6-15,15c0,8.3,6.6,15,15,15h282.1c59,0,107-48,106.8-107 C512,90.2,464,42.2,405,42.2z" />
+            <path d="M0,181.3c0,8.3,6.6,15,15,15h20.2c8.3,0,15-6.6,15-15c0-8.3-6.6-15-15-15H15C6.6,166.3,0,173,0,181.3z" />
+          </svg>
+          <div>
+            <span className="block--body__data h5 mb-0">
+              {windSpeed
+                ? windSpeed
+                    .toFixed(1)
+                    .toString()
+                    .replace('.', ',')
+                    .replace(',0', '')
+                : '--'}
+            </span>
+            <span className="block--body__unit">{dataUnit.windSpeed}</span>
+          </div>
+        </>
+      )
+    },
+    [],
+  )
+
+  const displaySolarIrradiation = useCallback(
+    (solarIrradiation: number): React.ReactElement => (
+      <>
+        <svg
+          className="block--body__icon"
+          viewBox="0 0 512 512"
+          aria-hidden="true"
+        >
+          <path d="M256,388.7c-75.9,0-132.7-56.9-132.7-132.7S180.1,123.3,256,123.3S388.7,180.1,388.7,256S331.9,388.7,256,388.7z M256,170.7 c-47.4,0-85.3,37.9-85.3,85.3s37.9,85.3,85.3,85.3s85.3-37.9,85.3-85.3S303.4,170.7,256,170.7z" />
+          <g transform="translate(256,256)">
+            <rect id="sunShine" x="-19" y="-256" width="38" height="86" />
+            <use xlinkHref="#sunShine" transform="rotate(45)" />
+            <use xlinkHref="#sunShine" transform="rotate(90)" />
+            <use xlinkHref="#sunShine" transform="rotate(135)" />
+            <use xlinkHref="#sunShine" transform="rotate(180)" />
+            <use xlinkHref="#sunShine" transform="rotate(225)" />
+            <use xlinkHref="#sunShine" transform="rotate(270)" />
+            <use xlinkHref="#sunShine" transform="rotate(315)" />
+          </g>
+        </svg>
+        <div>
+          <span className="block--body__data h5 mb-0">
+            {solarIrradiation ? Math.round(solarIrradiation) : '--'}
+          </span>
+          {solarIrradiation && (
+            <span className="block--body__unit">{dataUnit.solarRadiation}</span>
+          )}
+        </div>
+      </>
+    ),
+    [],
+  )
+
+  return (
+    <ScrollContainer autoHide className="blocks-container">
+      <div className="blocks d-flex">
+        {isLoadingBlocks ? (
+          <p>Carregando...</p>
+        ) : (
+          blocks.map((block) => (
+            <div
+              key={block.blockId}
+              role="button"
+              className={`block${
+                block.blockId === currentBlockId ? ' active' : ''
+              } rounded-1 d-flex flex-column p-2`}
+              onClick={() => handleBlockClick(block.blockId)}
+            >
+              {block.blockId === currentBlockId ? (
+                <>
+                  <p className="block--header lh-1 mb-0">{block.name}</p>
+                  <ul className="block--body list-unstyled mb-0">
+                    <li className="d-flex align-items-baseline mt-1">
+                      {displayRain(block.data.rain)}
+                    </li>
+                    <li className="d-flex align-items-baseline mt-1">
+                      {displayTemperature(block.data.temperature)}
+                    </li>
+                    <li className="d-flex align-items-baseline mt-1">
+                      {displayRelativeHumidity(block.data.relativeHumidity)}
+                    </li>
+                    <li className="d-flex align-items-baseline mt-1">
+                      {displayAtmosphericPressure(
+                        block.data.atmosphericPressure,
+                      )}
+                    </li>
+                    <li className="d-flex align-items-baseline mt-1">
+                      {displayWindSpeed(block.data.windSpeed)}
+                    </li>
+                    <li className="d-flex align-items-baseline mt-1">
+                      {displaySolarIrradiation(block.data.solarIrradiation)}
+                    </li>
+                  </ul>
+                </>
+              ) : (
+                <p className="block--header lh-1 d-flex flex-column gap-1 mb-0">
+                  <span className="text-truncate w-100">{block.name}</span>
+                  <span className="d-flex align-items-baseline">
+                    {displayRain(block.data.rain)}
+                  </span>
+                </p>
+              )}
+            </div>
+          ))
+        )}
+      </div>
+    </ScrollContainer>
+  )
+}
+
+export default Blocks
