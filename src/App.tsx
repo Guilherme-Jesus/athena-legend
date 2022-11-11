@@ -7,6 +7,7 @@ import axios from 'axios'
 import Blocks from './components/Blocks'
 import './pages/Mapa/map.scss'
 import { IListBlocks, IListBlocksLeaf } from './types/types'
+import Timeline from './components/Timeline'
 
 const App: React.FC = (): React.ReactElement => {
   const [blocks, setBlocks] = useState<IListBlocks[]>([])
@@ -149,7 +150,9 @@ const App: React.FC = (): React.ReactElement => {
         handleBlockClick={handleBlockClick}
       />
 
-      <div className="timeline-container">TIMELINE</div>
+      <div className="timeline-container">
+        <Timeline />
+      </div>
 
       <main>
         <div id="map" style={{ height: '83vh', width: '100%' }} />

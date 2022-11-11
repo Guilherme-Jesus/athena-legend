@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios'
 import { useEffect, useState } from 'react'
 
-const apiFake = axios.create({
+export const apiFake = axios.create({
   baseURL: 'http://localhost:7010',
 })
 

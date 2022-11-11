@@ -1,0 +1,41 @@
+
+//botão de navegação  
+.swiper-button-next,
+.swiper-button-prev {
+  
+    background-color: white;
+    background-color: #FF7F2F;
+    border-radius: 50%;
+    right:10px;
+    padding: 20px;
+    color: #F8F9FA !important;
+    fill: black !important;
+    stroke: black !important;
+
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after
+
+{
+  display: flex;
+  font-size: 18px;
+}
+
+
+//paginação
+span.swiper-pagination-bullet.swiper-pagination-bullet-active{
+  background-color: #FF7F2F !important;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
+  margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 8px);
+  
+}
+
+.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal{
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+}
+

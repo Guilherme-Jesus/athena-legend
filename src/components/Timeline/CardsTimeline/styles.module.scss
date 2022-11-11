@@ -1,0 +1,84 @@
+
+
+.swiperNavigation {
+  display: flex;
+}
+
+.card {
+  // display: block;
+  position: relative;
+  background-color: #F8F9FA;
+  flex-direction: column;
+  width: 12rem;
+  height: 17rem;
+  border: 1px solid #FF7F2F;
+  border-radius: 16px;
+ margin: 24px 72px 36px 0;
+  transition: 0.2s;
+
+
+  .cardDayNormal {
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 400;
+    transition: 0.2s;
+    margin-top: 8px;
+
+    padding-bottom: 12px;
+    border-bottom: 1px solid #F3F0F0;
+  }
+
+.cardDayAlert {
+  display: flex;
+  justify-content: center;
+  background-color: red;
+  font-size: 16px;
+  font-weight: 400;
+  transition: 0.2s;
+  padding-top: 8px;
+
+  padding-bottom: 12px;
+  border-bottom: 1px solid #F3F0F0;
+  border-top-right-radius: 16px;
+  border-top-left-radius: 16px;
+}
+
+  .infoContainer {
+    display: flex;
+    flex-direction: column;
+    transition: 0.2s ease-in;
+
+    .infoHeader {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      font-size: 30px;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .iconHeader {
+      display: flex;
+      width: 90px;
+    }
+
+    .infoInside {
+      display: flex;
+
+      margin-top: 12px;
+      font-size: 12px;
+
+      .infoWeather {
+        display: flex;
+        align-items: center;
+      }
+
+      .iconHeader {
+        display: flex;
+        width: 28px;
+      }
+    }
+  }
+}
+
