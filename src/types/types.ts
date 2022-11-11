@@ -22,8 +22,8 @@ export interface IListBlocks {
   abrv: string
   blockParent: string
   leafParent: boolean
-  date?: string
-  data?: {
+  date: string
+  data: {
     windSpeed: number
     solarIrradiation: number
     temperature: number
