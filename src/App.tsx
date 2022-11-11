@@ -5,6 +5,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import Blocks from './components/Blocks'
 import { IListBlocks, IListBlocksLeaf } from './types/types'
 import axios from 'axios'
+import Map from './pages/Mapa'
 
 const App: React.FC = (): React.ReactElement => {
   const [blocks, setBlocks] = useState<IListBlocks[]>([])
@@ -71,7 +72,9 @@ const App: React.FC = (): React.ReactElement => {
         handleBlockClick={handleBlockClick}
       />
 
-      <main>MAPA</main>
+      <main>
+        <Map />
+      </main>
     </div>
   )
 }
