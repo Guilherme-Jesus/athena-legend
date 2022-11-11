@@ -53,54 +53,51 @@ export interface ICreateUsers {
   displayName: string
   photoURL: string
 }
-export interface IPast {
+export type IPast = {
   date: string
-  temperatureAverage: number
-  temperatureMin: number
-  temperatureMax: number
-  relativeHumidity: number
-  solarIrradiation: number
-  rain: number
-  windSpeed: number
+  temperatureAverage: string
+  temperatureMin: string
+  temperatureMax: string
+  relativeHumidity: string
+  solarIrradiation: string
+  rain: string
+  windSpeed: string
+  alerts: null
 }
-export interface IPresent {
+export type IForecast = {
   date: string
-  temperatureAverage: number
-  temperatureMin: number
-  temperatureMax: number
-  relativeHumidity: number
-  solarIrradiation: number
-  rain: number
-  windSpeed: number
+  temperatureAverage: string
+  temperatureMin: string
+  temperatureMax: string
+  relativeHumidity: string
+  solarIrradiation: string
+  rain: string
+  windSpeed: string
+  alerts: null
 }
-export interface IFuture {
+
+export type IAlert = {
+  type: string
+  info: string
+  level: number
+  start: Date
+  finish: Date
+}
+
+export type ICurrent = {
   date: string
-  temperatureMin: number
-  temperatureMax: number
-  rain: number
-  rainProbability: number
-  rainPrediction: string
+  temperatureAverage: string
+  temperatureMin: string
+  temperatureMax: string
+  relativeHumidity: string
+  solarIrradiation: string
+  rain: string
+  windSpeed: string
+  alerts: IAlert[]
 }
-export interface IForecast {
-  blockId?: string
+
+export type ITimeline = {
+  blockId: string
   name: string
-  past?: IPast[]
-  present?: IPresent
-  forecast?: IFuture[]
-}
-export interface IHistorical {
-  blockId?: string
-  name: string
-  abrv: string
-  blockParent: string
-  bounds: number[]
-  centroid: number[]
-  leafParent: boolean
-  date: string
-  data: {
-    solarIrradiation: number
-    temperature: number
-    rain: number
-    relativeHumidity: number
-  }
+  line: IForecast[]
 }
