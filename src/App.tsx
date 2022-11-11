@@ -69,10 +69,12 @@ const App: React.FC = (): React.ReactElement => {
     return array
   }, [blockLeaf])
 
-  const center = {
-    lat: getCentroid[1],
-    lng: getCentroid[0],
-  }
+  const center = useMemo(() => {
+    return {
+      lat: getCentroid[1],
+      lng: getCentroid[0],
+    }
+  }, [getCentroid])
 
   useEffect(() => {
     const map = L.map('map', {
@@ -104,7 +106,7 @@ const App: React.FC = (): React.ReactElement => {
       ).addTo(map)
       polygon.bindPopup(item.blockId)
 
-      map.setView(center, 10)
+      map.setView(center, 13)
     })
 
     return () => {
