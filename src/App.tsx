@@ -25,9 +25,9 @@ const App: React.FC = (): React.ReactElement => {
         },
       })
         .then((response) => response.json())
-        .then((mockData) =>
+        .then((res) =>
           setBlocks(
-            mockData.filter(
+            res.filter(
               (block: IListBlocks) => currentBlockId === block.blockParent,
             ),
           ),
@@ -40,9 +40,13 @@ const App: React.FC = (): React.ReactElement => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:7010/blockLeaf/?blockParent=${currentBlockId}`)
+      .get(`http://localhost:7010/blockLeaf`)
       .then((response) => {
-        setBlockLeaf(response.data)
+        setBlockLeaf(
+          response.data.filter(
+            (blockLeaf: IListBlocksLeaf) => blockLeaf.bounds.length > 4,
+          ),
+        )
       })
       .catch((err) => {
         console.log(err)
@@ -55,9 +59,9 @@ const App: React.FC = (): React.ReactElement => {
         setCurrentBlockId(id)
       } else if (!leaf) {
         setBlocks(blocks.filter((item) => item.blockParent === id))
-      } else setBlocks(blockLeaf?.filter((item) => item.blockParent === id))
+      }
     },
-    [blocks, blockLeaf, currentBlockId],
+    [blocks, currentBlockId],
   )
   const getCentroid = useMemo(() => {
     const array: number[] = []
@@ -66,6 +70,7 @@ const App: React.FC = (): React.ReactElement => {
         array.push(...item.centroid)
       }
     })
+    console.log(array)
     return array
   }, [blockLeaf])
 
@@ -104,7 +109,21 @@ const App: React.FC = (): React.ReactElement => {
           weight: 4,
         },
       ).addTo(map)
-      polygon.bindPopup(item.blockId)
+      polygon.bindPopup(`<b>${item.blockId}</b>
+       </br>
+      <b>${item.name}</b>
+      </br>
+      <b>Chuva: ${item.data.rain} mm</b>
+      </br>
+      <b>Temperatura: ${Math.round(item.data.temperature)}ºC</b>
+      </br>
+      <b>Umidade: ${Math.round(item.data.relativeHumidity)}%</b>
+      </br>
+      <b>Vel.Vento: ${Math.round(item.data.windSpeed)} km/h</b>
+      </br>
+      <b>Rad.Solar: ${item.data.solarIrradiation.toFixed(2)} Wh/m²</b>
+      
+      `)
 
       map.setView(center, 13)
     })
