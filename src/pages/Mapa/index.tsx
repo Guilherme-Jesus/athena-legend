@@ -1,9 +1,6 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable react-hooks/exhaustive-deps */
 import * as L from 'leaflet'
 import { useEffect, useState } from 'react'
 
-import './map.scss'
 
 function Map() {
   const [initialPosition, setInitialPosition] = useState<[number, number]>([
