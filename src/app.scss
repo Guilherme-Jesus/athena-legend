@@ -1,0 +1,41 @@
+.App {
+  --nav-link-size: calc(var(--spacer) * 6);
+
+  display: grid;
+  grid-template-areas:  "nav header header"
+                        "nav blocks main"
+                        "nav blocks timeline";
+  grid-template-columns:  var(--nav-link-size)
+                          calc(var(--spacer) * 12)
+                          auto;
+  grid-template-rows: calc(var(--spacer) * 2.375 + var(--spacer) * 1.5 * 2)
+                      auto
+                      calc(var(--spacer) * 12);
+  min-height: 100vh;
+  nav {
+    background-color: #ddd;
+    display: flex;
+    flex-direction: column;
+    grid-area: nav;
+    padding: var(--spacer);
+  }
+  header {
+    background-color: #ddd;
+    grid-area: header;
+    padding: var(--spacer);
+  }
+  /* .blocks-container {
+    // CSS dos blocos está dentro do próprio componente
+  } */
+  main {
+    background-color: #eee;
+    grid-area: main;
+    padding: var(--spacer);
+  }
+  .timeline-container {
+    background-color: #ddd;
+    display: flex;
+    grid-area: timeline;
+    padding: var(--spacer);
+  }
+}
