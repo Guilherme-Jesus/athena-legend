@@ -116,7 +116,9 @@ const App: React.FC = (): React.ReactElement => {
         .then((response) => response.json())
         .then((mockData) =>
           setBlocks(
-            mockData.blocks.filter((block: Block) => block.blockParent !== '0'),
+            mockData.blocks
+              .filter((block: Block) => block.blockParent !== '0')
+              .sort((a: Block, b: Block) => a.name.localeCompare(b.name)),
           ),
         )
     } else {
@@ -126,7 +128,7 @@ const App: React.FC = (): React.ReactElement => {
 
   const handleBlockClick = useCallback(
     (id: string): void => setCurrentBlockId(id === currentBlockId ? '' : id),
-    [currentBlockId, setCurrentBlockId],
+    [currentBlockId],
   )
 
   return (
@@ -144,6 +146,8 @@ const App: React.FC = (): React.ReactElement => {
         currentBlockId={currentBlockId}
         handleBlockClick={handleBlockClick}
       />
+
+      <div className="timeline-container">TIMELINE</div>
 
       <main>MAPA</main>
     </div>

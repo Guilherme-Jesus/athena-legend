@@ -1,61 +1,124 @@
 // @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap");
 
-// @import "variables";
+@mixin noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
-// Required
+// Option B: Include parts of Bootstrap
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
 @import "bootstrap/scss/bootstrap";
 @import "bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+$font-family-sans-serif: "Roboto Condensed", Inter, Avenir, Helvetica, Arial, sans-serif; // "Titillium Web", sans-serif;
+// $primary: #ff7f2f;
+// $primary-dark: #cc6525;
+// $zeus-colors: (
+//   "primary-dark": $primary-dark,
+// );
+// $theme-colors: map-remove($theme-colors, "blue", "indigo", "purple", "pink", "orange", "teal", "cyan", "gray", "gray-dark");
+// $theme-colors: map-merge($theme-colors, $zeus-colors);
+
+// 3. Include remainder of required Bootstrap stylesheets
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/mixins";
 
+// 4. Include any optional Bootstrap components as you like
+@import "bootstrap/scss/root";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/type";
+@import "bootstrap/scss/images";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import 'bootstrap/scss/buttons';
+@import 'bootstrap/scss/forms';
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/helpers';
+@import 'bootstrap/scss/maps';
+@import 'bootstrap/scss/spinners';
+@import 'bootstrap/scss/transitions';
+@import 'bootstrap/scss/utilities';
+// @import 'bootstrap/scss/accordion';
+// @import 'bootstrap/scss/alert';
+// @import 'bootstrap/scss/badge';
+// @import 'bootstrap/scss/breadcrumb';
+// @import 'bootstrap/scss/button-group';
+// @import 'bootstrap/scss/card';
+// @import 'bootstrap/scss/carousel';
+// @import 'bootstrap/scss/close';
+// @import 'bootstrap/scss/dropdown';
+// @import 'bootstrap/scss/list-group';
+// @import 'bootstrap/scss/nav';
+// @import 'bootstrap/scss/navbar';
+// @import 'bootstrap/scss/offcanvas';
+// @import 'bootstrap/scss/pagination';
+// @import 'bootstrap/scss/placeholders';
+// @import 'bootstrap/scss/popover';
+// @import 'bootstrap/scss/progress';
+// @import 'bootstrap/scss/tables';
+// @import 'bootstrap/scss/toasts';
+// @import 'bootstrap/scss/tooltip';
+
+// 5. Add additional custom code here
 :root {
   --spacer: 16px;
-  --primary: #ff7f2f;
-  --primary-dark: #bd652f;
-  --white: #fff;
-  --gray-100: #f8f9fa;
-  --gray-200: #e9ecef;
-  --gray-300: #dee2e6;
-  --gray-400: #ced4da;
-  --gray-500: #adb5bd;
-  --gray-600: #6c757d;
-  --gray-700: #495057;
-  --dark: #343a40;
-  --gray-900: #212529;
-  --black: #000;
+  --bs-primary: #ff7f2f;
+  --bs-primary-rgb: 255, 127, 47;
+  --bs-primary-dark: #bd652f;
+  --bs-primary-dark-rgb: 189, 101, 47;
+  --cubic-bezier: cubic-bezier(.47, 1.64, .41, .8);
 
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-size-adjust: 100%;
-  background-color: var(--dark);
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  font: 400 16px/24px "Roboto", Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+  // -moz-osx-font-smoothing: grayscale;
+  // -webkit-font-smoothing: antialiased;
+  // -webkit-text-size-adjust: 100%;
+  // background-color: var(--dark);
+  // color-scheme: light dark;
+  // color: rgba(255, 255, 255, 0.87);
+  // font: 400 16px/24px "Roboto", Inter, Avenir, Helvetica, Arial, sans-serif;
+  // font-synthesis: none;
+  // text-rendering: optimizeLegibility;
 }
 
-* {
-  box-sizing: border-box;
-  &::before,
-  &::after {
-    box-sizing: inherit;
-  }
+html {
+  font-size: 16px;
+  // @include media-breakpoint-up(xxl) {
+  //   font-size: 18px;
+  // }
 }
 
 body {
-  margin: 0;
+  cursor: default;
   min-height: 100vh;
   min-width: 320px;
+
+  @include noselect;
 }
 
-// a {
-//   color: #646cff;
-//   font-weight: 400;
-//   // text-decoration: inherit;
-//   &:hover {
-//     color: #535bf2;
+a {
+  color: var(--bs-primary-dark);
+  font-weight: 400;
+  // text-decoration: inherit;
+  &:hover {
+    color: var(--bs-primary);
+  }
+}
+
+// @media (prefers-color-scheme: light) {
+//   :root {
+//     background-color: #ffffff;
+//     color: #213547;
 //   }
+//   a:hover {
+//     color: #747bff;
+//   }
+//   // button {
+//   //   background-color: #f9f9f9;
+//   // }
 // }
 
 // button {
@@ -77,15 +140,133 @@ body {
 //   }
 // }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    background-color: #ffffff;
-    color: #213547;
+// // scaffolding
+// $zeus-colors: (
+//   "primary-dark": $primary-dark,
+// );
+
+// $theme-colors: map-remove($theme-colors, "blue", "indigo", "purple", "pink", "orange", "teal", "cyan", "gray", "gray-dark");
+// $theme-colors: map-merge($theme-colors, $zeus-colors);
+
+// @import "bootstrap/scss/maps";
+// @import "bootstrap/scss/root";
+
+// // Optional
+// @import "bootstrap/scss/reboot";
+// @import "bootstrap/scss/type";
+
+// @import "bootstrap";
+
+#root {
+  height: 100vh;
+}
+
+// _formitems.scss
+// a {
+//   font-weight: 500;
+//   color: #646cff;
+//   text-decoration: inherit;
+//   &:hover {
+//     color: #535bf2;
+//   }
+// }
+
+a, .btn-link {
+  text-underline-offset: .25rem;
+}
+
+a {
+  &:not(.no-external)[rel*="noopener"] {
+    padding-right: .625rem;
+    position: relative;
+    &::after {
+      background: url("../src/assets/images/ico-external-href.svg") no-repeat center / contain;
+      content: "";
+      height: .5rem;
+      position: absolute;
+      right: 0;
+      top: .25rem;
+      width: .5rem;
+    }
   }
-  a:hover {
-    color: #747bff;
+}
+
+label {
+  cursor: pointer;
+}
+
+.form-control {
+  background-clip: border-box;
+  // border: 0;
+  border-radius: var(--bs-border-radius-sm);
+  border-color: $white;
+  &:focus {
+    // background-color: #fff;
+    border-color: $white; // #86b7fe;
+    border-left: 2px solid var(--bs-primary);
+    box-shadow: none; // 0 0 0 0.25rem rgb(13 110 253 / 25%);
+    // color: #212529;
+    // outline: 0;
   }
-  // button {
-  //   background-color: #f9f9f9;
-  // }
+  &.capslock-on {
+    padding-right: 5.5rem;
+  }
+  &.is-invalid {
+    animation: shake .5s ease-in;
+  }
+}
+
+// input[type="search"] {
+//   &::-webkit-search-cancel-button {
+//     -webkit-appearance: none;
+//     appearance: none;
+//     background: url(https://pro.fontawesome.com/releases/v5.10.0/svgs/solid/times-circle.svg) no-repeat center / contain;
+//     height: $spacer;
+//     opacity: 0;
+//     pointer-events: none;
+//     width: $spacer;
+//   }
+//   &:focus::-webkit-search-cancel-button {
+//     opacity: 0.3;
+//     pointer-events: all;
+//   }
+// }
+
+.btn {
+  border-radius: var(--bs-border-radius-sm);
+}
+
+// @-webkit-keyframes shake {
+//   0%, 100% { -webkit-transform: translateX(0%); } 
+//   15% { -webkit-transform: translateX(-12%); } 
+//   30% { -webkit-transform: translateX(8%); } 
+//   45% { -webkit-transform: translateX(-4%); } 
+//   60% { -webkit-transform: translateX(2%); }
+//   75% { -webkit-transform: translateX(-1%); }
+// }
+
+// @-moz-keyframes shake {
+//   0%, 100% { -webkit-transform: translateX(0%); } 
+//   15% { -webkit-transform: translateX(-12%); } 
+//   30% { -webkit-transform: translateX(8%); } 
+//   45% { -webkit-transform: translateX(-4%); } 
+//   60% { -webkit-transform: translateX(2%); }
+//   75% { -webkit-transform: translateX(-1%); }
+// }
+// @keyframes shake {
+//   0%, 100% { transform: translateX(0%); } 
+//   15% { transform: translateX(-12%); } 
+//   30% { transform: translateX(8%); } 
+//   45% { transform: translateX(-4%); } 
+//   60% { transform: translateX(2%); }
+//   75% { transform: translateX(-1%); }
+// }
+
+// .bas-relief {
+//   box-shadow: (-$spacer * 0.125) (-$spacer * 0.125) $spacer * 0.125 rgba($black, 0.5),
+//               $spacer * 0.125 $spacer * 0.125 $spacer * 0.125 rgba($white, 0.125);
+// }
+
+iframe {
+  border: 0;
 }
