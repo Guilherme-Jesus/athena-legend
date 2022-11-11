@@ -149,6 +149,8 @@ const App: React.FC = (): React.ReactElement => {
         handleBlockClick={handleBlockClick}
       />
 
+      <div className="timeline-container">TIMELINE</div>
+
       <main>
         <div id="map" style={{ height: '83vh', width: '100%' }} />
       </main>
