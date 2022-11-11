@@ -12,6 +12,11 @@
                       auto
                       calc(var(--spacer) * 12);
   min-height: 100vh;
+  header {
+    background-color: #ddd;
+    grid-area: header;
+    padding: var(--spacer);
+  }
   nav {
     background-color: #ddd;
     display: flex;
@@ -19,23 +24,18 @@
     grid-area: nav;
     padding: var(--spacer);
   }
-  header {
-    background-color: #ddd;
-    grid-area: header;
-    padding: var(--spacer);
-  }
   /* .blocks-container {
     // CSS dos blocos está dentro do próprio componente
   } */
-  main {
-    background-color: #eee;
-    grid-area: main;
-    padding: var(--spacer);
-  }
   .timeline-container {
     background-color: #ddd;
     display: flex;
     grid-area: timeline;
+    padding: var(--spacer);
+  }
+  .map-container {
+    background-color: #eee;
+    grid-area: main;
     padding: var(--spacer);
   }
 }
