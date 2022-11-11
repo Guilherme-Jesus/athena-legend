@@ -1,106 +1,113 @@
-export interface IListBlocksLeaf {
+type SensorData = {
+  atmosphericPressure: number
+  rain: number
+  relativeHumidity: number
+  solarIrradiation: number
+  temperature: number
+  windSpeed: number
+}
+
+export type IListBlocksLeaf = {
+  abrv: string
   blockId: string
+  blockParent: string
   bounds: number[]
   centroid: number[]
-  name: string
-  abrv: string
-  blockParent: string
+  data: SensorData
+  date: Date
   leafParent: boolean
-  date: string
-  data: {
-    windSpeed: number
-    solarIrradiation: number
-    temperature: number
-    rain: number
-    relativeHumidity: number
-  }
+  name: string
 }
 
-export interface IListBlocks {
+export type IListBlocks = {
+  abrv: string
   blockId: string
-  name: string
-  abrv: string
   blockParent: string
+  data: SensorData
+  date: Date
   leafParent: boolean
-  date: string
-  data: {
-    windSpeed: number
-    solarIrradiation: number
-    temperature: number
-    rain: number
-    relativeHumidity: number
-  }
+  name: string
 }
 
-export interface IListUsers {
-  id: string
-  email: string
-  phone: string
+// export type IListUsers = {
+//   displayName: string
+//   email: string
+//   id: string
+//   phone: string
+//   photoURL: string
+// }
+
+// export type IDelUsers = {
+//   displayName: string
+//   email: string
+//   id: string
+//   phone: string
+//   photoURL: string
+// }
+
+// export type ICreateUsers = {
+//   displayName: string
+//   email: string
+//   id: string
+//   phone: string
+//   photoURL: string
+// }
+
+export type IUsers = {
   displayName: string
+  email: string
+  id: string
+  phone: string
   photoURL: string
 }
-export interface IDelUsers {
-  id: string
-  email: string
-  phone: string
-  displayName: string
-  photoURL: string
-}
-export interface ICreateUsers {
-  id: string
-  email: string
-  phone: string
-  displayName: string
-  photoURL: string
-}
-export interface IPast {
-  date: string
-  temperatureAverage: number
-  temperatureMin: number
-  temperatureMax: number
+
+export type IPast = {
+  date: Date
+  rain: number
   relativeHumidity: number
   solarIrradiation: number
-  rain: number
+  temperatureAverage: number
+  temperatureMax: number
+  temperatureMin: number
   windSpeed: number
 }
-export interface IPresent {
-  date: string
-  temperatureAverage: number
-  temperatureMin: number
-  temperatureMax: number
+
+export type IPresent = {
+  date: Date
+  rain: number
   relativeHumidity: number
   solarIrradiation: number
-  rain: number
+  temperatureAverage: number
+  temperatureMax: number
+  temperatureMin: number
   windSpeed: number
 }
-export interface IFuture {
-  date: string
-  temperatureMin: number
-  temperatureMax: number
+
+export type IFuture = {
+  date: Date
   rain: number
-  rainProbability: number
   rainPrediction: string
+  rainProbability: number
+  temperatureMax: number
+  temperatureMin: number
 }
-export interface IForecast {
+
+export type IForecast = {
   blockId?: string
+  forecast?: IFuture[]
   name: string
   past?: IPast[]
   present?: IPresent
-  forecast?: IFuture[]
 }
-export interface IHistorical {
-  blockId?: string
-  name: string
+
+export type IHistorical = {
   abrv: string
+  blockId?: string
   blockParent: string
   bounds: number[]
   centroid: number[]
+  data: SensorData
+  date: Date
   leafParent: boolean
-  date: string
-  data: {
-    solarIrradiation: number
-    temperature: number
-    rain: number
-    relativeHumidity: number
-  }
+  name: string
 }

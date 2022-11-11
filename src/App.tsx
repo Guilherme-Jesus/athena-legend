@@ -1,18 +1,20 @@
 import './app.scss'
+import './components/Map/map.scss'
 
-import * as L from 'leaflet'
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import * as L from 'leaflet'
 
 import axios from 'axios'
-import Blocks from './components/Blocks'
-import './pages/Mapa/map.scss'
 import { IListBlocks, IListBlocksLeaf } from './types/types'
+
+import Blocks from './components/Blocks'
+import { dataUnit } from './components/utils'
 
 const App: React.FC = (): React.ReactElement => {
   const [blocks, setBlocks] = useState<IListBlocks[]>([])
-  const [currentBlockId, setCurrentBlockId] = useState<string>('C19')
+  const [currentBlockId, setCurrentBlockId] = useState<string>('C19') // hard coded
   const [blockLeaf, setBlockLeaf] = useState<IListBlocksLeaf[]>([])
-  const [initialPosition, setInitialPosition] = useState<[number, number]>([
+  const [initialPosition] = useState<L.LatLngExpression>([
     -23.5505199, -46.63330939999999,
   ])
 
@@ -63,6 +65,7 @@ const App: React.FC = (): React.ReactElement => {
     },
     [blocks, currentBlockId],
   )
+
   const getCentroid = useMemo(() => {
     const array: number[] = []
     blockLeaf.forEach((item, index) => {
@@ -102,27 +105,43 @@ const App: React.FC = (): React.ReactElement => {
         item.bounds.map((item) => [item[1], item[0]]),
         {
           color: '#ff7f2f',
+          dashArray: '3',
           fillColor: '#ff7f2f',
           fillOpacity: 0.5,
           opacity: 0.8,
-          dashArray: '3',
           weight: 4,
         },
       ).addTo(map)
-      polygon.bindPopup(`<b>${item.blockId}</b>
-       </br>
-      <b>${item.name}</b>
-      </br>
-      <b>Chuva: ${item.data.rain} mm</b>
-      </br>
-      <b>Temperatura: ${Math.round(item.data.temperature)}ºC</b>
-      </br>
-      <b>Umidade: ${Math.round(item.data.relativeHumidity)}%</b>
-      </br>
-      <b>Vel.Vento: ${Math.round(item.data.windSpeed)} km/h</b>
-      </br>
-      <b>Rad.Solar: ${item.data.solarIrradiation.toFixed(2)} Wh/m²</b>
-      
+
+      polygon.bindPopup(`
+        <h3 class="h5 mb-0">
+          ${item.name} <small>(${item.blockId})</small>
+        </h3>
+        <ul class="list-unstyled mb-0">
+          <li>
+            <b>Chuva:</b> ${item.data.rain}${dataUnit.rain}
+          </li>
+          <li>
+            <b>Temperatura:</b> ${Math.round(item.data.temperature)}${
+        dataUnit.temperature
+      }
+          </li>
+          <li>
+            <b>Umidade:</b> ${Math.round(item.data.relativeHumidity)}${
+        dataUnit.relativeHumidity
+      }
+          </li>
+          <li>
+            <b>Vento:</b> ${Math.round(item.data.windSpeed)}${
+        dataUnit.windSpeed
+      }
+          </li>
+          <li>
+            <b>Radiação solar:</b> ${item.data.solarIrradiation.toFixed(2)}${
+        dataUnit.solarRadiation
+      }
+          </li>
+        </ul>
       `)
 
       map.setView(center, 13)
@@ -151,9 +170,7 @@ const App: React.FC = (): React.ReactElement => {
 
       <div className="timeline-container">TIMELINE</div>
 
-      <main>
-        <div id="map" style={{ height: '83vh', width: '100%' }} />
-      </main>
+      <div id="map" className="map-container h-100 w-100" />
     </div>
   )
 }
