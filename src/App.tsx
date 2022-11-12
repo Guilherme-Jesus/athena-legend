@@ -145,7 +145,7 @@ const App: React.FC = (): React.ReactElement => {
     }
   }, [getCentroid])
 
-  const getColor = (rain: number): string => {
+  const getColorRain = (rain: number): string => {
     return rain > 200
       ? '#08306b'
       : rain > 100
@@ -157,6 +157,52 @@ const App: React.FC = (): React.ReactElement => {
       : rain > 5
       ? '#deebf7'
       : '#f7fbff'
+  }
+
+  const getColorTemp = (temp: number): string => {
+    return temp > 30
+      ? '#67000d'
+      : temp > 25
+      ? '#a50f15'
+      : temp > 20
+      ? '#cb181d'
+      : temp > 15
+      ? '#ef3b2c'
+      : temp > 10
+      ? '#fb6a4a'
+      : temp > 5
+      ? '#fc9272'
+      : temp > 0
+      ? '#fcbba1'
+      : temp > -5
+      ? '#fee0d2'
+      : '#fff5f0'
+  }
+
+  const getColorHum = (hum: number): string => {
+    return hum > 100
+      ? '#4292c6'
+      : hum > 90
+      ? '#6baed6'
+      : hum > 80
+      ? '#9ecae1'
+      : hum > 70
+      ? '#c6dbef'
+      : hum > 60
+      ? '#deebf7'
+      : hum > 50
+      ? '#f7fbff'
+      : hum > 40
+      ? '#f7fbff'
+      : hum > 30
+      ? '#deebf7'
+      : hum > 20
+      ? '#c6dbef'
+      : hum > 10
+      ? '#9ecae1'
+      : hum > 0
+      ? '#6baed6'
+      : '#4292c6'
   }
 
   useEffect(() => {
@@ -188,7 +234,6 @@ const App: React.FC = (): React.ReactElement => {
         },
       ).addTo(map)
 
-      map.setView(center, 12)
       polygon.bindPopup(`
         <h3 class="h5 mb-0">
           ${item.name} <small>(${item.blockId})</small>
@@ -230,7 +275,7 @@ const App: React.FC = (): React.ReactElement => {
         {
           color: '#ff7f2f',
           dashArray: '3',
-          fillColor: getColor(item.data.rain),
+          fillColor: getColorRain(item.data.rain),
           fillOpacity: 0.5,
           opacity: 0.8,
           weight: 4,
@@ -299,7 +344,7 @@ const App: React.FC = (): React.ReactElement => {
         const labels = ['<strong>Chuva (mm)</strong>']
         grades.forEach((grade, index) => {
           labels.push(
-            `<i style="background:${getColor(grade)}"></i> ${
+            `<i style="background:${getColorRain(grade)}"></i> ${
               grades[index + 1]
                 ? `${grade} - ${grades[index + 1]}`
                 : `> ${grade}`
@@ -311,6 +356,7 @@ const App: React.FC = (): React.ReactElement => {
       }
       legend.addTo(map)
     })
+    map.setView(center.lat === undefined ? initialPosition : center, 12)
 
     return () => {
       map.remove()
