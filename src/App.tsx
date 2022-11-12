@@ -101,7 +101,7 @@ const App: React.FC = (): React.ReactElement => {
 
     blockLeaf.forEach((item) => {
       const polygon = L.polygon(
-        item.bounds.map((item) => [item[1], item[0]]),
+        item.bounds.map((item: any) => [item[1], item[0]]),
         {
           color: 'var(--bs-primary)',
           dashArray: '3',
@@ -123,7 +123,7 @@ const App: React.FC = (): React.ReactElement => {
                 <b>Chuva:</b>
               </td>
               <td>
-                ${displayData(item.data.rain, dataUnit.rain)}
+                ${displayData(item.data.rain, 1, dataUnit.rain)}
               </td>
             </tr>
             <tr>
@@ -131,7 +131,7 @@ const App: React.FC = (): React.ReactElement => {
                 <b>Temperatura:</b>
               </td>
               <td>
-                ${displayData(item.data.temperature, dataUnit.temperature)}
+                ${displayData(item.data.temperature, 1, dataUnit.temperature)}
               </td>
             </tr>
             <tr>
@@ -141,6 +141,7 @@ const App: React.FC = (): React.ReactElement => {
               <td>
                 ${displayData(
                   item.data.relativeHumidity,
+                  0,
                   dataUnit.relativeHumidity,
                 )}
               </td>
@@ -152,6 +153,7 @@ const App: React.FC = (): React.ReactElement => {
               <td>
                 ${displayData(
                   item.data.atmosphericPressure,
+                  1,
                   dataUnit.atmosphericPressure,
                 )}
               </td>
@@ -162,9 +164,9 @@ const App: React.FC = (): React.ReactElement => {
               </td>
               <td>
                 ${
-                  item.data.windSpeed < 3
-                    ? 'Sem vento'
-                    : displayData(item.data.windSpeed, dataUnit.windSpeed)
+                  item.data.windSpeed >= 0.3
+                    ? displayData(item.data.windSpeed, 1, dataUnit.windSpeed)
+                    : 'Sem vento'
                 }
               </td>
             </tr>
@@ -175,6 +177,7 @@ const App: React.FC = (): React.ReactElement => {
               <td>
                 ${displayData(
                   item.data.solarIrradiation,
+                  0,
                   dataUnit.solarRadiation,
                 )}
               </td>

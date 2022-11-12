@@ -54,7 +54,9 @@ const Blocks: React.FC<BlocksProps> = ({
           />
         </svg>
         <div>
-          <span className="block--body__data h5 mb-0">{displayData(rain)}</span>
+          <span className="block--body__data h5 mb-0">
+            {displayData(rain, 1)}
+          </span>
           <span className="block--body__unit">{dataUnit.rain}</span>
         </div>
       </>
@@ -75,7 +77,7 @@ const Blocks: React.FC<BlocksProps> = ({
           </svg>
           <div>
             <span className="block--body__data h5 mb-0">
-              {displayData(temperature)}
+              {displayData(temperature, 1)}
             </span>
             <span className="block--body__unit">{dataUnit.temperature}</span>
           </div>
@@ -133,7 +135,7 @@ const Blocks: React.FC<BlocksProps> = ({
           </svg>
           <div>
             <span className="block--body__data h5 mb-0">
-              {displayData(atmosphericPressure)}
+              {displayData(atmosphericPressure, 1)}
             </span>
             {atmosphericPressure !== undefined && (
               <span className="block--body__unit">
@@ -164,7 +166,7 @@ const Blocks: React.FC<BlocksProps> = ({
           </svg>
           <div>
             <span className="block--body__data h5 mb-0">
-              {displayData(windSpeed)}
+              {displayData(windSpeed, 1)}
             </span>
             {windSpeed !== undefined && (
               <span className="block--body__unit">{dataUnit.windSpeed}</span>
@@ -247,11 +249,15 @@ const Blocks: React.FC<BlocksProps> = ({
                       )}
                     </li>
                     <li className="d-flex align-items-baseline mt-1">
-                      {displayWindSpeed(block.data.windSpeed)}
+                      {block.data.windSpeed >= 0.3
+                        ? displayWindSpeed(block.data.windSpeed)
+                        : 'Sem vento'}
                     </li>
-                    <li className="d-flex align-items-baseline mt-1">
-                      {displaySolarIrradiation(block.data.solarIrradiation)}
-                    </li>
+                    {block.data.windSpeed >= 0.3 && (
+                      <li className="d-flex align-items-baseline mt-1">
+                        {displaySolarIrradiation(block.data.solarIrradiation)}
+                      </li>
+                    )}
                   </ul>
                 </>
               ) : (

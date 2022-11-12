@@ -19,11 +19,15 @@ export const dataUnit = {
 
 export const displayData = (
   value: number | string | undefined,
+  decimals?: number,
   unit?: string,
 ): string => {
   const formattedValue =
     value !== undefined
-      ? Number(value).toFixed(1).replace('.', ',').replace(',0', '')
+      ? Number(value)
+          .toFixed(decimals || 0)
+          .replace('.', ',')
+          .replace(',0', '')
       : '--'
 
   if (unit && value !== undefined) return `${formattedValue}${unit}`

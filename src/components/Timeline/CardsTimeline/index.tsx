@@ -26,10 +26,10 @@ import { dataUnit, displayData } from '../../utils'
 export function CardsTimeline() {
   const [timelineData, setTimelineData] = useState<ITimeline[]>([])
 
-  const [card, setCard] = useState<string>('')
+  const [card, setCard] = useState<Date | string>('')
 
-  const test = useCallback(
-    (date: Date): void => setCard(card !== date ? date : ''),
+  const handleClick = useCallback(
+    (date: Date | string): void => setCard(card !== date ? date : ''),
     [card],
   )
 
@@ -76,7 +76,7 @@ export function CardsTimeline() {
               <>
                 <div
                   role="button"
-                  onClick={() => test(line.date)}
+                  onClick={() => handleClick(line.date)}
                   className={styles.card}
                 >
                   <div
@@ -93,7 +93,7 @@ export function CardsTimeline() {
                         alt=""
                         className={styles.iconHeader}
                       />
-                      <span>{displayData(line.rain, dataUnit.rain)}</span>
+                      <span>{displayData(line.rain, 1, dataUnit.rain)}</span>
                     </div>
                     <div className={styles.infoInside}>
                       <div className="d-flex flex-column">
@@ -103,7 +103,7 @@ export function CardsTimeline() {
                             alt=""
                             className={styles.iconHeader}
                           />
-                          {displayData(line.windSpeed, dataUnit.windSpeed)}
+                          {displayData(line.windSpeed, 1, dataUnit.windSpeed)}
                         </span>
                         <span className={styles.infoWeather}>
                           <img
@@ -113,6 +113,7 @@ export function CardsTimeline() {
                           />
                           {displayData(
                             line.relativeHumidity,
+                            0,
                             dataUnit.relativeHumidity,
                           )}
                         </span>
@@ -124,6 +125,7 @@ export function CardsTimeline() {
                           />
                           {displayData(
                             line.solarIrradiation,
+                            0,
                             dataUnit.solarRadiation,
                           )}
                         </span>
@@ -135,6 +137,7 @@ export function CardsTimeline() {
                           />
                           {displayData(
                             line.temperatureAverage,
+                            1,
                             dataUnit.temperature,
                           )}
                         </span>
@@ -151,6 +154,7 @@ export function CardsTimeline() {
                           />
                           {displayData(
                             line.temperatureMax,
+                            1,
                             dataUnit.temperature,
                           )}
                         </span>
@@ -165,6 +169,7 @@ export function CardsTimeline() {
                           />
                           {displayData(
                             line.temperatureMin,
+                            1,
                             dataUnit.temperature,
                           )}
                         </span>
