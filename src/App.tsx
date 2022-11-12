@@ -220,6 +220,7 @@ const App: React.FC = (): React.ReactElement => {
         </ul>
       `)
     })
+    const info = new L.Control()
     historical?.forEach((item) => {
       const polygon = L.polygon(
         item.bounds.map((item: any) => [item[1], item[0]]),
@@ -231,7 +232,40 @@ const App: React.FC = (): React.ReactElement => {
           opacity: 0.8,
           weight: 4,
         },
-      ).addTo(map)
+      )
+
+        /// É possivel escolher entre o bindPopup e ou mouseover/mouseout
+
+        .on('mouseover', () => {
+          info.onAdd = () => {
+            const div = L.DomUtil.create('div', 'info')
+            div.innerHTML = `
+        <h3 class="h5 mb-0">
+          ${item.name} <small>(${item.blockId})</small>
+        </h3>
+        <ul class="list-unstyled mb-0">
+          <li>  
+          <b>Chuva:</b> ${Math.round(item.data.rain)}${dataUnit.rain}
+          </li>
+          <li>
+            <b>Temperatura:</b> ${Math.round(item.data.temperature)}${
+              dataUnit.temperature
+            }
+          </li>
+          <li>
+            <b>Umidade:</b> ${Math.round(item.data.relativeHumidity)}${
+              dataUnit.relativeHumidity
+            }
+          </li>
+           `
+            return div
+          }
+          info.addTo(map)
+        })
+        .on('mouseout', () => {
+          info.remove()
+        })
+        .addTo(map)
 
       polygon.bindPopup(`
         <h3 class="h5 mb-0">
