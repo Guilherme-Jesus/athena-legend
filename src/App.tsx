@@ -1,20 +1,21 @@
 import './app.scss'
 import './components/Map/map.scss'
 
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import * as L from 'leaflet'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 
 import axios from 'axios'
-import { IListBlocks, IListBlocksLeaf } from './types/types'
+import { IHistorical, IListBlocks, IListBlocksLeaf } from './types/types'
 
 import Blocks from './components/Blocks'
 import { dataUnit } from './components/utils'
 
 const App: React.FC = (): React.ReactElement => {
   const [blocks, setBlocks] = useState<IListBlocks[]>([])
-  const [copiaBlock, setCopiaBlock] = useState<IListBlocks[]>([])
-  const [currentBlockId, setCurrentBlockId] = useState<string>('C19')
+  const [blockAux, setBlockAux] = useState<IListBlocks[]>([])
   const [blockLeaf, setBlockLeaf] = useState<IListBlocksLeaf[]>([])
+  const [historical, setHistorical] = useState<IHistorical[]>([])
+  const [currentBlockId, setCurrentBlockId] = useState<string>('C19')
   const [initialPosition, setInitialPosition] = useState<[number, number]>([
     -23.5505199, -46.63330939999999,
   ])
@@ -43,6 +44,21 @@ const App: React.FC = (): React.ReactElement => {
 
   useEffect(() => {
     axios
+      .get(`http://localhost:7010/historical`)
+      .then((response) => {
+        setHistorical(
+          response.data.filter(
+            (historical: IHistorical) => historical.bounds.length > 4,
+          ),
+        )
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }, [])
+
+  useEffect(() => {
+    axios
       .get(`http://localhost:7010/blockLeaf`)
       .then((response) => {
         setBlockLeaf(
@@ -57,7 +73,7 @@ const App: React.FC = (): React.ReactElement => {
   }, [])
 
   useEffect(() => {
-    if (copiaBlock.length === 0) {
+    if (blockAux.length === 0) {
       fetch('http://localhost:7010/blocks', {
         headers: {
           'Content-Type': 'application/json',
@@ -65,35 +81,31 @@ const App: React.FC = (): React.ReactElement => {
         },
       }).then((response) => {
         response.json().then((res) => {
-          setCopiaBlock(res)
+          setBlockAux(res)
         })
       })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [copiaBlock])
+  }, [blockAux])
 
-  // const pegaFolha = useCallback((blockId: string) => {
-
-  const pegaFolha = useCallback(
+  const getLeaf = useCallback(
     (blockId: string) => {
-      let lo: string = ''
-      let para: boolean = false
-      copiaBlock
+      let arrayS: string = ''
+      let breaker: boolean = false
+      blockAux
         .filter((item) => item.blockParent === blockId)
         .forEach((items) => {
-          if (para === false) {
+          if (breaker === false) {
             if (!items.leafParent) {
-              pegaFolha(items.blockId)
-            }
-            // eslint-disable-next-line no-unused-expressions
-            else lo = items.blockId
-            para = true
+              getLeaf(items.blockId)
+            } else arrayS = items.blockId
+            breaker = true
           }
         })
 
-      return lo
+      return arrayS
     },
-    [copiaBlock],
+    [blockAux],
   )
 
   const handleBlockClick = useCallback(
@@ -109,35 +121,22 @@ const App: React.FC = (): React.ReactElement => {
     [blockLeaf, blocks, currentBlockId],
   )
 
-  // const handleBlockClick = useCallback(
-  //   (id: string, leaf: boolean): void => {
-  //     currentBlockId !== id
-  //       ? setCurrentBlockId(id)
-  //       : !leaf
-  //       ? setBlocks(blocks.filter((item) => item.blockParent === id))
-  //       : setBlockLeaf(blockLeaf.filter((item) => item.blockParent === id))
-  //   },
-  //   [blocks, currentBlockId, blockLeaf],
-  // )
-
   const getCentroid = useMemo(() => {
     const array: number[] = []
-    const centro = pegaFolha(currentBlockId)
-    console.log(centro)
-    console.log(currentBlockId)
+    const leafStr = getLeaf(currentBlockId)
     blockLeaf.forEach((item, index) => {
-      if (centro === '') {
+      if (leafStr === '') {
         if (index === 0) {
           array.push(...item.centroid)
         }
       } else {
-        if (item.blockParent === centro) {
+        if (item.blockParent === leafStr) {
           array.push(...item.centroid)
         }
       }
     })
     return array
-  }, [blockLeaf, currentBlockId, pegaFolha])
+  }, [blockLeaf, currentBlockId, getLeaf])
 
   const center = useMemo(() => {
     return {
@@ -146,9 +145,23 @@ const App: React.FC = (): React.ReactElement => {
     }
   }, [getCentroid])
 
+  const getColor = (rain: number): string => {
+    return rain > 200
+      ? '#08306b'
+      : rain > 100
+      ? '#4292c6'
+      : rain > 50
+      ? '#9ecae1'
+      : rain > 10
+      ? '#c6dbef'
+      : rain > 5
+      ? '#deebf7'
+      : '#f7fbff'
+  }
+
   useEffect(() => {
     const map = L.map('map', {
-      center: initialPosition || center,
+      center: initialPosition,
       zoom: 5,
       zoomControl: false,
       layers: [
@@ -164,7 +177,7 @@ const App: React.FC = (): React.ReactElement => {
 
     blockLeaf.forEach((item) => {
       const polygon = L.polygon(
-        item.bounds.map((item) => [item[1], item[0]]),
+        item.bounds.map((item: any) => [item[1], item[0]]),
         {
           color: '#ff7f2f',
           dashArray: '3',
@@ -175,6 +188,7 @@ const App: React.FC = (): React.ReactElement => {
         },
       ).addTo(map)
 
+      map.setView(center, 12)
       polygon.bindPopup(`
         <h3 class="h5 mb-0">
           ${item.name} <small>(${item.blockId})</small>
@@ -205,14 +219,45 @@ const App: React.FC = (): React.ReactElement => {
           </li>
         </ul>
       `)
+    })
+    historical?.forEach((item) => {
+      const polygon = L.polygon(
+        item.bounds.map((item: any) => [item[1], item[0]]),
+        {
+          color: '#ff7f2f',
+          dashArray: '3',
+          fillColor: getColor(item.data.rain),
+          fillOpacity: 0.5,
+          opacity: 0.8,
+          weight: 4,
+        },
+      ).addTo(map)
 
-      map.setView(center, 13)
+      polygon.bindPopup(`
+        <h3 class="h5 mb-0">
+          ${item.name} <small>(${item.blockId})</small>
+        </h3>
+        <ul class="list-unstyled mb-0">
+          <li>  
+          <b>Chuva:</b> ${Math.round(item.data.rain)}${dataUnit.rain}
+          </li>
+          <li>
+            <b>Temperatura:</b> ${Math.round(item.data.temperature)}${
+        dataUnit.temperature
+      }
+          </li>
+          <li>
+            <b>Umidade:</b> ${Math.round(item.data.relativeHumidity)}${
+        dataUnit.relativeHumidity
+      }
+          </li>
+           `)
     })
 
     return () => {
       map.remove()
     }
-  }, [blockLeaf, center, initialPosition])
+  }, [blockLeaf, center, historical, initialPosition])
 
   return (
     <div className="App">
