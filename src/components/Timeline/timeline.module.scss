@@ -1,43 +1,40 @@
 .sidebar {
-  display: flex;
-  width: 55px;
-  position: absolute;
-  bottom: 0;
-  height: 5vh;
-  border: 1px solid #999;
-  transition-duration: 0.3s;
-  padding: 28px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+  border: 1px solid #999;
+  bottom: 0;
+  display: flex;
+  height: 100%; // 5vh;
   overflow: hidden;
-
+  padding: 28px;
+  position: absolute;
+  transition-duration: 0.3s;
+  width: 55px;
   .hamburger {
-    display: block;
-    width: 24px;
-    margin-top: 6px;
     cursor: pointer;
+    display: block;
+    margin-top: 6px;
     position: fixed;
+    width: 24px;
     z-index: 2;
   }
 }
 
 .sidebarOpen {
-  width: 75vw;
-  height: 400px;
-  position: absolute;
-  bottom: 0;
-  transition-duration: 0.2s;
   border-radius: 8px;
-  overflow-y: hidden;
-  overflow-x: hidden;
-
+  bottom: 0;
+  height: 400px;
+  overflow: hidden;
+  position: absolute;
+  transition-duration: 0.2s;
+  width: 100%; // 75vw;
   .hamburger {
-    width: 25px;
-    cursor: pointer;
-    margin-left: 1rem;
-    justify-content: start;
-    position: fixed;
-    z-index: 2;
     border-radius: 8px;
+    cursor: pointer;
+    justify-content: start;
+    margin-left: 1rem;
+    position: fixed;
+    width: 25px;
+    z-index: 2;
   }
 }

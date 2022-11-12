@@ -1,19 +1,23 @@
-import { memo, useState } from 'react'
+import { memo, useCallback, useState } from 'react'
 import styles from './timeline.module.scss'
 
 import Open from '../../assets/icons/back.png'
 import { CardsTimeline } from './CardsTimeline'
 
+import Image from 'react-bootstrap/Image'
+
 export function TryAnother() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState<boolean>(false)
+
+  const handleOpen = useCallback((): void => setOpen(!open), [open])
 
   return (
     <div className={open ? styles.sidebarOpen : styles.sidebar}>
-      <img
+      <Image
         src={Open}
-        alt=""
         className={styles.hamburger}
-        onClick={() => setOpen(!open)}
+        alt=""
+        onClick={() => handleOpen()}
       />
       <CardsTimeline />
     </div>

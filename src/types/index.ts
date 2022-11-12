@@ -61,7 +61,7 @@ export type IUsers = {
   photoURL: string
 }
 
-export type IPast = {
+type IPast = {
   date: Date
   rain: number
   relativeHumidity: number
@@ -72,7 +72,7 @@ export type IPast = {
   windSpeed: number
 }
 
-export type IPresent = {
+type IPresent = {
   date: Date
   rain: number
   relativeHumidity: number
@@ -83,7 +83,7 @@ export type IPresent = {
   windSpeed: number
 }
 
-export type IFuture = {
+type IFuture = {
   date: Date
   rain: number
   rainPrediction: string
@@ -109,5 +109,31 @@ export type IHistorical = {
   data: SensorData
   date: Date
   leafParent: boolean
+  name: string
+}
+
+type ILineAlerts = {
+  finish: Date
+  info: string
+  level: number
+  start: Date
+  type: string
+}
+
+type ILine = {
+  alerts: ILineAlerts[] | null
+  date: Date
+  rain: number
+  relativeHumidity: number
+  solarIrradiation: number
+  temperatureAverage: number
+  temperatureMax: number
+  temperatureMin: number
+  windSpeed: number
+}
+
+export type ITimeline = {
+  blockId: string
+  line: ILine[]
   name: string
 }

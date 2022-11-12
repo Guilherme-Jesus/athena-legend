@@ -2,7 +2,7 @@
   background-color: #eee;
   grid-area: blocks;
   .block {
-    background-image: linear-gradient(160deg, var(--bs-white), var(--bs-gray-300));
+    background-image: linear-gradient(var(--bs-white), var(--bs-gray-400));
     box-shadow: 0 calc(var(--spacer) * 0.25) calc(var(--spacer) * 0.25) rgba(var(--bs-black-rgb), 0.2),
                 0 calc(var(--spacer) * 0.5) calc(var(--spacer) * 0.5) rgba(var(--bs-black-rgb), 0.15),
                 0 calc(var(--spacer) * 0.75) var(--spacer) rgba(var(--bs-black-rgb), 0.1);
@@ -31,7 +31,7 @@
     }
     &:hover,
     &.active {
-      background-image: linear-gradient(160deg, var(--bs-primary), var(--bs-primary-dark));
+      background-image: linear-gradient(var(--bs-primary), var(--bs-primary-dark));
       box-shadow: 0 calc(var(--spacer) * 0.25) calc(var(--spacer) * 0.25) rgba(var(--bs-primary-rgb), 0.2),
                   0 calc(var(--spacer) * 0.5) calc(var(--spacer) * 0.5) rgba(var(--bs-primary-rgb), 0.15),
                   0 calc(var(--spacer) * 0.75) var(--spacer) rgba(var(--bs-primary-rgb), 0.1),
@@ -53,7 +53,7 @@
       }
     }
     &.active {
-      inset: var(--spacer) 0; // calc(var(--spacer) * 3.375) 0 var(--spacer); // pra quando tiver campo de busca
+      inset: 0; // var(--spacer) 0; // calc(var(--spacer) * 3.375) 0 var(--spacer); // pra quando tiver campo de busca
       position: sticky;
       z-index: 1;
       .block--header {

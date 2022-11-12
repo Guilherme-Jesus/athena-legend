@@ -4,8 +4,10 @@ import React, { useCallback, useEffect, useState } from 'react'
 
 import { Scrollbars as ScrollContainer } from 'react-custom-scrollbars-2'
 
-import { IListBlocks } from '../../types/types'
-import { dataUnit } from '../utils'
+import { IListBlocks } from '../../types'
+import { dataUnit, displayData } from '../utils'
+
+import Spinner from 'react-bootstrap/Spinner'
 
 type BlocksProps = {
   blocks: IListBlocks[]
@@ -52,9 +54,7 @@ const Blocks: React.FC<BlocksProps> = ({
           />
         </svg>
         <div>
-          <span className="block--body__data h5 mb-0">
-            {rain.toFixed(1).toString().replace('.', ',').replace(',0', '')}
-          </span>
+          <span className="block--body__data h5 mb-0">{displayData(rain)}</span>
           <span className="block--body__unit">{dataUnit.rain}</span>
         </div>
       </>
@@ -75,11 +75,7 @@ const Blocks: React.FC<BlocksProps> = ({
           </svg>
           <div>
             <span className="block--body__data h5 mb-0">
-              {temperature
-                .toFixed(1)
-                .toString()
-                .replace('.', ',')
-                .replace(',0', '')}
+              {displayData(temperature)}
             </span>
             <span className="block--body__unit">{dataUnit.temperature}</span>
           </div>
@@ -102,7 +98,7 @@ const Blocks: React.FC<BlocksProps> = ({
         </svg>
         <div>
           <span className="block--body__data h5 mb-0">
-            {Math.round(relativeHumidity)}
+            {displayData(relativeHumidity)}
           </span>
           <span className="block--body__unit">{dataUnit.relativeHumidity}</span>
         </div>
@@ -111,51 +107,45 @@ const Blocks: React.FC<BlocksProps> = ({
     [],
   )
 
-  // const displayAtmosphericPressure = useCallback(
-  //   (atmosphericPressure?: number): React.ReactElement => {
-  //     return (
-  //       <>
-  //         <svg
-  //           className="block--body__icon"
-  //           viewBox="0 0 512 512"
-  //           aria-hidden="true"
-  //         >
-  //           <g transform="translate(256,256)">
-  //             <path d="M-217.9,130c-4.1,0-8.1-2.3-10-6.2c-21.7-45-31.1-94.5-27.4-143c3.9-50.4,22.1-97.4,52.5-136 c33.3-42.2,75.8-71.9,126.4-88.2c25.2-8.1,52.2-12.6,76-12.6c90.4,0,180.8,53.1,224.9,132.1C252.4-74.3,262-16.8,252.4,42.2 c-7.5,46.2-24.3,78.4-26.1,82c-2.9,5.4-9.6,7.4-14.9,4.5c-5.4-2.9-7.4-9.5-4.5-14.9c2.5-4.7,60.7-115.9-1.4-227 C164.9-185.5,82.3-234-0.3-234c-26.3,0-117.5,6.7-185.1,92.3c-55,69.7-63.8,170.2-22.6,255.9c2.6,5.5,0.3,12.1-5.2,14.7 C-214.6,129.7-216.3,130-217.9,130z" />
-  //             <use xlinkHref="#barometerTick" transform="rotate(-115)" />
-  //             <use xlinkHref="#barometerTick" transform="rotate(-76.666)" />
-  //             <use xlinkHref="#barometerTick" transform="rotate(-38.333)" />
-  //             <path
-  //               id="barometerTick"
-  //               d="M0-170c-6.1,0-11-4.9-11-11v-22c0-6.1,4.9-11,11-11s11,4.9,11,11v22C11-174.9,6.1-170,0-170z"
-  //             />
-  //             <use xlinkHref="#barometerTick" transform="rotate(38.333)" />
-  //             <use xlinkHref="#barometerTick" transform="rotate(76.666)" />
-  //             <use xlinkHref="#barometerTick" transform="rotate(115)" />
-  //             <path d="M0.9,171c-0.9,0-1.7,0-2.3-0.1c-0.2,0-0.5-0.1-0.7-0.1c-0.4-0.1-1.2-0.2-1.9-0.3c-5.1-0.7-14.6-2-23.7-9.8 c-5.7-4.9-8.3-10.4-10.1-14.1c-0.4-0.8-0.7-1.5-1-1.9c-0.2-0.4-0.4-0.7-0.5-1.1c-0.3-0.7-0.5-1.5-0.7-2.2c-2.3-9-1.9-18.7,1.3-27.3 c1.3-3.4,3-6.7,5.1-9.7c1.8-2.6,2.9-5.7,3.2-8.8L-11-117.5c0.5-5.7,5.3-10,11-10s10.4,4.3,11,10L30.3,93.2c0.3,3.8,1.9,7.3,4.3,10.3 c1.8,2.2,3.7,5,5.5,8.7c5.4,11.5,3.1,26.4,1.2,31.9c-1.8,5.4-8,14-14.7,18.9C18.3,169,7,171,0.9,171z" />
-  //           </g>
-  //         </svg>
-  //         <div>
-  //           <span className="block--body__data h5 mb-0">
-  //             {atmosphericPressure !== undefined
-  //               ? atmosphericPressure
-  //                   .toFixed(1)
-  //                   .toString()
-  //                   .replace('.', ',')
-  //                   .replace(',0', '')
-  //               : '--'}
-  //           </span>
-  //           {atmosphericPressure !== undefined && (
-  //             <span className="block--body__unit">
-  //               {dataUnit.atmosphericPressure}
-  //             </span>
-  //           )}
-  //         </div>
-  //       </>
-  //     )
-  //   },
-  //   [],
-  // )
+  const displayAtmosphericPressure = useCallback(
+    (atmosphericPressure?: number): React.ReactElement => {
+      return (
+        <>
+          <svg
+            className="block--body__icon"
+            viewBox="0 0 512 512"
+            aria-hidden="true"
+          >
+            <g transform="translate(256,256)">
+              <path d="M-217.9,130c-4.1,0-8.1-2.3-10-6.2c-21.7-45-31.1-94.5-27.4-143c3.9-50.4,22.1-97.4,52.5-136 c33.3-42.2,75.8-71.9,126.4-88.2c25.2-8.1,52.2-12.6,76-12.6c90.4,0,180.8,53.1,224.9,132.1C252.4-74.3,262-16.8,252.4,42.2 c-7.5,46.2-24.3,78.4-26.1,82c-2.9,5.4-9.6,7.4-14.9,4.5c-5.4-2.9-7.4-9.5-4.5-14.9c2.5-4.7,60.7-115.9-1.4-227 C164.9-185.5,82.3-234-0.3-234c-26.3,0-117.5,6.7-185.1,92.3c-55,69.7-63.8,170.2-22.6,255.9c2.6,5.5,0.3,12.1-5.2,14.7 C-214.6,129.7-216.3,130-217.9,130z" />
+              <use xlinkHref="#barometerTick" transform="rotate(-115)" />
+              <use xlinkHref="#barometerTick" transform="rotate(-76.666)" />
+              <use xlinkHref="#barometerTick" transform="rotate(-38.333)" />
+              <path
+                id="barometerTick"
+                d="M0-170c-6.1,0-11-4.9-11-11v-22c0-6.1,4.9-11,11-11s11,4.9,11,11v22C11-174.9,6.1-170,0-170z"
+              />
+              <use xlinkHref="#barometerTick" transform="rotate(38.333)" />
+              <use xlinkHref="#barometerTick" transform="rotate(76.666)" />
+              <use xlinkHref="#barometerTick" transform="rotate(115)" />
+              <path d="M0.9,171c-0.9,0-1.7,0-2.3-0.1c-0.2,0-0.5-0.1-0.7-0.1c-0.4-0.1-1.2-0.2-1.9-0.3c-5.1-0.7-14.6-2-23.7-9.8 c-5.7-4.9-8.3-10.4-10.1-14.1c-0.4-0.8-0.7-1.5-1-1.9c-0.2-0.4-0.4-0.7-0.5-1.1c-0.3-0.7-0.5-1.5-0.7-2.2c-2.3-9-1.9-18.7,1.3-27.3 c1.3-3.4,3-6.7,5.1-9.7c1.8-2.6,2.9-5.7,3.2-8.8L-11-117.5c0.5-5.7,5.3-10,11-10s10.4,4.3,11,10L30.3,93.2c0.3,3.8,1.9,7.3,4.3,10.3 c1.8,2.2,3.7,5,5.5,8.7c5.4,11.5,3.1,26.4,1.2,31.9c-1.8,5.4-8,14-14.7,18.9C18.3,169,7,171,0.9,171z" />
+            </g>
+          </svg>
+          <div>
+            <span className="block--body__data h5 mb-0">
+              {displayData(atmosphericPressure)}
+            </span>
+            {atmosphericPressure !== undefined && (
+              <span className="block--body__unit">
+                {dataUnit.atmosphericPressure}
+              </span>
+            )}
+          </div>
+        </>
+      )
+    },
+    [],
+  )
 
   const displayWindSpeed = useCallback(
     (windSpeed?: number): React.ReactElement => {
@@ -174,13 +164,7 @@ const Blocks: React.FC<BlocksProps> = ({
           </svg>
           <div>
             <span className="block--body__data h5 mb-0">
-              {windSpeed !== undefined
-                ? windSpeed
-                    .toFixed(1)
-                    .toString()
-                    .replace('.', ',')
-                    .replace(',0', '')
-                : '--'}
+              {displayData(windSpeed)}
             </span>
             {windSpeed !== undefined && (
               <span className="block--body__unit">{dataUnit.windSpeed}</span>
@@ -214,9 +198,7 @@ const Blocks: React.FC<BlocksProps> = ({
         </svg>
         <div>
           <span className="block--body__data h5 mb-0">
-            {solarIrradiation !== undefined
-              ? Math.round(solarIrradiation)
-              : '--'}
+            {displayData(solarIrradiation)}
           </span>
           {solarIrradiation !== undefined && (
             <span className="block--body__unit">{dataUnit.solarRadiation}</span>
@@ -231,9 +213,11 @@ const Blocks: React.FC<BlocksProps> = ({
 
   return (
     <ScrollContainer autoHide className="blocks-container">
-      <div className="d-flex flex-column gap-3 p-3">
+      <div className="d-flex flex-column gap-3 px-3 pb-3">
         {isLoadingBlocks ? (
-          <p>Carregando...</p>
+          <Spinner size="sm" role="status">
+            <span className="visually-hidden">Carregando...</span>
+          </Spinner>
         ) : (
           blocks.map((block) => (
             <div
@@ -257,11 +241,11 @@ const Blocks: React.FC<BlocksProps> = ({
                     <li className="d-flex align-items-baseline mt-1">
                       {displayRelativeHumidity(block.data.relativeHumidity)}
                     </li>
-                    {/* <li className="d-flex align-items-baseline mt-1">
+                    <li className="d-flex align-items-baseline mt-1">
                       {displayAtmosphericPressure(
                         block.data.atmosphericPressure,
                       )}
-                    </li> */}
+                    </li>
                     <li className="d-flex align-items-baseline mt-1">
                       {displayWindSpeed(block.data.windSpeed)}
                     </li>
