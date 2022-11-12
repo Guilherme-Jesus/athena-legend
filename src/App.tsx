@@ -221,8 +221,11 @@ const App: React.FC = (): React.ReactElement => {
       `)
     })
     const info = new L.Control()
+    const legend = new L.Control({
+      position: 'bottomright',
+    })
     historical?.forEach((item) => {
-      const polygon = L.polygon(
+      L.polygon(
         item.bounds.map((item: any) => [item[1], item[0]]),
         {
           color: '#ff7f2f',
@@ -289,6 +292,24 @@ const App: React.FC = (): React.ReactElement => {
           `,
         )
         .addTo(map)
+
+      legend.onAdd = () => {
+        const div = L.DomUtil.create('div', 'info legend')
+        const grades = [0, 5, 10, 50, 100, 200]
+        const labels = ['<strong>Chuva (mm)</strong>']
+        grades.forEach((grade, index) => {
+          labels.push(
+            `<i style="background:${getColor(item.data.rain)}"></i> ${
+              grades[index + 1]
+                ? `${grade} - ${grades[index + 1]}`
+                : `> ${grade}`
+            }`,
+          )
+        })
+        div.innerHTML = labels.join('<br>')
+        return div
+      }
+      legend.addTo(map)
     })
 
     return () => {
