@@ -12,9 +12,10 @@ import { dataUnit } from './components/utils'
 
 const App: React.FC = (): React.ReactElement => {
   const [blocks, setBlocks] = useState<IListBlocks[]>([])
-  const [currentBlockId, setCurrentBlockId] = useState<string>('C19') // hard coded
+  const [copiaBlock, setCopiaBlock] = useState<IListBlocks[]>([])
+  const [currentBlockId, setCurrentBlockId] = useState<string>('C19')
   const [blockLeaf, setBlockLeaf] = useState<IListBlocksLeaf[]>([])
-  const [initialPosition] = useState<L.LatLngExpression>([
+  const [initialPosition, setInitialPosition] = useState<[number, number]>([
     -23.5505199, -46.63330939999999,
   ])
 
@@ -53,7 +54,47 @@ const App: React.FC = (): React.ReactElement => {
       .catch((err) => {
         console.log(err)
       })
-  }, [currentBlockId])
+  }, [])
+
+  useEffect(() => {
+    if (copiaBlock.length === 0) {
+      fetch('http://localhost:7010/blocks', {
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+      }).then((response) => {
+        response.json().then((res) => {
+          setCopiaBlock(res)
+        })
+      })
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [copiaBlock])
+
+  // const pegaFolha = useCallback((blockId: string) => {
+
+  const pegaFolha = useCallback(
+    (blockId: string) => {
+      let lo: string = ''
+      let para: boolean = false
+      copiaBlock
+        .filter((item) => item.blockParent === blockId)
+        .forEach((items) => {
+          if (para === false) {
+            if (!items.leafParent) {
+              pegaFolha(items.blockId)
+            }
+            // eslint-disable-next-line no-unused-expressions
+            else lo = items.blockId
+            para = true
+          }
+        })
+
+      return lo
+    },
+    [copiaBlock],
+  )
 
   const handleBlockClick = useCallback(
     (id: string, leaf: boolean): void => {
@@ -61,21 +102,42 @@ const App: React.FC = (): React.ReactElement => {
         setCurrentBlockId(id)
       } else if (!leaf) {
         setBlocks(blocks.filter((item) => item.blockParent === id))
+      } else if (leaf) {
+        setBlockLeaf(blockLeaf.filter((item) => item.blockParent === id))
       }
     },
-    [blocks, currentBlockId],
+    [blockLeaf, blocks, currentBlockId],
   )
+
+  // const handleBlockClick = useCallback(
+  //   (id: string, leaf: boolean): void => {
+  //     currentBlockId !== id
+  //       ? setCurrentBlockId(id)
+  //       : !leaf
+  //       ? setBlocks(blocks.filter((item) => item.blockParent === id))
+  //       : setBlockLeaf(blockLeaf.filter((item) => item.blockParent === id))
+  //   },
+  //   [blocks, currentBlockId, blockLeaf],
+  // )
 
   const getCentroid = useMemo(() => {
     const array: number[] = []
+    const centro = pegaFolha(currentBlockId)
+    console.log(centro)
+    console.log(currentBlockId)
     blockLeaf.forEach((item, index) => {
-      if (index === 0 && index < 4) {
-        array.push(...item.centroid)
+      if (centro === '') {
+        if (index === 0) {
+          array.push(...item.centroid)
+        }
+      } else {
+        if (item.blockParent === centro) {
+          array.push(...item.centroid)
+        }
       }
     })
-    console.log(array)
     return array
-  }, [blockLeaf])
+  }, [blockLeaf, currentBlockId, pegaFolha])
 
   const center = useMemo(() => {
     return {
@@ -86,8 +148,8 @@ const App: React.FC = (): React.ReactElement => {
 
   useEffect(() => {
     const map = L.map('map', {
-      center: initialPosition,
-      zoom: 3,
+      center: initialPosition || center,
+      zoom: 5,
       zoomControl: false,
       layers: [
         L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
