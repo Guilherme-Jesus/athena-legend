@@ -262,14 +262,15 @@ const App: React.FC = (): React.ReactElement => {
           }
           info.addTo(map)
         })
+
         .on('mouseout', () => {
           info.remove()
         })
-        .addTo(map)
 
-      polygon.bindPopup(`
+        .bindPopup(
+          `
         <h3 class="h5 mb-0">
-          ${item.name} <small>(${item.blockId})</small>
+        ${item.name} <small>(${item.blockId})</small>
         </h3>
         <ul class="list-unstyled mb-0">
           <li>  
@@ -277,15 +278,17 @@ const App: React.FC = (): React.ReactElement => {
           </li>
           <li>
             <b>Temperatura:</b> ${Math.round(item.data.temperature)}${
-        dataUnit.temperature
-      }
+            dataUnit.temperature
+          }
           </li>
           <li>
-            <b>Umidade:</b> ${Math.round(item.data.relativeHumidity)}${
-        dataUnit.relativeHumidity
-      }
+          <b>Umidade:</b> ${Math.round(item.data.relativeHumidity)}${
+            dataUnit.relativeHumidity
+          }
           </li>
-           `)
+          `,
+        )
+        .addTo(map)
     })
 
     return () => {
