@@ -299,7 +299,7 @@ const App: React.FC = (): React.ReactElement => {
         const labels = ['<strong>Chuva (mm)</strong>']
         grades.forEach((grade, index) => {
           labels.push(
-            `<i style="background:${getColor(item.data.rain)}"></i> ${
+            `<i style="background:${getColor(grade)}"></i> ${
               grades[index + 1]
                 ? `${grade} - ${grades[index + 1]}`
                 : `> ${grade}`
