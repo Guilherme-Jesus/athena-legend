@@ -94,6 +94,14 @@ const App: React.FC = (): React.ReactElement => {
       let arrayS: string = ''
       let breaker: boolean = false
       blockAux
+        .filter((item) => item.blockId === blockId)
+        .forEach((item) => {
+          if (item.leafParent) {
+            arrayS = item.blockId
+            return arrayS
+          }
+        })
+      blockAux
         .filter((item) => item.blockParent === blockId)
         .forEach((items) => {
           if (breaker === false) {
@@ -125,6 +133,7 @@ const App: React.FC = (): React.ReactElement => {
   const getCentroid = useMemo(() => {
     const array: number[] = []
     const leafStr = getLeaf(currentBlockId)
+    console.log(currentBlockId)
     blockLeaf.forEach((item, index) => {
       if (leafStr === '') {
         if (index === 0) {
@@ -544,7 +553,7 @@ const App: React.FC = (): React.ReactElement => {
       })
     }
 
-    map.setView(center.lat === undefined ? initialPosition : center, 12)
+    map.setView(center.lat === undefined ? initialPosition : center, 13)
 
     return () => {
       map.remove()
