@@ -1,7 +1,7 @@
 import './app.scss'
 import './components/Map/map.scss'
 
-import * as L from 'leaflet'
+import L from 'leaflet'
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 
 import axios from 'axios'
@@ -19,6 +19,7 @@ const App: React.FC = (): React.ReactElement => {
   const [initialPosition, setInitialPosition] = useState<[number, number]>([
     -23.5505199, -46.63330939999999,
   ])
+  const [sensors, setSensors] = useState<string>('Normal')
 
   useEffect(() => {
     if (blocks.length === 0) {
@@ -204,6 +205,7 @@ const App: React.FC = (): React.ReactElement => {
       ? '#6baed6'
       : '#4292c6'
   }
+  const selectedSensors = ['Chuva', 'Temperatura', 'Umidade', 'Normal']
 
   useEffect(() => {
     const map = L.map('map', {
@@ -221,75 +223,198 @@ const App: React.FC = (): React.ReactElement => {
       ],
     })
 
-    blockLeaf.forEach((item) => {
-      const polygon = L.polygon(
-        item.bounds.map((item: any) => [item[1], item[0]]),
-        {
-          color: '#ff7f2f',
-          dashArray: '3',
-          fillColor: '#ff7f2f',
-          fillOpacity: 0.5,
-          opacity: 0.8,
-          weight: 4,
-        },
-      ).addTo(map)
-
-      polygon.bindPopup(`
-        <h3 class="h5 mb-0">
-          ${item.name} <small>(${item.blockId})</small>
-        </h3>
-        <ul class="list-unstyled mb-0">
-          <li>
-            <b>Chuva:</b> ${item.data.rain}${dataUnit.rain}
-          </li>
-          <li>
-            <b>Temperatura:</b> ${Math.round(item.data.temperature)}${
-        dataUnit.temperature
-      }
-          </li>
-          <li>
-            <b>Umidade:</b> ${Math.round(item.data.relativeHumidity)}${
-        dataUnit.relativeHumidity
-      }
-          </li>
-          <li>
-            <b>Vento:</b> ${Math.round(item.data.windSpeed)}${
-        dataUnit.windSpeed
-      }
-          </li>
-          <li>
-            <b>Radiação solar:</b> ${item.data.solarIrradiation.toFixed(2)}${
-        dataUnit.solarRadiation
-      }
-          </li>
-        </ul>
-      `)
-    })
     const info = new L.Control()
     const legend = new L.Control({
       position: 'bottomright',
     })
-    historical?.forEach((item) => {
-      L.polygon(
-        item.bounds.map((item: any) => [item[1], item[0]]),
-        {
-          color: '#ff7f2f',
-          dashArray: '3',
-          fillColor: getColorRain(item.data.rain),
-          fillOpacity: 0.5,
-          opacity: 0.8,
-          weight: 4,
-        },
-      )
 
-        /// É possivel escolher entre o bindPopup e ou mouseover/mouseout
+    if (sensors === 'Normal') {
+      blockLeaf.forEach((item) => {
+        const polygon = L.polygon(
+          item.bounds.map((item: any) => [item[1], item[0]]),
+          {
+            color: '#ff7f2f',
+            dashArray: '3',
+            fillColor: '#ff7f2f',
+            fillOpacity: 0.5,
+            opacity: 0.8,
+            weight: 4,
+          },
+        ).addTo(map)
 
-        .on('mouseover', () => {
-          info.onAdd = () => {
-            const div = L.DomUtil.create('div', 'info')
-            div.innerHTML = `
+        polygon.bindPopup(`
+          <h3 class="h5 mb-0">
+            ${item.name} <small>(${item.blockId})</small>
+          </h3>
+          <ul class="list-unstyled mb-0">
+            <li>
+              <b>Chuva:</b> ${item.data.rain}${dataUnit.rain}
+            </li>
+            <li>
+              <b>Temperatura:</b> ${Math.round(item.data.temperature)}${
+          dataUnit.temperature
+        }
+            </li>
+            <li>
+              <b>Umidade:</b> ${Math.round(item.data.relativeHumidity)}${
+          dataUnit.relativeHumidity
+        }
+            </li>
+            <li>
+              <b>Vento:</b> ${Math.round(item.data.windSpeed)}${
+          dataUnit.windSpeed
+        }
+            </li>
+            <li>
+              <b>Radiação solar:</b> ${item.data.solarIrradiation.toFixed(2)}${
+          dataUnit.solarRadiation
+        }
+            </li>
+          </ul>
+        `)
+      })
+    }
+    if (sensors === 'Chuva') {
+      historical?.forEach((item) => {
+        L.polygon(
+          item.bounds.map((item: any) => [item[1], item[0]]),
+          {
+            color: '#ff7f2f',
+            dashArray: '3',
+            fillColor: getColorRain(item.data.rain),
+            fillOpacity: 0.5,
+            opacity: 0.8,
+            weight: 4,
+          },
+        )
+
+          /// É possivel escolher entre o bindPopup e ou mouseover/mouseout
+
+          .on('mouseover', () => {
+            info.onAdd = () => {
+              const div = L.DomUtil.create('div', 'info')
+              div.innerHTML = `
+          <h3 class="h5 mb-0">
+            ${item.name} <small>(${item.blockId})</small>
+          </h3>
+          <ul class="list-unstyled mb-0">
+            <li>  
+            <b>Chuva:</b> ${Math.round(item.data.rain)}${dataUnit.rain}
+            </li>
+            <li>
+              <b>Temperatura:</b> ${Math.round(item.data.temperature)}${
+                dataUnit.temperature
+              }
+            </li>
+            <li>
+              <b>Umidade:</b> ${Math.round(item.data.relativeHumidity)}${
+                dataUnit.relativeHumidity
+              }
+            </li>
+             `
+              return div
+            }
+            info.addTo(map)
+          })
+
+          .on('mouseout', () => {
+            info.remove()
+          })
+
+          .bindPopup(
+            `
+          <h3 class="h5 mb-0">
+          ${item.name} <small>(${item.blockId})</small>
+          </h3>
+          <ul class="list-unstyled mb-0">
+            <li>  
+            <b>Chuva:</b> ${Math.round(item.data.rain)}${dataUnit.rain}
+            </li>
+            <li>
+              <b>Temperatura:</b> ${Math.round(item.data.temperature)}${
+              dataUnit.temperature
+            }
+            </li>
+            <li>
+            <b>Umidade:</b> ${Math.round(item.data.relativeHumidity)}${
+              dataUnit.relativeHumidity
+            }
+            </li>
+            `,
+          )
+          .addTo(map)
+
+        legend.onAdd = () => {
+          const div = L.DomUtil.create('div', 'info legend')
+          const grades = [0, 5, 10, 50, 100, 200]
+          const labels = ['<strong>Chuva (mm)</strong>']
+          grades.forEach((grade, index) => {
+            labels.push(
+              `<i style="background:${getColorRain(grade)}"></i> ${
+                grades[index + 1]
+                  ? `${grade} - ${grades[index + 1]}`
+                  : `> ${grade}`
+              }`,
+            )
+          })
+          div.innerHTML = labels.join('<br>')
+          return div
+        }
+        legend.addTo(map)
+      })
+    }
+
+    if (sensors === 'Temperatura') {
+      historical?.forEach((item) => {
+        L.polygon(
+          item.bounds.map((item: any) => [item[1], item[0]]),
+          {
+            color: '#ff7f2f',
+            dashArray: '3',
+            fillColor: getColorTemp(item.data.temperature),
+            fillOpacity: 0.5,
+            opacity: 0.8,
+            weight: 4,
+          },
+        )
+
+          /// É possivel escolher entre o bindPopup e ou mouseover/mouseout
+
+          .on('mouseover', () => {
+            info.onAdd = () => {
+              const div = L.DomUtil.create('div', 'info')
+              div.innerHTML = `
         <h3 class="h5 mb-0">
           ${item.name} <small>(${item.blockId})</small>
+        </h3>
+        <ul class="list-unstyled mb-0">
+          <li>  
+          <b>Chuva:</b> ${Math.round(item.data.rain)}${dataUnit.rain}
+          </li>
+          <li>
+            <b>Temperatura:</b> ${Math.round(item.data.temperature)}${
+                dataUnit.temperature
+              }
+          </li>
+          <li>
+            <b>Umidade:</b> ${Math.round(item.data.relativeHumidity)}${
+                dataUnit.relativeHumidity
+              }
+          </li>
+           `
+              return div
+            }
+            info.addTo(map)
+          })
+
+          .on('mouseout', () => {
+            info.remove()
+          })
+
+          .bindPopup(
+            `
+        <h3 class="h5 mb-0">
+        ${item.name} <small>(${item.blockId})</small>
         </h3>
         <ul class="list-unstyled mb-0">
           <li>  
@@ -301,22 +426,83 @@ const App: React.FC = (): React.ReactElement => {
             }
           </li>
           <li>
-            <b>Umidade:</b> ${Math.round(item.data.relativeHumidity)}${
+          <b>Umidade:</b> ${Math.round(item.data.relativeHumidity)}${
               dataUnit.relativeHumidity
             }
           </li>
+          `,
+          )
+          .addTo(map)
+
+        legend.onAdd = () => {
+          const div = L.DomUtil.create('div', 'info legend')
+          const grades = [5, 10, 20, 30, 40]
+          const labels = ['<strong>Temperatura ºC </strong>']
+          grades.forEach((grade, index) => {
+            labels.push(
+              `<i style="background:${getColorTemp(grade)}"></i> ${
+                grades[index + 1]
+                  ? `${grade} - ${grades[index + 1]}`
+                  : `> ${grade}`
+              }`,
+            )
+          })
+          div.innerHTML = labels.join('<br>')
+          return div
+        }
+        legend.addTo(map)
+      })
+    }
+
+    if (sensors === 'Umidade') {
+      historical?.forEach((item) => {
+        L.polygon(
+          item.bounds.map((item: any) => [item[1], item[0]]),
+          {
+            color: '#ff7f2f',
+            dashArray: '3',
+            fillColor: getColorHum(item.data.relativeHumidity),
+            fillOpacity: 0.5,
+            opacity: 0.8,
+            weight: 4,
+          },
+        )
+
+          /// É possivel escolher entre o bindPopup e ou mouseover/mouseout
+
+          .on('mouseover', () => {
+            info.onAdd = () => {
+              const div = L.DomUtil.create('div', 'info')
+              div.innerHTML = `
+        <h3 class="h5 mb-0">
+          ${item.name} <small>(${item.blockId})</small>
+        </h3>
+        <ul class="list-unstyled mb-0">
+          <li>  
+          <b>Chuva:</b> ${Math.round(item.data.rain)}${dataUnit.rain}
+          </li>
+          <li>
+            <b>Temperatura:</b> ${Math.round(item.data.temperature)}${
+                dataUnit.temperature
+              }
+          </li>
+          <li>
+            <b>Umidade:</b> ${Math.round(item.data.relativeHumidity)}${
+                dataUnit.relativeHumidity
+              }
+          </li>
            `
-            return div
-          }
-          info.addTo(map)
-        })
+              return div
+            }
+            info.addTo(map)
+          })
 
-        .on('mouseout', () => {
-          info.remove()
-        })
+          .on('mouseout', () => {
+            info.remove()
+          })
 
-        .bindPopup(
-          `
+          .bindPopup(
+            `
         <h3 class="h5 mb-0">
         ${item.name} <small>(${item.blockId})</small>
         </h3>
@@ -326,42 +512,44 @@ const App: React.FC = (): React.ReactElement => {
           </li>
           <li>
             <b>Temperatura:</b> ${Math.round(item.data.temperature)}${
-            dataUnit.temperature
-          }
+              dataUnit.temperature
+            }
           </li>
           <li>
           <b>Umidade:</b> ${Math.round(item.data.relativeHumidity)}${
-            dataUnit.relativeHumidity
-          }
+              dataUnit.relativeHumidity
+            }
           </li>
           `,
-        )
-        .addTo(map)
-
-      legend.onAdd = () => {
-        const div = L.DomUtil.create('div', 'info legend')
-        const grades = [0, 5, 10, 50, 100, 200]
-        const labels = ['<strong>Chuva (mm)</strong>']
-        grades.forEach((grade, index) => {
-          labels.push(
-            `<i style="background:${getColorRain(grade)}"></i> ${
-              grades[index + 1]
-                ? `${grade} - ${grades[index + 1]}`
-                : `> ${grade}`
-            }`,
           )
-        })
-        div.innerHTML = labels.join('<br>')
-        return div
-      }
-      legend.addTo(map)
-    })
+          .addTo(map)
+
+        legend.onAdd = () => {
+          const div = L.DomUtil.create('div', 'info legend')
+          const grades = [20, 40, 60, 80, 100]
+          const labels = ['<strong> Umidade % </strong>']
+          grades.forEach((grade, index) => {
+            labels.push(
+              `<i style="background:${getColorHum(grade)}"></i> ${
+                grades[index + 1]
+                  ? `${grade} - ${grades[index + 1]}`
+                  : `> ${grade}`
+              }`,
+            )
+          })
+          div.innerHTML = labels.join('<br>')
+          return div
+        }
+        legend.addTo(map)
+      })
+    }
+
     map.setView(center.lat === undefined ? initialPosition : center, 12)
 
     return () => {
       map.remove()
     }
-  }, [blockLeaf, center, historical, initialPosition])
+  }, [blockLeaf, center, historical, initialPosition, sensors])
 
   return (
     <div className="App">
@@ -381,7 +569,22 @@ const App: React.FC = (): React.ReactElement => {
 
       <div className="timeline-container">TIMELINE</div>
 
-      <div id="map" className="map-container h-100 w-100" />
+      <div id="map" className="map-container h-100 w-100">
+        <div>
+          <select
+            className="form-select"
+            onChange={(e) => {
+              setSensors(e.target.value)
+            }}
+          >
+            {selectedSensors.map((item) => (
+              <option key={item} value={item}>
+                {item}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
     </div>
   )
 }
