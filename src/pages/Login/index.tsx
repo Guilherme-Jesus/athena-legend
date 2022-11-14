@@ -2,9 +2,10 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import { auth } from '../../config/firebase-config'
+
 import { Button, Form } from 'react-bootstrap'
 import './styles.scss'
+import { auth } from '../../config/firebase-config'
 
 export function Login() {
   // const [show, setShow] = useState(false)
