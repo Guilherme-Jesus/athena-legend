@@ -34,6 +34,7 @@ export function Login() {
           // console.log(res.headers['set-cookie'])
           // console.log(token)
           setAuthing(true)
+
           navigate('/dashboard')
         })
         .catch((err) => {
@@ -55,6 +56,7 @@ export function Login() {
             <Form.Label>E-mail</Form.Label>
             <Form.Control
               type="email"
+              required
               placeholder="Insira o E-mail"
               onChange={(e) => setLoginEmail(e.target.value)}
             />
@@ -64,6 +66,7 @@ export function Login() {
             <Form.Label>Senha</Form.Label>
             <Form.Control
               type="password"
+              required
               placeholder="Min. 8 caracteres"
               onChange={(e) => setLoginPassword(e.target.value)}
             />
