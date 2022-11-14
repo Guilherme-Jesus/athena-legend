@@ -10,32 +10,26 @@
                           auto;
   grid-template-rows: calc(var(--spacer) * 2.375 + var(--spacer) * 1.5 * 2)
                       auto
-                      calc(var(--spacer) * 12);
+                      calc(var(--spacer) * 15);
   min-height: 100vh;
   header {
-    background-color: #ddd;
+    background-color: #eee;
     grid-area: header;
-    padding: var(--spacer);
   }
   nav {
-    background-color: #ddd;
+    background-color: #eee;
     display: flex;
     flex-direction: column;
     grid-area: nav;
-    padding: var(--spacer);
   }
   /* .blocks-container {
     // CSS dos blocos está dentro do próprio componente
   } */
-  .timeline-container {
-    background-color: #ddd;
-    display: flex;
-    grid-area: timeline;
-    padding: var(--spacer);
-  }
+  /* .timeline-container {
+    // CSS da timeline está dentro do próprio componente
+  } */
   .map-container {
     background-color: #eee;
     grid-area: main;
-    padding: var(--spacer);
   }
 }
