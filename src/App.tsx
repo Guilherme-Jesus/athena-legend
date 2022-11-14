@@ -153,21 +153,38 @@ const App: React.FC = (): React.ReactElement => {
     }
   }, [getCentroid])
 
-  const getColorRain = (rain: number): string => {
-    return rain > 200
-      ? '#08306b'
-      : rain > 100
-      ? '#4292c6'
-      : rain > 50
-      ? '#9ecae1'
-      : rain > 10
-      ? '#c6dbef'
-      : rain > 5
-      ? '#deebf7'
-      : '#f7fbff'
-  }
+  const rainGrades: number[] = [0, 5, 10, 50, 100, 200]
+  const temperatureGrades: number[] = [5, 10, 20, 30, 40]
+  const relativeHumidityGrades: number[] = [20, 40, 60, 80, 100]
 
-  const getColorTemp = (temp: number): string => {
+  const getColorRain = useCallback((rain: number): string => {
+    let color = ''
+
+    switch (true) {
+      case rain > 200:
+        color = '#08306b'
+        break
+      case rain > 100:
+        color = '#4292c6'
+        break
+      case rain > 50:
+        color = '#9ecae1'
+        break
+      case rain > 10:
+        color = '#c6dbef'
+        break
+      case rain > 5:
+        color = '#deebf7'
+        break
+      default:
+        color = '#f7fbff'
+        break
+    }
+
+    return color
+  }, [])
+
+  const getColorTemperature = useCallback((temp: number): string => {
     return temp > 30
       ? '#67000d'
       : temp > 25
@@ -185,26 +202,26 @@ const App: React.FC = (): React.ReactElement => {
       : temp > -5
       ? '#fee0d2'
       : '#fff5f0'
-  }
+  }, [])
 
   const getColorHumidity = useCallback((relativeHumidity: number): string => {
     let color = ''
 
     switch (true) {
-      case relativeHumidity > 60:
-        color = '#deebf7'
-        break
-      case relativeHumidity > 70:
-        color = '#c6dbef'
-        break
-      case relativeHumidity > 80:
-        color = '#9ecae1'
+      case relativeHumidity > 100:
+        color = '#4292c6'
         break
       case relativeHumidity > 90:
         color = '#6baed6'
         break
-      case relativeHumidity > 100:
-        color = '#4292c6'
+      case relativeHumidity > 80:
+        color = '#9ecae1'
+        break
+      case relativeHumidity > 70:
+        color = '#c6dbef'
+        break
+      case relativeHumidity > 60:
+        color = '#deebf7'
         break
       default:
         color = '#f7fbff'
@@ -246,12 +263,10 @@ const App: React.FC = (): React.ReactElement => {
         const polygon = L.polygon(
           item.bounds.map((item: any) => [item[1], item[0]]),
           {
-            color: '#ff7f2f',
-            dashArray: '3',
-            fillColor: '#ff7f2f',
-            fillOpacity: 0.5,
-            opacity: 0.8,
-            weight: 4,
+            color: 'var(--bs-primary)',
+            fillColor: 'var(--bs-primary)',
+            fillOpacity: 0.2,
+            weight: 2,
           },
         ).addTo(map)
 
@@ -336,12 +351,10 @@ const App: React.FC = (): React.ReactElement => {
         L.polygon(
           item.bounds.map((item: any) => [item[1], item[0]]),
           {
-            color: '#ff7f2f',
-            dashArray: '3',
+            color: 'var(--bs-white)',
             fillColor: getColorRain(item.data.rain),
-            fillOpacity: 0.5,
-            opacity: 0.8,
-            weight: 4,
+            fillOpacity: 1,
+            weight: 2,
           },
         )
 
@@ -527,17 +540,16 @@ const App: React.FC = (): React.ReactElement => {
 
         legend.onAdd = () => {
           const div = L.DomUtil.create('div')
-          const grades = [0, 5, 10, 50, 100, 200]
           const labels = [
             `<h4 class="d-block h6 fw-bold mb-0">Chuva (${dataUnit.rain.trim()})</h4>`,
           ]
-          grades.forEach((grade, index) => {
+          rainGrades.forEach((grade, index) => {
             labels.push(
               `<span class="color-container" style="background:${getColorRain(
                 grade,
               )}"></span> ${
-                grades[index + 1]
-                  ? `${grade}&ndash;${grades[index + 1]}`
+                rainGrades[index + 1]
+                  ? `${grade}&ndash;${rainGrades[index + 1]}`
                   : `> ${grade}`
               }`,
             )
@@ -554,12 +566,10 @@ const App: React.FC = (): React.ReactElement => {
         L.polygon(
           item.bounds.map((item: any) => [item[1], item[0]]),
           {
-            color: '#ff7f2f',
-            dashArray: '3',
-            fillColor: getColorTemp(item.data.temperature),
-            fillOpacity: 0.5,
-            opacity: 0.8,
-            weight: 4,
+            color: 'var(--bs-white)',
+            fillColor: getColorTemperature(item.data.temperature),
+            fillOpacity: 1,
+            weight: 2,
           },
         )
 
@@ -744,18 +754,17 @@ const App: React.FC = (): React.ReactElement => {
           .addTo(map)
 
         legend.onAdd = () => {
-          const div = L.DomUtil.create('div', 'info legend')
-          const grades = [5, 10, 20, 30, 40]
+          const div = L.DomUtil.create('div')
           const labels = [
             `<span class="d-block h6 fw-bold mb-0">Temperatura (${dataUnit.temperature.trim()})</span>`,
           ]
-          grades.forEach((grade, index) => {
+          temperatureGrades.forEach((grade, index) => {
             labels.push(
-              `<span class="color-container" style="background:${getColorTemp(
+              `<span class="color-container" style="background:${getColorTemperature(
                 grade,
               )}"></span> ${
-                grades[index + 1]
-                  ? `${grade}&ndash;${grades[index + 1]}`
+                temperatureGrades[index + 1]
+                  ? `${grade}&ndash;${temperatureGrades[index + 1]}`
                   : `> ${grade}`
               }`,
             )
@@ -772,12 +781,10 @@ const App: React.FC = (): React.ReactElement => {
         L.polygon(
           item.bounds.map((item: any) => [item[1], item[0]]),
           {
-            color: '#ff7f2f',
-            dashArray: '3',
+            color: 'var(--bs-white)',
             fillColor: getColorHumidity(item.data.relativeHumidity),
-            fillOpacity: 0.5,
-            opacity: 0.8,
-            weight: 4,
+            fillOpacity: 1,
+            weight: 2,
           },
         )
 
@@ -962,18 +969,17 @@ const App: React.FC = (): React.ReactElement => {
           .addTo(map)
 
         legend.onAdd = () => {
-          const div = L.DomUtil.create('div', 'info legend')
-          const grades = [20, 40, 60, 80, 100]
+          const div = L.DomUtil.create('div')
           const labels = [
             `<span class="d-block h6 fw-bold mb-0">Umidade (${dataUnit.relativeHumidity.trim()})</span>`,
           ]
-          grades.forEach((grade, index) => {
+          relativeHumidityGrades.forEach((grade, index) => {
             labels.push(
               `<span class="color-container" style="background:${getColorHumidity(
                 grade,
               )}"></span> ${
-                grades[index + 1]
-                  ? `${grade}&ndash;${grades[index + 1]}`
+                relativeHumidityGrades[index + 1]
+                  ? `${grade}&ndash;${relativeHumidityGrades[index + 1]}`
                   : `> ${grade}`
               }`,
             )
@@ -990,10 +996,13 @@ const App: React.FC = (): React.ReactElement => {
     return () => {
       map.remove()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     blockLeaf,
     center,
     getColorHumidity,
+    getColorRain,
+    getColorTemperature,
     historical,
     initialPosition,
     sensors,
