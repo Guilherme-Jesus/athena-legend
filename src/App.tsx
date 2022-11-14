@@ -43,7 +43,7 @@ const App: React.FC = (): React.ReactElement => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:7010/blockLeaf`)
+      .get('http://localhost:7010/blockLeaf')
       .then((response) =>
         setBlockLeaf(
           response.data.filter(
@@ -68,9 +68,7 @@ const App: React.FC = (): React.ReactElement => {
   const getCentroid = useMemo(() => {
     const array: number[] = []
     blockLeaf.forEach((item, index) => {
-      if (index === 0 && index < 4) {
-        array.push(...item.centroid)
-      }
+      if (index === 0 && index < 4) array.push(...item.centroid)
     })
 
     return array
@@ -210,9 +208,7 @@ const App: React.FC = (): React.ReactElement => {
         handleBlockClick={handleBlockClick}
       />
 
-      <div className="timeline-container position-relative">
-        <Timeline />
-      </div>
+      <Timeline />
 
       <div id="map" className="map-container h-100 w-100" />
     </div>

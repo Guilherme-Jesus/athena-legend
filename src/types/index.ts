@@ -120,7 +120,7 @@ type ILineAlerts = {
   type: string
 }
 
-type ILine = {
+export type ILine = {
   alerts: ILineAlerts[] | null
   date: Date
   rain: number

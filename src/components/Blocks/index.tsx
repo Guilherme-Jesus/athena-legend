@@ -27,31 +27,14 @@ const Blocks: React.FC<BlocksProps> = ({
       <>
         <svg
           className="block--body__icon"
-          viewBox="0 0 512 512"
+          viewBox="0 0 64 64"
           aria-hidden="true"
         >
-          <path d="M431.978,167.288C423.534,77.626,347.833,7.239,256,7.239S88.466,77.626,80.022,167.288 C34.57,175.558,0,215.438,0,263.239c0,53.775,43.749,97.524,97.524,97.524h36.571v-36.571H97.524 c-33.609,0-60.952-27.343-60.952-60.952c0-33.609,27.343-60.952,60.952-60.952h18.286v-18.286 c0-77.301,62.889-140.19,140.19-140.19s140.19,62.889,140.19,140.19v18.286h18.286c33.609,0,60.952,27.343,60.952,60.952 c0,33.609-27.343,60.952-60.952,60.952h-36.571v36.571h36.571c53.775,0,97.524-43.749,97.524-97.524 C512,215.438,477.43,175.558,431.978,167.288z" />
-          <rect
-            x="122.518"
-            y="360.775"
-            transform="matrix(0.2079 -0.9781 0.9781 0.2079 -175.0179 541.9899)"
-            width="249.246"
-            height="36.57"
-          />
-          <rect
-            x="225.806"
-            y="336.415"
-            transform="matrix(0.2079 -0.9781 0.9781 0.2079 -89.1225 599.3422)"
-            width="199.39"
-            height="36.57"
-          />
-          <rect
-            x="79.494"
-            y="336.383"
-            transform="matrix(0.2079 -0.9781 0.9781 0.2079 -204.9837 456.2015)"
-            width="199.39"
-            height="36.57"
-          />
+          <path d="M53.2,38H10.8C4.8,38,0,33.3,0,27.6c0-4.8,3.4-8.9,8.1-10.1c1.7-6.9,8.3-11.7,15.8-11.4c3.5-3.9,8.6-6.2,14-6.2 c5.4,0,10.5,2.2,14,6.1c3,3.3,4.5,7.3,4.6,11.6c4.4,1.4,7.5,5.3,7.5,9.9C64,33.3,59.2,38,53.2,38z M23.1,10.1 c-5.6,0-10.6,4-11.3,9.4l-0.2,1.6l-1.6,0.2C6.6,21.6,4,24.3,4,27.6c0,3.5,3.1,6.4,6.8,6.4h42.4c3.7,0,6.8-2.9,6.8-6.4 c0-3.2-2.5-5.9-5.8-6.3L52.3,21l0.2-1.9c0.4-3.8-0.9-7.4-3.5-10.3C46.2,5.8,42.2,4,37.9,4c-4.6,0-8.8,2-11.6,5.5l-0.7,0.9l-1.1-0.1 C24,10.2,23.6,10.1,23.1,10.1z" />
+          <path d="M33.7,40.6c-1-0.4-2,0.2-2.4,1.1l-6.1,16.6c-0.4,1,0.1,2.1,1.1,2.4c1,0.4,2-0.2,2.4-1.1L34.8,43C35.2,42,34.7,41,33.7,40.6z" />
+          <path d="M23.9,40.6c-1-0.4-2,0.2-2.4,1.1l-2.2,6c-0.4,1,0.1,2.1,1.1,2.4c1,0.4,2-0.2,2.4-1.1l2.2-6C25.4,42,24.9,41,23.9,40.6z" />
+          <path d="M38.9,53.4c-1-0.4-2,0.2-2.4,1.1l-2.5,7c-0.3,1,0.2,2.1,1.1,2.4s2-0.2,2.4-1.1l2.5-7C40.3,54.8,39.8,53.7,38.9,53.4z" />
+          <path d="M43.5,40.6c-1-0.4-2,0.2-2.4,1.1L39,47.5c-0.3,1,0.2,2.1,1.1,2.4s2-0.2,2.4-1.1l2.1-5.7C45,42,44.5,41,43.5,40.6z" />
         </svg>
         <div>
           <span className="block--body__data h5 mb-0">
@@ -151,6 +134,8 @@ const Blocks: React.FC<BlocksProps> = ({
 
   const displayWindSpeed = useCallback(
     (windSpeed?: number): React.ReactElement => {
+      const hasSpeed: boolean = windSpeed !== undefined && windSpeed >= 0.3
+
       return (
         <>
           <svg
@@ -166,9 +151,9 @@ const Blocks: React.FC<BlocksProps> = ({
           </svg>
           <div>
             <span className="block--body__data h5 mb-0">
-              {displayData(windSpeed, 1)}
+              {hasSpeed ? displayData(windSpeed, 1) : '--'}
             </span>
-            {windSpeed !== undefined && (
+            {hasSpeed && (
               <span className="block--body__unit">{dataUnit.windSpeed}</span>
             )}
           </div>
@@ -249,15 +234,11 @@ const Blocks: React.FC<BlocksProps> = ({
                       )}
                     </li>
                     <li className="d-flex align-items-baseline mt-1">
-                      {block.data.windSpeed >= 0.3
-                        ? displayWindSpeed(block.data.windSpeed)
-                        : 'Sem vento'}
+                      {displayWindSpeed(block.data.windSpeed)}
                     </li>
-                    {block.data.windSpeed >= 0.3 && (
-                      <li className="d-flex align-items-baseline mt-1">
-                        {displaySolarIrradiation(block.data.solarIrradiation)}
-                      </li>
-                    )}
+                    <li className="d-flex align-items-baseline mt-1">
+                      {displaySolarIrradiation(block.data.solarIrradiation)}
+                    </li>
                   </ul>
                 </>
               ) : (
