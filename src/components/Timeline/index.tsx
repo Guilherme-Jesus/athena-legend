@@ -1,11 +1,7 @@
-// import 'swiper/css'
-// import 'swiper/css/navigation'
 import './timeline.scss'
 
 import React, { memo, useCallback, useEffect, useState } from 'react'
 import { format, isAfter, isBefore, isSameDay, isToday } from 'date-fns'
-// import { Swiper, SwiperSlide } from 'swiper/react'
-// import { Navigation } from 'swiper'
 
 import { apiFake } from '../../hooks/useRequestData'
 import { ILine } from '../../types'
@@ -318,43 +314,6 @@ export function TryAnother() {
     [],
   )
 
-  /* return (
-    <div className="timeline-container p-3 overflow-hidden">
-      <Swiper
-        modules={[Navigation]}
-        spaceBetween={16}
-        centeredSlides={true}
-        pagination={{
-          type: 'fraction',
-        }}
-        navigation={true}
-      >
-        {timelineData.map((day, index) => (
-          <SwiperSlide key={index}>
-            <div
-              key={index}
-              id={formatDate(day)}
-              className={dayContainerClasses(day)}
-              role="button"
-              onClick={() => handleClick(day.date)}
-            >
-              <h3 className="day--header h6 fw-bold mb-0">{formatDate(day)}</h3>
-              {displayRain(day)}
-              <div className="d-flex justify-content-center">
-                <div className="d-flex flex-column">
-                  {displayTemperatureAverage(day.temperatureAverage)}
-                  {displayRelativeHumidity(day.relativeHumidity)}
-                  {displayWindSpeed(day.windSpeed)}
-                  {displaySolarIrradiation(day.solarIrradiation)}
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
-  ) */
-
   return (
     <div className="timeline-container d-flex p-3">
       <div className="d-flex gap-3">
@@ -371,6 +330,7 @@ export function TryAnother() {
               <div className="d-flex flex-column">
                 {displayTemperatureAverage(day.temperatureAverage)}
                 {displayRelativeHumidity(day.relativeHumidity)}
+                {/* {displayAtmosphericPressure(day.atmosphericPressure)} */}
                 {displayWindSpeed(day.windSpeed)}
                 {displaySolarIrradiation(day.solarIrradiation)}
               </div>
