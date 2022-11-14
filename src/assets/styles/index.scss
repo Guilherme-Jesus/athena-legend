@@ -66,12 +66,46 @@ $font-family-sans-serif: "Roboto Condensed", Inter, Avenir, Helvetica, Arial, sa
 
 // 5. Add additional custom code here
 :root {
-  --spacer: 16px;
-  --bs-primary: #ff7f2f;
-  --bs-primary-rgb: 255, 127, 47;
-  --bs-primary-dark: #bd652f;
+  --bs-atmosphericPressure-rgb: 139, 195, 74;
+  --bs-atmosphericPressure: #8bc34a;
+  --bs-cad-rgb: 40, 167, 69;
+  --bs-cad: #28a745;
+  --bs-cc-rgb: 40, 167, 69;
+  --bs-cc: #28a745;
+  --bs-cloudCover-rgb: 206, 212, 218;
+  --bs-cloudCover: #ced4da;
+  --bs-et0-rgb: 0, 150, 136;
+  --bs-et0: #009688;
+  --bs-etc-rgb: 0, 150, 136;
+  --bs-etc: #009688;
+  --bs-gust-rgb: 156, 39, 176;
+  --bs-gust: #9c27b0;
+  --bs-humidity-rgb: 102, 204, 255;
+  --bs-humidity: #6cf;
+  --bs-pmp-rgb: 220, 53, 69;
+  --bs-pmp: #dc3545;
   --bs-primary-dark-rgb: 189, 101, 47;
+  --bs-primary-dark: #bd652f;
+  --bs-primary-rgb: 255, 127, 47;
+  --bs-primary: #ff7f2f;
+  --bs-prob-norain-rgb: 244, 67, 54;
+  --bs-prob-norain: #f44336;
+  --bs-prob-rain-rgb: 76, 175, 80;
+  --bs-prob-rain: #4caf50;
+  --bs-prob-undefined-rgb: 255, 217, 0;
+  --bs-prob-undefined: gold;
+  --bs-rain-rgb: 0, 153, 255;
+  --bs-rain: #09f;
+  --bs-solarIrradiation-rgb: 255, 193, 7;
+  --bs-solarIrradiation: #ffc107;
+  --bs-temperature-rgb: 255, 87, 34;
+  --bs-temperature: #ff5722;
+  --bs-temperatureMin-rgb: 132, 140, 168;
+  --bs-temperatureMin: #848ca8;
+  --bs-wind-rgb: 156, 39, 176;
+  --bs-wind: #9c27b0;
   --cubic-bezier: cubic-bezier(.47, 1.64, .41, .8);
+  --spacer: 16px;
 
   // -moz-osx-font-smoothing: grayscale;
   // -webkit-font-smoothing: antialiased;
@@ -98,6 +132,12 @@ body {
 
   @include noselect;
 }
+
+// @for $i from 1 through 6 {
+//   h#{$i}, .h#{$i} {
+//     font-family: $font-family-sans-serif;
+//   }
+// }
 
 a {
   color: var(--bs-primary-dark);

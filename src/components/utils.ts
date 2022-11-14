@@ -17,6 +17,24 @@ export const dataUnit = {
   windSpeed: ' km/h',
 }
 
+export const displayData = (
+  value: number | string | undefined,
+  decimals?: number,
+  unit?: string,
+): string => {
+  const formattedValue =
+    value !== undefined
+      ? Number(value)
+          .toFixed(decimals || 0)
+          .replace('.', ',')
+          .replace(',0', '')
+      : '--'
+
+  if (unit && value !== undefined) return `${formattedValue}${unit}`
+
+  return formattedValue
+}
+
 const polarToCartesian = (
   centerX: number,
   centerY: number,

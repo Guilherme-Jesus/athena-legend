@@ -1,14 +1,16 @@
 import './app.scss'
 import './components/Map/map.scss'
 
-import L from 'leaflet'
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
-
+import L from 'leaflet'
 import axios from 'axios'
-import { IHistorical, IListBlocks, IListBlocksLeaf } from './types/types'
+import Form from 'react-bootstrap/Form'
+
+import { IHistorical, IListBlocks, IListBlocksLeaf } from './types'
+import { dataUnit, displayData } from './components/utils'
 
 import Blocks from './components/Blocks'
-import { dataUnit } from './components/utils'
+import Timeline from './components/Timeline'
 
 const App: React.FC = (): React.ReactElement => {
   const [blocks, setBlocks] = useState<IListBlocks[]>([])
@@ -16,7 +18,7 @@ const App: React.FC = (): React.ReactElement => {
   const [blockLeaf, setBlockLeaf] = useState<IListBlocksLeaf[]>([])
   const [historical, setHistorical] = useState<IHistorical[]>([])
   const [currentBlockId, setCurrentBlockId] = useState<string>('C19')
-  const [initialPosition, setInitialPosition] = useState<[number, number]>([
+  const [initialPosition] = useState<[number, number]>([
     -23.5505199, -46.63330939999999,
   ])
   const [sensors, setSensors] = useState<string>('Normal')
@@ -185,47 +187,53 @@ const App: React.FC = (): React.ReactElement => {
       : '#fff5f0'
   }
 
-  const getColorHum = (hum: number): string => {
-    return hum > 100
-      ? '#4292c6'
-      : hum > 90
-      ? '#6baed6'
-      : hum > 80
-      ? '#9ecae1'
-      : hum > 70
-      ? '#c6dbef'
-      : hum > 60
-      ? '#deebf7'
-      : hum > 50
-      ? '#f7fbff'
-      : hum > 40
-      ? '#f7fbff'
-      : hum > 30
-      ? '#deebf7'
-      : hum > 20
-      ? '#c6dbef'
-      : hum > 10
-      ? '#9ecae1'
-      : hum > 0
-      ? '#6baed6'
-      : '#4292c6'
-  }
-  const selectedSensors = ['Chuva', 'Temperatura', 'Umidade', 'Normal']
+  const getColorHumidity = useCallback((relativeHumidity: number): string => {
+    let color = ''
+
+    switch (true) {
+      case relativeHumidity > 60:
+        color = '#deebf7'
+        break
+      case relativeHumidity > 70:
+        color = '#c6dbef'
+        break
+      case relativeHumidity > 80:
+        color = '#9ecae1'
+        break
+      case relativeHumidity > 90:
+        color = '#6baed6'
+        break
+      case relativeHumidity > 100:
+        color = '#4292c6'
+        break
+      default:
+        color = '#f7fbff'
+    }
+
+    return color
+  }, [])
+
+  const selectedSensors = [
+    'Normal',
+    'Chuva',
+    'Temperatura',
+    'Umidade relativa do ar',
+  ]
 
   useEffect(() => {
     const map = L.map('map', {
       center: initialPosition,
-      zoom: 5,
-      zoomControl: false,
       layers: [
         L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+          accessToken: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
+          attribution: 'Google',
           maxZoom: 20,
           minZoom: 3,
-          attribution: 'Google',
           subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-          accessToken: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
         }),
       ],
+      zoom: 5,
+      zoomControl: false,
     })
 
     const info = new L.Control()
@@ -248,37 +256,81 @@ const App: React.FC = (): React.ReactElement => {
         ).addTo(map)
 
         polygon.bindPopup(`
-          <h3 class="h5 mb-0">
-            ${item.name} <small>(${item.blockId})</small>
+          <h3 class="h6 fw-bold px-2 mb-1">
+            ${item.name}
           </h3>
-          <ul class="list-unstyled mb-0">
-            <li>
-              <b>Chuva:</b> ${item.data.rain}${dataUnit.rain}
-            </li>
-            <li>
-              <b>Temperatura:</b> ${Math.round(item.data.temperature)}${
-          dataUnit.temperature
-        }
-            </li>
-            <li>
-              <b>Umidade:</b> ${Math.round(item.data.relativeHumidity)}${
-          dataUnit.relativeHumidity
-        }
-            </li>
-            <li>
-              <b>Vento:</b> ${Math.round(item.data.windSpeed)}${
-          dataUnit.windSpeed
-        }
-            </li>
-            <li>
-              <b>Radiação solar:</b> ${item.data.solarIrradiation.toFixed(2)}${
-          dataUnit.solarRadiation
-        }
-            </li>
-          </ul>
+          <table class="table table-bordered mb-0">
+            <tbody>
+              <tr>
+                <td>
+                  <b>Chuva:</b>
+                </td>
+                <td>
+                  ${displayData(item.data.rain, 1, dataUnit.rain)}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Temperatura:</b>
+                </td>
+                <td>
+                  ${displayData(item.data.temperature, 1, dataUnit.temperature)}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Umidade do ar:</b>
+                </td>
+                <td>
+                  ${displayData(
+                    item.data.relativeHumidity,
+                    0,
+                    dataUnit.relativeHumidity,
+                  )}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Pressão atm.:</b>
+                </td>
+                <td>
+                  ${displayData(
+                    item.data.atmosphericPressure,
+                    1,
+                    dataUnit.atmosphericPressure,
+                  )}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Vento:</b>
+                </td>
+                <td>
+                  ${
+                    item.data.windSpeed >= 0.3
+                      ? displayData(item.data.windSpeed, 1, dataUnit.windSpeed)
+                      : '--'
+                  }
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Radiação solar:</b>
+                </td>
+                <td>
+                  ${displayData(
+                    item.data.solarIrradiation,
+                    0,
+                    dataUnit.solarRadiation,
+                  )}
+                </td>
+              </tr>
+            </tbody>
+          </table>
         `)
       })
     }
+
     if (sensors === 'Chuva') {
       historical?.forEach((item) => {
         L.polygon(
@@ -297,25 +349,87 @@ const App: React.FC = (): React.ReactElement => {
 
           .on('mouseover', () => {
             info.onAdd = () => {
-              const div = L.DomUtil.create('div', 'info')
+              const div = L.DomUtil.create('div', 'map-area-info')
               div.innerHTML = `
-          <h3 class="h5 mb-0">
-            ${item.name} <small>(${item.blockId})</small>
-          </h3>
-          <ul class="list-unstyled mb-0">
-            <li>  
-            <b>Chuva:</b> ${Math.round(item.data.rain)}${dataUnit.rain}
-            </li>
-            <li>
-              <b>Temperatura:</b> ${Math.round(item.data.temperature)}${
-                dataUnit.temperature
-              }
-            </li>
-            <li>
-              <b>Umidade:</b> ${Math.round(item.data.relativeHumidity)}${
-                dataUnit.relativeHumidity
-              }
-            </li>
+                <h3 class="h5 fw-bold px-2 mb-1">
+                  ${item.name}
+                </h3>
+                <table class="table table-bordered mb-0">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <b>Chuva:</b>
+                      </td>
+                      <td>
+                        ${displayData(item.data.rain, 1, dataUnit.rain)}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <b>Temperatura:</b>
+                      </td>
+                      <td>
+                        ${displayData(
+                          item.data.temperature,
+                          1,
+                          dataUnit.temperature,
+                        )}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <b>Umidade do ar:</b>
+                      </td>
+                      <td>
+                        ${displayData(
+                          item.data.relativeHumidity,
+                          0,
+                          dataUnit.relativeHumidity,
+                        )}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <b>Pressão atm.:</b>
+                      </td>
+                      <td>
+                        ${displayData(
+                          item.data.atmosphericPressure,
+                          1,
+                          dataUnit.atmosphericPressure,
+                        )}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <b>Vento:</b>
+                      </td>
+                      <td>
+                        ${
+                          item.data.windSpeed >= 0.3
+                            ? displayData(
+                                item.data.windSpeed,
+                                1,
+                                dataUnit.windSpeed,
+                              )
+                            : '--'
+                        }
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <b>Radiação solar:</b>
+                      </td>
+                      <td>
+                        ${displayData(
+                          item.data.solarIrradiation,
+                          0,
+                          dataUnit.solarRadiation,
+                        )}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
              `
               return div
             }
@@ -328,36 +442,102 @@ const App: React.FC = (): React.ReactElement => {
 
           .bindPopup(
             `
-          <h3 class="h5 mb-0">
-          ${item.name} <small>(${item.blockId})</small>
-          </h3>
-          <ul class="list-unstyled mb-0">
-            <li>  
-            <b>Chuva:</b> ${Math.round(item.data.rain)}${dataUnit.rain}
-            </li>
-            <li>
-              <b>Temperatura:</b> ${Math.round(item.data.temperature)}${
-              dataUnit.temperature
-            }
-            </li>
-            <li>
-            <b>Umidade:</b> ${Math.round(item.data.relativeHumidity)}${
-              dataUnit.relativeHumidity
-            }
-            </li>
-            `,
+            <h3 class="h6 fw-bold px-2 mb-1">
+              ${item.name}
+            </h3>
+            <table class="table table-bordered mb-0">
+              <tbody>
+                <tr>
+                  <td>
+                    <b>Chuva:</b>
+                  </td>
+                  <td>
+                    ${displayData(item.data.rain, 1, dataUnit.rain)}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Temperatura:</b>
+                  </td>
+                  <td>
+                    ${displayData(
+                      item.data.temperature,
+                      1,
+                      dataUnit.temperature,
+                    )}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Umidade do ar:</b>
+                  </td>
+                  <td>
+                    ${displayData(
+                      item.data.relativeHumidity,
+                      0,
+                      dataUnit.relativeHumidity,
+                    )}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Pressão atm.:</b>
+                  </td>
+                  <td>
+                    ${displayData(
+                      item.data.atmosphericPressure,
+                      1,
+                      dataUnit.atmosphericPressure,
+                    )}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Vento:</b>
+                  </td>
+                  <td>
+                    ${
+                      item.data.windSpeed >= 0.3
+                        ? displayData(
+                            item.data.windSpeed,
+                            1,
+                            dataUnit.windSpeed,
+                          )
+                        : '--'
+                    }
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Radiação solar:</b>
+                  </td>
+                  <td>
+                    ${displayData(
+                      item.data.solarIrradiation,
+                      0,
+                      dataUnit.solarRadiation,
+                    )}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          `,
           )
           .addTo(map)
 
         legend.onAdd = () => {
-          const div = L.DomUtil.create('div', 'info legend')
+          const div = L.DomUtil.create('div')
           const grades = [0, 5, 10, 50, 100, 200]
-          const labels = ['<strong>Chuva (mm)</strong>']
+          const labels = [
+            `<h4 class="d-block h6 fw-bold mb-0">Chuva (${dataUnit.rain.trim()})</h4>`,
+          ]
           grades.forEach((grade, index) => {
             labels.push(
-              `<i style="background:${getColorRain(grade)}"></i> ${
+              `<span class="color-container" style="background:${getColorRain(
+                grade,
+              )}"></span> ${
                 grades[index + 1]
-                  ? `${grade} - ${grades[index + 1]}`
+                  ? `${grade}&ndash;${grades[index + 1]}`
                   : `> ${grade}`
               }`,
             )
@@ -387,25 +567,87 @@ const App: React.FC = (): React.ReactElement => {
 
           .on('mouseover', () => {
             info.onAdd = () => {
-              const div = L.DomUtil.create('div', 'info')
+              const div = L.DomUtil.create('div', 'map-area-info')
               div.innerHTML = `
-        <h3 class="h5 mb-0">
-          ${item.name} <small>(${item.blockId})</small>
-        </h3>
-        <ul class="list-unstyled mb-0">
-          <li>  
-          <b>Chuva:</b> ${Math.round(item.data.rain)}${dataUnit.rain}
-          </li>
-          <li>
-            <b>Temperatura:</b> ${Math.round(item.data.temperature)}${
-                dataUnit.temperature
-              }
-          </li>
-          <li>
-            <b>Umidade:</b> ${Math.round(item.data.relativeHumidity)}${
-                dataUnit.relativeHumidity
-              }
-          </li>
+                <h3 class="h5 fw-bold px-2 mb-1">
+                  ${item.name}
+                </h3>
+                <table class="table table-bordered mb-0">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <b>Chuva:</b>
+                      </td>
+                      <td>
+                        ${displayData(item.data.rain, 1, dataUnit.rain)}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <b>Temperatura:</b>
+                      </td>
+                      <td>
+                        ${displayData(
+                          item.data.temperature,
+                          1,
+                          dataUnit.temperature,
+                        )}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <b>Umidade do ar:</b>
+                      </td>
+                      <td>
+                        ${displayData(
+                          item.data.relativeHumidity,
+                          0,
+                          dataUnit.relativeHumidity,
+                        )}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <b>Pressão atm.:</b>
+                      </td>
+                      <td>
+                        ${displayData(
+                          item.data.atmosphericPressure,
+                          1,
+                          dataUnit.atmosphericPressure,
+                        )}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <b>Vento:</b>
+                      </td>
+                      <td>
+                        ${
+                          item.data.windSpeed >= 0.3
+                            ? displayData(
+                                item.data.windSpeed,
+                                1,
+                                dataUnit.windSpeed,
+                              )
+                            : '--'
+                        }
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <b>Radiação solar:</b>
+                      </td>
+                      <td>
+                        ${displayData(
+                          item.data.solarIrradiation,
+                          0,
+                          dataUnit.solarRadiation,
+                        )}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
            `
               return div
             }
@@ -418,23 +660,85 @@ const App: React.FC = (): React.ReactElement => {
 
           .bindPopup(
             `
-        <h3 class="h5 mb-0">
-        ${item.name} <small>(${item.blockId})</small>
-        </h3>
-        <ul class="list-unstyled mb-0">
-          <li>  
-          <b>Chuva:</b> ${Math.round(item.data.rain)}${dataUnit.rain}
-          </li>
-          <li>
-            <b>Temperatura:</b> ${Math.round(item.data.temperature)}${
-              dataUnit.temperature
-            }
-          </li>
-          <li>
-          <b>Umidade:</b> ${Math.round(item.data.relativeHumidity)}${
-              dataUnit.relativeHumidity
-            }
-          </li>
+            <h3 class="h6 fw-bold px-2 mb-1">
+              ${item.name}
+            </h3>
+            <table class="table table-bordered mb-0">
+              <tbody>
+                <tr>
+                  <td>
+                    <b>Chuva:</b>
+                  </td>
+                  <td>
+                    ${displayData(item.data.rain, 1, dataUnit.rain)}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Temperatura:</b>
+                  </td>
+                  <td>
+                    ${displayData(
+                      item.data.temperature,
+                      1,
+                      dataUnit.temperature,
+                    )}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Umidade do ar:</b>
+                  </td>
+                  <td>
+                    ${displayData(
+                      item.data.relativeHumidity,
+                      0,
+                      dataUnit.relativeHumidity,
+                    )}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Pressão atm.:</b>
+                  </td>
+                  <td>
+                    ${displayData(
+                      item.data.atmosphericPressure,
+                      1,
+                      dataUnit.atmosphericPressure,
+                    )}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Vento:</b>
+                  </td>
+                  <td>
+                    ${
+                      item.data.windSpeed >= 0.3
+                        ? displayData(
+                            item.data.windSpeed,
+                            1,
+                            dataUnit.windSpeed,
+                          )
+                        : '--'
+                    }
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Radiação solar:</b>
+                  </td>
+                  <td>
+                    ${displayData(
+                      item.data.solarIrradiation,
+                      0,
+                      dataUnit.solarRadiation,
+                    )}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           `,
           )
           .addTo(map)
@@ -442,12 +746,16 @@ const App: React.FC = (): React.ReactElement => {
         legend.onAdd = () => {
           const div = L.DomUtil.create('div', 'info legend')
           const grades = [5, 10, 20, 30, 40]
-          const labels = ['<strong>Temperatura ºC </strong>']
+          const labels = [
+            `<span class="d-block h6 fw-bold mb-0">Temperatura (${dataUnit.temperature.trim()})</span>`,
+          ]
           grades.forEach((grade, index) => {
             labels.push(
-              `<i style="background:${getColorTemp(grade)}"></i> ${
+              `<span class="color-container" style="background:${getColorTemp(
+                grade,
+              )}"></span> ${
                 grades[index + 1]
-                  ? `${grade} - ${grades[index + 1]}`
+                  ? `${grade}&ndash;${grades[index + 1]}`
                   : `> ${grade}`
               }`,
             )
@@ -466,7 +774,7 @@ const App: React.FC = (): React.ReactElement => {
           {
             color: '#ff7f2f',
             dashArray: '3',
-            fillColor: getColorHum(item.data.relativeHumidity),
+            fillColor: getColorHumidity(item.data.relativeHumidity),
             fillOpacity: 0.5,
             opacity: 0.8,
             weight: 4,
@@ -477,25 +785,87 @@ const App: React.FC = (): React.ReactElement => {
 
           .on('mouseover', () => {
             info.onAdd = () => {
-              const div = L.DomUtil.create('div', 'info')
+              const div = L.DomUtil.create('div', 'map-area-info')
               div.innerHTML = `
-        <h3 class="h5 mb-0">
-          ${item.name} <small>(${item.blockId})</small>
-        </h3>
-        <ul class="list-unstyled mb-0">
-          <li>  
-          <b>Chuva:</b> ${Math.round(item.data.rain)}${dataUnit.rain}
-          </li>
-          <li>
-            <b>Temperatura:</b> ${Math.round(item.data.temperature)}${
-                dataUnit.temperature
-              }
-          </li>
-          <li>
-            <b>Umidade:</b> ${Math.round(item.data.relativeHumidity)}${
-                dataUnit.relativeHumidity
-              }
-          </li>
+                <h3 class="h5 fw-bold px-2 mb-1">
+                  ${item.name}
+                </h3>
+                <table class="table table-bordered mb-0">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <b>Chuva:</b>
+                      </td>
+                      <td>
+                        ${displayData(item.data.rain, 1, dataUnit.rain)}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <b>Temperatura:</b>
+                      </td>
+                      <td>
+                        ${displayData(
+                          item.data.temperature,
+                          1,
+                          dataUnit.temperature,
+                        )}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <b>Umidade do ar:</b>
+                      </td>
+                      <td>
+                        ${displayData(
+                          item.data.relativeHumidity,
+                          0,
+                          dataUnit.relativeHumidity,
+                        )}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <b>Pressão atm.:</b>
+                      </td>
+                      <td>
+                        ${displayData(
+                          item.data.atmosphericPressure,
+                          1,
+                          dataUnit.atmosphericPressure,
+                        )}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <b>Vento:</b>
+                      </td>
+                      <td>
+                        ${
+                          item.data.windSpeed >= 0.3
+                            ? displayData(
+                                item.data.windSpeed,
+                                1,
+                                dataUnit.windSpeed,
+                              )
+                            : '--'
+                        }
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <b>Radiação solar:</b>
+                      </td>
+                      <td>
+                        ${displayData(
+                          item.data.solarIrradiation,
+                          0,
+                          dataUnit.solarRadiation,
+                        )}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
            `
               return div
             }
@@ -508,23 +878,85 @@ const App: React.FC = (): React.ReactElement => {
 
           .bindPopup(
             `
-        <h3 class="h5 mb-0">
-        ${item.name} <small>(${item.blockId})</small>
-        </h3>
-        <ul class="list-unstyled mb-0">
-          <li>  
-          <b>Chuva:</b> ${Math.round(item.data.rain)}${dataUnit.rain}
-          </li>
-          <li>
-            <b>Temperatura:</b> ${Math.round(item.data.temperature)}${
-              dataUnit.temperature
-            }
-          </li>
-          <li>
-          <b>Umidade:</b> ${Math.round(item.data.relativeHumidity)}${
-              dataUnit.relativeHumidity
-            }
-          </li>
+            <h3 class="h6 fw-bold px-2 mb-1">
+              ${item.name}
+            </h3>
+            <table class="table table-bordered mb-0">
+              <tbody>
+                <tr>
+                  <td>
+                    <b>Chuva:</b>
+                  </td>
+                  <td>
+                    ${displayData(item.data.rain, 1, dataUnit.rain)}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Temperatura:</b>
+                  </td>
+                  <td>
+                    ${displayData(
+                      item.data.temperature,
+                      1,
+                      dataUnit.temperature,
+                    )}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Umidade do ar:</b>
+                  </td>
+                  <td>
+                    ${displayData(
+                      item.data.relativeHumidity,
+                      0,
+                      dataUnit.relativeHumidity,
+                    )}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Pressão atm.:</b>
+                  </td>
+                  <td>
+                    ${displayData(
+                      item.data.atmosphericPressure,
+                      1,
+                      dataUnit.atmosphericPressure,
+                    )}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Vento:</b>
+                  </td>
+                  <td>
+                    ${
+                      item.data.windSpeed >= 0.3
+                        ? displayData(
+                            item.data.windSpeed,
+                            1,
+                            dataUnit.windSpeed,
+                          )
+                        : '--'
+                    }
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Radiação solar:</b>
+                  </td>
+                  <td>
+                    ${displayData(
+                      item.data.solarIrradiation,
+                      0,
+                      dataUnit.solarRadiation,
+                    )}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           `,
           )
           .addTo(map)
@@ -532,12 +964,16 @@ const App: React.FC = (): React.ReactElement => {
         legend.onAdd = () => {
           const div = L.DomUtil.create('div', 'info legend')
           const grades = [20, 40, 60, 80, 100]
-          const labels = ['<strong> Umidade % </strong>']
+          const labels = [
+            `<span class="d-block h6 fw-bold mb-0">Umidade (${dataUnit.relativeHumidity.trim()})</span>`,
+          ]
           grades.forEach((grade, index) => {
             labels.push(
-              `<i style="background:${getColorHum(grade)}"></i> ${
+              `<span class="color-container" style="background:${getColorHumidity(
+                grade,
+              )}"></span> ${
                 grades[index + 1]
-                  ? `${grade} - ${grades[index + 1]}`
+                  ? `${grade}&ndash;${grades[index + 1]}`
                   : `> ${grade}`
               }`,
             )
@@ -554,13 +990,20 @@ const App: React.FC = (): React.ReactElement => {
     return () => {
       map.remove()
     }
-  }, [blockLeaf, center, historical, initialPosition, sensors])
+  }, [
+    blockLeaf,
+    center,
+    getColorHumidity,
+    historical,
+    initialPosition,
+    sensors,
+  ])
 
   return (
     <div className="App">
-      <header>HEADER</header>
+      <header className="p-3">HEADER</header>
 
-      <nav className="nav">
+      <nav className="nav p-3">
         <a href="#">link 1</a>
         <a href="#">link 2</a>
         <a href="#">link 3</a>
@@ -572,23 +1015,22 @@ const App: React.FC = (): React.ReactElement => {
         handleBlockClick={handleBlockClick}
       />
 
-      <div className="timeline-container">TIMELINE</div>
+      <Timeline />
 
-      <div id="map" className="map-container h-100 w-100">
-        <div>
-          <select
-            className="form-select"
-            onChange={(e) => {
-              setSensors(e.target.value)
-            }}
-          >
-            {selectedSensors.map((item) => (
-              <option key={item} value={item}>
-                {item}
-              </option>
-            ))}
-          </select>
-        </div>
+      <div className="map-container">
+        <Form.Select
+          className="heat-map-selector shadow position-absolute"
+          onChange={(e) => {
+            setSensors(e.target.value)
+          }}
+        >
+          {selectedSensors.map((item) => (
+            <option key={item} value={item} selected={item === 'Normal'}>
+              {item}
+            </option>
+          ))}
+        </Form.Select>
+        <div id="map" className="h-100 w-100" />
       </div>
     </div>
   )

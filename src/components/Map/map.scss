@@ -1,1 +1,39 @@
 @import url("https://unpkg.com/leaflet@1.8.0/dist/leaflet.css");
+
+.form-select {
+  cursor: pointer;
+  &.heat-map-selector {
+    left: var(--spacer);
+    top: var(--spacer);
+    width: max-content;
+    z-index: 1000;
+  }
+}
+
+.map-area-info,
+.leaflet-control {
+  background-color: var(--bs-white);
+  border-radius: calc(var(--spacer) / 4);
+  box-shadow: 0 0.5rem 1rem rgba(var(--bs-black-rgb), 0.15);
+  color: var(--bs-dark);
+  font-family: var(--bs-font-sans-serif);
+  padding: calc(var(--spacer) / 2);
+}
+
+.map-area-info {
+  table {
+    font-size: 0.9rem;
+  }
+}
+
+.leaflet-control {
+  font-size: 0.75rem;
+  .color-container {
+    float: left;
+    height: var(--spacer);
+    line-height: 24px;
+    margin-right: calc(var(--spacer) / 2);
+    opacity: 0.7;
+    width: calc(var(--spacer) * 2);
+  }
+}
