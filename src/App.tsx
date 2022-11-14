@@ -93,25 +93,21 @@ const App: React.FC = (): React.ReactElement => {
     (blockId: string) => {
       let arrayS: string = ''
       let breaker: boolean = false
-      blockAux
-        .filter((item) => item.blockId === blockId)
-        .forEach((item) => {
+      blockAux.forEach((item) => {
+        if (item.blockId === blockId) {
           if (item.leafParent) {
             arrayS = item.blockId
             return arrayS
           }
-        })
-      blockAux
-        .filter((item) => item.blockParent === blockId)
-        .forEach((items) => {
+        } else if (item.blockParent === blockId) {
           if (breaker === false) {
-            if (!items.leafParent) {
-              getLeaf(items.blockId)
-            } else arrayS = items.blockId
+            if (!item.leafParent) {
+              getLeaf(item.blockId)
+            } else arrayS = item.blockId
             breaker = true
           }
-        })
-
+        }
+      })
       return arrayS
     },
     [blockAux],
