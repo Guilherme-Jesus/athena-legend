@@ -2,7 +2,7 @@
 
 .map-container {
   background-color: #eee;
-  border-radius: calc(var(--spacer) / 4) 0 0 calc(var(--spacer) / 4);
+  border-radius: calc(var(--spacer) / 2) 0 0 calc(var(--spacer) / 2);
   grid-area: main;
   overflow: hidden;
   position: relative;
@@ -16,7 +16,7 @@
   }
   .form-select {
     cursor: pointer;
-    &.heat-map-selector {
+    &.position-absolute {
       left: var(--spacer);
       top: var(--spacer);
       width: max-content;
@@ -40,10 +40,7 @@
   .leaflet-control {
     font-size: 0.75rem;
     .color-container {
-      float: left;
       height: var(--spacer);
-      line-height: 24px;
-      margin-right: calc(var(--spacer) / 2);
       // opacity: 0.7;
       width: calc(var(--spacer) * 2);
     }
