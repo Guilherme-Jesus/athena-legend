@@ -1,12 +1,12 @@
 import './map.scss'
 
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import * as L from 'leaflet'
-import { dataUnit, displayData } from '../utils'
-import axios from 'axios'
-import { IListBlocks, IListBlocksLeaf } from '../../types'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
+import useRequestData from '../../hooks/useRequestData'
+import { IListBlocks, IListBlocksLeaf } from '../../types'
+import { dataUnit, displayData } from '../utils'
 
 const Map = ({
   currentBlockId,
@@ -15,16 +15,13 @@ const Map = ({
   currentBlockId: string
   blockLeaves: IListBlocksLeaf[]
 }): React.ReactElement => {
-  const [initialPosition] = useState<L.LatLngExpression>([
-    -23.5505199, -46.63330939999999,
-  ])
+  const [initialPosition] = useState<L.LatLngExpression>([-15.77972, -47.92972])
   const [layerView, setLayerView] = useState<string>('Normal')
 
-  const [blocksAux, setBlocksAux] = useState<IListBlocks[]>([])
+  const { data: blocksAux } = useRequestData<IListBlocks[]>('/blocks')
 
-  const [blockLeavesHistorical, setBlockLeavesHistorical] = useState<
-    IListBlocksLeaf[]
-  >([])
+  const { data: blockLeavesHistorical } =
+    useRequestData<IListBlocksLeaf[]>('/historical')
 
   const layerViews = [
     'Normal',
@@ -37,39 +34,28 @@ const Map = ({
   const temperatureGrades = [5, 10, 20, 30, 40]
   const relativeHumidityGrades = [20, 40, 60, 80, 100]
 
-  useEffect(() => {
-    if (blocksAux.length === 0)
-      fetch('http://localhost:7010/blocks', {
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-      }).then((response) => {
-        response.json().then((res) => {
-          setBlocksAux(res)
-        })
+  const reversedCoords = (coords: number[]) => {
+    if (coords.length > 4) {
+      return coords.map((coord: any) => {
+        return {
+          lat: coord[1],
+          lng: coord[0],
+        }
       })
-  }, [blocksAux])
+    } else {
+      return {
+        lat: coords[1],
+        lng: coords[0],
+      }
+    }
+  }
 
-  useEffect(() => {
-    axios
-      .get(`http://localhost:7010/historical`)
-      .then((response) => {
-        setBlockLeavesHistorical(
-          response.data.filter(
-            (blockLeavesHistorical: IListBlocksLeaf) =>
-              blockLeavesHistorical.bounds.length > 4,
-          ),
-        )
-      })
-      .catch((error) => console.log(error))
-  }, [])
   const getLeafId = useCallback(
     (blockId: string) => {
       let leafId = ''
       let breaker = false
 
-      blocksAux.forEach((item) => {
+      blocksAux?.forEach((item) => {
         if (item.blockId === blockId) {
           if (item.leafParent) {
             leafId = item.blockId
@@ -325,7 +311,6 @@ const Map = ({
 
   useEffect(() => {
     const map = L.map('map', {
-      center: initialPosition,
       layers: [
         L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
           accessToken: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
@@ -335,7 +320,6 @@ const Map = ({
           subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
         }),
       ],
-      zoom: 5,
       zoomControl: false,
     })
 
@@ -347,30 +331,24 @@ const Map = ({
 
     if (layerView === 'Normal')
       blockLeaves.forEach((item) =>
-        L.polygon(
-          item.bounds.map((itemBound: any) => [itemBound[1], itemBound[0]]),
-          {
-            color: 'var(--bs-primary)',
-            fillColor: 'var(--bs-primary)',
-            fillOpacity: 0.2,
-            weight: 2,
-          },
-        )
+        L.polygon(reversedCoords(item.bounds) as L.LatLngExpression[], {
+          color: 'var(--bs-primary)',
+          fillColor: 'var(--bs-primary)',
+          fillOpacity: 0.2,
+          weight: 2,
+        })
           .addTo(map)
           .bindPopup(getInfoWindowTemplate(item)),
       )
 
     if (layerView === 'Chuva')
       blockLeavesHistorical?.forEach((item) => {
-        L.polygon(
-          item.bounds.map((itemBound: any) => [itemBound[1], itemBound[0]]),
-          {
-            color: 'var(--bs-white)',
-            fillColor: getRainGradeColor(item.data.rain),
-            fillOpacity: 1,
-            weight: 2,
-          },
-        )
+        L.polygon(reversedCoords(item.bounds) as L.LatLngExpression[], {
+          color: 'var(--bs-white)',
+          fillColor: getRainGradeColor(item.data.rain),
+          fillOpacity: 1,
+          weight: 2,
+        })
           // É possivel escolher entre o bindPopup ou mouseover/mouseout
           /* .on('mouseover', () => {
             info.onAdd = () => {
@@ -399,15 +377,12 @@ const Map = ({
 
     if (layerView === 'Temperatura')
       blockLeavesHistorical?.forEach((item) => {
-        L.polygon(
-          item.bounds.map((itemBound: any) => [itemBound[1], itemBound[0]]),
-          {
-            color: 'var(--bs-white)',
-            fillColor: getTemperatureGradeColor(item.data.temperature),
-            fillOpacity: 1,
-            weight: 2,
-          },
-        )
+        L.polygon(reversedCoords(item.bounds) as L.LatLngExpression[], {
+          color: 'var(--bs-white)',
+          fillColor: getTemperatureGradeColor(item.data.temperature),
+          fillOpacity: 1,
+          weight: 2,
+        })
           // É possivel escolher entre o bindPopup ou mouseover/mouseout
           /* .on('mouseover', () => {
             info.onAdd = () => {
@@ -440,17 +415,12 @@ const Map = ({
 
     if (layerView === 'Umidade relativa do ar')
       blockLeavesHistorical?.forEach((item) => {
-        L.polygon(
-          item.bounds.map((itemBound: any) => [itemBound[1], itemBound[0]]),
-          {
-            color: 'var(--bs-white)',
-            fillColor: getRelativeHumidityGradeColor(
-              item.data.relativeHumidity,
-            ),
-            fillOpacity: 1,
-            weight: 2,
-          },
-        )
+        L.polygon(reversedCoords(item.bounds) as L.LatLngExpression[], {
+          color: 'var(--bs-white)',
+          fillColor: getRelativeHumidityGradeColor(item.data.relativeHumidity),
+          fillOpacity: 1,
+          weight: 2,
+        })
           // É possivel escolher entre o bindPopup ou mouseover/mouseout
           /* .on('mouseover', () => {
             info.onAdd = () => {

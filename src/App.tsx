@@ -41,11 +41,7 @@ const App: React.FC = (): React.ReactElement => {
     axios
       .get(`http://localhost:7010/blockLeaf`)
       .then((response) => {
-        setBlockLeaves(
-          response.data.filter(
-            (blockLeaves: IListBlocksLeaf) => blockLeaves.bounds.length > 4,
-          ),
-        )
+        setBlockLeaves(response.data)
       })
       .catch((error) => console.log(error))
   }, [])
