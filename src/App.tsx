@@ -390,7 +390,7 @@ const App: React.FC = (): React.ReactElement => {
       zoomControl: false,
     })
 
-    const info = new L.Control()
+    // const info = new L.Control()
 
     const legend = new L.Control({
       position: 'bottomright',
@@ -422,8 +422,8 @@ const App: React.FC = (): React.ReactElement => {
             weight: 2,
           },
         )
-          // É possivel escolher entre o bindPopup e ou mouseover/mouseout
-          .on('mouseover', () => {
+          // É possivel escolher entre o bindPopup ou mouseover/mouseout
+          /* .on('mouseover', () => {
             info.onAdd = () => {
               const div = L.DomUtil.create('div', 'map-area-info')
               div.innerHTML = getInfoWindowTemplate(item)
@@ -434,7 +434,7 @@ const App: React.FC = (): React.ReactElement => {
           })
           .on('mouseout', () => {
             info.remove()
-          })
+          }) */
           .bindPopup(getInfoWindowTemplate(item))
           .addTo(map)
 
@@ -459,8 +459,8 @@ const App: React.FC = (): React.ReactElement => {
             weight: 2,
           },
         )
-          // É possivel escolher entre o bindPopup e ou mouseover/mouseout
-          .on('mouseover', () => {
+          // É possivel escolher entre o bindPopup ou mouseover/mouseout
+          /* .on('mouseover', () => {
             info.onAdd = () => {
               const div = L.DomUtil.create('div', 'map-area-info')
               div.innerHTML = getInfoWindowTemplate(item)
@@ -471,7 +471,7 @@ const App: React.FC = (): React.ReactElement => {
           })
           .on('mouseout', () => {
             info.remove()
-          })
+          }) */
           .bindPopup(getInfoWindowTemplate(item))
           .addTo(map)
 
@@ -502,8 +502,8 @@ const App: React.FC = (): React.ReactElement => {
             weight: 2,
           },
         )
-          // É possivel escolher entre o bindPopup e ou mouseover/mouseout
-          .on('mouseover', () => {
+          // É possivel escolher entre o bindPopup ou mouseover/mouseout
+          /* .on('mouseover', () => {
             info.onAdd = () => {
               const div = L.DomUtil.create('div', 'map-area-info')
               div.innerHTML = getInfoWindowTemplate(item)
@@ -514,7 +514,7 @@ const App: React.FC = (): React.ReactElement => {
           })
           .on('mouseout', () => {
             info.remove()
-          })
+          }) */
           .bindPopup(getInfoWindowTemplate(item))
           .addTo(map)
 

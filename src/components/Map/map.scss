@@ -23,22 +23,13 @@
       z-index: 1000;
     }
   }
-  .map-area-info,
   .leaflet-control {
     background-color: var(--bs-white);
     border-radius: calc(var(--spacer) / 4);
     box-shadow: 0 0.5rem 1rem rgba(var(--bs-black-rgb), 0.15);
     color: var(--bs-dark);
-    font-family: var(--bs-font-sans-serif);
+    font: 0.75rem var(--bs-font-sans-serif);
     padding: calc(var(--spacer) / 2);
-  }
-  .map-area-info {
-    table {
-      font-size: 0.9rem;
-    }
-  }
-  .leaflet-control {
-    font-size: 0.75rem;
     .color-container {
       height: var(--spacer);
       // opacity: 0.7;
