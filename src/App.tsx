@@ -14,15 +14,27 @@ import Blocks from './components/Blocks'
 import Timeline from './components/Timeline'
 
 const App: React.FC = (): React.ReactElement => {
-  const [blocks, setBlocks] = useState<IListBlocks[]>([])
-  const [blockAux, setBlockAux] = useState<IListBlocks[]>([])
-  const [blockLeaf, setBlockLeaf] = useState<IListBlocksLeaf[]>([])
-  const [historical, setHistorical] = useState<IListBlocksLeaf[]>([])
   const [currentBlockId, setCurrentBlockId] = useState<string>('C19')
-  const [initialPosition] = useState<[number, number]>([
-    -23.5505199, -46.63330939999999,
-  ])
+  const [blocks, setBlocks] = useState<IListBlocks[]>([])
+  const [blocksAux, setBlocksAux] = useState<IListBlocks[]>([])
+  const [blockLeaves, setBlockLeaves] = useState<IListBlocksLeaf[]>([])
+  const [blockLeavesHistorical, setBlockLeavesHistorical] = useState<
+    IListBlocksLeaf[]
+  >([])
   const [layerView, setLayerView] = useState<string>('Normal')
+
+  const initialPosition: L.LatLngExpression = [-23.5505199, -46.63330939999999]
+
+  const layerViews = [
+    'Normal',
+    'Chuva',
+    'Temperatura',
+    'Umidade relativa do ar',
+  ]
+
+  const rainGrades = [0, 5, 10, 50, 100, 200]
+  const temperatureGrades = [5, 10, 20, 30, 40]
+  const relativeHumidityGrades = [20, 40, 60, 80, 100]
 
   useEffect(() => {
     if (blocks.length === 0) {
@@ -47,37 +59,7 @@ const App: React.FC = (): React.ReactElement => {
   }, [blocks])
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:7010/historical`)
-      .then((response) => {
-        setHistorical(
-          response.data.filter(
-            (historical: IListBlocksLeaf) => historical.bounds.length > 4,
-          ),
-        )
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-  }, [])
-
-  useEffect(() => {
-    axios
-      .get(`http://localhost:7010/blockLeaf`)
-      .then((response) => {
-        setBlockLeaf(
-          response.data.filter(
-            (blockLeaf: IListBlocksLeaf) => blockLeaf.bounds.length > 4,
-          ),
-        )
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-  }, [])
-
-  useEffect(() => {
-    if (blockAux.length === 0) {
+    if (blocksAux.length === 0)
       fetch('http://localhost:7010/blocks', {
         headers: {
           'Content-Type': 'application/json',
@@ -85,35 +67,63 @@ const App: React.FC = (): React.ReactElement => {
         },
       }).then((response) => {
         response.json().then((res) => {
-          setBlockAux(res)
+          setBlocksAux(res)
         })
       })
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [blockAux])
+  }, [blocksAux])
 
-  const getLeaf = useCallback(
+  useEffect(() => {
+    axios
+      .get(`http://localhost:7010/blockLeaf`)
+      .then((response) => {
+        setBlockLeaves(
+          response.data.filter(
+            (blockLeaves: IListBlocksLeaf) => blockLeaves.bounds.length > 4,
+          ),
+        )
+      })
+      .catch((error) => console.log(error))
+  }, [])
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:7010/historical`)
+      .then((response) => {
+        setBlockLeavesHistorical(
+          response.data.filter(
+            (blockLeavesHistorical: IListBlocksLeaf) =>
+              blockLeavesHistorical.bounds.length > 4,
+          ),
+        )
+      })
+      .catch((error) => console.log(error))
+  }, [])
+
+  const getLeafId = useCallback(
     (blockId: string) => {
-      let arrayS: string = ''
-      let breaker: boolean = false
-      blockAux.forEach((item) => {
+      let leafId = ''
+      let breaker = false
+
+      blocksAux.forEach((item) => {
         if (item.blockId === blockId) {
           if (item.leafParent) {
-            arrayS = item.blockId
-            return arrayS
+            leafId = item.blockId
+
+            return leafId
           }
         } else if (item.blockParent === blockId) {
-          if (breaker === false) {
+          if (!breaker) {
             if (!item.leafParent) {
-              getLeaf(item.blockId)
-            } else arrayS = item.blockId
+              getLeafId(item.blockId)
+            } else leafId = item.blockId
             breaker = true
           }
         }
       })
-      return arrayS
+
+      return leafId
     },
-    [blockAux],
+    [blocksAux],
   )
 
   const handleBlockClick = useCallback(
@@ -123,46 +133,33 @@ const App: React.FC = (): React.ReactElement => {
       } else if (!leaf) {
         setBlocks(blocks.filter((item) => item.blockParent === id))
       } else if (leaf) {
-        setBlockLeaf(blockLeaf.filter((item) => item.blockParent === id))
+        setBlockLeaves(blockLeaves.filter((item) => item.blockParent === id))
       }
     },
-    [blockLeaf, blocks, currentBlockId],
+    [blockLeaves, blocks, currentBlockId],
   )
 
   const getCentroid = useMemo(() => {
     const array: number[] = []
-    const leafStr = getLeaf(currentBlockId)
-    blockLeaf.forEach((item, index) => {
-      if (leafStr === '') {
-        if (index === 0) {
-          array.push(...item.centroid)
-        }
+    const leafId = getLeafId(currentBlockId)
+
+    blockLeaves.forEach((item, index) => {
+      if (leafId === '') {
+        if (index === 0) array.push(...item.centroid)
       } else {
-        if (item.blockParent === leafStr) {
-          array.push(...item.centroid)
-        }
+        if (item.blockParent === leafId) array.push(...item.centroid)
       }
     })
-    return array
-  }, [blockLeaf, currentBlockId, getLeaf])
 
-  const center = useMemo(() => {
+    return array
+  }, [blockLeaves, currentBlockId, getLeafId])
+
+  const mapCenter = useMemo(() => {
     return {
       lat: getCentroid[1],
       lng: getCentroid[0],
     }
   }, [getCentroid])
-
-  const selectedSensors = [
-    'Normal',
-    'Chuva',
-    'Temperatura',
-    'Umidade relativa do ar',
-  ]
-
-  const rainGrades = [0, 5, 10, 50, 100, 200]
-  const temperatureGrades = [5, 10, 20, 30, 40]
-  const relativeHumidityGrades = [20, 40, 60, 80, 100]
 
   const getRainGradeColor = useCallback((rain: number): string => {
     let color = ''
@@ -398,7 +395,7 @@ const App: React.FC = (): React.ReactElement => {
     })
 
     if (layerView === 'Normal')
-      blockLeaf.forEach((item) =>
+      blockLeaves.forEach((item) =>
         L.polygon(
           item.bounds.map((itemBound: any) => [itemBound[1], itemBound[0]]),
           {
@@ -413,7 +410,7 @@ const App: React.FC = (): React.ReactElement => {
       )
 
     if (layerView === 'Chuva')
-      historical?.forEach((item) => {
+      blockLeavesHistorical?.forEach((item) => {
         L.polygon(
           item.bounds.map((itemBound: any) => [itemBound[1], itemBound[0]]),
           {
@@ -450,7 +447,7 @@ const App: React.FC = (): React.ReactElement => {
       })
 
     if (layerView === 'Temperatura')
-      historical?.forEach((item) => {
+      blockLeavesHistorical?.forEach((item) => {
         L.polygon(
           item.bounds.map((itemBound: any) => [itemBound[1], itemBound[0]]),
           {
@@ -491,7 +488,7 @@ const App: React.FC = (): React.ReactElement => {
       })
 
     if (layerView === 'Umidade')
-      historical?.forEach((item) => {
+      blockLeavesHistorical?.forEach((item) => {
         L.polygon(
           item.bounds.map((itemBound: any) => [itemBound[1], itemBound[0]]),
           {
@@ -533,13 +530,13 @@ const App: React.FC = (): React.ReactElement => {
         legend.addTo(map)
       })
 
-    map.setView(center.lat === undefined ? initialPosition : center, 13)
+    map.setView(mapCenter.lat === undefined ? initialPosition : mapCenter, 13)
 
     return () => {
       map.remove()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [blockLeaf, center, historical, initialPosition, layerView])
+  }, [blockLeaves, blockLeavesHistorical, layerView, mapCenter])
 
   return (
     <div className="App">
@@ -566,7 +563,7 @@ const App: React.FC = (): React.ReactElement => {
           size="sm"
           className="map-layers-selector shadow position-absolute"
         >
-          {selectedSensors.map((item) => (
+          {layerViews.map((item) => (
             <Dropdown.Item
               as="button"
               key={item}
