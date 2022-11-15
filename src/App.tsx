@@ -6,7 +6,7 @@ import L from 'leaflet'
 import axios from 'axios'
 import Form from 'react-bootstrap/Form'
 
-import { IHistorical, IListBlocks, IListBlocksLeaf } from './types'
+import { IListBlocks, IListBlocksLeaf } from './types'
 import { dataUnit, displayData } from './components/utils'
 
 import Blocks from './components/Blocks'
@@ -16,7 +16,7 @@ const App: React.FC = (): React.ReactElement => {
   const [blocks, setBlocks] = useState<IListBlocks[]>([])
   const [blockAux, setBlockAux] = useState<IListBlocks[]>([])
   const [blockLeaf, setBlockLeaf] = useState<IListBlocksLeaf[]>([])
-  const [historical, setHistorical] = useState<IHistorical[]>([])
+  const [historical, setHistorical] = useState<IListBlocksLeaf[]>([])
   const [currentBlockId, setCurrentBlockId] = useState<string>('C19')
   const [initialPosition] = useState<[number, number]>([
     -23.5505199, -46.63330939999999,
@@ -51,7 +51,7 @@ const App: React.FC = (): React.ReactElement => {
       .then((response) => {
         setHistorical(
           response.data.filter(
-            (historical: IHistorical) => historical.bounds.length > 4,
+            (historical: IListBlocksLeaf) => historical.bounds.length > 4,
           ),
         )
       })
