@@ -24,18 +24,19 @@ export function TryAnother() {
   )
 
   const dayContainerClasses = useCallback((item: ILine): string => {
-    let classes = 'day-container'
-
-    if (isToday(new Date(item.date))) classes += ' day-today'
-    if (
+    let classes = 'day-container rounded-1 d-flex flex-column p-2'
+    const checkIsToday: boolean = isToday(new Date(item.date))
+    const checkIsPast: boolean =
       isBefore(new Date(item.date), new Date()) &&
       !isSameDay(new Date(item.date), new Date())
-    )
-      classes += ' day-before'
-    if (isAfter(new Date(item.date), new Date())) classes += ' day-after'
+    const checkIsFuture: boolean = isAfter(new Date(item.date), new Date())
+
+    if (checkIsToday) classes += ' day-today'
+    if (checkIsPast) classes += ' day-before'
+    if (checkIsFuture) classes += ' day-after'
     if (item.alerts) classes += ' has-alerts'
 
-    return (classes += ' rounded-1 d-flex flex-column p-2')
+    return classes
   }, [])
 
   const formatDate = useCallback(
