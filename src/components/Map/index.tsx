@@ -438,7 +438,7 @@ const Map = ({
         legend.addTo(map)
       })
 
-    if (layerView === 'Umidade')
+    if (layerView === 'Umidade relativa do ar')
       blockLeavesHistorical?.forEach((item) => {
         L.polygon(
           item.bounds.map((itemBound: any) => [itemBound[1], itemBound[0]]),
