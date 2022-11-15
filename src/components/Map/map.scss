@@ -14,14 +14,10 @@
     position: absolute;
     z-index: 400;
   }
-  .form-select {
-    cursor: pointer;
-    &.position-absolute {
-      left: var(--spacer);
-      top: var(--spacer);
-      width: max-content;
-      z-index: 1000;
-    }
+  .map-layers-selector {
+    left: var(--spacer);
+    top: var(--spacer);
+    z-index: 401;
   }
   .leaflet-control {
     background-color: var(--bs-white);

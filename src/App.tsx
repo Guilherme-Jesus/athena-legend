@@ -4,7 +4,8 @@ import './components/Map/map.scss'
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import L from 'leaflet'
 import axios from 'axios'
-import Form from 'react-bootstrap/Form'
+import Dropdown from 'react-bootstrap/Dropdown'
+import DropdownButton from 'react-bootstrap/DropdownButton'
 
 import { IListBlocks, IListBlocksLeaf } from './types'
 import { dataUnit, displayData } from './components/utils'
@@ -21,7 +22,7 @@ const App: React.FC = (): React.ReactElement => {
   const [initialPosition] = useState<[number, number]>([
     -23.5505199, -46.63330939999999,
   ])
-  const [sensors, setSensors] = useState<string>('Normal')
+  const [layerView, setLayerView] = useState<string>('Normal')
 
   useEffect(() => {
     if (blocks.length === 0) {
@@ -396,7 +397,7 @@ const App: React.FC = (): React.ReactElement => {
       position: 'bottomright',
     })
 
-    if (sensors === 'Normal')
+    if (layerView === 'Normal')
       blockLeaf.forEach((item) =>
         L.polygon(
           item.bounds.map((itemBound: any) => [itemBound[1], itemBound[0]]),
@@ -411,7 +412,7 @@ const App: React.FC = (): React.ReactElement => {
           .bindPopup(getInfoWindowTemplate(item)),
       )
 
-    if (sensors === 'Chuva')
+    if (layerView === 'Chuva')
       historical?.forEach((item) => {
         L.polygon(
           item.bounds.map((itemBound: any) => [itemBound[1], itemBound[0]]),
@@ -448,7 +449,7 @@ const App: React.FC = (): React.ReactElement => {
         legend.addTo(map)
       })
 
-    if (sensors === 'Temperatura')
+    if (layerView === 'Temperatura')
       historical?.forEach((item) => {
         L.polygon(
           item.bounds.map((itemBound: any) => [itemBound[1], itemBound[0]]),
@@ -489,7 +490,7 @@ const App: React.FC = (): React.ReactElement => {
         legend.addTo(map)
       })
 
-    if (sensors === 'Umidade')
+    if (layerView === 'Umidade')
       historical?.forEach((item) => {
         L.polygon(
           item.bounds.map((itemBound: any) => [itemBound[1], itemBound[0]]),
@@ -538,7 +539,7 @@ const App: React.FC = (): React.ReactElement => {
       map.remove()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [blockLeaf, center, historical, initialPosition, sensors])
+  }, [blockLeaf, center, historical, initialPosition, layerView])
 
   return (
     <div className="App">
@@ -559,21 +560,22 @@ const App: React.FC = (): React.ReactElement => {
       <Timeline />
 
       <div className="map-container">
-        <Form.Select
-          className="shadow position-absolute"
-          defaultValue="Normal"
-          onChange={(e) => {
-            setSensors(e.target.value)
-          }}
+        <DropdownButton
+          title="Camadas do mapa"
+          variant="primary"
+          size="sm"
+          className="map-layers-selector shadow position-absolute"
         >
-          <optgroup label="Opções de mapa">
-            {selectedSensors.map((item) => (
-              <option key={item} value={item}>
-                {item === 'Normal' ? '--' : item}
-              </option>
-            ))}
-          </optgroup>
-        </Form.Select>
+          {selectedSensors.map((item) => (
+            <Dropdown.Item
+              as="button"
+              key={item}
+              onClick={() => setLayerView(item)}
+            >
+              {item === 'Normal' ? 'Somente áreas' : item}
+            </Dropdown.Item>
+          ))}
+        </DropdownButton>
         <div id="map" className="h-100 w-100" />
       </div>
     </div>
