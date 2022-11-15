@@ -1,6 +1,10 @@
+import 'swiper/css'
+import 'swiper/css/navigation'
 import './timeline.scss'
 
 import React, { memo, useCallback, useEffect, useState } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation } from 'swiper'
 import { format, isAfter, isBefore, isSameDay, isToday } from 'date-fns'
 
 import { apiFake } from '../../hooks/useRequestData'
@@ -24,7 +28,7 @@ export function TryAnother() {
   )
 
   const dayContainerClasses = useCallback((item: ILine): string => {
-    let classes = 'day-container rounded-1 d-flex flex-column p-2'
+    let classes = 'rounded-1 d-flex flex-column p-2'
     const checkIsToday: boolean = isToday(new Date(item.date))
     const checkIsPast: boolean =
       isBefore(new Date(item.date), new Date()) &&
@@ -316,13 +320,18 @@ export function TryAnother() {
   )
 
   return (
-    <div className="timeline-container d-flex p-3">
-      <div className="d-flex gap-3">
+    <div className="timeline-container">
+      <Swiper
+        navigation={true}
+        modules={[Navigation]}
+        slidesPerView={'auto'}
+        spaceBetween={16}
+        className="px-5 py-3"
+      >
         {timelineData.map((day, index) => (
-          <div
+          <SwiperSlide
             key={index}
             className={dayContainerClasses(day)}
-            role="button"
             onClick={() => handleClick(day.date)}
           >
             <h3 className="day--header h6 fw-bold mb-0">{formatDate(day)}</h3>
@@ -336,9 +345,9 @@ export function TryAnother() {
                 {displaySolarIrradiation(day.solarIrradiation)}
               </div>
             </div>
-          </div>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
     </div>
   )
 }

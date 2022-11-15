@@ -1,5 +1,5 @@
 .blocks-container {
-  background-color: #eee;
+  background-color: var(--bs-light);
   grid-area: blocks;
   .block {
     background-image: linear-gradient(var(--bs-white), var(--bs-gray-400));
