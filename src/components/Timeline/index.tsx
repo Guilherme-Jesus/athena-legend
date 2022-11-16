@@ -11,9 +11,12 @@ import { apiFake } from '../../hooks/useRequestData'
 import { ILine } from '../../types'
 import { dataUnit, displayData } from '../utils'
 
+import Spinner from 'react-bootstrap/Spinner'
+
 export const Timeline = (): React.ReactElement => {
   const [timelineData, setTimelineData] = useState<ILine[]>([])
-  const [card, setCard] = useState<Date | string>('')
+  const [initialSlide, setInitialSlide] = useState<number>(0)
+  // const [card, setCard] = useState<Date | string>('')
 
   useEffect(() => {
     apiFake
@@ -22,22 +25,16 @@ export const Timeline = (): React.ReactElement => {
       .catch((error: any) => console.log(error))
   }, [])
 
-  const handleClick = useCallback(
-    (date: Date | string): void => setCard(card !== date ? date : ''),
-    [card],
-  )
-
   const dayContainerClasses = useCallback((item: ILine): string => {
     let classes = 'rounded-1 d-flex flex-column p-2'
     const checkIsToday: boolean = isToday(new Date(item.date))
-    const checkIsPast: boolean =
-      isBefore(new Date(item.date), new Date()) &&
-      !isSameDay(new Date(item.date), new Date())
+    const checkIsPast: boolean = isBefore(new Date(item.date), new Date())
     const checkIsFuture: boolean = isAfter(new Date(item.date), new Date())
 
-    if (checkIsToday) classes += ' day-today'
+    if (checkIsToday && (!checkIsPast || !checkIsFuture))
+      classes += ' day-today'
     if (checkIsPast) classes += ' day-before'
-    if (checkIsFuture) classes += ' day-after'
+    if (checkIsFuture && !checkIsToday) classes += ' day-after'
     if (item.alerts) classes += ' has-alerts'
 
     return classes
@@ -319,36 +316,56 @@ export const Timeline = (): React.ReactElement => {
     [],
   )
 
+  useEffect(() => {
+    const getTodaySlide = timelineData.find((day) =>
+      isToday(new Date(day.date)),
+    )
+    setInitialSlide(getTodaySlide ? timelineData.indexOf(getTodaySlide) : 0)
+  }, [timelineData])
+
+  // const handleClick = useCallback(
+  //   (date: Date | string): void => setCard(card !== date ? date : ''),
+  //   [card],
+  // )
+
   return (
     <div className="timeline-container">
-      <Swiper
-        navigation={true}
-        initialSlide={14}
-        modules={[Navigation]}
-        slidesPerView={'auto'}
-        spaceBetween={16}
-        className="px-5 py-3"
-      >
-        {timelineData.map((day, index) => (
-          <SwiperSlide
-            key={index}
-            className={dayContainerClasses(day)}
-            onClick={() => handleClick(day.date)}
-          >
-            <h3 className="day--header h6 fw-bold mb-0">{formatDate(day)}</h3>
-            {displayRain(day)}
-            <div className="d-flex justify-content-center">
-              <div className="d-flex flex-column">
-                {displayTemperatureAverage(day.temperatureAverage)}
-                {displayRelativeHumidity(day.relativeHumidity)}
-                {/* {displayAtmosphericPressure(day.atmosphericPressure)} */}
-                {displayWindSpeed(day.windSpeed)}
-                {displaySolarIrradiation(day.solarIrradiation)}
+      {timelineData.length === 0 ? (
+        <div className="d-flex justify-content-center align-items-center h-100 p-3">
+          <Spinner role="status">
+            <span className="visually-hidden">Carregando...</span>
+          </Spinner>
+        </div>
+      ) : (
+        <Swiper
+          navigation={true}
+          initialSlide={14} // initialSlide
+          modules={[Navigation]}
+          slidesPerView={'auto'}
+          spaceBetween={16}
+          className="px-5 py-3"
+        >
+          {timelineData.map((day, index) => (
+            <SwiperSlide
+              key={index}
+              className={dayContainerClasses(day)}
+              // onClick={() => handleClick(day.date)}
+            >
+              <h3 className="day--header h6 fw-bold mb-0">{formatDate(day)}</h3>
+              {displayRain(day)}
+              <div className="d-flex justify-content-center">
+                <div className="d-flex flex-column">
+                  {displayTemperatureAverage(day.temperatureAverage)}
+                  {displayRelativeHumidity(day.relativeHumidity)}
+                  {/* {displayAtmosphericPressure(day.atmosphericPressure)} */}
+                  {displayWindSpeed(day.windSpeed)}
+                  {displaySolarIrradiation(day.solarIrradiation)}
+                </div>
               </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      )}
     </div>
   )
 }

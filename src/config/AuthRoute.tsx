@@ -1,23 +1,16 @@
-/* eslint-disable no-undef */
-/* eslint-disable react-hooks/exhaustive-deps */
-import { FunctionComponent, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
 
-export interface IAuthRouteProps {
-  children?: JSX.Element
+type AuthRouteProps = {
+  children?: React.ReactElement
 }
 
-const AuthRoute: FunctionComponent<IAuthRouteProps> = (props) => {
+const AuthRoute: React.FC<AuthRouteProps> = (props) => {
   const { children } = props
   const auth = getAuth()
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
-
-  useEffect(() => {
-    AuthCheck()
-    return () => AuthCheck()
-  }, [auth])
 
   const AuthCheck = onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -27,7 +20,12 @@ const AuthRoute: FunctionComponent<IAuthRouteProps> = (props) => {
     }
   })
 
-  if (loading) return <p>loading........</p>
+  useEffect(() => {
+    AuthCheck()
+    return () => AuthCheck()
+  }, [AuthCheck, auth])
+
+  if (loading) return <p>Carregando...</p>
 
   return <>{children}</>
 }
