@@ -2,7 +2,7 @@ import './app.scss'
 import './components/Map/map.scss'
 
 import axios from 'axios'
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { memo, useCallback, useEffect, useState } from 'react'
 
 import { IListBlocks, IListBlocksLeaf } from './types'
 
@@ -82,4 +82,4 @@ const App: React.FC = (): React.ReactElement => {
   )
 }
 
-export default App
+export default memo(App)

@@ -1,19 +1,21 @@
 import './map.scss'
 
 import * as L from 'leaflet'
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React, { memo, useCallback, useEffect, useMemo, useState } from 'react'
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import useRequestData from '../../hooks/useRequestData'
 import { IListBlocks, IListBlocksLeaf } from '../../types'
 import { dataUnit, displayData } from '../utils'
 
-const Map = ({
-  currentBlockId,
-  blockLeaves,
-}: {
-  currentBlockId: string
+type MapProps = {
   blockLeaves: IListBlocksLeaf[]
+  currentBlockId: string
+}
+
+const Map: React.FC<MapProps> = ({
+  blockLeaves,
+  currentBlockId,
 }): React.ReactElement => {
   const [initialPosition] = useState<L.LatLngExpression>([-15.77972, -47.92972])
   const [layerView, setLayerView] = useState<string>('Normal')
@@ -34,7 +36,7 @@ const Map = ({
   const temperatureGrades = [5, 10, 20, 30, 40]
   const relativeHumidityGrades = [20, 40, 60, 80, 100]
 
-  const reversedCoords = (coords: number[]) => {
+  const reversedCoords = useCallback((coords: number[]) => {
     if (coords.length > 4) {
       return coords.map((coord: any) => {
         return {
@@ -48,7 +50,7 @@ const Map = ({
         lng: coords[0],
       }
     }
-  }
+  }, [])
 
   const getLeafId = useCallback(
     (blockId: string) => {
@@ -482,4 +484,4 @@ const Map = ({
   )
 }
 
-export default Map
+export default memo(Map)
