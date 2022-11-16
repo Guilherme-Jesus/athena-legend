@@ -2,7 +2,7 @@
   background-color: var(--bs-light);
   grid-area: timeline;
   overflow-x: hidden;
-  .swiper-slide {
+  .day-container {
     background-image: linear-gradient(var(--bs-white), var(--bs-gray-200));
     box-shadow: 0 calc(var(--spacer) * 0.25) calc(var(--spacer) * 0.25) rgba(var(--bs-black-rgb), 0.2),
                 0 calc(var(--spacer) * 0.5) calc(var(--spacer) * 0.5) rgba(var(--bs-black-rgb), 0.15),

@@ -4,8 +4,8 @@ import './timeline.scss'
 
 import React, { memo, useCallback, useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation } from 'swiper'
-import { format, isAfter, isBefore, isSameDay, isToday } from 'date-fns'
+import { Keyboard, Mousewheel, Navigation } from 'swiper'
+import { format, isAfter, isBefore, isToday } from 'date-fns'
 
 import { apiFake } from '../../hooks/useRequestData'
 import { ILine } from '../../types'
@@ -24,37 +24,40 @@ export const Timeline = (): React.ReactElement => {
   }, [])
 
   const dayContainerClasses = useCallback((item: ILine): string => {
-    let classes = 'rounded-1 d-flex flex-column p-2'
+    let classes = 'day-container rounded-1 d-flex flex-column p-2'
     const checkIsToday: boolean = isToday(new Date(item.date))
     const checkIsPast: boolean = isBefore(new Date(item.date), new Date())
     const checkIsFuture: boolean = isAfter(new Date(item.date), new Date())
 
     if (checkIsToday && (!checkIsPast || !checkIsFuture))
       classes += ' day-today'
-    if (checkIsPast) classes += ' day-before'
-    if (checkIsFuture && !checkIsToday) classes += ' day-after'
+    if (checkIsPast && !checkIsToday) classes += ' day-past'
+    if (checkIsFuture && !checkIsToday) classes += ' day-future'
     if (item.alerts) classes += ' has-alerts'
 
     return classes
   }, [])
 
-  const formatDate = useCallback(
-    (item: ILine): string => format(new Date(item.date), 'dd/MM'),
-    [],
-  )
+  const displayDate = useCallback((item: ILine): React.ReactElement => {
+    const formattedDate: string = isToday(new Date(item.date))
+      ? 'Hoje'
+      : format(new Date(item.date), 'dd/MM')
+
+    return <h3 className="day--header h6 fw-bold mb-0">{formattedDate}</h3>
+  }, [])
 
   const displayRain = useCallback((item: ILine): React.ReactElement => {
-    const isPast: boolean =
-      isBefore(new Date(item.date), new Date()) ||
-      isSameDay(new Date(item.date), new Date())
-    const isFuture: boolean = isAfter(new Date(item.date), new Date())
+    const checkIsToday: boolean = isToday(new Date(item.date))
+    const checkIsPast: boolean =
+      isBefore(new Date(item.date), new Date()) || isToday(new Date(item.date))
+    const checkIsFuture: boolean = isAfter(new Date(item.date), new Date())
     const hasRain: boolean = item.rain >= 0.2
     const icoRain: React.ReactElement = (
       <svg
         className="ico-sensor ico-rain"
         viewBox="0 0 64 64"
         aria-hidden="true"
-        style={{ opacity: 0.6 }}
+        style={{ opacity: checkIsToday ? 1 : 0.6 }}
       >
         <path d="M53.2,38H10.8C4.8,38,0,33.3,0,27.6c0-4.8,3.4-8.9,8.1-10.1c1.7-6.9,8.3-11.7,15.8-11.4c3.5-3.9,8.6-6.2,14-6.2 c5.4,0,10.5,2.2,14,6.1c3,3.3,4.5,7.3,4.6,11.6c4.4,1.4,7.5,5.3,7.5,9.9C64,33.3,59.2,38,53.2,38z M23.1,10.1 c-5.6,0-10.6,4-11.3,9.4l-0.2,1.6l-1.6,0.2C6.6,21.6,4,24.3,4,27.6c0,3.5,3.1,6.4,6.8,6.4h42.4c3.7,0,6.8-2.9,6.8-6.4 c0-3.2-2.5-5.9-5.8-6.3L52.3,21l0.2-1.9c0.4-3.8-0.9-7.4-3.5-10.3C46.2,5.8,42.2,4,37.9,4c-4.6,0-8.8,2-11.6,5.5l-0.7,0.9l-1.1-0.1 C24,10.2,23.6,10.1,23.1,10.1z" />
         <path d="M33.7,40.6c-1-0.4-2,0.2-2.4,1.1l-6.1,16.6c-0.4,1,0.1,2.1,1.1,2.4c1,0.4,2-0.2,2.4-1.1L34.8,43C35.2,42,34.7,41,33.7,40.6z" />
@@ -68,7 +71,6 @@ export const Timeline = (): React.ReactElement => {
         className="ico-sensor ico-prob-rain"
         viewBox="0 0 512 512"
         aria-hidden="true"
-        style={{ opacity: 0.6 }}
       >
         <path d="M409.9,205.8L256,0L102.2,205.9c-24.8,33.2-37.9,72.8-37.9,114.4C64.3,426,150.3,512,256,512 s191.7-86,191.7-191.7C447.7,278.6,434.6,239.2,409.9,205.8z M256,480.3c-88.2,0-160-71.8-160-160c0-34.7,11-67.8,31.6-95.4 L256,52.9l128.4,171.9c20.7,27.8,31.6,60.8,31.6,95.5C416,408.5,344.2,480.3,256,480.3z" />
       </svg>
@@ -78,7 +80,6 @@ export const Timeline = (): React.ReactElement => {
         className="ico-sensor ico-prob-norain"
         viewBox="0 0 512 512"
         aria-hidden="true"
-        style={{ opacity: 0.6 }}
       >
         <path d="M461.7,119.6l-78.7,50L256.3,0L102.5,205.9c-24.8,33.2-37.9,72.8-37.9,114.4c0,15.3,1.8,30.1,5.2,44.3 l-68,38.6l22.5,36.1l460-283.6L461.7,119.6z M96.3,320.2c0-34.7,11-67.8,31.6-95.4L256.3,52.9l99.7,133.5L98.6,346.8 C97.1,338.2,96.3,329.3,96.3,320.2z" />
         <path d="M394.5,239.5c14.4,24.4,21.8,52,21.8,80.8c0,88.2-71.8,160-160,160c-55.6,0-104.7-28.5-133.4-71.8L96,425.3 c34.3,52.1,93.3,86.7,160.2,86.7c105.7,0,191.7-86,191.7-191.7c0-34.7-9.2-68.1-26.6-97.5L394.5,239.5z" />
@@ -93,10 +94,10 @@ export const Timeline = (): React.ReactElement => {
 
     return (
       <div className="d-flex justify-content-center align-items-center gap-2 py-2">
-        {isPast && hasRain && icoRain}
-        {isFuture && hasRain && icoProbRain}
-        {isFuture && !hasRain && icoProbNoRain}
-        {(isPast || (isFuture && hasRain)) && displayValue}
+        {checkIsPast && hasRain && icoRain}
+        {checkIsFuture && hasRain && icoProbRain}
+        {(checkIsToday || checkIsFuture) && !hasRain && icoProbNoRain}
+        {(checkIsPast || (checkIsFuture && hasRain)) && displayValue}
       </div>
     )
   }, [])
@@ -314,8 +315,30 @@ export const Timeline = (): React.ReactElement => {
     [],
   )
 
+  const displayAllOtherData = useCallback(
+    (item: ILine) => {
+      return (
+        <div className="d-flex justify-content-center">
+          <div className="d-flex flex-column">
+            {displayTemperatureAverage(item.temperatureAverage)}
+            {displayRelativeHumidity(item.relativeHumidity)}
+            {/* {displayAtmosphericPressure(item.atmosphericPressure)} */}
+            {displayWindSpeed(item.windSpeed)}
+            {displaySolarIrradiation(item.solarIrradiation)}
+          </div>
+        </div>
+      )
+    },
+    [
+      displayRelativeHumidity,
+      displaySolarIrradiation,
+      displayTemperatureAverage,
+      displayWindSpeed,
+    ],
+  )
+
   return (
-    <div className="timeline-container">
+    <div className="timeline-container position-relative">
       {timelineData.length === 0 ? (
         <div className="d-flex justify-content-center align-items-center h-100 p-3">
           <Spinner role="status">
@@ -324,26 +347,21 @@ export const Timeline = (): React.ReactElement => {
         </div>
       ) : (
         <Swiper
-          navigation={true}
-          initialSlide={timelineData.length / 2 / 2}
-          modules={[Navigation]}
+          modules={[Keyboard, Mousewheel, Navigation]}
           slidesPerView={'auto'}
           spaceBetween={16}
-          className="px-5 py-3"
+          initialSlide={timelineData.length / 4}
+          keyboard={{ enabled: true }}
+          mousewheel={true}
+          navigation={true}
+          grabCursor={true}
+          className="px-5 py-3 h-100"
         >
           {timelineData.map((day, index) => (
             <SwiperSlide key={index} className={dayContainerClasses(day)}>
-              <h3 className="day--header h6 fw-bold mb-0">{formatDate(day)}</h3>
+              {displayDate(day)}
               {displayRain(day)}
-              <div className="d-flex justify-content-center">
-                <div className="d-flex flex-column">
-                  {displayTemperatureAverage(day.temperatureAverage)}
-                  {displayRelativeHumidity(day.relativeHumidity)}
-                  {/* {displayAtmosphericPressure(day.atmosphericPressure)} */}
-                  {displayWindSpeed(day.windSpeed)}
-                  {displaySolarIrradiation(day.solarIrradiation)}
-                </div>
-              </div>
+              {displayAllOtherData(day)}
             </SwiperSlide>
           ))}
         </Swiper>
