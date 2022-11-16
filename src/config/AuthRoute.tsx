@@ -14,21 +14,21 @@ const AuthRoute: React.FunctionComponent<IAuthRouteProps> = (props) => {
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
 
-  useCallback(() => {
-    AuthCheck()
-
-    return () => AuthCheck()
-  }, [auth])
-
   const AuthCheck = onAuthStateChanged(auth, (user) => {
     if (!user) {
-      navigate('/')
+      navigate('/login')
     } else {
       setLoading(false)
     }
   })
 
-  if (loading) return <p>loading</p>
+  useEffect(() => {
+    AuthCheck()
+
+    return () => AuthCheck()
+  }, [auth])
+
+  if (loading) return <p>Carregando...</p>
 
   return <>{children}</>
 }

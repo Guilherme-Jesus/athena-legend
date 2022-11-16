@@ -35,13 +35,12 @@ export function Login() {
           // console.log(token)
           setAuthing(true)
 
-          navigate('/dashboard')
+          navigate('/')
         })
         .catch((err) => {
           alert('Senha ou email incorretos')
           setAuthing(false)
           console.error(err)
-          navigate('/login')
         })
     } catch (err) {
       console.error(err)
