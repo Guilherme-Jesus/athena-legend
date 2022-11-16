@@ -9,8 +9,12 @@ import { IListBlocks, IListBlocksLeaf } from './types/types'
 
 import Blocks from './components/Blocks'
 import { dataUnit } from './components/utils'
+import { signOut } from 'firebase/auth'
+import { useNavigate } from 'react-router-dom'
+import { auth } from './config/firebase-config'
 
 const App: React.FC = (): React.ReactElement => {
+  const navigate = useNavigate()
   const [blocks, setBlocks] = useState<IListBlocks[]>([])
   const [currentBlockId, setCurrentBlockId] = useState<string>('C19') // hard coded
   const [blockLeaf, setBlockLeaf] = useState<IListBlocksLeaf[]>([])
@@ -152,6 +156,12 @@ const App: React.FC = (): React.ReactElement => {
     }
   }, [blockLeaf, center, initialPosition])
 
+  const clickLogin = () => {
+    signOut(auth)
+
+    navigate('/')
+  }
+
   return (
     <div className="App">
       <header>HEADER</header>
@@ -160,6 +170,7 @@ const App: React.FC = (): React.ReactElement => {
         <a href="#">link 1</a>
         <a href="#">link 2</a>
         <a href="#">link 3</a>
+        <button onClick={clickLogin}>Logout</button>
       </nav>
 
       <Blocks
