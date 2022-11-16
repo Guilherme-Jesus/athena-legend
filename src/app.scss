@@ -12,24 +12,28 @@
                       auto
                       calc(var(--spacer) * 13.5);
   min-height: 100vh;
+
   header {
     background-color: var(--bs-light);
     grid-area: header;
   }
+
   nav {
     background-color: var(--bs-light);
     display: flex;
     flex-direction: column;
     grid-area: nav;
   }
+
   /* .blocks-container {
     // CSS dos blocos está dentro do próprio componente
   } */
+
   /* .timeline-container {
     // CSS da timeline está dentro do próprio componente
   } */
-  .map-container {
-    background-color: var(--bs-light);
-    grid-area: main;
-  }
+
+  /* .map-container {
+    // CSS do mapa está dentro do próprio componente
+  } */
 }

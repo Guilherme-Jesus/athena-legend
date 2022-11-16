@@ -7,18 +7,6 @@ type SensorData = {
   windSpeed: number
 }
 
-export type IListBlocksLeaf = {
-  abrv: string
-  blockId: string
-  blockParent: string
-  bounds: number[]
-  centroid: number[]
-  data: SensorData
-  date: Date
-  leafParent: boolean
-  name: string
-}
-
 export type IListBlocks = {
   abrv: string
   blockId: string
@@ -29,50 +17,12 @@ export type IListBlocks = {
   name: string
 }
 
-// export type IListUsers = {
-//   displayName: string
-//   email: string
-//   id: string
-//   phone: string
-//   photoURL: string
-// }
-
-// export type IDelUsers = {
-//   displayName: string
-//   email: string
-//   id: string
-//   phone: string
-//   photoURL: string
-// }
-
-// export type ICreateUsers = {
-//   displayName: string
-//   email: string
-//   id: string
-//   phone: string
-//   photoURL: string
-// }
-
-export type IUsers = {
-  displayName: string
-  email: string
-  id: string
-  phone: string
-  photoURL: string
+export type IListBlocksLeaf = IListBlocks & {
+  bounds: number[]
+  centroid: number[]
 }
 
-type IPast = {
-  date: Date
-  rain: number
-  relativeHumidity: number
-  solarIrradiation: number
-  temperatureAverage: number
-  temperatureMax: number
-  temperatureMin: number
-  windSpeed: number
-}
-
-type IPresent = {
+type IPastAndPresent = {
   date: Date
   rain: number
   relativeHumidity: number
@@ -96,20 +46,8 @@ export type IForecast = {
   blockId?: string
   forecast?: IFuture[]
   name: string
-  past?: IPast[]
-  present?: IPresent
-}
-
-export type IHistorical = {
-  abrv: string
-  blockId?: string
-  blockParent: string
-  bounds: number[]
-  centroid: number[]
-  data: SensorData
-  date: Date
-  leafParent: boolean
-  name: string
+  past?: IPastAndPresent[]
+  present?: IPastAndPresent
 }
 
 type ILineAlerts = {
@@ -120,20 +58,20 @@ type ILineAlerts = {
   type: string
 }
 
-export type ILine = {
+export type ILine = IPastAndPresent & {
   alerts: ILineAlerts[] | null
-  date: Date
-  rain: number
-  relativeHumidity: number
-  solarIrradiation: number
-  temperatureAverage: number
-  temperatureMax: number
-  temperatureMin: number
-  windSpeed: number
 }
 
 export type ITimeline = {
   blockId: string
   line: ILine[]
   name: string
+}
+
+export type IUsers = {
+  displayName: string
+  email: string
+  id: string
+  phone: string
+  photoURL: string
 }

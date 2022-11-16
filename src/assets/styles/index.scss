@@ -139,12 +139,27 @@ body {
 //   }
 // }
 
-a {
+a,
+.btn-link {
   color: var(--bs-primary-dark);
   font-weight: 400;
   // text-decoration: inherit;
+  text-underline-offset: .25rem;
   &:hover {
     color: var(--bs-primary);
+  }
+  &:not(.no-external)[rel*="noopener"] {
+    padding-right: .625rem;
+    position: relative;
+    &::after {
+      background: url("../src/assets/images/ico-external-href.svg") no-repeat center / contain;
+      content: "";
+      height: .5rem;
+      position: absolute;
+      right: 0;
+      top: .25rem;
+      width: .5rem;
+    }
   }
 }
 
@@ -211,26 +226,6 @@ a {
 //   }
 // }
 
-a, .btn-link {
-  text-underline-offset: .25rem;
-}
-
-a {
-  &:not(.no-external)[rel*="noopener"] {
-    padding-right: .625rem;
-    position: relative;
-    &::after {
-      background: url("../src/assets/images/ico-external-href.svg") no-repeat center / contain;
-      content: "";
-      height: .5rem;
-      position: absolute;
-      right: 0;
-      top: .25rem;
-      width: .5rem;
-    }
-  }
-}
-
 label {
   cursor: pointer;
 }
@@ -256,6 +251,10 @@ label {
   }
 }
 
+.table {
+  font-family: var(--bs-font-sans-serif);
+}
+
 // input[type="search"] {
 //   &::-webkit-search-cancel-button {
 //     -webkit-appearance: none;
@@ -274,6 +273,29 @@ label {
 
 .btn {
   border-radius: var(--bs-border-radius-sm);
+}
+
+.btn-primary {
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: var(--bs-primary);
+  --bs-btn-border-color: var(--bs-primary);
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: var(--bs-primary-dark);
+  --bs-btn-hover-border-color: var(--bs-primary-dark);
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-active-color: var(--bs-white);
+  --bs-btn-active-bg: var(--bs-primary);
+  --bs-btn-active-border-color: var(--bs-primary);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(var(--bs-black-rgb), 0.125);
+  --bs-btn-disabled-color: var(--bs-white);
+  --bs-btn-disabled-bg: var(--bs-primary);
+  --bs-btn-disabled-border-color: var(--bs-primary);
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: var(--bs-primary);
+  // color: var(--bs-dropdown-link-active-color);
 }
 
 // @-webkit-keyframes shake {
