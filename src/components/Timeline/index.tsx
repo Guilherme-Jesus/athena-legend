@@ -11,7 +11,7 @@ import { apiFake } from '../../hooks/useRequestData'
 import { ILine } from '../../types'
 import { dataUnit, displayData } from '../utils'
 
-export function TryAnother() {
+export const Timeline = (): React.ReactElement => {
   const [timelineData, setTimelineData] = useState<ILine[]>([])
   const [card, setCard] = useState<Date | string>('')
 
@@ -352,4 +352,4 @@ export function TryAnother() {
   )
 }
 
-export default memo(TryAnother)
+export default memo(Timeline)
