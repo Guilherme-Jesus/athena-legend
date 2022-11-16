@@ -1,23 +1,18 @@
 import './app.scss'
-import './components/Map/map.scss'
-
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
-import * as L from 'leaflet'
 
 import axios from 'axios'
+import React, { memo, useCallback, useEffect, useState } from 'react'
+
 import { IListBlocks, IListBlocksLeaf } from './types'
-import { dataUnit, displayData } from './components/utils'
 
 import Blocks from './components/Blocks'
+import Map from './components/Map'
 import Timeline from './components/Timeline'
 
 const App: React.FC = (): React.ReactElement => {
+  const [currentBlockId, setCurrentBlockId] = useState<string>('C19')
   const [blocks, setBlocks] = useState<IListBlocks[]>([])
-  const [currentBlockId, setCurrentBlockId] = useState<string>('C19') // hard coded
-  const [blockLeaf, setBlockLeaf] = useState<IListBlocksLeaf[]>([])
-  const [initialPosition] = useState<L.LatLngExpression>([
-    -23.5505199, -46.63330939999999,
-  ])
+  const [blockLeaves, setBlockLeaves] = useState<IListBlocksLeaf[]>([])
 
   useEffect(() => {
     if (blocks.length === 0) {
@@ -28,9 +23,9 @@ const App: React.FC = (): React.ReactElement => {
         },
       })
         .then((response) => response.json())
-        .then((res) =>
+        .then((response) =>
           setBlocks(
-            res.filter(
+            response.filter(
               (block: IListBlocks) => currentBlockId === block.blockParent,
             ),
           ),
@@ -43,16 +38,12 @@ const App: React.FC = (): React.ReactElement => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:7010/blockLeaf')
-      .then((response) =>
-        setBlockLeaf(
-          response.data.filter(
-            (blockLeaf: IListBlocksLeaf) => blockLeaf.bounds.length > 4,
-          ),
-        ),
-      )
+      .get(`http://localhost:7010/blockLeaf`)
+      .then((response) => {
+        setBlockLeaves(response.data)
+      })
       .catch((error) => console.log(error))
-  }, [currentBlockId])
+  }, [])
 
   const handleBlockClick = useCallback(
     (id: string, leaf: boolean): void => {
@@ -60,137 +51,12 @@ const App: React.FC = (): React.ReactElement => {
         setCurrentBlockId(id)
       } else if (!leaf) {
         setBlocks(blocks.filter((item) => item.blockParent === id))
+      } else if (leaf) {
+        setBlockLeaves(blockLeaves.filter((item) => item.blockParent === id))
       }
     },
-    [blocks, currentBlockId],
+    [blockLeaves, blocks, currentBlockId],
   )
-
-  const getCentroid = useMemo(() => {
-    const array: number[] = []
-    blockLeaf.forEach((item, index) => {
-      if (index === 0 && index < 4) array.push(...item.centroid)
-    })
-
-    return array
-  }, [blockLeaf])
-
-  const center = useMemo(() => {
-    return {
-      lat: getCentroid[1],
-      lng: getCentroid[0],
-    }
-  }, [getCentroid])
-
-  useEffect(() => {
-    const map = L.map('map', {
-      center: initialPosition,
-      layers: [
-        L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
-          accessToken: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
-          attribution: 'Google',
-          maxZoom: 20,
-          minZoom: 3,
-          subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-        }),
-      ],
-      zoom: 3,
-      zoomControl: false,
-    })
-
-    blockLeaf.forEach((item) => {
-      const polygon = L.polygon(
-        item.bounds.map((item: any) => [item[1], item[0]]),
-        {
-          color: 'var(--bs-primary)',
-          dashArray: '3',
-          fillColor: 'var(--bs-primary)',
-          fillOpacity: 0.5,
-          opacity: 0.8,
-          weight: 4,
-        },
-      ).addTo(map)
-
-      polygon.bindPopup(`
-        <h3 class="h6 fw-bold px-2 mb-1">
-          ${item.name}
-        </h3>
-        <table class="table table-bordered">
-          <tbody>
-            <tr>
-              <td>
-                <b>Chuva:</b>
-              </td>
-              <td>
-                ${displayData(item.data.rain, 1, dataUnit.rain)}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <b>Temperatura:</b>
-              </td>
-              <td>
-                ${displayData(item.data.temperature, 1, dataUnit.temperature)}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <b>Umidade do ar:</b>
-              </td>
-              <td>
-                ${displayData(
-                  item.data.relativeHumidity,
-                  0,
-                  dataUnit.relativeHumidity,
-                )}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <b>Pressão atm.:</b>
-              </td>
-              <td>
-                ${displayData(
-                  item.data.atmosphericPressure,
-                  1,
-                  dataUnit.atmosphericPressure,
-                )}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <b>Vento:</b>
-              </td>
-              <td>
-                ${
-                  item.data.windSpeed >= 0.3
-                    ? displayData(item.data.windSpeed, 1, dataUnit.windSpeed)
-                    : 'Sem vento'
-                }
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <b>Radiação:</b>
-              </td>
-              <td>
-                ${displayData(
-                  item.data.solarIrradiation,
-                  0,
-                  dataUnit.solarRadiation,
-                )}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      `)
-
-      map.setView(center, 13)
-    })
-
-    return () => {
-      map.remove()
-    }
-  }, [blockLeaf, center, initialPosition])
 
   return (
     <div className="App">
@@ -210,9 +76,9 @@ const App: React.FC = (): React.ReactElement => {
 
       <Timeline />
 
-      <div id="map" className="map-container h-100 w-100" />
+      <Map blockLeaves={blockLeaves} currentBlockId={currentBlockId} />
     </div>
   )
 }
 
-export default App
+export default memo(App)
