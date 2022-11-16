@@ -15,13 +15,11 @@ import Spinner from 'react-bootstrap/Spinner'
 
 export const Timeline = (): React.ReactElement => {
   const [timelineData, setTimelineData] = useState<ILine[]>([])
-  const [initialSlide, setInitialSlide] = useState<number>(0)
-  // const [card, setCard] = useState<Date | string>('')
 
   useEffect(() => {
     apiFake
       .get('/timeline')
-      .then((response) => setTimelineData(response.data[0].line))
+      .then((response) => setTimelineData(response.data[0].line.slice(-21))) // 10 + 1 + 10
       .catch((error: any) => console.log(error))
   }, [])
 
@@ -316,18 +314,6 @@ export const Timeline = (): React.ReactElement => {
     [],
   )
 
-  useEffect(() => {
-    const getTodaySlide = timelineData.find((day) =>
-      isToday(new Date(day.date)),
-    )
-    setInitialSlide(getTodaySlide ? timelineData.indexOf(getTodaySlide) : 0)
-  }, [timelineData])
-
-  // const handleClick = useCallback(
-  //   (date: Date | string): void => setCard(card !== date ? date : ''),
-  //   [card],
-  // )
-
   return (
     <div className="timeline-container">
       {timelineData.length === 0 ? (
@@ -339,18 +325,14 @@ export const Timeline = (): React.ReactElement => {
       ) : (
         <Swiper
           navigation={true}
-          initialSlide={14} // initialSlide
+          initialSlide={timelineData.length / 2 / 2}
           modules={[Navigation]}
           slidesPerView={'auto'}
           spaceBetween={16}
           className="px-5 py-3"
         >
           {timelineData.map((day, index) => (
-            <SwiperSlide
-              key={index}
-              className={dayContainerClasses(day)}
-              // onClick={() => handleClick(day.date)}
-            >
+            <SwiperSlide key={index} className={dayContainerClasses(day)}>
               <h3 className="day--header h6 fw-bold mb-0">{formatDate(day)}</h3>
               {displayRain(day)}
               <div className="d-flex justify-content-center">
