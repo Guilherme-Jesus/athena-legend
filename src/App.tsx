@@ -1,5 +1,4 @@
 import './app.scss'
-import './components/Map/map.scss'
 
 import axios from 'axios'
 import React, { memo, useCallback, useEffect, useState } from 'react'
