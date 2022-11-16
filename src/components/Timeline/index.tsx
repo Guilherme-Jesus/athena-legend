@@ -323,6 +323,7 @@ export const Timeline = (): React.ReactElement => {
     <div className="timeline-container">
       <Swiper
         navigation={true}
+        initialSlide={14}
         modules={[Navigation]}
         slidesPerView={'auto'}
         spaceBetween={16}

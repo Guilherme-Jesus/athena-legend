@@ -139583,7 +139583,7 @@
       "name": "Pedro Merola - Santa Fé (P) (S)",
       "line": [
         {
-          "date": "2022-10-21T21:51:07.494368-03:00",
+          "date": "2022-10-28T21:51:07.494368-03:00",
           "temperatureAverage": "22.030639",
           "temperatureMin": "19.631439",
           "temperatureMax": "24.001766",
@@ -139602,7 +139602,7 @@
           ]
         },
         {
-          "date": "2022-10-22T22:50:26.566863-03:00",
+          "date": "2022-10-29T22:50:26.566863-03:00",
           "temperatureAverage": "21.148191",
           "temperatureMin": "19.410714",
           "temperatureMax": "23.826349",
@@ -139621,7 +139621,7 @@
           ]
         },
         {
-          "date": "2022-10-23T23:50:15.281692-03:00",
+          "date": "2022-10-30T23:50:15.281692-03:00",
           "temperatureAverage": "21.024555",
           "temperatureMin": "19.245557",
           "temperatureMax": "22.889802",
@@ -139632,7 +139632,7 @@
           "alerts": null
         },
         {
-          "date": "2022-10-24T00:49:56.083895-03:00",
+          "date": "2022-10-31T00:49:56.083895-03:00",
           "temperatureAverage": "20.603561",
           "temperatureMin": "18.940218",
           "temperatureMax": "22.471032",
@@ -139643,7 +139643,7 @@
           "alerts": null
         },
         {
-          "date": "2022-10-25T01:59:54.702534-03:00",
+          "date": "2022-11-01T01:59:54.702534-03:00",
           "temperatureAverage": "19.810628",
           "temperatureMin": "18.460714",
           "temperatureMax": "22.181905",
@@ -139654,7 +139654,7 @@
           "alerts": null
         },
         {
-          "date": "2022-10-26T02:51:48.133195-03:00",
+          "date": "2022-11-02T02:51:48.133195-03:00",
           "temperatureAverage": "19.254038",
           "temperatureMin": "17.975069",
           "temperatureMax": "21.062738",
@@ -139673,7 +139673,7 @@
           ]
         },
         {
-          "date": "2022-10-27T03:51:10.212788-03:00",
+          "date": "2022-11-03T03:51:10.212788-03:00",
           "temperatureAverage": "18.937562",
           "temperatureMin": "17.672773",
           "temperatureMax": "20.455000",
@@ -139692,7 +139692,7 @@
           ]
         },
         {
-          "date": "2022-10-28T04:50:38.083014-03:00",
+          "date": "2022-11-04T04:50:38.083014-03:00",
           "temperatureAverage": "18.734453",
           "temperatureMin": "17.368880",
           "temperatureMax": "20.101786",
@@ -139711,7 +139711,7 @@
           ]
         },
         {
-          "date": "2022-10-29T05:51:01.862862-03:00",
+          "date": "2022-11-05T05:51:01.862862-03:00",
           "temperatureAverage": "18.219570",
           "temperatureMin": "17.135860",
           "temperatureMax": "20.000571",
@@ -139722,7 +139722,7 @@
           "alerts": null
         },
         {
-          "date": "2022-10-30T06:51:42.237411-03:00",
+          "date": "2022-11-06T06:51:42.237411-03:00",
           "temperatureAverage": "18.268154",
           "temperatureMin": "16.790602",
           "temperatureMax": "19.863480",
@@ -139733,7 +139733,7 @@
           "alerts": null
         },
         {
-          "date": "2022-10-31T07:51:20.186793-03:00",
+          "date": "2022-11-07T07:51:20.186793-03:00",
           "temperatureAverage": "21.614565",
           "temperatureMin": "17.075269",
           "temperatureMax": "23.340000",
@@ -139744,7 +139744,7 @@
           "alerts": null
         },
         {
-          "date": "2022-11-01T08:50:13.099576-03:00",
+          "date": "2022-11-08T08:50:13.099576-03:00",
           "temperatureAverage": "24.380169",
           "temperatureMin": "19.625154",
           "temperatureMax": "25.795595",
@@ -139755,7 +139755,7 @@
           "alerts": null
         },
         {
-          "date": "2022-11-02T09:51:20.144066-03:00",
+          "date": "2022-11-09T09:51:20.144066-03:00",
           "temperatureAverage": "27.441320",
           "temperatureMin": "22.771618",
           "temperatureMax": "29.030198",
@@ -139766,7 +139766,7 @@
           "alerts": null
         },
         {
-          "date": "2022-11-03T10:51:36.430994-03:00",
+          "date": "2022-11-10T10:51:36.430994-03:00",
           "temperatureAverage": "29.552979",
           "temperatureMin": "25.073291",
           "temperatureMax": "31.981746",
@@ -139777,20 +139777,10 @@
           "alerts": null
         },
         {
-          "date": "2022-11-04T11:51:39.466035-03:00",
+          "date": "2022-11-11T11:51:39.466035-03:00",
           "temperatureAverage": "31.401413",
           "temperatureMin": "26.947256",
           "temperatureMax": "33.556944",
-          "relativeHumidity": "46.703864",
-          "solarIrradiation": "844.569656",
-          "rain": "0.000000",
-          "windSpeed": "4.265893",
-          "alerts": null
-        },
-        {
-          "date": "2022-11-05T12:50:50.301052-03:00",
-          "temperatureAverage": "32.784592",
-          "temperatureMin": "28.878837",
           "temperatureMax": "35.109643",
           "relativeHumidity": "43.032419",
           "solarIrradiation": "891.211500",
@@ -139799,7 +139789,7 @@
           "alerts": null
         },
         {
-          "date": "2022-11-06T13:51:46.235163-03:00",
+          "date": "2022-11-12T13:51:46.235163-03:00",
           "temperatureAverage": "33.664414",
           "temperatureMin": "30.489427",
           "temperatureMax": "36.078810",
@@ -139807,73 +139797,6 @@
           "solarIrradiation": "832.424471",
           "rain": "0.000000",
           "windSpeed": "7.500000",
-          "alerts": null
-        },
-        {
-          "date": "2022-11-07T14:20:53.76248-03:00",
-          "temperatureAverage": "34.267100",
-          "temperatureMin": "30.540714",
-          "temperatureMax": "36.544524",
-          "relativeHumidity": "38.200703",
-          "solarIrradiation": "641.195295",
-          "rain": "0.008798",
-          "windSpeed": "10.899643",
-          "alerts": null
-        },
-        {
-          "date": "2022-11-08T14:20:53.76248-03:00",
-          "temperatureAverage": "34.267100",
-          "temperatureMin": "30.540714",
-          "temperatureMax": "36.544524",
-          "relativeHumidity": "38.200703",
-          "solarIrradiation": "641.195295",
-          "rain": "0.008798",
-          "windSpeed": "10.899643",
-          "alerts": null
-        },
-
-        {
-          "date": "2022-11-09T14:20:53.76248-03:00",
-          "temperatureAverage": "34.267100",
-          "temperatureMin": "30.540714",
-          "temperatureMax": "36.544524",
-          "relativeHumidity": "38.200703",
-          "solarIrradiation": "641.195295",
-          "rain": "0.008798",
-          "windSpeed": "10.899643",
-          "alerts": null
-        },
-        {
-          "date": "2022-11-10T14:20:53.76248-03:00",
-          "temperatureAverage": "34.267100",
-          "temperatureMin": "30.540714",
-          "temperatureMax": "36.544524",
-          "relativeHumidity": "38.200703",
-          "solarIrradiation": "641.195295",
-          "rain": "0.008798",
-          "windSpeed": "10.899643",
-          "alerts": null
-        },
-        {
-          "date": "2022-11-11T14:20:53.76248-03:00",
-          "temperatureAverage": "34.267100",
-          "temperatureMin": "30.540714",
-          "temperatureMax": "36.544524",
-          "relativeHumidity": "38.200703",
-          "solarIrradiation": "641.195295",
-          "rain": "0.008798",
-          "windSpeed": "10.899643",
-          "alerts": null
-        },
-        {
-          "date": "2022-11-12T14:20:53.76248-03:00",
-          "temperatureAverage": "34.267100",
-          "temperatureMin": "30.540714",
-          "temperatureMax": "36.544524",
-          "relativeHumidity": "38.200703",
-          "solarIrradiation": "641.195295",
-          "rain": "0.008798",
-          "windSpeed": "10.899643",
           "alerts": null
         },
         {
@@ -139898,6 +139821,7 @@
           "windSpeed": "10.899643",
           "alerts": null
         },
+
         {
           "date": "2022-11-15T14:20:53.76248-03:00",
           "temperatureAverage": "34.267100",
@@ -139944,6 +139868,83 @@
         },
         {
           "date": "2022-11-19T14:20:53.76248-03:00",
+          "temperatureAverage": "34.267100",
+          "temperatureMin": "30.540714",
+          "temperatureMax": "36.544524",
+          "relativeHumidity": "38.200703",
+          "solarIrradiation": "641.195295",
+          "rain": "0.008798",
+          "windSpeed": "10.899643",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-20T14:20:53.76248-03:00",
+          "temperatureAverage": "34.267100",
+          "temperatureMin": "30.540714",
+          "temperatureMax": "36.544524",
+          "relativeHumidity": "38.200703",
+          "solarIrradiation": "641.195295",
+          "rain": "0.008798",
+          "windSpeed": "10.899643",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-21T14:20:53.76248-03:00",
+          "temperatureAverage": "34.267100",
+          "temperatureMin": "30.540714",
+          "temperatureMax": "36.544524",
+          "relativeHumidity": "38.200703",
+          "solarIrradiation": "641.195295",
+          "rain": "0.008798",
+          "windSpeed": "10.899643",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-22T14:20:53.76248-03:00",
+          "temperatureAverage": "34.267100",
+          "temperatureMin": "30.540714",
+          "temperatureMax": "36.544524",
+          "relativeHumidity": "38.200703",
+          "solarIrradiation": "641.195295",
+          "rain": "0.008798",
+          "windSpeed": "10.899643",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-23T14:20:53.76248-03:00",
+          "temperatureAverage": "34.267100",
+          "temperatureMin": "30.540714",
+          "temperatureMax": "36.544524",
+          "relativeHumidity": "38.200703",
+          "solarIrradiation": "641.195295",
+          "rain": "0.008798",
+          "windSpeed": "10.899643",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-24T14:20:53.76248-03:00",
+          "temperatureAverage": "34.267100",
+          "temperatureMin": "30.540714",
+          "temperatureMax": "36.544524",
+          "relativeHumidity": "38.200703",
+          "solarIrradiation": "641.195295",
+          "rain": "0.008798",
+          "windSpeed": "10.899643",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-25T14:20:53.76248-03:00",
+          "temperatureAverage": "34.267100",
+          "temperatureMin": "30.540714",
+          "temperatureMax": "36.544524",
+          "relativeHumidity": "38.200703",
+          "solarIrradiation": "641.195295",
+          "rain": "0.008798",
+          "windSpeed": "10.899643",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-26T14:20:53.76248-03:00",
           "temperatureAverage": "34.267100",
           "temperatureMin": "30.540714",
           "temperatureMax": "36.544524",
