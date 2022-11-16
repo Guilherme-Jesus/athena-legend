@@ -1,6 +1,6 @@
 import './blocks.scss'
 
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { memo, useCallback, useEffect, useState } from 'react'
 
 import { Scrollbars as ScrollContainer } from 'react-custom-scrollbars-2'
 
@@ -257,4 +257,4 @@ const Blocks: React.FC<BlocksProps> = ({
   )
 }
 
-export default Blocks
+export default memo(Blocks)
