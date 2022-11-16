@@ -11,17 +11,23 @@ import { apiFake } from '../../hooks/useRequestData'
 import { ILine } from '../../types'
 import { dataUnit, displayData } from '../utils'
 
+import Button from 'react-bootstrap/Button'
 import Spinner from 'react-bootstrap/Spinner'
 
 export const Timeline = (): React.ReactElement => {
   const [timelineData, setTimelineData] = useState<ILine[]>([])
+  const [timelineToShow, setTimelineToShow] = useState<ILine[]>([])
+  const [slices, setSlices] = useState<number>(-21) // 10 + 1 + 10
 
   useEffect(() => {
     apiFake
       .get('/timeline')
-      .then((response) => setTimelineData(response.data[0].line.slice(-21))) // 10 + 1 + 10
+      .then((response) => setTimelineData(response.data[0].line))
       .catch((error: any) => console.log(error))
   }, [])
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => setTimelineToShow(timelineData.slice(slices)), [timelineData])
 
   const dayContainerClasses = useCallback((item: ILine): string => {
     let classes = 'day-container rounded-1 d-flex flex-column p-2'
@@ -38,10 +44,10 @@ export const Timeline = (): React.ReactElement => {
     return classes
   }, [])
 
-  const displayDate = useCallback((item: ILine): React.ReactElement => {
-    const formattedDate: string = isToday(new Date(item.date))
+  const displayDate = useCallback((date: Date): React.ReactElement => {
+    const formattedDate: string = isToday(new Date(date))
       ? 'Hoje'
-      : format(new Date(item.date), 'dd/MM')
+      : format(new Date(date), 'dd/MM')
 
     return <h3 className="day--header h6 fw-bold mb-0">{formattedDate}</h3>
   }, [])
@@ -57,7 +63,6 @@ export const Timeline = (): React.ReactElement => {
         className="ico-sensor ico-rain"
         viewBox="0 0 64 64"
         aria-hidden="true"
-        style={{ opacity: checkIsToday ? 1 : 0.6 }}
       >
         <path d="M53.2,38H10.8C4.8,38,0,33.3,0,27.6c0-4.8,3.4-8.9,8.1-10.1c1.7-6.9,8.3-11.7,15.8-11.4c3.5-3.9,8.6-6.2,14-6.2 c5.4,0,10.5,2.2,14,6.1c3,3.3,4.5,7.3,4.6,11.6c4.4,1.4,7.5,5.3,7.5,9.9C64,33.3,59.2,38,53.2,38z M23.1,10.1 c-5.6,0-10.6,4-11.3,9.4l-0.2,1.6l-1.6,0.2C6.6,21.6,4,24.3,4,27.6c0,3.5,3.1,6.4,6.8,6.4h42.4c3.7,0,6.8-2.9,6.8-6.4 c0-3.2-2.5-5.9-5.8-6.3L52.3,21l0.2-1.9c0.4-3.8-0.9-7.4-3.5-10.3C46.2,5.8,42.2,4,37.9,4c-4.6,0-8.8,2-11.6,5.5l-0.7,0.9l-1.1-0.1 C24,10.2,23.6,10.1,23.1,10.1z" />
         <path d="M33.7,40.6c-1-0.4-2,0.2-2.4,1.1l-6.1,16.6c-0.4,1,0.1,2.1,1.1,2.4c1,0.4,2-0.2,2.4-1.1L34.8,43C35.2,42,34.7,41,33.7,40.6z" />
@@ -191,44 +196,6 @@ export const Timeline = (): React.ReactElement => {
 
       return (
         <div className="d-flex gap-2">
-          {/* <svg
-            className="ico-sensor has-stroke"
-            viewBox="0 0 64 64"
-            aria-hidden="true"
-            style={{ opacity: 0.6 }}
-          >
-            <path
-              d="M43.64,20a5,5,0,1,1,3.61,8.46H11.75"
-              fill="none"
-              strokeDasharray="35 22"
-              strokeLinecap="round"
-              strokeMiterlimit={10}
-              strokeWidth={3}
-            >
-              <animate
-                attributeName="stroke-dashoffset"
-                values="-57; 57"
-                dur="2s"
-                repeatCount="indefinite"
-              />
-            </path>
-            <path
-              d="M29.14,44a5,5,0,1,0,3.61-8.46h-21"
-              fill="none"
-              strokeDasharray="24 15"
-              strokeLinecap="round"
-              strokeMiterlimit={10}
-              strokeWidth={3}
-            >
-              <animate
-                attributeName="stroke-dashoffset"
-                values="-39; 39"
-                dur="2s"
-                begin="-1.5s"
-                repeatCount="indefinite"
-              />
-            </path>
-          </svg> */}
           <svg
             className="ico-sensor"
             viewBox="0 0 512 512"
@@ -259,30 +226,6 @@ export const Timeline = (): React.ReactElement => {
   const displaySolarIrradiation = useCallback(
     (solarIrradiation?: number): React.ReactElement => (
       <div className="d-flex gap-2">
-        {/* <svg
-          className="ico-sensor"
-          viewBox="0 0 64 64"
-          aria-hidden="true"
-          style={{ opacity: 0.6 }}
-        >
-          <circle r={10.5} transform="translate(32,32)" />
-          <path
-            className="has-stroke"
-            d="M32,15.71V9.5m0,45V48.29M43.52,20.48l4.39-4.39M16.09,47.91l4.39-4.39m0-23-4.39-4.39M47.91,47.91l-4.39-4.39M15.71,32H9.5m45,0H48.29"
-            fill="none"
-            strokeLinecap="round"
-            strokeMiterlimit={10}
-            strokeWidth={3}
-          >
-            <animateTransform
-              attributeName="transform"
-              dur="45s"
-              values="0 32 32; 360 32 32"
-              repeatCount="indefinite"
-              type="rotate"
-            />
-          </path>
-        </svg> */}
         <svg
           className="ico-sensor"
           viewBox="0 0 512 512"
@@ -337,9 +280,14 @@ export const Timeline = (): React.ReactElement => {
     ],
   )
 
+  const handlePrependDays = useCallback(() => {
+    setTimelineToShow(timelineData.slice(slices - 1))
+    setSlices(slices - 1)
+  }, [slices, timelineData])
+
   return (
     <div className="timeline-container position-relative">
-      {timelineData.length === 0 ? (
+      {timelineToShow.length === 0 ? (
         <div className="d-flex justify-content-center align-items-center h-100 p-3">
           <Spinner role="status">
             <span className="visually-hidden">Carregando...</span>
@@ -349,17 +297,28 @@ export const Timeline = (): React.ReactElement => {
         <Swiper
           modules={[Keyboard, Mousewheel, Navigation]}
           slidesPerView={'auto'}
+          initialSlide={timelineToShow.length / 4 + 1} // ???
           spaceBetween={16}
-          initialSlide={timelineData.length / 4}
           keyboard={{ enabled: true }}
           mousewheel={true}
           navigation={true}
           grabCursor={true}
           className="px-5 py-3 h-100"
         >
-          {timelineData.map((day, index) => (
+          {timelineToShow.length < timelineData.length && (
+            <SwiperSlide className="day-container rounded-1 d-flex">
+              <Button
+                variant="link"
+                className="w-100"
+                onClick={() => handlePrependDays()}
+              >
+                + dias
+              </Button>
+            </SwiperSlide>
+          )}
+          {timelineToShow.map((day, index) => (
             <SwiperSlide key={index} className={dayContainerClasses(day)}>
-              {displayDate(day)}
+              {displayDate(day.date)}
               {displayRain(day)}
               {displayAllOtherData(day)}
             </SwiperSlide>
