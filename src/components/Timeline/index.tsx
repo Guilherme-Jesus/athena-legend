@@ -15,6 +15,7 @@ import Button from 'react-bootstrap/Button'
 import Spinner from 'react-bootstrap/Spinner'
 
 export const Timeline = (): React.ReactElement => {
+  const [showPrependButton, setShowPrependButton] = useState<boolean>(false)
   const [timelineData, setTimelineData] = useState<ILine[]>([])
   const [timelineToShow, setTimelineToShow] = useState<ILine[]>([])
   const [slices, setSlices] = useState<number>(-21) // 10 + 1 + 10
@@ -297,15 +298,16 @@ export const Timeline = (): React.ReactElement => {
         <Swiper
           modules={[Keyboard, Mousewheel, Navigation]}
           slidesPerView={'auto'}
-          initialSlide={timelineToShow.length / 4 + 1} // ???
+          initialSlide={timelineToShow.length / 4} // ???
           spaceBetween={16}
           keyboard={{ enabled: true }}
           mousewheel={true}
           navigation={true}
           grabCursor={true}
+          onReachBeginning={() => setShowPrependButton(true)}
           className="px-5 py-3 h-100"
         >
-          {timelineToShow.length < timelineData.length && (
+          {showPrependButton && timelineToShow.length < timelineData.length && (
             <SwiperSlide className="day-container rounded-1 d-flex">
               <Button
                 variant="link"
