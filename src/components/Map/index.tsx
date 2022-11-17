@@ -36,20 +36,20 @@ const Map: React.FC<MapProps> = ({
   const temperatureGrades = [5, 10, 20, 30, 40]
   const relativeHumidityGrades = [20, 40, 60, 80, 100]
 
-  const reversedCoords = useCallback((coords: number[]) => {
-    if (coords.length > 4) {
-      return coords.map((coord: any) => {
-        return {
-          lat: coord[1],
-          lng: coord[0],
+  const getBounds = useCallback((coords: number[]) => {
+    const childrenBounds = coords.length > 4
+
+    return childrenBounds
+      ? coords.map((coord: any) => {
+          return {
+            lat: coord[1],
+            lng: coord[0],
+          }
+        })
+      : {
+          lat: coords[1],
+          lng: coords[0],
         }
-      })
-    } else {
-      return {
-        lat: coords[1],
-        lng: coords[0],
-      }
-    }
   }, [])
 
   const getLeafId = useCallback(
@@ -333,7 +333,7 @@ const Map: React.FC<MapProps> = ({
 
     if (layerView === 'Normal')
       blockLeaves.forEach((item) =>
-        L.polygon(reversedCoords(item.bounds) as L.LatLngExpression[], {
+        L.polygon(getBounds(item.bounds) as L.LatLngExpression[], {
           color: 'var(--bs-primary)',
           fillColor: 'var(--bs-primary)',
           fillOpacity: 0.2,
@@ -345,7 +345,7 @@ const Map: React.FC<MapProps> = ({
 
     if (layerView === 'Chuva')
       blockLeavesHistorical?.forEach((item) => {
-        L.polygon(reversedCoords(item.bounds) as L.LatLngExpression[], {
+        L.polygon(getBounds(item.bounds) as L.LatLngExpression[], {
           color: 'var(--bs-white)',
           fillColor: getRainGradeColor(item.data.rain),
           fillOpacity: 1,
@@ -379,7 +379,7 @@ const Map: React.FC<MapProps> = ({
 
     if (layerView === 'Temperatura')
       blockLeavesHistorical?.forEach((item) => {
-        L.polygon(reversedCoords(item.bounds) as L.LatLngExpression[], {
+        L.polygon(getBounds(item.bounds) as L.LatLngExpression[], {
           color: 'var(--bs-white)',
           fillColor: getTemperatureGradeColor(item.data.temperature),
           fillOpacity: 1,
@@ -417,7 +417,7 @@ const Map: React.FC<MapProps> = ({
 
     if (layerView === 'Umidade relativa do ar')
       blockLeavesHistorical?.forEach((item) => {
-        L.polygon(reversedCoords(item.bounds) as L.LatLngExpression[], {
+        L.polygon(getBounds(item.bounds) as L.LatLngExpression[], {
           color: 'var(--bs-white)',
           fillColor: getRelativeHumidityGradeColor(item.data.relativeHumidity),
           fillOpacity: 1,
