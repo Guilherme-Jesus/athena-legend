@@ -1,12 +1,15 @@
 import './map.scss'
 
-import * as L from 'leaflet'
 import React, { memo, useCallback, useEffect, useMemo, useState } from 'react'
-import Dropdown from 'react-bootstrap/Dropdown'
-import DropdownButton from 'react-bootstrap/DropdownButton'
+import * as L from 'leaflet'
+
 import useRequestData from '../../hooks/useRequestData'
 import { IListBlocks, IListBlocksLeaf } from '../../types'
 import { dataUnit, displayData } from '../utils'
+
+import Dropdown from 'react-bootstrap/Dropdown'
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import Spinner from 'react-bootstrap/Spinner'
 
 type MapProps = {
   blockLeaves: IListBlocksLeaf[]
@@ -462,22 +465,34 @@ const Map: React.FC<MapProps> = ({
   }, [blockLeaves, blockLeavesHistorical, layerView, mapCenter])
 
   return (
-    <div className="map-container">
-      <DropdownButton
-        title={layerView === 'Normal' ? 'Somente áreas' : layerView}
-        variant="primary"
-        className="map-layers-selector shadow position-absolute"
-      >
-        {layerViews.map((item) => (
-          <Dropdown.Item
-            as="button"
-            key={item}
-            onClick={() => setLayerView(item)}
-          >
-            {item === 'Normal' ? 'Somente áreas' : item}
-          </Dropdown.Item>
-        ))}
-      </DropdownButton>
+    <div
+      className={`map-container${
+        mapCenter.lat === undefined ? ' map-loading' : ''
+      }`}
+    >
+      {mapCenter.lat === undefined ? (
+        <div className="d-flex justify-content-center align-items-center h-100 w-100">
+          <Spinner role="status">
+            <span className="visually-hidden">Carregando...</span>
+          </Spinner>
+        </div>
+      ) : (
+        <DropdownButton
+          title={layerView === 'Normal' ? 'Somente áreas' : layerView}
+          variant="primary"
+          className="map-layers-selector shadow position-absolute"
+        >
+          {layerViews.map((item) => (
+            <Dropdown.Item
+              as="button"
+              key={item}
+              onClick={() => setLayerView(item)}
+            >
+              {item === 'Normal' ? 'Somente áreas' : item}
+            </Dropdown.Item>
+          ))}
+        </DropdownButton>
+      )}
       <div id="map" className="h-100 w-100" />
     </div>
   )
