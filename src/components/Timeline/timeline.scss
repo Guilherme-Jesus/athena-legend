@@ -11,6 +11,11 @@
     position: relative;
     text-shadow: 0 1px 1px rgba(var(--bs-dark-rgb), 0.3);
     text-align: center;
+    &:hover {
+      .alerts-container {
+        opacity: 1;
+      }
+    }
     &.day-today {
       background-image: linear-gradient(var(--bs-primary), var(--bs-primary-dark));
       box-shadow: 0 calc(var(--spacer) * 0.25) calc(var(--spacer) * 0.25) rgba(var(--bs-primary-rgb), 0.2),
@@ -85,6 +90,15 @@
       fill: var(--bs-prob-norain);
     }
   }
+  .alerts-container {
+    background-color: var(--bs-yellow);
+    border-radius: 0 0 var(--bs-border-radius-sm) var(--bs-border-radius-sm);
+    inset: calc(var(--spacer) * 2.25) 0 0;
+    opacity: 0;
+    text-align: center;
+    transition: opacity 50ms ease-out;
+  }
+
   // Customização da Navigation
   .swiper-button-prev,
   .swiper-button-next {

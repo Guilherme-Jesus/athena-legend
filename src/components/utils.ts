@@ -88,3 +88,16 @@ export const getContrastYIQ = (
 
   return yiq >= 128 ? replaceBlackColor || '#000' : replaceWhiteColor || '#fff'
 }
+
+export const displayAlertName = (alertType: string): string => {
+  switch (alertType) {
+    case 'rain':
+      return 'Chuva'
+    case 'temperature':
+      return 'Temperatura'
+    case 'wind':
+      return 'Vento'
+    case 'spray':
+      return 'Janela de pulverização'
+  }
+}
