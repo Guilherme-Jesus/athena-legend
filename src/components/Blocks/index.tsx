@@ -7,8 +7,6 @@ import { Scrollbars as ScrollContainer } from 'react-custom-scrollbars-2'
 import { IListBlocks } from '../../types'
 import { dataUnit, displayData } from '../utils'
 
-import Spinner from 'react-bootstrap/Spinner'
-
 type BlocksProps = {
   blocks: IListBlocks[]
   currentBlockId: string
@@ -202,9 +200,19 @@ const Blocks: React.FC<BlocksProps> = ({
     <ScrollContainer autoHide className="blocks-container">
       <div className="d-flex flex-column gap-3 px-3 pb-3">
         {isLoadingBlocks ? (
-          <Spinner size="sm" role="status">
-            <span className="visually-hidden">Carregando...</span>
-          </Spinner>
+          <div className="d-flex flex-column gap-3">
+            <span
+              className="skeleton-box rounded-1 w-100"
+              style={{ height: '13.75rem' }}
+            />
+            {[...Array(5).keys()].map((skeleton) => (
+              <span
+                key={skeleton}
+                className="skeleton-box rounded-1 w-100"
+                style={{ height: '3.75rem' }}
+              />
+            ))}
+          </div>
         ) : (
           blocks.map((block) => (
             <div
