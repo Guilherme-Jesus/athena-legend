@@ -464,9 +464,8 @@ const Map: React.FC<MapProps> = ({
   return (
     <div className="map-container">
       <DropdownButton
-        title="Camadas do mapa"
+        title={layerView === 'Normal' ? 'Somente áreas' : layerView}
         variant="primary"
-        size="sm"
         className="map-layers-selector shadow position-absolute"
       >
         {layerViews.map((item) => (
