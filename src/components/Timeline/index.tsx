@@ -17,8 +17,8 @@ import Spinner from 'react-bootstrap/Spinner'
 export const Timeline = (): React.ReactElement => {
   const [showPrependButton, setShowPrependButton] = useState<boolean>(false)
   const [timelineData, setTimelineData] = useState<ILine[]>([])
-  const [timelineToShow, setTimelineToShow] = useState<ILine[]>([])
-  const [slices, setSlices] = useState<number>(-21) // 10 + 1 + 10
+  const [timeline, setTimeline] = useState<ILine[]>([])
+  const [daysToShow, setDaysToShow] = useState<number>(21) // 10 + hoje + 10
 
   useEffect(() => {
     apiFake
@@ -27,8 +27,11 @@ export const Timeline = (): React.ReactElement => {
       .catch((error: any) => console.log(error))
   }, [])
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => setTimelineToShow(timelineData.slice(slices)), [timelineData])
+  useEffect(
+    () => setTimeline(timelineData.slice(-Math.abs(daysToShow))),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [timelineData],
+  )
 
   const dayContainerClasses = useCallback((item: ILine): string => {
     let classes = 'day-container rounded-1 d-flex flex-column p-2'
@@ -282,13 +285,13 @@ export const Timeline = (): React.ReactElement => {
   )
 
   const handlePrependDays = useCallback(() => {
-    setTimelineToShow(timelineData.slice(slices - 1))
-    setSlices(slices - 1)
-  }, [slices, timelineData])
+    setTimeline(timelineData.slice(-Math.abs(daysToShow - 1)))
+    setDaysToShow(-Math.abs(daysToShow - 1))
+  }, [daysToShow, timelineData])
 
   return (
     <div className="timeline-container position-relative">
-      {timelineToShow.length === 0 ? (
+      {timeline.length === 0 ? (
         <div className="d-flex justify-content-center align-items-center h-100 p-3">
           <Spinner role="status">
             <span className="visually-hidden">Carregando...</span>
@@ -298,7 +301,7 @@ export const Timeline = (): React.ReactElement => {
         <Swiper
           modules={[Keyboard, Mousewheel, Navigation]}
           slidesPerView={'auto'}
-          initialSlide={timelineToShow.length / 4} // ???
+          initialSlide={timeline.length / 4 + 1} // ???
           spaceBetween={16}
           keyboard={{ enabled: true }}
           mousewheel={true}
@@ -307,7 +310,7 @@ export const Timeline = (): React.ReactElement => {
           onReachBeginning={() => setShowPrependButton(true)}
           className="px-5 py-3 h-100"
         >
-          {showPrependButton && timelineToShow.length < timelineData.length && (
+          {showPrependButton && timeline.length < timelineData.length && (
             <SwiperSlide className="day-container rounded-1 d-flex">
               <Button
                 variant="link"
@@ -318,7 +321,7 @@ export const Timeline = (): React.ReactElement => {
               </Button>
             </SwiperSlide>
           )}
-          {timelineToShow.map((day, index) => (
+          {timeline.map((day, index) => (
             <SwiperSlide key={index} className={dayContainerClasses(day)}>
               {displayDate(day.date)}
               {displayRain(day)}
