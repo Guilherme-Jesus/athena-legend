@@ -15,7 +15,8 @@
 @import "bootstrap/scss/functions";
 
 // 2. Include any default variable overrides here
-$font-family-sans-serif: "Roboto Condensed", Inter, Avenir, Helvetica, Arial, sans-serif; // "Titillium Web", sans-serif;
+$font-family-sans-serif: "Roboto Condensed", Inter, Avenir, Helvetica, Arial,
+  sans-serif; // "Titillium Web", sans-serif;
 // $primary: #ff7f2f;
 // $primary-dark: #cc6525;
 // $zeus-colors: (
@@ -35,14 +36,14 @@ $font-family-sans-serif: "Roboto Condensed", Inter, Avenir, Helvetica, Arial, sa
 @import "bootstrap/scss/images";
 @import "bootstrap/scss/containers";
 @import "bootstrap/scss/grid";
-@import 'bootstrap/scss/buttons';
-@import 'bootstrap/scss/forms';
-@import 'bootstrap/scss/functions';
-@import 'bootstrap/scss/helpers';
-@import 'bootstrap/scss/maps';
-@import 'bootstrap/scss/spinners';
-@import 'bootstrap/scss/transitions';
-@import 'bootstrap/scss/utilities';
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/helpers";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/spinners";
+@import "bootstrap/scss/transitions";
+@import "bootstrap/scss/utilities";
 // @import 'bootstrap/scss/accordion';
 // @import 'bootstrap/scss/alert';
 // @import 'bootstrap/scss/badge';
@@ -104,7 +105,7 @@ $font-family-sans-serif: "Roboto Condensed", Inter, Avenir, Helvetica, Arial, sa
   --bs-temperatureMin: #848ca8;
   --bs-wind-rgb: 156, 39, 176;
   --bs-wind: #9c27b0;
-  --cubic-bezier: cubic-bezier(.47, 1.64, .41, .8);
+  --cubic-bezier: cubic-bezier(0.47, 1.64, 0.41, 0.8);
   --spacer: 16px;
 
   // -moz-osx-font-smoothing: grayscale;
@@ -144,21 +145,22 @@ a,
   color: var(--bs-primary-dark);
   font-weight: 400;
   // text-decoration: inherit;
-  text-underline-offset: .25rem;
+  text-underline-offset: 0.25rem;
   &:hover {
     color: var(--bs-primary);
   }
   &:not(.no-external)[rel*="noopener"] {
-    padding-right: .625rem;
+    padding-right: 0.625rem;
     position: relative;
     &::after {
-      background: url("../src/assets/images/ico-external-href.svg") no-repeat center / contain;
+      background: url("../src/assets/images/ico-external-href.svg") no-repeat
+        center / contain;
       content: "";
-      height: .5rem;
+      height: 0.5rem;
       position: absolute;
       right: 0;
-      top: .25rem;
-      width: .5rem;
+      top: 0.25rem;
+      width: 0.5rem;
     }
   }
 }
@@ -247,7 +249,7 @@ label {
     padding-right: 5.5rem;
   }
   &.is-invalid {
-    animation: shake .5s ease-in;
+    animation: shake 0.5s ease-in;
   }
 }
 
@@ -299,27 +301,27 @@ label {
 }
 
 // @-webkit-keyframes shake {
-//   0%, 100% { -webkit-transform: translateX(0%); } 
-//   15% { -webkit-transform: translateX(-12%); } 
-//   30% { -webkit-transform: translateX(8%); } 
-//   45% { -webkit-transform: translateX(-4%); } 
+//   0%, 100% { -webkit-transform: translateX(0%); }
+//   15% { -webkit-transform: translateX(-12%); }
+//   30% { -webkit-transform: translateX(8%); }
+//   45% { -webkit-transform: translateX(-4%); }
 //   60% { -webkit-transform: translateX(2%); }
 //   75% { -webkit-transform: translateX(-1%); }
 // }
 
 // @-moz-keyframes shake {
-//   0%, 100% { -webkit-transform: translateX(0%); } 
-//   15% { -webkit-transform: translateX(-12%); } 
-//   30% { -webkit-transform: translateX(8%); } 
-//   45% { -webkit-transform: translateX(-4%); } 
+//   0%, 100% { -webkit-transform: translateX(0%); }
+//   15% { -webkit-transform: translateX(-12%); }
+//   30% { -webkit-transform: translateX(8%); }
+//   45% { -webkit-transform: translateX(-4%); }
 //   60% { -webkit-transform: translateX(2%); }
 //   75% { -webkit-transform: translateX(-1%); }
 // }
 // @keyframes shake {
-//   0%, 100% { transform: translateX(0%); } 
-//   15% { transform: translateX(-12%); } 
-//   30% { transform: translateX(8%); } 
-//   45% { transform: translateX(-4%); } 
+//   0%, 100% { transform: translateX(0%); }
+//   15% { transform: translateX(-12%); }
+//   30% { transform: translateX(8%); }
+//   45% { transform: translateX(-4%); }
 //   60% { transform: translateX(2%); }
 //   75% { transform: translateX(-1%); }
 // }
@@ -333,8 +335,6 @@ iframe {
   border: 0;
 }
 
-
-
 // SKELETON LOADING
 .skeleton-box {
   background-color: var(--bs-gray-300);
@@ -345,17 +345,18 @@ iframe {
   position: relative;
   &::after {
     animation: shimmer 2s infinite;
-    background-image: linear-gradient(90deg,
-                      rgba(var(--bs-white-rgb), 0) 0,
-                      rgba(var(--bs-white-rgb), 0.2) 20%,
-                      rgba(var(--bs-white-rgb), 0.5) 60%,
-                      rgba(var(--bs-white-rgb), 0));
+    background-image: linear-gradient(
+      90deg,
+      rgba(var(--bs-white-rgb), 0) 0,
+      rgba(var(--bs-white-rgb), 0.2) 20%,
+      rgba(var(--bs-white-rgb), 0.5) 60%,
+      rgba(var(--bs-white-rgb), 0)
+    );
     content: "";
     inset: 0;
     position: absolute;
     transform: translateX(-100%);
   }
-
 }
 
 @-webkit-keyframes shimmer {
