@@ -18,6 +18,19 @@
     left: var(--spacer);
     top: var(--spacer);
     z-index: 401;
+    .dropdown-toggle {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      text-align: start;
+      width: calc(var(--spacer) * 11.5);
+      &.btn-sm {
+        width: calc(var(--spacer) * 9.5);
+      }
+      &::after {
+        margin: 0;
+      }
+    }
   }
   .leaflet-control {
     background-color: var(--bs-white);
