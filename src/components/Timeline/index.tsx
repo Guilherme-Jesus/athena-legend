@@ -12,7 +12,6 @@ import { ILine } from '../../types'
 import { dataUnit, displayAlertName, displayData } from '../utils'
 
 import Button from 'react-bootstrap/Button'
-import Spinner from 'react-bootstrap/Spinner'
 
 export const Timeline = (): React.ReactElement => {
   const [showPrependButton, setShowPrependButton] = useState<boolean>(false)
@@ -335,10 +334,19 @@ export const Timeline = (): React.ReactElement => {
   return (
     <div className="timeline-container position-relative">
       {timeline.length === 0 ? (
-        <div className="d-flex justify-content-center align-items-center h-100 p-3">
-          <Spinner role="status">
-            <span className="visually-hidden">Carregando...</span>
-          </Spinner>
+        <div className="p-3 overflow-hidden h-100">
+          <div
+            className="text-nowrap h-100"
+            style={{ transform: 'translateX(-100px)' }}
+          >
+            {[...Array(21).keys()].map((skeleton) => (
+              <span
+                key={skeleton}
+                className="skeleton-box rounded-1 me-3 h-100"
+                style={{ width: '7.5rem' }}
+              />
+            ))}
+          </div>
         </div>
       ) : (
         <Swiper
