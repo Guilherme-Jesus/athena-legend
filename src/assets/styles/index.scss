@@ -104,8 +104,10 @@ $font-family-sans-serif: "Roboto Condensed", Inter, Avenir, Helvetica, Arial, sa
   --bs-temperatureMin: #848ca8;
   --bs-wind-rgb: 156, 39, 176;
   --bs-wind: #9c27b0;
+
   --cubic-bezier: cubic-bezier(.47, 1.64, .41, .8);
   --spacer: 16px;
+  --active-element-outline-width: 2px;
 
   // -moz-osx-font-smoothing: grayscale;
   // -webkit-font-smoothing: antialiased;
@@ -178,7 +180,7 @@ a,
 
 // button {
 //   background-color: #1a1a1a;
-//   border-radius: 8px;
+//   border-radius: var(--bs-border-radius-lg);
 //   border: 1px solid transparent;
 //   cursor: pointer;
 //   font-family: inherit;

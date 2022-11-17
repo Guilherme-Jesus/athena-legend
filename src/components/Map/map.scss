@@ -2,7 +2,7 @@
 
 .map-container {
   background-color: #eee;
-  border-radius: calc(var(--spacer) / 2) 0 0 calc(var(--spacer) / 2);
+  border-radius: var(--bs-border-radius-lg) 0 0 var(--bs-border-radius-lg);
   grid-area: main;
   overflow: hidden;
   position: relative;
@@ -21,7 +21,7 @@
   }
   .leaflet-control {
     background-color: var(--bs-white);
-    border-radius: calc(var(--spacer) / 4);
+    border-radius: var(--bs-border-radius);
     box-shadow: 0 0.5rem 1rem rgba(var(--bs-black-rgb), 0.15);
     color: var(--bs-dark);
     font: 0.75rem var(--bs-font-sans-serif);
