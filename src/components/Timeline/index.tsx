@@ -285,8 +285,8 @@ export const Timeline = (): React.ReactElement => {
   )
 
   const handlePrependDays = useCallback(() => {
-    setTimeline(timelineData.slice(-Math.abs(daysToShow - 1)))
-    setDaysToShow(-Math.abs(daysToShow - 1))
+    setTimeline(timelineData.slice(-Math.abs(daysToShow) - 1))
+    setDaysToShow(-Math.abs(daysToShow) - 1)
   }, [daysToShow, timelineData])
 
   return (
@@ -380,7 +380,11 @@ export const Timeline = (): React.ReactElement => {
                         {format(new Date(alert.start), 'HH:mm')} às{' '}
                         {format(new Date(alert.finish), 'HH:mm')}
                       </small>
-                      {alert.info !== 'none' && <small>{alert.info}</small>}
+                      {alert.info !== 'none' && (
+                        <small className="text-start lh-1 p-2">
+                          {alert.info}
+                        </small>
+                      )}
                     </div>
                   ))}
                 </div>
