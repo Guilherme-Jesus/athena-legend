@@ -10,7 +10,7 @@
                           auto;
   grid-template-rows: calc(var(--spacer) * 2.375 + var(--spacer) * 1.5 * 2)
                       auto
-                      calc(var(--spacer) * 13.5);
+                      calc(var(--spacer) * 13);
   min-height: 100vh;
 
   header {
