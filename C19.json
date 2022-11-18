@@ -19359,7 +19359,7 @@
       },
       "forecast": [
         {
-          "date": "2022-10-01T00:00:00Z",
+          "date": "2022-10-01T20:59:00-03:00",
           "temperatureMin": 16.471147,
           "temperatureMax": 35.239416,
           "rain": 1.919687,
@@ -19367,7 +19367,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-02T00:00:00Z",
+          "date": "2022-10-02T20:59:00-03:00",
           "temperatureMin": 17.225663,
           "temperatureMax": 35.601041,
           "rain": 4.021335,
@@ -19375,7 +19375,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-03T00:00:00Z",
+          "date": "2022-10-03T20:59:00-03:00",
           "temperatureMin": 16.951524,
           "temperatureMax": 34.796165,
           "rain": 7.661566,
@@ -19383,7 +19383,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-04T00:00:00Z",
+          "date": "2022-10-04T20:59:00-03:00",
           "temperatureMin": 16.579456,
           "temperatureMax": 34.173663,
           "rain": 7.696051,
@@ -19391,7 +19391,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-05T00:00:00Z",
+          "date": "2022-10-05T20:59:00-03:00",
           "temperatureMin": 16.878176,
           "temperatureMax": 34.15372,
           "rain": 5.945151,
@@ -19399,7 +19399,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-06T00:00:00Z",
+          "date": "2022-10-06T20:59:00-03:00",
           "temperatureMin": 16.927386,
           "temperatureMax": 34.596512,
           "rain": 8.694305,
@@ -19407,7 +19407,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-07T00:00:00Z",
+          "date": "2022-10-07T20:59:00-03:00",
           "temperatureMin": 16.573873,
           "temperatureMax": 32.982338,
           "rain": 6.434236,
@@ -19415,7 +19415,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-08T00:00:00Z",
+          "date": "2022-10-08T20:59:00-03:00",
           "temperatureMin": 13.598331,
           "temperatureMax": 32.942192,
           "rain": 5.259401,
@@ -19423,7 +19423,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-09T00:00:00Z",
+          "date": "2022-10-09T20:59:00-03:00",
           "temperatureMin": 14.147612,
           "temperatureMax": 34.814716,
           "rain": 7.352998,
@@ -19431,7 +19431,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-10T00:00:00Z",
+          "date": "2022-10-10T20:59:00-03:00",
           "temperatureMin": 15.598736,
           "temperatureMax": 36.56545,
           "rain": 7.57085,
@@ -19439,7 +19439,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-11T00:00:00Z",
+          "date": "2022-10-11T20:59:00-03:00",
           "temperatureMin": 16.859018,
           "temperatureMax": 34.457381,
           "rain": 6.211621,
@@ -19447,7 +19447,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-12T00:00:00Z",
+          "date": "2022-10-12T20:59:00-03:00",
           "temperatureMin": 16.929451,
           "temperatureMax": 33.374868,
           "rain": 8.649996,
@@ -19573,7 +19573,7 @@
       },
       "forecast": [
         {
-          "date": "2022-10-01T00:00:00Z",
+          "date": "2022-10-01T20:59:00-03:00",
           "temperatureMin": 16.335714,
           "temperatureMax": 35.721429,
           "rain": 1.696129,
@@ -19581,7 +19581,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-02T00:00:00Z",
+          "date": "2022-10-02T20:59:00-03:00",
           "temperatureMin": 16.842857,
           "temperatureMax": 35.7,
           "rain": 4.523028,
@@ -19589,7 +19589,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-03T00:00:00Z",
+          "date": "2022-10-03T20:59:00-03:00",
           "temperatureMin": 16.221429,
           "temperatureMax": 34.642857,
           "rain": 7.822513,
@@ -19597,7 +19597,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-04T00:00:00Z",
+          "date": "2022-10-04T20:59:00-03:00",
           "temperatureMin": 16.185714,
           "temperatureMax": 33.628571,
           "rain": 7.417662,
@@ -19605,7 +19605,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-05T00:00:00Z",
+          "date": "2022-10-05T20:59:00-03:00",
           "temperatureMin": 16.121429,
           "temperatureMax": 33.342857,
           "rain": 6.485899,
@@ -19613,7 +19613,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-06T00:00:00Z",
+          "date": "2022-10-06T20:59:00-03:00",
           "temperatureMin": 16.335714,
           "temperatureMax": 34.4,
           "rain": 6.995509,
@@ -19621,7 +19621,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-07T00:00:00Z",
+          "date": "2022-10-07T20:59:00-03:00",
           "temperatureMin": 15.935714,
           "temperatureMax": 32.442857,
           "rain": 6.288678,
@@ -19629,7 +19629,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-08T00:00:00Z",
+          "date": "2022-10-08T20:59:00-03:00",
           "temperatureMin": 12.592857,
           "temperatureMax": 32.464286,
           "rain": 5.774755,
@@ -19637,7 +19637,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-09T00:00:00Z",
+          "date": "2022-10-09T20:59:00-03:00",
           "temperatureMin": 12.607143,
           "temperatureMax": 33.964286,
           "rain": 6.559297,
@@ -19645,7 +19645,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-10T00:00:00Z",
+          "date": "2022-10-10T20:59:00-03:00",
           "temperatureMin": 14.557143,
           "temperatureMax": 36.5,
           "rain": 7.504377,
@@ -19653,7 +19653,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-11T00:00:00Z",
+          "date": "2022-10-11T20:59:00-03:00",
           "temperatureMin": 16.364286,
           "temperatureMax": 33.521429,
           "rain": 6.270131,
@@ -19661,7 +19661,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-12T00:00:00Z",
+          "date": "2022-10-12T20:59:00-03:00",
           "temperatureMin": 16.3,
           "temperatureMax": 32.028571,
           "rain": 7.772105,
@@ -19787,7 +19787,7 @@
       },
       "forecast": [
         {
-          "date": "2022-10-01T00:00:00Z",
+          "date": "2022-10-01T20:59:00-03:00",
           "temperatureMin": 16.3,
           "temperatureMax": 35.8,
           "rain": 2.200871,
@@ -19795,7 +19795,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-02T00:00:00Z",
+          "date": "2022-10-02T20:59:00-03:00",
           "temperatureMin": 16.5,
           "temperatureMax": 35.8,
           "rain": 4.394772,
@@ -19803,7 +19803,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-03T00:00:00Z",
+          "date": "2022-10-03T20:59:00-03:00",
           "temperatureMin": 16.1,
           "temperatureMax": 34.6,
           "rain": 8.10701,
@@ -19811,7 +19811,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-04T00:00:00Z",
+          "date": "2022-10-04T20:59:00-03:00",
           "temperatureMin": 15.5,
           "temperatureMax": 33.8,
           "rain": 7.910495,
@@ -19819,7 +19819,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-05T00:00:00Z",
+          "date": "2022-10-05T20:59:00-03:00",
           "temperatureMin": 15.8,
           "temperatureMax": 34.2,
           "rain": 7.269346,
@@ -19827,7 +19827,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-06T00:00:00Z",
+          "date": "2022-10-06T20:59:00-03:00",
           "temperatureMin": 15.5,
           "temperatureMax": 34.1,
           "rain": 7.535921,
@@ -19835,7 +19835,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-07T00:00:00Z",
+          "date": "2022-10-07T20:59:00-03:00",
           "temperatureMin": 15.6,
           "temperatureMax": 33,
           "rain": 6.417505,
@@ -19843,7 +19843,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-08T00:00:00Z",
+          "date": "2022-10-08T20:59:00-03:00",
           "temperatureMin": 12.7,
           "temperatureMax": 32.1,
           "rain": 5.013149,
@@ -19851,7 +19851,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-09T00:00:00Z",
+          "date": "2022-10-09T20:59:00-03:00",
           "temperatureMin": 13.2,
           "temperatureMax": 34.5,
           "rain": 8.105267,
@@ -19859,7 +19859,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-10T00:00:00Z",
+          "date": "2022-10-10T20:59:00-03:00",
           "temperatureMin": 14.1,
           "temperatureMax": 36,
           "rain": 7.600911,
@@ -19867,7 +19867,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-11T00:00:00Z",
+          "date": "2022-10-11T20:59:00-03:00",
           "temperatureMin": 16.4,
           "temperatureMax": 34,
           "rain": 6.228001,
@@ -19875,7 +19875,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-12T00:00:00Z",
+          "date": "2022-10-12T20:59:00-03:00",
           "temperatureMin": 16.1,
           "temperatureMax": 33,
           "rain": 8.112277,
@@ -20001,7 +20001,7 @@
       },
       "forecast": [
         {
-          "date": "2022-10-01T00:00:00Z",
+          "date": "2022-10-01T20:59:00-03:00",
           "temperatureMin": 15.864865,
           "temperatureMax": 35.897297,
           "rain": 1.783629,
@@ -20009,7 +20009,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-02T00:00:00Z",
+          "date": "2022-10-02T20:59:00-03:00",
           "temperatureMin": 16.424324,
           "temperatureMax": 35.7,
           "rain": 4.501339,
@@ -20017,7 +20017,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-03T00:00:00Z",
+          "date": "2022-10-03T20:59:00-03:00",
           "temperatureMin": 15.645946,
           "temperatureMax": 34.337838,
           "rain": 7.695435,
@@ -20025,7 +20025,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-04T00:00:00Z",
+          "date": "2022-10-04T20:59:00-03:00",
           "temperatureMin": 15.348649,
           "temperatureMax": 33.856757,
           "rain": 7.943095,
@@ -20033,7 +20033,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-05T00:00:00Z",
+          "date": "2022-10-05T20:59:00-03:00",
           "temperatureMin": 15.545946,
           "temperatureMax": 33.656757,
           "rain": 6.456985,
@@ -20041,7 +20041,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-06T00:00:00Z",
+          "date": "2022-10-06T20:59:00-03:00",
           "temperatureMin": 15.864865,
           "temperatureMax": 34.4,
           "rain": 6.994293,
@@ -20049,7 +20049,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-07T00:00:00Z",
+          "date": "2022-10-07T20:59:00-03:00",
           "temperatureMin": 15.783784,
           "temperatureMax": 32.756757,
           "rain": 6.095435,
@@ -20057,7 +20057,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-08T00:00:00Z",
+          "date": "2022-10-08T20:59:00-03:00",
           "temperatureMin": 11.808108,
           "temperatureMax": 32.316216,
           "rain": 5.461469,
@@ -20065,7 +20065,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-09T00:00:00Z",
+          "date": "2022-10-09T20:59:00-03:00",
           "temperatureMin": 11.927027,
           "temperatureMax": 34.435135,
           "rain": 6.842148,
@@ -20073,7 +20073,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-10T00:00:00Z",
+          "date": "2022-10-10T20:59:00-03:00",
           "temperatureMin": 14.243243,
           "temperatureMax": 36.5,
           "rain": 7.586306,
@@ -20081,7 +20081,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-11T00:00:00Z",
+          "date": "2022-10-11T20:59:00-03:00",
           "temperatureMin": 16.102703,
           "temperatureMax": 33.678378,
           "rain": 6.163835,
@@ -20089,7 +20089,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-12T00:00:00Z",
+          "date": "2022-10-12T20:59:00-03:00",
           "temperatureMin": 16.581081,
           "temperatureMax": 32.237838,
           "rain": 7.852225,
@@ -20215,7 +20215,7 @@
       },
       "forecast": [
         {
-          "date": "2022-10-01T00:00:00Z",
+          "date": "2022-10-01T20:59:00-03:00",
           "temperatureMin": 17.251087,
           "temperatureMax": 33.601087,
           "rain": 0.966527,
@@ -20223,7 +20223,7 @@
           "rainPrediction": "N"
         },
         {
-          "date": "2022-10-02T00:00:00Z",
+          "date": "2022-10-02T20:59:00-03:00",
           "temperatureMin": 18.844565,
           "temperatureMax": 35.693478,
           "rain": 2.471268,
@@ -20231,7 +20231,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-03T00:00:00Z",
+          "date": "2022-10-03T20:59:00-03:00",
           "temperatureMin": 19.627174,
           "temperatureMax": 35.928261,
           "rain": 6.647349,
@@ -20239,7 +20239,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-04T00:00:00Z",
+          "date": "2022-10-04T20:59:00-03:00",
           "temperatureMin": 19.567391,
           "temperatureMax": 36.016304,
           "rain": 7.562142,
@@ -20247,7 +20247,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-05T00:00:00Z",
+          "date": "2022-10-05T20:59:00-03:00",
           "temperatureMin": 19.734783,
           "temperatureMax": 35.698913,
           "rain": 3.273289,
@@ -20255,7 +20255,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-06T00:00:00Z",
+          "date": "2022-10-06T20:59:00-03:00",
           "temperatureMin": 19.913043,
           "temperatureMax": 36.128261,
           "rain": 12.793351,
@@ -20263,7 +20263,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-07T00:00:00Z",
+          "date": "2022-10-07T20:59:00-03:00",
           "temperatureMin": 18.38913,
           "temperatureMax": 33.938043,
           "rain": 6.399452,
@@ -20271,7 +20271,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-08T00:00:00Z",
+          "date": "2022-10-08T20:59:00-03:00",
           "temperatureMin": 16.751087,
           "temperatureMax": 34.998913,
           "rain": 5.133752,
@@ -20279,7 +20279,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-09T00:00:00Z",
+          "date": "2022-10-09T20:59:00-03:00",
           "temperatureMin": 18.313043,
           "temperatureMax": 36.669565,
           "rain": 7.96591,
@@ -20287,7 +20287,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-10T00:00:00Z",
+          "date": "2022-10-10T20:59:00-03:00",
           "temperatureMin": 18.954348,
           "temperatureMax": 38.152174,
           "rain": 8.304085,
@@ -20295,7 +20295,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-11T00:00:00Z",
+          "date": "2022-10-11T20:59:00-03:00",
           "temperatureMin": 18.205435,
           "temperatureMax": 36.945652,
           "rain": 6.083273,
@@ -20303,7 +20303,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-12T00:00:00Z",
+          "date": "2022-10-12T20:59:00-03:00",
           "temperatureMin": 18.307609,
           "temperatureMax": 36.480435,
           "rain": 10.837632,
@@ -20429,7 +20429,7 @@
       },
       "forecast": [
         {
-          "date": "2022-10-01T00:00:00Z",
+          "date": "2022-10-01T20:59:00-03:00",
           "temperatureMin": 16.988095,
           "temperatureMax": 34.819048,
           "rain": 2.345278,
@@ -20437,7 +20437,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-02T00:00:00Z",
+          "date": "2022-10-02T20:59:00-03:00",
           "temperatureMin": 17.852381,
           "temperatureMax": 34.895238,
           "rain": 3.810165,
@@ -20445,7 +20445,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-03T00:00:00Z",
+          "date": "2022-10-03T20:59:00-03:00",
           "temperatureMin": 17.1,
           "temperatureMax": 33.330952,
           "rain": 8.000425,
@@ -20453,7 +20453,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-04T00:00:00Z",
+          "date": "2022-10-04T20:59:00-03:00",
           "temperatureMin": 16.880952,
           "temperatureMax": 32.219048,
           "rain": 8.206343,
@@ -20461,7 +20461,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-05T00:00:00Z",
+          "date": "2022-10-05T20:59:00-03:00",
           "temperatureMin": 16.97619,
           "temperatureMax": 32.454762,
           "rain": 7.407192,
@@ -20469,7 +20469,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-06T00:00:00Z",
+          "date": "2022-10-06T20:59:00-03:00",
           "temperatureMin": 16.864286,
           "temperatureMax": 33.042857,
           "rain": 7.101698,
@@ -20477,7 +20477,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-07T00:00:00Z",
+          "date": "2022-10-07T20:59:00-03:00",
           "temperatureMin": 17.1,
           "temperatureMax": 31.32619,
           "rain": 6.606768,
@@ -20485,7 +20485,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-08T00:00:00Z",
+          "date": "2022-10-08T20:59:00-03:00",
           "temperatureMin": 13.940476,
           "temperatureMax": 31.007143,
           "rain": 4.701274,
@@ -20493,7 +20493,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-09T00:00:00Z",
+          "date": "2022-10-09T20:59:00-03:00",
           "temperatureMin": 14.188095,
           "temperatureMax": 32.942857,
           "rain": 7.73272,
@@ -20501,7 +20501,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-10T00:00:00Z",
+          "date": "2022-10-10T20:59:00-03:00",
           "temperatureMin": 15.688095,
           "temperatureMax": 35.471429,
           "rain": 6.772929,
@@ -20509,7 +20509,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-11T00:00:00Z",
+          "date": "2022-10-11T20:59:00-03:00",
           "temperatureMin": 16.77619,
           "temperatureMax": 32.454762,
           "rain": 6.743579,
@@ -20517,7 +20517,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-12T00:00:00Z",
+          "date": "2022-10-12T20:59:00-03:00",
           "temperatureMin": 17.188095,
           "temperatureMax": 31.195238,
           "rain": 7.694081,
@@ -20643,7 +20643,7 @@
       },
       "forecast": [
         {
-          "date": "2022-10-01T00:00:00Z",
+          "date": "2022-10-01T20:59:00-03:00",
           "temperatureMin": 16.3,
           "temperatureMax": 35.8,
           "rain": 1.601322,
@@ -20651,7 +20651,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-02T00:00:00Z",
+          "date": "2022-10-02T20:59:00-03:00",
           "temperatureMin": 16.5,
           "temperatureMax": 35.8,
           "rain": 4.69998,
@@ -20659,7 +20659,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-03T00:00:00Z",
+          "date": "2022-10-03T20:59:00-03:00",
           "temperatureMin": 16.1,
           "temperatureMax": 34.6,
           "rain": 8.299273,
@@ -20667,7 +20667,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-04T00:00:00Z",
+          "date": "2022-10-04T20:59:00-03:00",
           "temperatureMin": 15.5,
           "temperatureMax": 33.8,
           "rain": 7.700572,
@@ -20675,7 +20675,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-05T00:00:00Z",
+          "date": "2022-10-05T20:59:00-03:00",
           "temperatureMin": 15.8,
           "temperatureMax": 34.2,
           "rain": 6.399326,
@@ -20683,7 +20683,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-06T00:00:00Z",
+          "date": "2022-10-06T20:59:00-03:00",
           "temperatureMin": 15.5,
           "temperatureMax": 34.05,
           "rain": 7.80131,
@@ -20691,7 +20691,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-07T00:00:00Z",
+          "date": "2022-10-07T20:59:00-03:00",
           "temperatureMin": 15.6,
           "temperatureMax": 32.8125,
           "rain": 6.898917,
@@ -20699,7 +20699,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-08T00:00:00Z",
+          "date": "2022-10-08T20:59:00-03:00",
           "temperatureMin": 12.7,
           "temperatureMax": 32.7,
           "rain": 5.996665,
@@ -20707,7 +20707,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-09T00:00:00Z",
+          "date": "2022-10-09T20:59:00-03:00",
           "temperatureMin": 13.075,
           "temperatureMax": 34.5,
           "rain": 6.80134,
@@ -20715,7 +20715,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-10T00:00:00Z",
+          "date": "2022-10-10T20:59:00-03:00",
           "temperatureMin": 14.1,
           "temperatureMax": 36,
           "rain": 7.799559,
@@ -20723,7 +20723,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-11T00:00:00Z",
+          "date": "2022-10-11T20:59:00-03:00",
           "temperatureMin": 16.4,
           "temperatureMax": 34,
           "rain": 6.101192,
@@ -20731,7 +20731,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-12T00:00:00Z",
+          "date": "2022-10-12T20:59:00-03:00",
           "temperatureMin": 16.1,
           "temperatureMax": 33,
           "rain": 8.200546,
@@ -20857,7 +20857,7 @@
       },
       "forecast": [
         {
-          "date": "2022-10-01T00:00:00Z",
+          "date": "2022-10-01T20:59:00-03:00",
           "temperatureMin": 17.229412,
           "temperatureMax": 34.176471,
           "rain": 2.863742,
@@ -20865,7 +20865,7 @@
           "rainPrediction": "N"
         },
         {
-          "date": "2022-10-02T00:00:00Z",
+          "date": "2022-10-02T20:59:00-03:00",
           "temperatureMin": 18.741176,
           "temperatureMax": 35.919608,
           "rain": 3.47013,
@@ -20873,7 +20873,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-03T00:00:00Z",
+          "date": "2022-10-03T20:59:00-03:00",
           "temperatureMin": 19.617647,
           "temperatureMax": 36.429412,
           "rain": 7.120525,
@@ -20881,7 +20881,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-04T00:00:00Z",
+          "date": "2022-10-04T20:59:00-03:00",
           "temperatureMin": 18.952941,
           "temperatureMax": 35.968627,
           "rain": 6.928095,
@@ -20889,7 +20889,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-05T00:00:00Z",
+          "date": "2022-10-05T20:59:00-03:00",
           "temperatureMin": 19.947059,
           "temperatureMax": 35.776471,
           "rain": 3.509099,
@@ -20897,7 +20897,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-06T00:00:00Z",
+          "date": "2022-10-06T20:59:00-03:00",
           "temperatureMin": 19.941176,
           "temperatureMax": 36.45098,
           "rain": 13.172284,
@@ -20905,7 +20905,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-07T00:00:00Z",
+          "date": "2022-10-07T20:59:00-03:00",
           "temperatureMin": 18.682353,
           "temperatureMax": 34.582353,
           "rain": 6.767131,
@@ -20913,7 +20913,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-08T00:00:00Z",
+          "date": "2022-10-08T20:59:00-03:00",
           "temperatureMin": 17.094118,
           "temperatureMax": 35.35098,
           "rain": 4.394142,
@@ -20921,7 +20921,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-09T00:00:00Z",
+          "date": "2022-10-09T20:59:00-03:00",
           "temperatureMin": 18.470588,
           "temperatureMax": 36.705882,
           "rain": 7.697151,
@@ -20929,7 +20929,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-10T00:00:00Z",
+          "date": "2022-10-10T20:59:00-03:00",
           "temperatureMin": 19.147059,
           "temperatureMax": 38.1,
           "rain": 7.698639,
@@ -20937,7 +20937,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-11T00:00:00Z",
+          "date": "2022-10-11T20:59:00-03:00",
           "temperatureMin": 18.723529,
           "temperatureMax": 37.258824,
           "rain": 6.063033,
@@ -20945,7 +20945,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-12T00:00:00Z",
+          "date": "2022-10-12T20:59:00-03:00",
           "temperatureMin": 18.358824,
           "temperatureMax": 36.656863,
           "rain": 10.7311,
@@ -21071,7 +21071,7 @@
       },
       "forecast": [
         {
-          "date": "2022-10-01T00:00:00Z",
+          "date": "2022-10-01T20:59:00-03:00",
           "temperatureMin": 15.5,
           "temperatureMax": 36.1,
           "rain": 1.9,
@@ -21079,7 +21079,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-02T00:00:00Z",
+          "date": "2022-10-02T20:59:00-03:00",
           "temperatureMin": 16.1,
           "temperatureMax": 35.3,
           "rain": 4.3,
@@ -21087,7 +21087,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-03T00:00:00Z",
+          "date": "2022-10-03T20:59:00-03:00",
           "temperatureMin": 15.2,
           "temperatureMax": 34.5,
           "rain": 7.6,
@@ -21095,7 +21095,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-04T00:00:00Z",
+          "date": "2022-10-04T20:59:00-03:00",
           "temperatureMin": 14.7,
           "temperatureMax": 34.1,
           "rain": 7.9,
@@ -21103,7 +21103,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-05T00:00:00Z",
+          "date": "2022-10-05T20:59:00-03:00",
           "temperatureMin": 15.1,
           "temperatureMax": 33.9,
           "rain": 6.760073,
@@ -21111,7 +21111,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-06T00:00:00Z",
+          "date": "2022-10-06T20:59:00-03:00",
           "temperatureMin": 15.5,
           "temperatureMax": 34.2,
           "rain": 7.160073,
@@ -21119,7 +21119,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-07T00:00:00Z",
+          "date": "2022-10-07T20:59:00-03:00",
           "temperatureMin": 15.5,
           "temperatureMax": 33,
           "rain": 6,
@@ -21127,7 +21127,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-08T00:00:00Z",
+          "date": "2022-10-08T20:59:00-03:00",
           "temperatureMin": 11.2,
           "temperatureMax": 32.6,
           "rain": 5.6,
@@ -21135,7 +21135,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-09T00:00:00Z",
+          "date": "2022-10-09T20:59:00-03:00",
           "temperatureMin": 11.4,
           "temperatureMax": 34.8,
           "rain": 7.120146,
@@ -21143,7 +21143,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-10T00:00:00Z",
+          "date": "2022-10-10T20:59:00-03:00",
           "temperatureMin": 14,
           "temperatureMax": 35.8,
           "rain": 7.3,
@@ -21151,7 +21151,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-11T00:00:00Z",
+          "date": "2022-10-11T20:59:00-03:00",
           "temperatureMin": 15.9,
           "temperatureMax": 33.8,
           "rain": 6.039927,
@@ -21159,7 +21159,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-12T00:00:00Z",
+          "date": "2022-10-12T20:59:00-03:00",
           "temperatureMin": 16.5,
           "temperatureMax": 32.4,
           "rain": 8,
@@ -21285,7 +21285,7 @@
       },
       "forecast": [
         {
-          "date": "2022-10-01T00:00:00Z",
+          "date": "2022-10-01T20:59:00-03:00",
           "temperatureMin": 16.335714,
           "temperatureMax": 35.721429,
           "rain": 1.696129,
@@ -21293,7 +21293,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-02T00:00:00Z",
+          "date": "2022-10-02T20:59:00-03:00",
           "temperatureMin": 16.842857,
           "temperatureMax": 35.7,
           "rain": 4.523028,
@@ -21301,7 +21301,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-03T00:00:00Z",
+          "date": "2022-10-03T20:59:00-03:00",
           "temperatureMin": 16.221429,
           "temperatureMax": 34.642857,
           "rain": 7.822513,
@@ -21309,7 +21309,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-04T00:00:00Z",
+          "date": "2022-10-04T20:59:00-03:00",
           "temperatureMin": 16.185714,
           "temperatureMax": 33.628571,
           "rain": 7.417662,
@@ -21317,7 +21317,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-05T00:00:00Z",
+          "date": "2022-10-05T20:59:00-03:00",
           "temperatureMin": 16.121429,
           "temperatureMax": 33.342857,
           "rain": 6.485899,
@@ -21325,7 +21325,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-06T00:00:00Z",
+          "date": "2022-10-06T20:59:00-03:00",
           "temperatureMin": 16.335714,
           "temperatureMax": 34.4,
           "rain": 6.995509,
@@ -21333,7 +21333,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-07T00:00:00Z",
+          "date": "2022-10-07T20:59:00-03:00",
           "temperatureMin": 15.935714,
           "temperatureMax": 32.442857,
           "rain": 6.288678,
@@ -21341,7 +21341,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-08T00:00:00Z",
+          "date": "2022-10-08T20:59:00-03:00",
           "temperatureMin": 12.592857,
           "temperatureMax": 32.464286,
           "rain": 5.774755,
@@ -21349,7 +21349,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-09T00:00:00Z",
+          "date": "2022-10-09T20:59:00-03:00",
           "temperatureMin": 12.607143,
           "temperatureMax": 33.964286,
           "rain": 6.559297,
@@ -21357,7 +21357,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-10T00:00:00Z",
+          "date": "2022-10-10T20:59:00-03:00",
           "temperatureMin": 14.557143,
           "temperatureMax": 36.5,
           "rain": 7.504377,
@@ -21365,7 +21365,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-11T00:00:00Z",
+          "date": "2022-10-11T20:59:00-03:00",
           "temperatureMin": 16.364286,
           "temperatureMax": 33.521429,
           "rain": 6.270131,
@@ -21373,7 +21373,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-12T00:00:00Z",
+          "date": "2022-10-12T20:59:00-03:00",
           "temperatureMin": 16.3,
           "temperatureMax": 32.028571,
           "rain": 7.772105,
@@ -21499,7 +21499,7 @@
       },
       "forecast": [
         {
-          "date": "2022-10-01T00:00:00Z",
+          "date": "2022-10-01T20:59:00-03:00",
           "temperatureMin": 16.3,
           "temperatureMax": 35.8,
           "rain": 2.200871,
@@ -21507,7 +21507,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-02T00:00:00Z",
+          "date": "2022-10-02T20:59:00-03:00",
           "temperatureMin": 16.5,
           "temperatureMax": 35.8,
           "rain": 4.394772,
@@ -21515,7 +21515,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-03T00:00:00Z",
+          "date": "2022-10-03T20:59:00-03:00",
           "temperatureMin": 16.1,
           "temperatureMax": 34.6,
           "rain": 8.10701,
@@ -21523,7 +21523,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-04T00:00:00Z",
+          "date": "2022-10-04T20:59:00-03:00",
           "temperatureMin": 15.5,
           "temperatureMax": 33.8,
           "rain": 7.910495,
@@ -21531,7 +21531,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-05T00:00:00Z",
+          "date": "2022-10-05T20:59:00-03:00",
           "temperatureMin": 15.8,
           "temperatureMax": 34.2,
           "rain": 7.269346,
@@ -21539,7 +21539,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-06T00:00:00Z",
+          "date": "2022-10-06T20:59:00-03:00",
           "temperatureMin": 15.5,
           "temperatureMax": 34.1,
           "rain": 7.535921,
@@ -21547,7 +21547,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-07T00:00:00Z",
+          "date": "2022-10-07T20:59:00-03:00",
           "temperatureMin": 15.6,
           "temperatureMax": 33,
           "rain": 6.417505,
@@ -21555,7 +21555,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-08T00:00:00Z",
+          "date": "2022-10-08T20:59:00-03:00",
           "temperatureMin": 12.7,
           "temperatureMax": 32.1,
           "rain": 5.013149,
@@ -21563,7 +21563,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-09T00:00:00Z",
+          "date": "2022-10-09T20:59:00-03:00",
           "temperatureMin": 13.2,
           "temperatureMax": 34.5,
           "rain": 8.105267,
@@ -21571,7 +21571,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-10T00:00:00Z",
+          "date": "2022-10-10T20:59:00-03:00",
           "temperatureMin": 14.1,
           "temperatureMax": 36,
           "rain": 7.600911,
@@ -21579,7 +21579,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-11T00:00:00Z",
+          "date": "2022-10-11T20:59:00-03:00",
           "temperatureMin": 16.4,
           "temperatureMax": 34,
           "rain": 6.228001,
@@ -21587,7 +21587,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-12T00:00:00Z",
+          "date": "2022-10-12T20:59:00-03:00",
           "temperatureMin": 16.1,
           "temperatureMax": 33,
           "rain": 8.112277,
@@ -21713,7 +21713,7 @@
       },
       "forecast": [
         {
-          "date": "2022-10-01T00:00:00Z",
+          "date": "2022-10-01T20:59:00-03:00",
           "temperatureMin": 15.864865,
           "temperatureMax": 35.897297,
           "rain": 1.783629,
@@ -21721,7 +21721,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-02T00:00:00Z",
+          "date": "2022-10-02T20:59:00-03:00",
           "temperatureMin": 16.424324,
           "temperatureMax": 35.7,
           "rain": 4.501339,
@@ -21729,7 +21729,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-03T00:00:00Z",
+          "date": "2022-10-03T20:59:00-03:00",
           "temperatureMin": 15.645946,
           "temperatureMax": 34.337838,
           "rain": 7.695435,
@@ -21737,7 +21737,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-04T00:00:00Z",
+          "date": "2022-10-04T20:59:00-03:00",
           "temperatureMin": 15.348649,
           "temperatureMax": 33.856757,
           "rain": 7.943095,
@@ -21745,7 +21745,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-05T00:00:00Z",
+          "date": "2022-10-05T20:59:00-03:00",
           "temperatureMin": 15.545946,
           "temperatureMax": 33.656757,
           "rain": 6.456985,
@@ -21753,7 +21753,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-06T00:00:00Z",
+          "date": "2022-10-06T20:59:00-03:00",
           "temperatureMin": 15.864865,
           "temperatureMax": 34.4,
           "rain": 6.994293,
@@ -21761,7 +21761,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-07T00:00:00Z",
+          "date": "2022-10-07T20:59:00-03:00",
           "temperatureMin": 15.783784,
           "temperatureMax": 32.756757,
           "rain": 6.095435,
@@ -21769,7 +21769,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-08T00:00:00Z",
+          "date": "2022-10-08T20:59:00-03:00",
           "temperatureMin": 11.808108,
           "temperatureMax": 32.316216,
           "rain": 5.461469,
@@ -21777,7 +21777,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-09T00:00:00Z",
+          "date": "2022-10-09T20:59:00-03:00",
           "temperatureMin": 11.927027,
           "temperatureMax": 34.435135,
           "rain": 6.842148,
@@ -21785,7 +21785,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-10T00:00:00Z",
+          "date": "2022-10-10T20:59:00-03:00",
           "temperatureMin": 14.243243,
           "temperatureMax": 36.5,
           "rain": 7.586306,
@@ -21793,7 +21793,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-11T00:00:00Z",
+          "date": "2022-10-11T20:59:00-03:00",
           "temperatureMin": 16.102703,
           "temperatureMax": 33.678378,
           "rain": 6.163835,
@@ -21801,7 +21801,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-12T00:00:00Z",
+          "date": "2022-10-12T20:59:00-03:00",
           "temperatureMin": 16.581081,
           "temperatureMax": 32.237838,
           "rain": 7.852225,
@@ -21927,7 +21927,7 @@
       },
       "forecast": [
         {
-          "date": "2022-10-01T00:00:00Z",
+          "date": "2022-10-01T20:59:00-03:00",
           "temperatureMin": 17.251087,
           "temperatureMax": 33.601087,
           "rain": 0.966527,
@@ -21935,7 +21935,7 @@
           "rainPrediction": "N"
         },
         {
-          "date": "2022-10-02T00:00:00Z",
+          "date": "2022-10-02T20:59:00-03:00",
           "temperatureMin": 18.844565,
           "temperatureMax": 35.693478,
           "rain": 2.471268,
@@ -21943,7 +21943,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-03T00:00:00Z",
+          "date": "2022-10-03T20:59:00-03:00",
           "temperatureMin": 19.627174,
           "temperatureMax": 35.928261,
           "rain": 6.647349,
@@ -21951,7 +21951,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-04T00:00:00Z",
+          "date": "2022-10-04T20:59:00-03:00",
           "temperatureMin": 19.567391,
           "temperatureMax": 36.016304,
           "rain": 7.562142,
@@ -21959,7 +21959,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-05T00:00:00Z",
+          "date": "2022-10-05T20:59:00-03:00",
           "temperatureMin": 19.734783,
           "temperatureMax": 35.698913,
           "rain": 3.273289,
@@ -21967,7 +21967,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-06T00:00:00Z",
+          "date": "2022-10-06T20:59:00-03:00",
           "temperatureMin": 19.913043,
           "temperatureMax": 36.128261,
           "rain": 12.793351,
@@ -21975,7 +21975,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-07T00:00:00Z",
+          "date": "2022-10-07T20:59:00-03:00",
           "temperatureMin": 18.38913,
           "temperatureMax": 33.938043,
           "rain": 6.399452,
@@ -21983,7 +21983,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-08T00:00:00Z",
+          "date": "2022-10-08T20:59:00-03:00",
           "temperatureMin": 16.751087,
           "temperatureMax": 34.998913,
           "rain": 5.133752,
@@ -21991,7 +21991,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-09T00:00:00Z",
+          "date": "2022-10-09T20:59:00-03:00",
           "temperatureMin": 18.313043,
           "temperatureMax": 36.669565,
           "rain": 7.96591,
@@ -21999,7 +21999,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-10T00:00:00Z",
+          "date": "2022-10-10T20:59:00-03:00",
           "temperatureMin": 18.954348,
           "temperatureMax": 38.152174,
           "rain": 8.304085,
@@ -22007,7 +22007,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-11T00:00:00Z",
+          "date": "2022-10-11T20:59:00-03:00",
           "temperatureMin": 18.205435,
           "temperatureMax": 36.945652,
           "rain": 6.083273,
@@ -22015,7 +22015,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-12T00:00:00Z",
+          "date": "2022-10-12T20:59:00-03:00",
           "temperatureMin": 18.307609,
           "temperatureMax": 36.480435,
           "rain": 10.837632,
@@ -22141,7 +22141,7 @@
       },
       "forecast": [
         {
-          "date": "2022-10-01T00:00:00Z",
+          "date": "2022-10-01T20:59:00-03:00",
           "temperatureMin": 16.988095,
           "temperatureMax": 34.819048,
           "rain": 2.345278,
@@ -22149,7 +22149,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-02T00:00:00Z",
+          "date": "2022-10-02T20:59:00-03:00",
           "temperatureMin": 17.852381,
           "temperatureMax": 34.895238,
           "rain": 3.810165,
@@ -22157,7 +22157,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-03T00:00:00Z",
+          "date": "2022-10-03T20:59:00-03:00",
           "temperatureMin": 17.1,
           "temperatureMax": 33.330952,
           "rain": 8.000425,
@@ -22165,7 +22165,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-04T00:00:00Z",
+          "date": "2022-10-04T20:59:00-03:00",
           "temperatureMin": 16.880952,
           "temperatureMax": 32.219048,
           "rain": 8.206343,
@@ -22173,7 +22173,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-05T00:00:00Z",
+          "date": "2022-10-05T20:59:00-03:00",
           "temperatureMin": 16.97619,
           "temperatureMax": 32.454762,
           "rain": 7.407192,
@@ -22181,7 +22181,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-06T00:00:00Z",
+          "date": "2022-10-06T20:59:00-03:00",
           "temperatureMin": 16.864286,
           "temperatureMax": 33.042857,
           "rain": 7.101698,
@@ -22189,7 +22189,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-07T00:00:00Z",
+          "date": "2022-10-07T20:59:00-03:00",
           "temperatureMin": 17.1,
           "temperatureMax": 31.32619,
           "rain": 6.606768,
@@ -22197,7 +22197,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-08T00:00:00Z",
+          "date": "2022-10-08T20:59:00-03:00",
           "temperatureMin": 13.940476,
           "temperatureMax": 31.007143,
           "rain": 4.701274,
@@ -22205,7 +22205,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-09T00:00:00Z",
+          "date": "2022-10-09T20:59:00-03:00",
           "temperatureMin": 14.188095,
           "temperatureMax": 32.942857,
           "rain": 7.73272,
@@ -22213,7 +22213,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-10T00:00:00Z",
+          "date": "2022-10-10T20:59:00-03:00",
           "temperatureMin": 15.688095,
           "temperatureMax": 35.471429,
           "rain": 6.772929,
@@ -22221,7 +22221,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-11T00:00:00Z",
+          "date": "2022-10-11T20:59:00-03:00",
           "temperatureMin": 16.77619,
           "temperatureMax": 32.454762,
           "rain": 6.743579,
@@ -22229,7 +22229,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-12T00:00:00Z",
+          "date": "2022-10-12T20:59:00-03:00",
           "temperatureMin": 17.188095,
           "temperatureMax": 31.195238,
           "rain": 7.694081,
@@ -22355,7 +22355,7 @@
       },
       "forecast": [
         {
-          "date": "2022-10-01T00:00:00Z",
+          "date": "2022-10-01T20:59:00-03:00",
           "temperatureMin": 16.3,
           "temperatureMax": 35.8,
           "rain": 1.601322,
@@ -22363,7 +22363,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-02T00:00:00Z",
+          "date": "2022-10-02T20:59:00-03:00",
           "temperatureMin": 16.5,
           "temperatureMax": 35.8,
           "rain": 4.69998,
@@ -22371,7 +22371,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-03T00:00:00Z",
+          "date": "2022-10-03T20:59:00-03:00",
           "temperatureMin": 16.1,
           "temperatureMax": 34.6,
           "rain": 8.299273,
@@ -22379,7 +22379,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-04T00:00:00Z",
+          "date": "2022-10-04T20:59:00-03:00",
           "temperatureMin": 15.5,
           "temperatureMax": 33.8,
           "rain": 7.700572,
@@ -22387,7 +22387,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-05T00:00:00Z",
+          "date": "2022-10-05T20:59:00-03:00",
           "temperatureMin": 15.8,
           "temperatureMax": 34.2,
           "rain": 6.399326,
@@ -22395,7 +22395,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-06T00:00:00Z",
+          "date": "2022-10-06T20:59:00-03:00",
           "temperatureMin": 15.5,
           "temperatureMax": 34.05,
           "rain": 7.80131,
@@ -22403,7 +22403,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-07T00:00:00Z",
+          "date": "2022-10-07T20:59:00-03:00",
           "temperatureMin": 15.6,
           "temperatureMax": 32.8125,
           "rain": 6.898917,
@@ -22411,7 +22411,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-08T00:00:00Z",
+          "date": "2022-10-08T20:59:00-03:00",
           "temperatureMin": 12.7,
           "temperatureMax": 32.7,
           "rain": 5.996665,
@@ -22419,7 +22419,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-09T00:00:00Z",
+          "date": "2022-10-09T20:59:00-03:00",
           "temperatureMin": 13.075,
           "temperatureMax": 34.5,
           "rain": 6.80134,
@@ -22427,7 +22427,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-10T00:00:00Z",
+          "date": "2022-10-10T20:59:00-03:00",
           "temperatureMin": 14.1,
           "temperatureMax": 36,
           "rain": 7.799559,
@@ -22435,7 +22435,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-11T00:00:00Z",
+          "date": "2022-10-11T20:59:00-03:00",
           "temperatureMin": 16.4,
           "temperatureMax": 34,
           "rain": 6.101192,
@@ -22443,7 +22443,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-12T00:00:00Z",
+          "date": "2022-10-12T20:59:00-03:00",
           "temperatureMin": 16.1,
           "temperatureMax": 33,
           "rain": 8.200546,
@@ -22569,7 +22569,7 @@
       },
       "forecast": [
         {
-          "date": "2022-10-01T00:00:00Z",
+          "date": "2022-10-01T20:59:00-03:00",
           "temperatureMin": 17.229412,
           "temperatureMax": 34.176471,
           "rain": 2.863742,
@@ -22577,7 +22577,7 @@
           "rainPrediction": "N"
         },
         {
-          "date": "2022-10-02T00:00:00Z",
+          "date": "2022-10-02T20:59:00-03:00",
           "temperatureMin": 18.741176,
           "temperatureMax": 35.919608,
           "rain": 3.47013,
@@ -22585,7 +22585,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-03T00:00:00Z",
+          "date": "2022-10-03T20:59:00-03:00",
           "temperatureMin": 19.617647,
           "temperatureMax": 36.429412,
           "rain": 7.120525,
@@ -22593,7 +22593,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-04T00:00:00Z",
+          "date": "2022-10-04T20:59:00-03:00",
           "temperatureMin": 18.952941,
           "temperatureMax": 35.968627,
           "rain": 6.928095,
@@ -22601,7 +22601,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-05T00:00:00Z",
+          "date": "2022-10-05T20:59:00-03:00",
           "temperatureMin": 19.947059,
           "temperatureMax": 35.776471,
           "rain": 3.509099,
@@ -22609,7 +22609,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-06T00:00:00Z",
+          "date": "2022-10-06T20:59:00-03:00",
           "temperatureMin": 19.941176,
           "temperatureMax": 36.45098,
           "rain": 13.172284,
@@ -22617,7 +22617,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-07T00:00:00Z",
+          "date": "2022-10-07T20:59:00-03:00",
           "temperatureMin": 18.682353,
           "temperatureMax": 34.582353,
           "rain": 6.767131,
@@ -22625,7 +22625,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-08T00:00:00Z",
+          "date": "2022-10-08T20:59:00-03:00",
           "temperatureMin": 17.094118,
           "temperatureMax": 35.35098,
           "rain": 4.394142,
@@ -22633,7 +22633,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-09T00:00:00Z",
+          "date": "2022-10-09T20:59:00-03:00",
           "temperatureMin": 18.470588,
           "temperatureMax": 36.705882,
           "rain": 7.697151,
@@ -22641,7 +22641,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-10T00:00:00Z",
+          "date": "2022-10-10T20:59:00-03:00",
           "temperatureMin": 19.147059,
           "temperatureMax": 38.1,
           "rain": 7.698639,
@@ -22649,7 +22649,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-11T00:00:00Z",
+          "date": "2022-10-11T20:59:00-03:00",
           "temperatureMin": 18.723529,
           "temperatureMax": 37.258824,
           "rain": 6.063033,
@@ -22657,7 +22657,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-12T00:00:00Z",
+          "date": "2022-10-12T20:59:00-03:00",
           "temperatureMin": 18.358824,
           "temperatureMax": 36.656863,
           "rain": 10.7311,
@@ -22783,7 +22783,7 @@
       },
       "forecast": [
         {
-          "date": "2022-10-01T00:00:00Z",
+          "date": "2022-10-01T20:59:00-03:00",
           "temperatureMin": 15.5,
           "temperatureMax": 36.1,
           "rain": 1.9,
@@ -22791,7 +22791,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-02T00:00:00Z",
+          "date": "2022-10-02T20:59:00-03:00",
           "temperatureMin": 16.1,
           "temperatureMax": 35.3,
           "rain": 4.3,
@@ -22799,7 +22799,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-03T00:00:00Z",
+          "date": "2022-10-03T20:59:00-03:00",
           "temperatureMin": 15.2,
           "temperatureMax": 34.5,
           "rain": 7.6,
@@ -22807,7 +22807,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-04T00:00:00Z",
+          "date": "2022-10-04T20:59:00-03:00",
           "temperatureMin": 14.7,
           "temperatureMax": 34.1,
           "rain": 7.9,
@@ -22815,7 +22815,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-05T00:00:00Z",
+          "date": "2022-10-05T20:59:00-03:00",
           "temperatureMin": 15.1,
           "temperatureMax": 33.9,
           "rain": 6.760073,
@@ -22823,7 +22823,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-06T00:00:00Z",
+          "date": "2022-10-06T20:59:00-03:00",
           "temperatureMin": 15.5,
           "temperatureMax": 34.2,
           "rain": 7.160073,
@@ -22831,7 +22831,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-07T00:00:00Z",
+          "date": "2022-10-07T20:59:00-03:00",
           "temperatureMin": 15.5,
           "temperatureMax": 33,
           "rain": 6,
@@ -22839,7 +22839,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-08T00:00:00Z",
+          "date": "2022-10-08T20:59:00-03:00",
           "temperatureMin": 11.2,
           "temperatureMax": 32.6,
           "rain": 5.6,
@@ -22847,7 +22847,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-09T00:00:00Z",
+          "date": "2022-10-09T20:59:00-03:00",
           "temperatureMin": 11.4,
           "temperatureMax": 34.8,
           "rain": 7.120146,
@@ -22855,7 +22855,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-10T00:00:00Z",
+          "date": "2022-10-10T20:59:00-03:00",
           "temperatureMin": 14,
           "temperatureMax": 35.8,
           "rain": 7.3,
@@ -22863,7 +22863,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-11T00:00:00Z",
+          "date": "2022-10-11T20:59:00-03:00",
           "temperatureMin": 15.9,
           "temperatureMax": 33.8,
           "rain": 6.039927,
@@ -22871,7 +22871,7 @@
           "rainPrediction": "U"
         },
         {
-          "date": "2022-10-12T00:00:00Z",
+          "date": "2022-10-12T20:59:00-03:00",
           "temperatureMin": 16.5,
           "temperatureMax": 32.4,
           "rain": 8,
@@ -41849,7 +41849,7 @@
       "name": "Pedro Merola - Santa Fé (P) (S)",
       "line": [
         {
-          "date": "2022-10-28T00:00:00Z",
+          "date": "2022-10-28T20:59:00-03:00",
           "temperatureMin": "18.114219",
           "temperatureMax": "36.060316",
           "rain": "3.701584",
@@ -41860,13 +41860,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-18T00:00:00Z",
-              "finish": "2022-11-19T00:00:00Z"
+              "start": "2022-11-18T20:59:00-03:00",
+              "finish": "2022-11-19T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-10-29T00:00:00Z",
+          "date": "2022-10-29T20:59:00-03:00",
           "temperatureMin": "18.591910",
           "temperatureMax": "35.093530",
           "rain": "6.013287",
@@ -41877,13 +41877,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-19T00:00:00Z",
-              "finish": "2022-11-20T00:00:00Z"
+              "start": "2022-11-19T20:59:00-03:00",
+              "finish": "2022-11-20T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-10-30T00:00:00Z",
+          "date": "2022-10-30T20:59:00-03:00",
           "temperatureMin": "17.530375",
           "temperatureMax": "35.524243",
           "rain": "4.695407",
@@ -41894,13 +41894,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-20T00:00:00Z",
-              "finish": "2022-11-21T00:00:00Z"
+              "start": "2022-11-20T20:59:00-03:00",
+              "finish": "2022-11-21T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-10-31T00:00:00Z",
+          "date": "2022-10-31T20:59:00-03:00",
           "temperatureMin": "17.845544",
           "temperatureMax": "35.021786",
           "rain": "3.959279",
@@ -41911,13 +41911,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-21T00:00:00Z",
-              "finish": "2022-11-22T00:00:00Z"
+              "start": "2022-11-21T20:59:00-03:00",
+              "finish": "2022-11-22T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-11-01T00:00:00Z",
+          "date": "2022-11-01T20:59:00-03:00",
           "temperatureMin": "18.356589",
           "temperatureMax": "34.650007",
           "rain": "6.732847",
@@ -41928,13 +41928,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-22T00:00:00Z",
-              "finish": "2022-11-23T00:00:00Z"
+              "start": "2022-11-22T20:59:00-03:00",
+              "finish": "2022-11-23T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-11-02T00:00:00Z",
+          "date": "2022-11-02T20:59:00-03:00",
           "temperatureMin": "18.773475",
           "temperatureMax": "34.396016",
           "rain": "14.196469",
@@ -41945,13 +41945,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-23T00:00:00Z",
-              "finish": "2022-11-24T00:00:00Z"
+              "start": "2022-11-23T20:59:00-03:00",
+              "finish": "2022-11-24T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-11-03T00:00:00Z",
+          "date": "2022-11-03T20:59:00-03:00",
           "temperatureMin": "18.620151",
           "temperatureMax": "33.774099",
           "rain": "13.662539",
@@ -41960,7 +41960,7 @@
           "alerts": null
         },
         {
-          "date": "2022-11-04T00:00:00Z",
+          "date": "2022-11-04T20:59:00-03:00",
           "temperatureMin": "18.210293",
           "temperatureMax": "33.572047",
           "rain": "12.412722",
@@ -41969,7 +41969,7 @@
           "alerts": null
         },
         {
-          "date": "2022-11-05T00:00:00Z",
+          "date": "2022-11-05T20:59:00-03:00",
           "temperatureMin": "18.343900",
           "temperatureMax": "33.344953",
           "rain": "9.724428",
@@ -41978,7 +41978,7 @@
           "alerts": null
         },
         {
-          "date": "2022-11-06T00:00:00Z",
+          "date": "2022-11-06T20:59:00-03:00",
           "temperatureMin": "18.120143",
           "temperatureMax": "33.741686",
           "rain": "7.323094",
@@ -42109,7 +42109,7 @@
           "alerts": null
         },
         {
-          "date": "2022-11-18T00:00:00Z",
+          "date": "2022-11-18T20:59:00-03:00",
           "temperatureMin": "18.114219",
           "temperatureMax": "36.060316",
           "rain": "3.701584",
@@ -42120,13 +42120,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-18T00:00:00Z",
-              "finish": "2022-11-19T00:00:00Z"
+              "start": "2022-11-18T20:59:00-03:00",
+              "finish": "2022-11-19T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-11-19T00:00:00Z",
+          "date": "2022-11-19T20:59:00-03:00",
           "temperatureMin": "18.591910",
           "temperatureMax": "35.093530",
           "rain": "6.013287",
@@ -42137,13 +42137,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-19T00:00:00Z",
-              "finish": "2022-11-20T00:00:00Z"
+              "start": "2022-11-19T20:59:00-03:00",
+              "finish": "2022-11-20T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-11-20T00:00:00Z",
+          "date": "2022-11-20T20:59:00-03:00",
           "temperatureMin": "17.530375",
           "temperatureMax": "35.524243",
           "rain": "4.695407",
@@ -42154,13 +42154,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-20T00:00:00Z",
-              "finish": "2022-11-21T00:00:00Z"
+              "start": "2022-11-20T20:59:00-03:00",
+              "finish": "2022-11-21T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-11-21T00:00:00Z",
+          "date": "2022-11-21T20:59:00-03:00",
           "temperatureMin": "17.845544",
           "temperatureMax": "35.021786",
           "rain": "3.959279",
@@ -42171,13 +42171,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-21T00:00:00Z",
-              "finish": "2022-11-22T00:00:00Z"
+              "start": "2022-11-21T20:59:00-03:00",
+              "finish": "2022-11-22T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-11-22T00:00:00Z",
+          "date": "2022-11-22T20:59:00-03:00",
           "temperatureMin": "18.356589",
           "temperatureMax": "34.650007",
           "rain": "6.732847",
@@ -42188,13 +42188,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-22T00:00:00Z",
-              "finish": "2022-11-23T00:00:00Z"
+              "start": "2022-11-22T20:59:00-03:00",
+              "finish": "2022-11-23T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-11-23T00:00:00Z",
+          "date": "2022-11-23T20:59:00-03:00",
           "temperatureMin": "18.773475",
           "temperatureMax": "34.396016",
           "rain": "14.196469",
@@ -42205,13 +42205,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-23T00:00:00Z",
-              "finish": "2022-11-24T00:00:00Z"
+              "start": "2022-11-23T20:59:00-03:00",
+              "finish": "2022-11-24T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-11-24T00:00:00Z",
+          "date": "2022-11-24T20:59:00-03:00",
           "temperatureMin": "18.620151",
           "temperatureMax": "33.774099",
           "rain": "13.662539",
@@ -42220,7 +42220,7 @@
           "alerts": null
         },
         {
-          "date": "2022-11-25T00:00:00Z",
+          "date": "2022-11-25T20:59:00-03:00",
           "temperatureMin": "18.210293",
           "temperatureMax": "33.572047",
           "rain": "12.412722",
@@ -42229,7 +42229,7 @@
           "alerts": null
         },
         {
-          "date": "2022-11-26T00:00:00Z",
+          "date": "2022-11-26T20:59:00-03:00",
           "temperatureMin": "18.343900",
           "temperatureMax": "33.344953",
           "rain": "9.724428",
@@ -42238,7 +42238,7 @@
           "alerts": null
         },
         {
-          "date": "2022-11-27T00:00:00Z",
+          "date": "2022-11-27T20:59:00-03:00",
           "temperatureMin": "18.120143",
           "temperatureMax": "33.741686",
           "rain": "7.323094",
@@ -42253,7 +42253,7 @@
       "name": "Fazenda Santo Antônio ",
       "line": [
         {
-          "date": "2022-10-28T00:00:00Z",
+          "date": "2022-10-28T20:59:00-03:00",
           "temperatureMin": "18.114219",
           "temperatureMax": "36.060316",
           "rain": "3.701584",
@@ -42264,13 +42264,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-18T00:00:00Z",
-              "finish": "2022-11-19T00:00:00Z"
+              "start": "2022-11-18T20:59:00-03:00",
+              "finish": "2022-11-19T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-10-29T00:00:00Z",
+          "date": "2022-10-29T20:59:00-03:00",
           "temperatureMin": "18.591910",
           "temperatureMax": "35.093530",
           "rain": "6.013287",
@@ -42281,13 +42281,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-19T00:00:00Z",
-              "finish": "2022-11-20T00:00:00Z"
+              "start": "2022-11-19T20:59:00-03:00",
+              "finish": "2022-11-20T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-10-30T00:00:00Z",
+          "date": "2022-10-30T20:59:00-03:00",
           "temperatureMin": "17.530375",
           "temperatureMax": "35.524243",
           "rain": "4.695407",
@@ -42298,13 +42298,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-20T00:00:00Z",
-              "finish": "2022-11-21T00:00:00Z"
+              "start": "2022-11-20T20:59:00-03:00",
+              "finish": "2022-11-21T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-10-31T00:00:00Z",
+          "date": "2022-10-31T20:59:00-03:00",
           "temperatureMin": "17.845544",
           "temperatureMax": "35.021786",
           "rain": "3.959279",
@@ -42315,13 +42315,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-21T00:00:00Z",
-              "finish": "2022-11-22T00:00:00Z"
+              "start": "2022-11-21T20:59:00-03:00",
+              "finish": "2022-11-22T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-11-01T00:00:00Z",
+          "date": "2022-11-01T20:59:00-03:00",
           "temperatureMin": "18.356589",
           "temperatureMax": "34.650007",
           "rain": "6.732847",
@@ -42332,13 +42332,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-22T00:00:00Z",
-              "finish": "2022-11-23T00:00:00Z"
+              "start": "2022-11-22T20:59:00-03:00",
+              "finish": "2022-11-23T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-11-02T00:00:00Z",
+          "date": "2022-11-02T20:59:00-03:00",
           "temperatureMin": "18.773475",
           "temperatureMax": "34.396016",
           "rain": "14.196469",
@@ -42349,13 +42349,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-23T00:00:00Z",
-              "finish": "2022-11-24T00:00:00Z"
+              "start": "2022-11-23T20:59:00-03:00",
+              "finish": "2022-11-24T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-11-03T00:00:00Z",
+          "date": "2022-11-03T20:59:00-03:00",
           "temperatureMin": "18.620151",
           "temperatureMax": "33.774099",
           "rain": "13.662539",
@@ -42364,7 +42364,7 @@
           "alerts": null
         },
         {
-          "date": "2022-11-04T00:00:00Z",
+          "date": "2022-11-04T20:59:00-03:00",
           "temperatureMin": "18.210293",
           "temperatureMax": "33.572047",
           "rain": "12.412722",
@@ -42373,7 +42373,7 @@
           "alerts": null
         },
         {
-          "date": "2022-11-05T00:00:00Z",
+          "date": "2022-11-05T20:59:00-03:00",
           "temperatureMin": "18.343900",
           "temperatureMax": "33.344953",
           "rain": "9.724428",
@@ -42382,7 +42382,7 @@
           "alerts": null
         },
         {
-          "date": "2022-11-06T00:00:00Z",
+          "date": "2022-11-06T20:59:00-03:00",
           "temperatureMin": "18.120143",
           "temperatureMax": "33.741686",
           "rain": "7.323094",
@@ -42513,7 +42513,7 @@
         },
 
         {
-          "date": "2022-11-18T00:00:00Z",
+          "date": "2022-11-18T20:59:00-03:00",
           "temperatureMin": "17.890157",
           "temperatureMax": "36.595264",
           "rain": "3.714013",
@@ -42524,13 +42524,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-18T00:00:00Z",
-              "finish": "2022-11-19T00:00:00Z"
+              "start": "2022-11-18T20:59:00-03:00",
+              "finish": "2022-11-19T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-11-19T00:00:00Z",
+          "date": "2022-11-19T20:59:00-03:00",
           "temperatureMin": "18.584852",
           "temperatureMax": "35.746782",
           "rain": "6.098865",
@@ -42541,13 +42541,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-19T00:00:00Z",
-              "finish": "2022-11-20T00:00:00Z"
+              "start": "2022-11-19T20:59:00-03:00",
+              "finish": "2022-11-20T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-11-20T00:00:00Z",
+          "date": "2022-11-20T20:59:00-03:00",
           "temperatureMin": "17.633900",
           "temperatureMax": "35.992995",
           "rain": "4.603604",
@@ -42558,13 +42558,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-20T00:00:00Z",
-              "finish": "2022-11-21T00:00:00Z"
+              "start": "2022-11-20T20:59:00-03:00",
+              "finish": "2022-11-21T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-11-21T00:00:00Z",
+          "date": "2022-11-21T20:59:00-03:00",
           "temperatureMin": "17.893561",
           "temperatureMax": "35.445647",
           "rain": "4.000000",
@@ -42575,13 +42575,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-21T00:00:00Z",
-              "finish": "2022-11-22T00:00:00Z"
+              "start": "2022-11-21T20:59:00-03:00",
+              "finish": "2022-11-22T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-11-22T00:00:00Z",
+          "date": "2022-11-22T20:59:00-03:00",
           "temperatureMin": "18.601701",
           "temperatureMax": "35.039208",
           "rain": "6.746213",
@@ -42592,13 +42592,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-22T00:00:00Z",
-              "finish": "2022-11-23T00:00:00Z"
+              "start": "2022-11-22T20:59:00-03:00",
+              "finish": "2022-11-23T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-11-23T00:00:00Z",
+          "date": "2022-11-23T20:59:00-03:00",
           "temperatureMin": "18.832766",
           "temperatureMax": "34.919321",
           "rain": "14.292626",
@@ -42609,13 +42609,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-23T00:00:00Z",
-              "finish": "2022-11-24T00:00:00Z"
+              "start": "2022-11-23T20:59:00-03:00",
+              "finish": "2022-11-24T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-11-24T00:00:00Z",
+          "date": "2022-11-24T20:59:00-03:00",
           "temperatureMin": "18.606439",
           "temperatureMax": "34.218186",
           "rain": "13.617051",
@@ -42624,7 +42624,7 @@
           "alerts": null
         },
         {
-          "date": "2022-11-25T00:00:00Z",
+          "date": "2022-11-25T20:59:00-03:00",
           "temperatureMin": "18.184283",
           "temperatureMax": "34.092995",
           "rain": "12.415917",
@@ -42633,7 +42633,7 @@
           "alerts": null
         },
         {
-          "date": "2022-11-26T00:00:00Z",
+          "date": "2022-11-26T20:59:00-03:00",
           "temperatureMin": "18.446779",
           "temperatureMax": "33.711747",
           "rain": "9.649817",
@@ -42642,7 +42642,7 @@
           "alerts": null
         },
         {
-          "date": "2022-11-27T00:00:00Z",
+          "date": "2022-11-27T20:59:00-03:00",
           "temperatureMin": "18.126326",
           "temperatureMax": "34.119321",
           "rain": "7.356256",
@@ -42657,7 +42657,7 @@
       "name": "Unidade padrão",
       "line": [
         {
-          "date": "2022-10-28T00:00:00Z",
+          "date": "2022-10-28T20:59:00-03:00",
           "temperatureMin": "18.114219",
           "temperatureMax": "36.060316",
           "rain": "3.701584",
@@ -42668,13 +42668,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-18T00:00:00Z",
-              "finish": "2022-11-19T00:00:00Z"
+              "start": "2022-11-18T20:59:00-03:00",
+              "finish": "2022-11-19T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-10-29T00:00:00Z",
+          "date": "2022-10-29T20:59:00-03:00",
           "temperatureMin": "18.591910",
           "temperatureMax": "35.093530",
           "rain": "6.013287",
@@ -42685,13 +42685,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-19T00:00:00Z",
-              "finish": "2022-11-20T00:00:00Z"
+              "start": "2022-11-19T20:59:00-03:00",
+              "finish": "2022-11-20T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-10-30T00:00:00Z",
+          "date": "2022-10-30T20:59:00-03:00",
           "temperatureMin": "17.530375",
           "temperatureMax": "35.524243",
           "rain": "4.695407",
@@ -42702,13 +42702,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-20T00:00:00Z",
-              "finish": "2022-11-21T00:00:00Z"
+              "start": "2022-11-20T20:59:00-03:00",
+              "finish": "2022-11-21T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-10-31T00:00:00Z",
+          "date": "2022-10-31T20:59:00-03:00",
           "temperatureMin": "17.845544",
           "temperatureMax": "35.021786",
           "rain": "3.959279",
@@ -42719,13 +42719,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-21T00:00:00Z",
-              "finish": "2022-11-22T00:00:00Z"
+              "start": "2022-11-21T20:59:00-03:00",
+              "finish": "2022-11-22T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-11-01T00:00:00Z",
+          "date": "2022-11-01T20:59:00-03:00",
           "temperatureMin": "18.356589",
           "temperatureMax": "34.650007",
           "rain": "6.732847",
@@ -42736,13 +42736,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-22T00:00:00Z",
-              "finish": "2022-11-23T00:00:00Z"
+              "start": "2022-11-22T20:59:00-03:00",
+              "finish": "2022-11-23T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-11-02T00:00:00Z",
+          "date": "2022-11-02T20:59:00-03:00",
           "temperatureMin": "18.773475",
           "temperatureMax": "34.396016",
           "rain": "14.196469",
@@ -42753,13 +42753,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-23T00:00:00Z",
-              "finish": "2022-11-24T00:00:00Z"
+              "start": "2022-11-23T20:59:00-03:00",
+              "finish": "2022-11-24T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-11-03T00:00:00Z",
+          "date": "2022-11-03T20:59:00-03:00",
           "temperatureMin": "18.620151",
           "temperatureMax": "33.774099",
           "rain": "13.662539",
@@ -42768,7 +42768,7 @@
           "alerts": null
         },
         {
-          "date": "2022-11-04T00:00:00Z",
+          "date": "2022-11-04T20:59:00-03:00",
           "temperatureMin": "18.210293",
           "temperatureMax": "33.572047",
           "rain": "12.412722",
@@ -42777,7 +42777,7 @@
           "alerts": null
         },
         {
-          "date": "2022-11-05T00:00:00Z",
+          "date": "2022-11-05T20:59:00-03:00",
           "temperatureMin": "18.343900",
           "temperatureMax": "33.344953",
           "rain": "9.724428",
@@ -42786,7 +42786,7 @@
           "alerts": null
         },
         {
-          "date": "2022-11-06T00:00:00Z",
+          "date": "2022-11-06T20:59:00-03:00",
           "temperatureMin": "18.120143",
           "temperatureMax": "33.741686",
           "rain": "7.323094",
@@ -42917,7 +42917,7 @@
           "alerts": null
         },
         {
-          "date": "2022-11-18T00:00:00Z",
+          "date": "2022-11-18T20:59:00-03:00",
           "temperatureMin": "17.890157",
           "temperatureMax": "36.595264",
           "rain": "3.714013",
@@ -42928,13 +42928,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-18T00:00:00Z",
-              "finish": "2022-11-19T00:00:00Z"
+              "start": "2022-11-18T20:59:00-03:00",
+              "finish": "2022-11-19T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-11-19T00:00:00Z",
+          "date": "2022-11-19T20:59:00-03:00",
           "temperatureMin": "18.584852",
           "temperatureMax": "35.746782",
           "rain": "6.098865",
@@ -42945,13 +42945,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-19T00:00:00Z",
-              "finish": "2022-11-20T00:00:00Z"
+              "start": "2022-11-19T20:59:00-03:00",
+              "finish": "2022-11-20T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-11-20T00:00:00Z",
+          "date": "2022-11-20T20:59:00-03:00",
           "temperatureMin": "17.633900",
           "temperatureMax": "35.992995",
           "rain": "4.603604",
@@ -42962,13 +42962,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-20T00:00:00Z",
-              "finish": "2022-11-21T00:00:00Z"
+              "start": "2022-11-20T20:59:00-03:00",
+              "finish": "2022-11-21T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-11-21T00:00:00Z",
+          "date": "2022-11-21T20:59:00-03:00",
           "temperatureMin": "17.893561",
           "temperatureMax": "35.445647",
           "rain": "4.000000",
@@ -42979,13 +42979,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-21T00:00:00Z",
-              "finish": "2022-11-22T00:00:00Z"
+              "start": "2022-11-21T20:59:00-03:00",
+              "finish": "2022-11-22T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-11-22T00:00:00Z",
+          "date": "2022-11-22T20:59:00-03:00",
           "temperatureMin": "18.601701",
           "temperatureMax": "35.039208",
           "rain": "6.746213",
@@ -42996,13 +42996,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-22T00:00:00Z",
-              "finish": "2022-11-23T00:00:00Z"
+              "start": "2022-11-22T20:59:00-03:00",
+              "finish": "2022-11-23T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-11-23T00:00:00Z",
+          "date": "2022-11-23T20:59:00-03:00",
           "temperatureMin": "18.832766",
           "temperatureMax": "34.919321",
           "rain": "14.292626",
@@ -43013,13 +43013,13 @@
               "type": "frost",
               "info": "none",
               "level": 1,
-              "start": "2022-11-23T00:00:00Z",
-              "finish": "2022-11-24T00:00:00Z"
+              "start": "2022-11-23T20:59:00-03:00",
+              "finish": "2022-11-24T20:59:00-03:00"
             }
           ]
         },
         {
-          "date": "2022-11-24T00:00:00Z",
+          "date": "2022-11-24T20:59:00-03:00",
           "temperatureMin": "18.606439",
           "temperatureMax": "34.218186",
           "rain": "13.617051",
@@ -43028,7 +43028,7 @@
           "alerts": null
         },
         {
-          "date": "2022-11-25T00:00:00Z",
+          "date": "2022-11-25T20:59:00-03:00",
           "temperatureMin": "18.184283",
           "temperatureMax": "34.092995",
           "rain": "12.415917",
@@ -43037,7 +43037,7 @@
           "alerts": null
         },
         {
-          "date": "2022-11-26T00:00:00Z",
+          "date": "2022-11-26T20:59:00-03:00",
           "temperatureMin": "18.446779",
           "temperatureMax": "33.711747",
           "rain": "9.649817",
@@ -43046,7 +43046,7 @@
           "alerts": null
         },
         {
-          "date": "2022-11-27T00:00:00Z",
+          "date": "2022-11-27T20:59:00-03:00",
           "temperatureMin": "18.126326",
           "temperatureMax": "34.119321",
           "rain": "7.356256",
