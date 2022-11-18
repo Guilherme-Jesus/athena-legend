@@ -18,6 +18,7 @@ function CustomNosferatu() {
 
   useEffect(() => {
     axios.get('http://localhost:7010/data').then((res) => {
+      
       setDaum(res.data)
     })
   }, [])
