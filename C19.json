@@ -139831,7 +139831,6 @@
           "windSpeed": "10.899643",
           "alerts": null
         },
-
         {
           "date": "2022-11-09T14:20:53.76248-03:00",
           "temperatureAverage": "34.267100",
@@ -139952,6 +139951,204 @@
           "rain": "0.008798",
           "windSpeed": "10.899643",
           "alerts": null
+        }
+      ]
+    }
+  ],
+  "data": [
+    {
+      "id": "C19",
+      "title": "Pedro Merola - Santa Fé (P) (S)",
+      "subtitle": "Ped",
+      "blockParent": "0",
+      "leafParent": false,
+      "date": "2022-10-28T10:40:09.885236887Z",
+      "data": {
+        "windSpeed": 1.1575,
+        "solarIrradiation": 74.669544,
+        "temperature": 21.614945,
+        "rain": 0,
+        "relativeHumidity": 86.52824
+      },
+      "children": [
+        {
+          "id": "F2987",
+          "title": "Fazenda São Pedro",
+          "subtitle": "Faz",
+          "blockParent": "C19",
+          "leafParent": false,
+          "date": "2022-10-28T10:40:09.885100398Z",
+          "data": {
+            "windSpeed": 0.1,
+            "solarIrradiation": 74.668633,
+            "temperature": 21.315835,
+            "rain": 0,
+            "relativeHumidity": 88.119231
+          },
+          "children": [
+            {
+              "title": "Gerente 1",
+              "subtitle": "Ger",
+              "blockParent": "F2987",
+              "leafParent": true,
+              "date": "2022-10-28T10:40:09.885218712Z",
+              "data": {
+                "windSpeed": 0.1,
+                "solarIrradiation": 74.668633,
+                "temperature": 21.315835,
+                "rain": 0,
+                "relativeHumidity": 88.119231
+              },
+              "expanded": true,
+              "children": []
+            }
+          ],
+          "expanded": true
+        },
+        {
+          "id": "F2990",
+          "title": "Fazenda São Francisco",
+          "subtitle": "Faz",
+          "blockParent": "C19",
+          "leafParent": false,
+          "date": "2022-10-28T10:40:09.885107145Z",
+          "data": {
+            "windSpeed": 0.105,
+            "solarIrradiation": 116.46137,
+            "temperature": 20.863649,
+            "rain": 0,
+            "relativeHumidity": 91.533959
+          },
+          "children": [
+            {
+              "id": "B3221",
+              "title": "Unidade padrão",
+              "subtitle": "Uni",
+              "blockParent": "F2990",
+              "leafParent": true,
+              "date": "2022-10-28T10:40:09.885093749Z",
+              "data": {
+                "windSpeed": 0.105,
+                "solarIrradiation": 116.46137,
+                "temperature": 20.863649,
+                "rain": 0,
+                "relativeHumidity": 91.533959
+              }
+            }
+          ]
+        },
+        {
+          "id": "F2985",
+          "title": "Fazenda Santa Fé",
+          "subtitle": "Faz",
+          "blockParent": "C19",
+          "leafParent": false,
+          "date": "2022-10-28T10:40:09.885096018Z",
+          "data": {
+            "windSpeed": 0.79,
+            "solarIrradiation": 77.961164,
+            "temperature": 22.742811,
+            "rain": 0,
+            "relativeHumidity": 79.778591
+          },
+          "children": [
+            {
+              "id": "B3216",
+              "title": "Unidade padrão",
+              "subtitle": "Uni",
+              "blockParent": "F2985",
+              "leafParent": true,
+              "date": "2022-10-28T10:40:09.885216553Z",
+              "data": {
+                "windSpeed": 0.79,
+                "solarIrradiation": 77.961164,
+                "temperature": 22.742811,
+                "rain": 0,
+                "relativeHumidity": 79.778591
+              }
+            }
+          ]
+        },
+        {
+          "id": "F2988",
+          "title": "Fazenda VS",
+          "subtitle": "Faz",
+          "blockParent": "C19",
+          "leafParent": false,
+          "date": "2022-10-28T10:40:09.88510243Z",
+          "data": {
+            "windSpeed": 1.32,
+            "solarIrradiation": 59.754107,
+            "temperature": 21.162966,
+            "rain": 0,
+            "relativeHumidity": 89.503557
+          },
+          "children": [],
+          "expanded": true
+        },
+        {
+          "id": "F2986",
+          "title": "Fazenda Santa Lúcia",
+          "subtitle": "Faz",
+          "blockParent": "C19",
+          "leafParent": false,
+          "date": "2022-10-28T10:40:09.885098086Z",
+          "data": {
+            "windSpeed": 3.02,
+            "solarIrradiation": 44.478959,
+            "temperature": 20.803462,
+            "rain": 0,
+            "relativeHumidity": 88.682032
+          },
+          "children": [
+            {
+              "id": "B3217",
+              "title": "Unidade padrão",
+              "subtitle": "Uni",
+              "blockParent": "F2986",
+              "leafParent": true,
+              "date": "2022-10-28T10:40:09.885239022Z",
+              "data": {
+                "windSpeed": 3.02,
+                "solarIrradiation": 44.478959,
+                "temperature": 20.803462,
+                "rain": 0,
+                "relativeHumidity": 88.682032
+              }
+            }
+          ]
+        },
+        {
+          "id": "F2989",
+          "title": "Fazenda Santo Antônio ",
+          "subtitle": "Faz",
+          "blockParent": "C19",
+          "leafParent": false,
+          "date": "2022-10-28T10:40:09.885104474Z",
+          "data": {
+            "windSpeed": 1.61,
+            "solarIrradiation": 74.693028,
+            "temperature": 22.800949,
+            "rain": 0,
+            "relativeHumidity": 81.55207
+          },
+          "children": [
+            {
+              "id": "B3220",
+              "title": "Unidade padrão",
+              "subtitle": "Uni",
+              "blockParent": "F2989",
+              "leafParent": true,
+              "date": "2022-10-28T10:40:09.885091435Z",
+              "data": {
+                "windSpeed": 1.61,
+                "solarIrradiation": 74.693028,
+                "temperature": 22.800949,
+                "rain": 0,
+                "relativeHumidity": 81.55207
+              }
+            }
+          ]
         }
       ]
     }

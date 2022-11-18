@@ -2,9 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import './assets/styles/index.scss'
+import CustomNosferatu from './components/EditBlocks/CustomNosferatu'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
+    <CustomNosferatu />
   </React.StrictMode>,
 )
