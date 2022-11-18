@@ -9,7 +9,6 @@ import { dataUnit, displayData } from '../utils'
 
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
-import Spinner from 'react-bootstrap/Spinner'
 
 type MapProps = {
   blockLeaves: IListBlocksLeaf[]
@@ -471,11 +470,15 @@ const Map: React.FC<MapProps> = ({
       }`}
     >
       {mapCenter.lat === undefined ? (
-        <div className="d-flex justify-content-center align-items-center h-100 w-100">
-          <Spinner role="status">
-            <span className="visually-hidden">Carregando...</span>
-          </Spinner>
-        </div>
+        <div
+          className="skeleton-box h-100 w-100"
+          tabIndex={0}
+          role="progressbar"
+          aria-busy="true"
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuetext="Carregando..."
+        />
       ) : (
         <DropdownButton
           title={layerView === 'Normal' ? 'Somente áreas' : layerView}

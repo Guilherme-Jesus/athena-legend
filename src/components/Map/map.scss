@@ -2,13 +2,13 @@
 
 .map-container {
   background-color: #eee;
+  border-radius: calc(var(--spacer) / 2) 0 0 calc(var(--spacer) / 2);
   grid-area: main;
   overflow: hidden;
   &:not(.map-loading) {
-    border-radius: calc(var(--spacer) / 2) 0 0 calc(var(--spacer) / 2);
     position: relative;
     &::after {
-      box-shadow: inset 0 0 0.25rem var(--bs-black);
+      box-shadow: inset 0 0 0.25rem rgba(var(--bs-black-rgb), 0.5);
       content: "";
       inset: 0;
       pointer-events: none;

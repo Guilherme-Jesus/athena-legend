@@ -334,7 +334,15 @@ export const Timeline = (): React.ReactElement => {
   return (
     <div className="timeline-container position-relative">
       {timeline.length === 0 ? (
-        <div className="p-3 overflow-hidden h-100">
+        <div
+          className="p-3 overflow-hidden h-100"
+          tabIndex={0}
+          role="progressbar"
+          aria-busy="true"
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuetext="Carregando..."
+        >
           <div
             className="text-nowrap h-100"
             style={{ transform: 'translateX(-100px)' }}

@@ -296,10 +296,12 @@ label {
   --bs-btn-disabled-border-color: var(--bs-primary);
 }
 
-.dropdown-item.active,
-.dropdown-item:active {
-  background-color: var(--bs-primary);
-  // color: var(--bs-dropdown-link-active-color);
+.dropdown-item {
+  &.active,
+  &:active {
+    background-color: var(--bs-primary);
+    // color: var(--bs-dropdown-link-active-color);
+  }
 }
 
 // @-webkit-keyframes shake {
@@ -358,6 +360,10 @@ iframe {
     inset: 0;
     position: absolute;
     transform: translateX(-100%);
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+      background-image: none;
+    }
   }
 }
 

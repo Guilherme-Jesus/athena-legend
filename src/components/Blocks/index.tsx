@@ -200,7 +200,15 @@ const Blocks: React.FC<BlocksProps> = ({
     <ScrollContainer autoHide className="blocks-container">
       <div className="d-flex flex-column gap-3 px-3 pb-3">
         {isLoadingBlocks ? (
-          <div className="d-flex flex-column gap-3">
+          <div
+            className="d-flex flex-column gap-3"
+            tabIndex={0}
+            role="progressbar"
+            aria-busy="true"
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-valuetext="Carregando..."
+          >
             <span
               className="skeleton-box rounded-1 w-100"
               style={{ height: '13.75rem' }}
