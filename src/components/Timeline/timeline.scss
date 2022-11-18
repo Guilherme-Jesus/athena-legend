@@ -39,7 +39,7 @@
       // .day--header {
       //   background-color: transparent;
       // }
-      &::after {
+      &::before {
         border: var(--active-element-outline-width) solid var(--bs-primary);
         border-radius: var(--bs-border-radius);
         content: "";

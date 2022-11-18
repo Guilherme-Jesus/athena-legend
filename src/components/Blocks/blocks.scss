@@ -47,7 +47,7 @@
         0 calc(var(--spacer) * 0.75) var(--spacer)
           rgba(var(--bs-black-rgb), 0.1);
       position: relative;
-      &::after {
+      &::before {
         border: var(--active-element-outline-width) solid var(--bs-primary);
         border-radius: var(--bs-border-radius);
         content: "";
