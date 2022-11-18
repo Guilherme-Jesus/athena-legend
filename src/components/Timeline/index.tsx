@@ -103,7 +103,7 @@ export const Timeline = (): React.ReactElement => {
     return (
       <div className="d-flex justify-content-center align-items-center gap-2 py-2">
         {checkIsPast && hasRain && icoRain}
-        {checkIsFuture && hasRain && icoProbRain}
+        {checkIsFuture && !checkIsToday && hasRain && icoProbRain}
         {(checkIsToday || checkIsFuture) && !hasRain && icoProbNoRain}
         {(checkIsPast || (checkIsFuture && hasRain)) && displayValue}
       </div>
@@ -164,7 +164,9 @@ export const Timeline = (): React.ReactElement => {
             <span className="h6 fw-bold mb-0">
               {displayData(temperature, 1)}
             </span>
-            <small style={{ opacity: 0.6 }}>{dataUnit.temperature}</small>
+            {!!temperature && (
+              <small style={{ opacity: 0.6 }}>{dataUnit.temperature}</small>
+            )}
           </div>
         </div>
       )
@@ -188,7 +190,9 @@ export const Timeline = (): React.ReactElement => {
           <span className="h6 fw-bold mb-0">
             {displayData(relativeHumidity)}
           </span>
-          <small style={{ opacity: 0.6 }}>{dataUnit.relativeHumidity}</small>
+          {!!relativeHumidity && (
+            <small style={{ opacity: 0.6 }}>{dataUnit.relativeHumidity}</small>
+          )}
         </div>
       </div>
     ),
@@ -219,7 +223,7 @@ export const Timeline = (): React.ReactElement => {
             <span className="h6 fw-bold mb-0">
               {displayData(atmosphericPressure, 1)}
             </span>
-            {atmosphericPressure !== undefined && (
+            {!!atmosphericPressure && (
               <small style={{ opacity: 0.6 }}>
                 {dataUnit.atmosphericPressure}
               </small>
@@ -290,7 +294,7 @@ export const Timeline = (): React.ReactElement => {
           <span className="h6 fw-bold mb-0">
             {displayData(solarIrradiation)}
           </span>
-          {solarIrradiation !== undefined && (
+          {!!solarIrradiation && (
             <small style={{ opacity: 0.6 }}>{dataUnit.solarRadiation}</small>
           )}
         </div>
