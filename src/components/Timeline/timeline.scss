@@ -1,7 +1,7 @@
 .timeline-container {
   background-color: var(--bs-light);
   grid-area: timeline;
-  overflow-x: hidden;
+  overflow: hidden;
   .day-container {
     background-image: linear-gradient(var(--bs-white), var(--bs-gray-400));
     box-shadow: 0 calc(var(--spacer) * 0.25) calc(var(--spacer) * 0.25)
@@ -113,7 +113,7 @@
     inset: calc(var(--spacer) * 2.25) 0 0;
     opacity: 0;
     text-align: center;
-    transition: opacity 50ms ease-out;
+    // transition: opacity 50ms ease-out;
   }
 
   // Customização da Navigation

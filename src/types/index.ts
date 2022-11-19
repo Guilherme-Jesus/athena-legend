@@ -25,6 +25,7 @@ export type IListBlocksLeaf = IListBlocks & {
 
 // TIMELINE
 type IPastAndPresent = {
+  atmosphericPressure: number
   date: Date
   rain: number
   relativeHumidity: number

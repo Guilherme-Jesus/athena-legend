@@ -55,6 +55,16 @@ export const Timeline = (): React.ReactElement => {
     return <h3 className="day--header h6 fw-bold mb-0">{formattedDate}</h3>
   }, [])
 
+  const displayRainProbability = useCallback(
+    (item: ILine): React.ReactElement => (
+      <small className="mb-1" style={{ fontSize: '0.85rem' }}>
+        probabilidade:{' '}
+        <span className="fw-bold">{displayData(item.rainProbability, 0)}%</span>
+      </small>
+    ),
+    [],
+  )
+
   const displayRain = useCallback((item: ILine): React.ReactElement => {
     const checkIsToday: boolean = isToday(new Date(item.date))
     const checkIsPast: boolean =
@@ -113,7 +123,7 @@ export const Timeline = (): React.ReactElement => {
   const displayTemperatureMinMax = useCallback(
     (item: ILine): React.ReactElement => {
       return (
-        <div className="d-flex gap-2">
+        <div className="d-flex gap-2 text-start">
           <svg
             className="ico-sensor align-self-start mt-1"
             viewBox="0 0 290 290"
@@ -151,7 +161,7 @@ export const Timeline = (): React.ReactElement => {
   const displayTemperatureAverage = useCallback(
     (temperature: number): React.ReactElement => {
       return (
-        <div className="d-flex gap-2">
+        <div className="d-flex gap-2 text-start">
           <svg
             className="ico-sensor"
             viewBox="0 0 290 290"
@@ -176,7 +186,7 @@ export const Timeline = (): React.ReactElement => {
 
   const displayRelativeHumidity = useCallback(
     (relativeHumidity: number): React.ReactElement => (
-      <div className="d-flex gap-2">
+      <div className="d-flex gap-2 text-start">
         <svg
           className="ico-sensor"
           viewBox="0 0 512 512"
@@ -202,8 +212,13 @@ export const Timeline = (): React.ReactElement => {
   /* const displayAtmosphericPressure = useCallback(
     (atmosphericPressure?: number): React.ReactElement => {
       return (
-        <div className="d-flex gap-2">
-          <svg className="ico-sensor" viewBox="0 0 512 512" aria-hidden="true">
+        <div className="d-flex gap-2 text-start">
+          <svg
+            className="ico-sensor"
+            viewBox="0 0 512 512"
+            aria-hidden="true"
+            style={{ opacity: 0.6 }}
+          >
             <g transform="translate(256,256)">
               <path d="M-217.9,130c-4.1,0-8.1-2.3-10-6.2c-21.7-45-31.1-94.5-27.4-143c3.9-50.4,22.1-97.4,52.5-136 c33.3-42.2,75.8-71.9,126.4-88.2c25.2-8.1,52.2-12.6,76-12.6c90.4,0,180.8,53.1,224.9,132.1C252.4-74.3,262-16.8,252.4,42.2 c-7.5,46.2-24.3,78.4-26.1,82c-2.9,5.4-9.6,7.4-14.9,4.5c-5.4-2.9-7.4-9.5-4.5-14.9c2.5-4.7,60.7-115.9-1.4-227 C164.9-185.5,82.3-234-0.3-234c-26.3,0-117.5,6.7-185.1,92.3c-55,69.7-63.8,170.2-22.6,255.9c2.6,5.5,0.3,12.1-5.2,14.7 C-214.6,129.7-216.3,130-217.9,130z" />
               <use xlinkHref="#barometerTick" transform="rotate(-115)" />
@@ -237,10 +252,10 @@ export const Timeline = (): React.ReactElement => {
 
   const displayWindSpeed = useCallback(
     (windSpeed?: number): React.ReactElement => {
-      const hasSpeed: boolean = windSpeed !== undefined && windSpeed >= 0.3
+      const hasWindSpeed: boolean = !!windSpeed && windSpeed >= 0.3
 
       return (
-        <div className="d-flex gap-2">
+        <div className="d-flex gap-2 text-start">
           <svg
             className="ico-sensor"
             viewBox="0 0 512 512"
@@ -256,9 +271,9 @@ export const Timeline = (): React.ReactElement => {
 
           <div>
             <span className="h6 fw-bold mb-0">
-              {hasSpeed ? displayData(windSpeed, 1) : '--'}
+              {hasWindSpeed ? displayData(windSpeed, 1) : '--'}
             </span>
-            {hasSpeed && (
+            {hasWindSpeed && (
               <small style={{ opacity: 0.6 }}>{dataUnit.windSpeed}</small>
             )}
           </div>
@@ -268,9 +283,9 @@ export const Timeline = (): React.ReactElement => {
     [],
   )
 
-  /* const displaySolarIrradiation = useCallback(
+  const displaySolarIrradiation = useCallback(
     (solarIrradiation?: number): React.ReactElement => (
-      <div className="d-flex gap-2">
+      <div className="d-flex gap-2 text-start">
         <svg
           className="ico-sensor"
           viewBox="0 0 512 512"
@@ -301,29 +316,43 @@ export const Timeline = (): React.ReactElement => {
       </div>
     ),
     [],
-  ) */
+  )
 
   const displayAllOtherData = useCallback(
     (item: ILine) => {
+      const checkIsToday: boolean = isToday(new Date(item.date))
+      const checkIsTodayOrPast: boolean =
+        isBefore(new Date(item.date), new Date()) ||
+        isToday(new Date(item.date))
       const checkIsTodayOrFuture: boolean =
         isToday(new Date(item.date)) || isAfter(new Date(item.date), new Date())
+      const checkIsFuture: boolean =
+        isAfter(new Date(item.date), new Date()) &&
+        !isToday(new Date(item.date))
+      const hasRain: boolean = item.rain >= 0.2
 
       return (
         <div className="d-flex justify-content-center">
           <div className="d-flex flex-column">
+            {((checkIsToday && !hasRain) || checkIsFuture) &&
+              displayRainProbability(item)}
             {checkIsTodayOrFuture
               ? displayTemperatureMinMax(item)
               : displayTemperatureAverage(item.temperatureAverage)}
             {displayRelativeHumidity(item.relativeHumidity)}
-            {/* {displayAtmosphericPressure(item.atmosphericPressure)} */}
+            {/* {checkIsTodayOrPast &&
+              displayAtmosphericPressure(item.atmosphericPressure)} */}
             {displayWindSpeed(item.windSpeed)}
-            {/* {displaySolarIrradiation(item.solarIrradiation)} */}
+            {checkIsTodayOrPast &&
+              displaySolarIrradiation(item.solarIrradiation)}
           </div>
         </div>
       )
     },
     [
+      displayRainProbability,
       displayRelativeHumidity,
+      displaySolarIrradiation,
       displayTemperatureAverage,
       displayTemperatureMinMax,
       displayWindSpeed,
