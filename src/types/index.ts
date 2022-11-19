@@ -7,6 +7,7 @@ type SensorData = {
   windSpeed: number
 }
 
+// BLOCKS
 export type IListBlocks = {
   abrv: string
   blockId: string
@@ -22,6 +23,7 @@ export type IListBlocksLeaf = IListBlocks & {
   centroid: number[]
 }
 
+// TIMELINE
 type IPastAndPresent = {
   date: Date
   rain: number
@@ -58,9 +60,10 @@ type ILineAlerts = {
   type: string
 }
 
-export type ILine = IPastAndPresent & {
-  alerts: ILineAlerts[] | null
-}
+export type ILine = IPastAndPresent &
+  IFuture & {
+    alerts: ILineAlerts[] | null
+  }
 
 export type ITimeline = {
   blockId: string
@@ -68,6 +71,7 @@ export type ITimeline = {
   name: string
 }
 
+// USERS
 export type IUsers = {
   displayName: string
   email: string
