@@ -156,10 +156,9 @@ const App: React.FC = (): React.ReactElement => {
     }
   }, [blockLeaf, center, initialPosition])
 
-  const clickLogin = () => {
-    signOut(auth)
-
-    navigate('/')
+  const logout = () => {
+    localStorage.removeItem('user')
+    navigate('/login')
   }
 
   return (
@@ -170,7 +169,7 @@ const App: React.FC = (): React.ReactElement => {
         <a href="#">link 1</a>
         <a href="#">link 2</a>
         <a href="#">link 3</a>
-        <button onClick={clickLogin}>Logout</button>
+        <button onClick={logout}>Logout</button>
       </nav>
 
       <Blocks

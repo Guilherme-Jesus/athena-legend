@@ -3,14 +3,11 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-import { Button, Form } from 'react-bootstrap'
+import { Alert, Button, Form } from 'react-bootstrap'
 import './styles.scss'
 import { auth } from '../../config/firebase-config'
 
 export function Login() {
-  // const [show, setShow] = useState(false)
-  // const handleClick = () => setShow(!show)
-
   const navigate = useNavigate()
   const [loginEmail, setLoginEmail] = useState('')
   const [loginPassword, setLoginPassword] = useState('')
@@ -33,9 +30,8 @@ export function Login() {
         .then((res) => {
           // console.log(res.headers['set-cookie'])
           // console.log(token)
-          setAuthing(true)
-
-          navigate('/')
+          localStorage.setItem('user', JSON.stringify({ role: 'ADMIN' }))
+          navigate('/dashboard')
         })
         .catch((err) => {
           alert('Senha ou email incorretos')
