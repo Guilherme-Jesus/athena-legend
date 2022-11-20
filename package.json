@@ -7,7 +7,7 @@
     "start": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "json": "json-server --watch C19.json --port 7010",
+    "json": "json-server --id blockId --watch C19.json --port 7010",
     "pen": "concurrently \"npm run start\" \"npm run json\""
   },
   "dependencies": {
