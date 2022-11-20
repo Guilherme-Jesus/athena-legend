@@ -66,7 +66,7 @@ export const Timeline = (): React.ReactElement => {
 
     const icoRain: React.ReactElement = (
       <svg
-        className="ico-sensor ico-rain"
+        className="ico-sensor ico-rain me-2"
         viewBox="0 0 64 64"
         aria-hidden="true"
       >
@@ -93,7 +93,7 @@ export const Timeline = (): React.ReactElement => {
     )
     const icoProbNoRain: React.ReactElement = (
       <svg
-        className="ico-sensor ico-prob-norain"
+        className="ico-sensor ico-prob-norain me-1"
         viewBox="0 0 512 512"
         aria-hidden="true"
       >
@@ -109,7 +109,7 @@ export const Timeline = (): React.ReactElement => {
     )
 
     return (
-      <div className="d-flex justify-content-center align-items-center gap-2 py-2">
+      <div className="d-flex justify-content-center align-items-center py-2">
         {checkIsPast && hasRain && icoRain}
         {checkIsFuture && !checkIsToday && probRain && icoProbRain}
         {(checkIsToday || checkIsFuture) && probNoRain && icoProbNoRain}
