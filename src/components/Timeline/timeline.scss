@@ -87,6 +87,12 @@
         position: absolute;
       }
     }
+    .rain-probability-text {
+      color: var(--bs-prob-rain);
+      margin-right: -1.55rem;
+      text-shadow: 0 -1px 0 var(--bs-light), 1px 0 0 var(--bs-light), 0 1px 0 var(--bs-light), -1px 0 0 var(--bs-light);
+      z-index: 1;
+    }
     .ico-sensor {
       fill: var(--bs-dark);
       filter: drop-shadow(0 1px 1px rgba(var(--bs-dark-rgb), 0.5));
@@ -114,6 +120,7 @@
     opacity: 0;
     text-align: center;
     // transition: opacity 50ms ease-out;
+    z-index: 2;
   }
 
   // Customização da Navigation

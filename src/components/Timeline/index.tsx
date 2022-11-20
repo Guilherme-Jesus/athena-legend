@@ -55,22 +55,25 @@ export const Timeline = (): React.ReactElement => {
     return <h3 className="day--header h6 fw-bold mb-0">{formattedDate}</h3>
   }, [])
 
-  const displayRainProbability = useCallback(
-    (item: ILine): React.ReactElement => (
-      <small className="mb-1" style={{ fontSize: '0.85rem' }}>
-        probabilidade:{' '}
-        <span className="fw-bold">{displayData(item.rainProbability, 0)}%</span>
-      </small>
-    ),
-    [],
-  )
+  // const displayRainProbability = useCallback(
+  //   (item: ILine): React.ReactElement => (
+  //     <small className="mb-1" style={{ fontSize: '0.85rem' }}>
+  //       probabilidade:{' '}
+  //       <span className="fw-bold">{displayData(item.rainProbability, 0)}%</span>
+  //     </small>
+  //   ),
+  //   [],
+  // )
 
   const displayRain = useCallback((item: ILine): React.ReactElement => {
     const checkIsToday: boolean = isToday(new Date(item.date))
     const checkIsPast: boolean =
       isBefore(new Date(item.date), new Date()) || isToday(new Date(item.date))
     const checkIsFuture: boolean = isAfter(new Date(item.date), new Date())
+    const probRain: boolean = item.rainPrediction === 'R'
+    const probNoRain: boolean = item.rainPrediction === 'NR'
     const hasRain: boolean = item.rain >= 0.2
+
     const icoRain: React.ReactElement = (
       <svg
         className="ico-sensor ico-rain"
@@ -85,13 +88,18 @@ export const Timeline = (): React.ReactElement => {
       </svg>
     )
     const icoProbRain: React.ReactElement = (
-      <svg
-        className="ico-sensor ico-prob-rain"
-        viewBox="0 0 512 512"
-        aria-hidden="true"
-      >
-        <path d="M409.9,205.8L256,0L102.2,205.9c-24.8,33.2-37.9,72.8-37.9,114.4C64.3,426,150.3,512,256,512 s191.7-86,191.7-191.7C447.7,278.6,434.6,239.2,409.9,205.8z M256,480.3c-88.2,0-160-71.8-160-160c0-34.7,11-67.8,31.6-95.4 L256,52.9l128.4,171.9c20.7,27.8,31.6,60.8,31.6,95.5C416,408.5,344.2,480.3,256,480.3z" />
-      </svg>
+      <>
+        <small className="rain-probability-text fw-bold position-relative">
+          {displayData(item.rainProbability, 0, '%')}
+        </small>
+        <svg
+          className="ico-sensor ico-prob-rain"
+          viewBox="0 0 512 512"
+          aria-hidden="true"
+        >
+          <path d="M409.9,205.8L256,0L102.2,205.9c-24.8,33.2-37.9,72.8-37.9,114.4C64.3,426,150.3,512,256,512 s191.7-86,191.7-191.7C447.7,278.6,434.6,239.2,409.9,205.8z M256,480.3c-88.2,0-160-71.8-160-160c0-34.7,11-67.8,31.6-95.4 L256,52.9l128.4,171.9c20.7,27.8,31.6,60.8,31.6,95.5C416,408.5,344.2,480.3,256,480.3z" />
+        </svg>
+      </>
     )
     const icoProbNoRain: React.ReactElement = (
       <svg
@@ -113,8 +121,8 @@ export const Timeline = (): React.ReactElement => {
     return (
       <div className="d-flex justify-content-center align-items-center gap-2 py-2">
         {checkIsPast && hasRain && icoRain}
-        {checkIsFuture && !checkIsToday && hasRain && icoProbRain}
-        {(checkIsToday || checkIsFuture) && !hasRain && icoProbNoRain}
+        {checkIsFuture && !checkIsToday && probRain && icoProbRain}
+        {(checkIsToday || checkIsFuture) && probNoRain && icoProbNoRain}
         {(checkIsPast || (checkIsFuture && hasRain)) && displayValue}
       </div>
     )
@@ -320,22 +328,22 @@ export const Timeline = (): React.ReactElement => {
 
   const displayAllOtherData = useCallback(
     (item: ILine) => {
-      const checkIsToday: boolean = isToday(new Date(item.date))
+      // const checkIsToday: boolean = isToday(new Date(item.date))
       const checkIsTodayOrPast: boolean =
         isBefore(new Date(item.date), new Date()) ||
         isToday(new Date(item.date))
       const checkIsTodayOrFuture: boolean =
         isToday(new Date(item.date)) || isAfter(new Date(item.date), new Date())
-      const checkIsFuture: boolean =
-        isAfter(new Date(item.date), new Date()) &&
-        !isToday(new Date(item.date))
-      const hasRain: boolean = item.rain >= 0.2
+      // const checkIsFuture: boolean =
+      //   isAfter(new Date(item.date), new Date()) &&
+      //   !isToday(new Date(item.date))
+      // const hasRain: boolean = item.rain >= 0.2
 
       return (
         <div className="d-flex justify-content-center">
           <div className="d-flex flex-column">
-            {((checkIsToday && !hasRain) || checkIsFuture) &&
-              displayRainProbability(item)}
+            {/* {((checkIsToday && !hasRain) || checkIsFuture) &&
+              displayRainProbability(item)} */}
             {checkIsTodayOrFuture
               ? displayTemperatureMinMax(item)
               : displayTemperatureAverage(item.temperatureAverage)}
@@ -350,7 +358,7 @@ export const Timeline = (): React.ReactElement => {
       )
     },
     [
-      displayRainProbability,
+      // displayRainProbability,
       displayRelativeHumidity,
       displaySolarIrradiation,
       displayTemperatureAverage,
