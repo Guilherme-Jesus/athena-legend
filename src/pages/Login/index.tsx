@@ -12,7 +12,7 @@ export function Login() {
   const navigate = useNavigate()
   const [loginEmail, setLoginEmail] = useState('')
   const [loginPassword, setLoginPassword] = useState('')
-  const [authing, setAuthing] = useState(false)
+  // const [authing, setAuthing] = useState(false)
 
   const login = async () => {
     try {
@@ -34,12 +34,8 @@ export function Login() {
           localStorage.setItem('user', JSON.stringify({ role: 'ADMIN' }))
           navigate('/dashboard')
         })
-        .catch((err) => {
-          alert('Senha ou email incorretos')
-          setAuthing(false)
-          console.error(err)
-        })
     } catch (err) {
+      alert('Senha ou email incorretos')
       console.error(err)
     }
   }
@@ -74,7 +70,6 @@ export function Login() {
             type="button"
             className="button"
             onClick={login}
-            disabled={authing}
           >
             Entrar
           </Button>

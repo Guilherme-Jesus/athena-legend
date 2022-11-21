@@ -4,9 +4,9 @@ import App from './App'
 import './assets/styles/index.scss'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { Login } from './pages/Login'
-import AuthRoute from './config/AuthRoute'
+import PrivateRoute from './config/AuthRoute/PrivateRoute'
 import InnerContent from './components/InnerContent'
-import PublicRoutes from './config/PublicRoute'
+import PublicRoutes from './config/AuthRoute/PublicRoute'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
@@ -21,7 +21,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           }
         /> */}
 
-        <Route path="/" element={<AuthRoute />}>
+        <Route path="/" element={<PrivateRoute />}>
           <Route path="/" element={<InnerContent />}>
             <Route path="/" element={<Navigate replace to="dashboard" />} />
             <Route path="dashboard" element={<App />} />
