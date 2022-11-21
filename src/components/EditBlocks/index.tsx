@@ -183,7 +183,6 @@ const EditBlocks = () => {
           buttons: [
             <ButtonGroup key={node.blockId}>
               <Button
-                key={node.blockId}
                 variant="primary"
                 onClick={() => {
                   axios.post('http://localhost:7010/blocks', {
@@ -207,7 +206,6 @@ const EditBlocks = () => {
                 Criar
               </Button>
               <Button
-                key={node.blockId}
                 variant="secondary"
                 onClick={() => {
                   axios.delete(`http://localhost:7010/blocks/${node.blockId}`)

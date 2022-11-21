@@ -7,6 +7,7 @@ import { Login } from './pages/Login'
 import PrivateRoute from './config/AuthRoute/PrivateRoute'
 import InnerContent from './components/InnerContent'
 import PublicRoutes from './config/AuthRoute/PublicRoute'
+import EditBlocks from './components/EditBlocks'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
@@ -16,6 +17,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           <Route path="/" element={<InnerContent />}>
             <Route path="/" element={<Navigate replace to="dashboard" />} />
             <Route path="dashboard" element={<App />} />
+            <Route path="/edit" element={<EditBlocks />} />
           </Route>
         </Route>
         <Route path="login" element={<PublicRoutes />}>

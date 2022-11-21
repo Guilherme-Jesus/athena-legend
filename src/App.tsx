@@ -69,7 +69,7 @@ const App: React.FC = (): React.ReactElement => {
       <header className="p-3">HEADER</header>
 
       <nav className="nav p-3">
-        <a href="#">link 1</a>
+        <button onClick={() => navigate('/edit')}>Edit</button>
         <a href="#">link 2</a>
         <a href="#">link 3</a>
         <button onClick={logout}>Logout</button>
