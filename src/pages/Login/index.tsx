@@ -2,8 +2,9 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import zeusLogo from '../../assets/img/zeusDark.png'
 
-import { Alert, Button, Form } from 'react-bootstrap'
+import { Button, Form } from 'react-bootstrap'
 import './styles.scss'
 import { auth } from '../../config/firebase-config'
 
@@ -46,6 +47,7 @@ export function Login() {
   return (
     <div className="pageContainer">
       <div className="formContainer">
+        <img src={zeusLogo} alt="" className="logo" />
         <Form className="form">
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>E-mail</Form.Label>
