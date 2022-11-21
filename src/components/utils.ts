@@ -81,14 +81,14 @@ export const getContrastYIQ = (
   replaceWhiteColor?: string,
 ): string => {
   const getColor = bgColor.includes('var')
-    ? getComputedStyle(document.documentElement).getPropertyValue(
-        bgColor.replace('var(', '').replace(')', ''),
-      )
+    ? getComputedStyle(document.documentElement)
+        .getPropertyValue(bgColor.replace('var(', '').replace(')', ''))
+        .trim()
     : bgColor
 
-  const r = parseInt(getColor.substring(2, 4), 16)
-  const g = parseInt(getColor.substring(4, 6), 16)
-  const b = parseInt(getColor.substring(6, 8), 16)
+  const r = parseInt(getColor.substring(1, 3), 16)
+  const g = parseInt(getColor.substring(3, 5), 16)
+  const b = parseInt(getColor.substring(5, 7), 16)
 
   const yiq = (r * 299 + g * 587 + b * 114) / 1000
 
