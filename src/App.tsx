@@ -1,17 +1,15 @@
 import './app.scss'
 import './components/Map/map.scss'
 
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import * as L from 'leaflet'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 
 import axios from 'axios'
 import { IListBlocks, IListBlocksLeaf } from './types/types'
 
+import { useNavigate } from 'react-router-dom'
 import Blocks from './components/Blocks'
 import { dataUnit } from './components/utils'
-import { signOut } from 'firebase/auth'
-import { useNavigate } from 'react-router-dom'
-import { auth } from './config/firebase-config'
 
 const App: React.FC = (): React.ReactElement => {
   const navigate = useNavigate()
