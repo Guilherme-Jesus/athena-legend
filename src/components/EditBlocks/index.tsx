@@ -96,7 +96,7 @@ const EditBlocks = () => {
   }
 
   const addNode = useCallback(
-    (path: number[], blockParent: string) => {
+    (path: number[], blockParent: string, leafParent: string) => {
       const newBlocks = addNodeUnderParent({
         treeData: someOnlineAdvice.treeData,
         parentKey: path[path.length - 1],
@@ -107,7 +107,7 @@ const EditBlocks = () => {
           name: 'Nova Área',
           abrv: 'Editar Abreviação',
           blockParent,
-          leafParent: false,
+          leafParent: leafParent ? 'false' : 'true',
           date: new Date().toLocaleDateString(),
           data: {
             windSpeed: Math.floor(Math.random() * 100),
@@ -190,7 +190,9 @@ const EditBlocks = () => {
                     name: 'Nova Área',
                     abrv: 'Editar Abreviação',
                     blockParent: node.blockId,
-                    leafParent: false,
+                    leafParent: node.children
+                      ? node.leafParent === false
+                      : node.leafParent === true,
                     date: new Date().toLocaleDateString(),
                     data: {
                       windSpeed: Math.floor(Math.random() * 100),
@@ -200,7 +202,7 @@ const EditBlocks = () => {
                       relativeHumidity: Math.floor(Math.random() * 100),
                     },
                   })
-                  addNode(path, node.blockId)
+                  addNode(path, node.blockId, node.leafParent)
                 }}
               >
                 Criar
