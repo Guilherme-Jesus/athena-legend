@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",
+    "@mapbox/geojson-rewind": "^0.5.2",
+    "@mapbox/togeojson": "^0.16.0",
     "@nosferatu500/react-sortable-tree": "^4.2.1",
     "@reduxjs/toolkit": "^1.9.0",
     "@types/react-redux": "^7.1.24",

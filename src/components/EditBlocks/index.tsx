@@ -19,6 +19,7 @@ import {
 import { changeBlocks } from '../../features/blocks/blockSlice'
 import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelector'
 import { IListBlocks } from '../../types'
+import KmlReader from './KmlReader'
 
 const EditBlocks = () => {
   const { blocks } = useAppSelector((state) => state.blockSlice)
@@ -183,7 +184,7 @@ const EditBlocks = () => {
   )
 
   return (
-    <div style={{ height: 800, width: 800 }}>
+    <div style={{ height: 800, width: '100%' }}>
       <div
         style={{
           display: 'flex',
@@ -227,6 +228,7 @@ const EditBlocks = () => {
         generateNodeProps={({ node, path }) => ({
           buttons: [
             <ButtonGroup key={node.blockId}>
+              <KmlReader />
               <Button
                 variant="primary"
                 onClick={() => {
