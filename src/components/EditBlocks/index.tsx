@@ -9,7 +9,7 @@ import SortableTree, {
 import '@nosferatu500/react-sortable-tree/style.css'
 
 import { useCallback, useEffect, useState } from 'react'
-import { Button, ButtonGroup, InputGroup } from 'react-bootstrap'
+import { Button, ButtonGroup, FormControl, InputGroup } from 'react-bootstrap'
 import {
   useCreateBlocksMutation,
   useDeleteBlocksMutation,
@@ -249,15 +249,19 @@ const EditBlocks = () => {
           ],
           title: (
             <InputGroup>
-              <input
-                type="text"
+              <FormControl
+                placeholder="Nome"
+                aria-label="Nome"
+                aria-describedby="basic-addon1"
                 value={node.name}
                 onChange={(e) => {
                   handleChangeName(path, node, e)
                 }}
               />
-              <input
-                type="text"
+              <FormControl
+                placeholder="Abreviação"
+                aria-label="Abreviação"
+                aria-describedby="basic-addon1"
                 value={node.abrv}
                 onChange={(e) => {
                   handleChangeAbrv(path, node, e)
