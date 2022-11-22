@@ -5,7 +5,6 @@ import React, { memo, useCallback, useEffect, useState } from 'react'
 
 import { IListBlocks, IListBlocksLeaf } from './types'
 
-import { useNavigate } from 'react-router-dom'
 import Blocks from './components/Blocks'
 import Map from './components/Map'
 import Timeline from './components/Timeline'
@@ -14,7 +13,6 @@ const App: React.FC = (): React.ReactElement => {
   const [currentBlockId, setCurrentBlockId] = useState<string>('C19')
   const [blocks, setBlocks] = useState<IListBlocks[]>([])
   const [blockLeaves, setBlockLeaves] = useState<IListBlocksLeaf[]>([])
-  const navigate = useNavigate()
 
   useEffect(() => {
     if (blocks.length === 0) {
@@ -60,21 +58,8 @@ const App: React.FC = (): React.ReactElement => {
     [blockLeaves, blocks, currentBlockId],
   )
 
-  const logout = () => {
-    localStorage.removeItem('user')
-    navigate('/login')
-  }
   return (
     <div className="App">
-      <header className="p-3">HEADER</header>
-
-      <nav className="nav p-3">
-        <a href="#">link 1</a>
-        <a href="#">link 2</a>
-        <a href="#">link 3</a>
-        <button onClick={logout}>Logout</button>
-      </nav>
-
       <Blocks
         blocks={blocks}
         currentBlockId={currentBlockId}

@@ -5,8 +5,10 @@
   grid-area: main;
   overflow: hidden;
   &:not(.map-loading) {
-    border-radius: calc(var(--spacer) / 2) 0 0 calc(var(--spacer) / 2);
+    border-radius: calc(var(--spacer) / 2);
     position: relative;
+    margin-right: 16px;
+    left: 2px;
     &::after {
       box-shadow: inset 0 0 0.25rem var(--bs-black);
       content: "";

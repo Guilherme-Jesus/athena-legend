@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import zeusLogo from '../../assets/img/zeusDark.png'
 
-import { Alert, Button, Form } from 'react-bootstrap'
-import './styles.scss'
+import { Button, Form } from 'react-bootstrap'
+import './login.scss'
 import { auth } from '../../config/firebase-config'
 
 export function Login() {

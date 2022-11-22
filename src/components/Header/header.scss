@@ -1,0 +1,28 @@
+.header {
+  background-color: #FF7F2F;
+  display: flex;
+  justify-content: space-between;
+  height: 4.75rem;
+
+}
+
+.logoHeader {
+  display: flex;
+  width: 180px;
+  height: 98px;
+  margin-left: 48px;
+  margin-top: -6px;
+}
+
+.buttonLogout{
+	text-decoration: none;
+	float: right;
+  padding: 12px;
+  margin: 15px;
+  color: white;
+  width: 25px;
+  background-color: black;
+  transition: width .35s;
+  -webkit-transition: width .35s;
+  overflow: hidden
+}
