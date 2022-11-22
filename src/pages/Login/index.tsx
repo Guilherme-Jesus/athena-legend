@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import zeusLogo from '../../assets/img/zeusDark.png'
 
-import { Button, Form } from 'react-bootstrap'
+import { Alert, Button, Form } from 'react-bootstrap'
 import './styles.scss'
 import { auth } from '../../config/firebase-config'
 
@@ -12,10 +12,11 @@ export function Login() {
   const navigate = useNavigate()
   const [loginEmail, setLoginEmail] = useState('')
   const [loginPassword, setLoginPassword] = useState('')
-  // const [authing, setAuthing] = useState(false)
+  const [authing, setAuthing] = useState(false)
 
   const login = async () => {
     try {
+      setAuthing(true)
       const user = await signInWithEmailAndPassword(
         auth,
         loginEmail,
@@ -37,6 +38,7 @@ export function Login() {
     } catch (err) {
       alert('Senha ou email incorretos')
       console.error(err)
+      setAuthing(false)
     }
   }
 
@@ -70,8 +72,9 @@ export function Login() {
             type="button"
             className="button"
             onClick={login}
+            disabled={authing}
           >
-            Entrar
+            {authing ? 'Loading...' : 'Entrar'}
           </Button>
         </Form>
       </div>
