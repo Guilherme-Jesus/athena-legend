@@ -7,7 +7,6 @@ import SortableTree, {
   toggleExpandedForAll,
 } from '@nosferatu500/react-sortable-tree'
 import '@nosferatu500/react-sortable-tree/style.css'
-import axios from 'axios'
 
 import { useCallback, useEffect, useState } from 'react'
 import { Button, ButtonGroup, InputGroup } from 'react-bootstrap'
@@ -15,6 +14,7 @@ import {
   useCreateBlocksMutation,
   useDeleteBlocksMutation,
   useGetBlocksQuery,
+  useUpdateBlocksMutation,
 } from '../../app/services/blocks'
 import { changeBlocks } from '../../features/blocks/blockSlice'
 import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelector'
@@ -33,6 +33,7 @@ const EditBlocks = () => {
   const { data: blocksData } = useGetBlocksQuery()
   const [blockDelete] = useDeleteBlocksMutation()
   const [createBlock] = useCreateBlocksMutation()
+  const [updateBlock] = useUpdateBlocksMutation()
 
   useEffect(() => {
     blocksData && dispatch(changeBlocks(blocksData))
@@ -82,25 +83,13 @@ const EditBlocks = () => {
 
   const handleSave = useCallback(() => {
     flatData.forEach((block) => {
-      axios
-        .put(`http://localhost:7010/blocks/${block.blockId}`, {
-          blockId: block.blockId,
-          name: block.name,
-          abrv: block.abrv,
-          blockParent: block.blockParent.toString(),
-          leafParent: block.leafParent,
-          date: block.date,
-          data: block.data,
-        })
-        .then((res) => {
-          console.log(res)
-          expandAll()
-        })
-        .catch((err) => {
-          console.log(err)
-        })
+      if (block.blockId === '0') {
+        createBlock(block as IListBlocks)
+      } else {
+        updateBlock(block as IListBlocks)
+      }
     })
-  }, [expandAll, flatData])
+  }, [createBlock, flatData, updateBlock])
 
   const onChange = (treeData: IListBlocks[]) => {
     dispatch(changeBlocks(treeData))

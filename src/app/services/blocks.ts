@@ -30,7 +30,7 @@ export const blocksApi = createApi({
     updateBlocks: builder.mutation<void, IListBlocks>({
       // propriedade mutation é a url que será chamada para atualizar dados de um usuário.
       query: ({ blockId, ...rest }) => ({
-        url: `/blocks?id=${blockId}`,
+        url: `/blocks/${blockId}`,
         method: 'PUT',
         body: rest,
       }),
