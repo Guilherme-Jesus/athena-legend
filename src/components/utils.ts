@@ -80,15 +80,42 @@ export const getContrastYIQ = (
   replaceBlackColor?: string,
   replaceWhiteColor?: string,
 ): string => {
-  const getColor = bgColor.includes('var')
-    ? getComputedStyle(document.documentElement)
-        .getPropertyValue(bgColor.replace('var(', '').replace(')', ''))
-        .trim()
-    : bgColor
+  let r = 0
+  let g = 0
+  let b = 0
 
-  const r = parseInt(getColor.substring(1, 3), 16)
-  const g = parseInt(getColor.substring(3, 5), 16)
-  const b = parseInt(getColor.substring(5, 7), 16)
+  // #xxxxxx
+  if (bgColor.includes('#')) {
+    r = parseInt(bgColor.substring(1, 3), 16)
+    g = parseInt(bgColor.substring(3, 5), 16)
+    b = parseInt(bgColor.substring(5, 7), 16)
+  }
+
+  // rgb(x, x, x)
+  if (bgColor.includes('rgb(')) {
+    const array = bgColor.replace('rgb(', '').replace(')', '')
+    r = Number(array.split(',')[0])
+    g = Number(array.split(',')[1])
+    b = Number(array.split(',')[2])
+  }
+
+  // var(--x)
+  if (bgColor.includes('var')) {
+    const getVar = getComputedStyle(document.documentElement)
+      .getPropertyValue(bgColor.replace('var(', '').replace(')', ''))
+      .trim()
+    // hex
+    if (getVar.includes('#')) {
+      r = parseInt(getVar.substring(1, 3), 16)
+      g = parseInt(getVar.substring(3, 5), 16)
+      b = parseInt(getVar.substring(5, 7), 16)
+    } else {
+      // x, x, x
+      r = Number(getVar.split(',')[0])
+      g = Number(getVar.split(',')[1])
+      b = Number(getVar.split(',')[2])
+    }
+  }
 
   const yiq = (r * 299 + g * 587 + b * 114) / 1000
 
