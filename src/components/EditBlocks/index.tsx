@@ -11,21 +11,34 @@ import axios from 'axios'
 
 import { useCallback, useEffect, useState } from 'react'
 import { Button, ButtonGroup, InputGroup } from 'react-bootstrap'
+import {
+  useCreateBlocksMutation,
+  useDeleteBlocksMutation,
+  useGetBlocksQuery,
+} from '../../app/services/blocks'
+import { changeBlocks } from '../../features/blocks/blockSlice'
+import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelector'
 import { IListBlocks } from '../../types'
 
 const EditBlocks = () => {
-  const [blocks, setBlocks] = useState<IListBlocks[]>([])
+  const { blocks } = useAppSelector((state) => state.blockSlice)
+  const dispatch = useAppDispatch()
+
   const [searchString, setSearchString] = useState<string>('')
   const [searchFocusIndex, setSearchFocusIndex] = useState<number>(0)
   const handleSearchStringChange = useCallback((event: any) => {
     setSearchString(event.target.value)
   }, [])
 
+  const { data } = useGetBlocksQuery()
+  const [blockDelete] = useDeleteBlocksMutation()
+  const [createBlock] = useCreateBlocksMutation()
+
   useEffect(() => {
-    fetch('http://localhost:7010/blocks')
-      .then((response) => response.json())
-      .then((response) => setBlocks(response))
-  }, [])
+    if (data) {
+      dispatch(changeBlocks(data))
+    }
+  }, [data, dispatch])
 
   const someOnlineAdvice = {
     treeData: getTreeFromFlatData({
@@ -44,16 +57,16 @@ const EditBlocks = () => {
       treeData: someOnlineAdvice.treeData,
       expanded: true,
     }) as IListBlocks[]
-    setBlocks(expanded)
-  }, [someOnlineAdvice.treeData])
+    dispatch(changeBlocks(expanded))
+  }, [dispatch, someOnlineAdvice.treeData])
 
   const collapseAll = useCallback(() => {
     const expanded = toggleExpandedForAll({
       treeData: someOnlineAdvice.treeData,
       expanded: false,
     }) as IListBlocks[]
-    setBlocks(expanded)
-  }, [someOnlineAdvice.treeData])
+    dispatch(changeBlocks(expanded))
+  }, [dispatch, someOnlineAdvice.treeData])
 
   const flatData = getFlatDataFromTree({
     treeData: someOnlineAdvice.treeData,
@@ -82,21 +95,58 @@ const EditBlocks = () => {
           data: block.data,
         })
         .then((res) => {
-          setBlocks(res.data)
+          dispatch(changeBlocks(res.data))
           expandAll()
         })
         .catch((err) => {
           console.log(err)
         })
     })
-  }, [expandAll, flatData])
+  }, [dispatch, expandAll, flatData])
 
   const onChange = (treeData: IListBlocks[]) => {
-    setBlocks(treeData)
+    dispatch(changeBlocks(treeData))
   }
 
-  const addNode = useCallback(
-    (path: number[], blockParent: string, leafParent: boolean) => {
+  const handleRemove = useCallback(
+    (path: number[], blockId: string) => {
+      const newBlocks = removeNodeAtPath({
+        treeData: someOnlineAdvice.treeData,
+        path,
+        getNodeKey: ({ treeIndex }) => treeIndex,
+      }) as IListBlocks[]
+      dispatch(changeBlocks(newBlocks))
+      blockDelete(blockId)
+    },
+    [blockDelete, dispatch, someOnlineAdvice.treeData],
+  )
+  const handleCreateBlock = useCallback(
+    (node: any, path: number[]) => {
+      createBlock({
+        blockId: Math.random().toString(36),
+        name: 'Nova Área',
+        abrv: 'Editar Abreviação',
+        blockParent: node.blockId,
+        leafParent: false,
+        date: new Date(),
+        data: {
+          windSpeed: Math.floor(Math.random() * 100),
+          solarIrradiation: Math.floor(Math.random() * 100),
+          temperature: Math.floor(Math.random() * 100),
+          rain: Math.floor(Math.random() * 100),
+          relativeHumidity: Math.floor(Math.random() * 100),
+          atmosphericPressure: Math.floor(Math.random() * 100),
+        },
+      })
+        .unwrap()
+        .then((res: any) => {
+          dispatch(changeBlocks(res))
+          expandAll()
+        })
+        .catch((err: any) => {
+          console.log(err)
+        })
+
       const newBlocks = addNodeUnderParent({
         treeData: someOnlineAdvice.treeData,
         parentKey: path[path.length - 1],
@@ -106,35 +156,32 @@ const EditBlocks = () => {
           blockId: Math.random().toString(36),
           name: 'Nova Área',
           abrv: 'Editar Abreviação',
-          blockParent,
-          leafParent: !leafParent,
-          date: new Date().toLocaleDateString(),
+          blockParent: node.blockId,
+          leafParent: false,
+          date: new Date(),
           data: {
-            windSpeed: Math.floor(Math.random() * 100),
-            solarIrradiation: Math.floor(Math.random() * 100),
-            temperature: Math.floor(Math.random() * 100),
-            rain: Math.floor(Math.random() * 100),
-            relativeHumidity: Math.floor(Math.random() * 100),
+            blockId: Math.random().toString(36),
+            name: 'Nova Área',
+            abrv: 'Editar Abreviação',
+            blockParent: node.blockId,
+            leafParent: false,
+            date: new Date(),
+            data: {
+              windSpeed: Math.floor(Math.random() * 100),
+              solarIrradiation: Math.floor(Math.random() * 100),
+              temperature: Math.floor(Math.random() * 100),
+              rain: Math.floor(Math.random() * 100),
+              relativeHumidity: Math.floor(Math.random() * 100),
+              atmosphericPressure: Math.floor(Math.random() * 100),
+            },
           },
         },
         addAsFirstChild: true,
       }).treeData as IListBlocks[]
       console.log(newBlocks)
-      setBlocks(newBlocks)
+      dispatch(changeBlocks(newBlocks))
     },
-    [someOnlineAdvice.treeData],
-  )
-
-  const removeNode = useCallback(
-    (path: number[]) => {
-      const newBlocks = removeNodeAtPath({
-        treeData: someOnlineAdvice.treeData,
-        path,
-        getNodeKey: ({ treeIndex }) => treeIndex,
-      }) as IListBlocks[]
-      setBlocks(newBlocks)
-    },
-    [someOnlineAdvice.treeData],
+    [createBlock, someOnlineAdvice.treeData, dispatch, expandAll],
   )
 
   return (
@@ -185,24 +232,7 @@ const EditBlocks = () => {
               <Button
                 variant="primary"
                 onClick={() => {
-                  axios.post('http://localhost:7010/blocks', {
-                    blockId: Math.random().toString(36),
-                    name: 'Nova Área',
-                    abrv: 'Editar Abreviação',
-                    blockParent: node.blockId,
-                    leafParent: node.children
-                      ? node.leafParent === false
-                      : node.leafParent === true,
-                    date: new Date().toLocaleDateString(),
-                    data: {
-                      windSpeed: Math.floor(Math.random() * 100),
-                      solarIrradiation: Math.floor(Math.random() * 100),
-                      temperature: Math.floor(Math.random() * 100),
-                      rain: Math.floor(Math.random() * 100),
-                      relativeHumidity: Math.floor(Math.random() * 100),
-                    },
-                  })
-                  addNode(path, node.blockId, node.leafParent)
+                  handleCreateBlock(node, path)
                 }}
               >
                 Criar
@@ -210,8 +240,7 @@ const EditBlocks = () => {
               <Button
                 variant="secondary"
                 onClick={() => {
-                  axios.delete(`http://localhost:7010/blocks/${node.blockId}`)
-                  removeNode(path)
+                  handleRemove(path, node.blockId)
                 }}
               >
                 Remover
@@ -224,36 +253,32 @@ const EditBlocks = () => {
                 type="text"
                 value={node.name}
                 onChange={(e) => {
-                  setBlocks((state) => {
-                    const newDaum = changeNodeAtPath({
-                      treeData: state,
-                      path,
-                      getNodeKey: ({ treeIndex }) => treeIndex,
-                      newNode: {
-                        ...node,
-                        name: e.target.value,
-                      },
-                    }) as IListBlocks[]
-                    return newDaum
-                  })
+                  const newBlocks = changeNodeAtPath({
+                    treeData: someOnlineAdvice.treeData,
+                    path,
+                    getNodeKey: ({ treeIndex }) => treeIndex,
+                    newNode: {
+                      ...node,
+                      name: e.target.value,
+                    },
+                  }) as IListBlocks[]
+                  dispatch(changeBlocks(newBlocks))
                 }}
               />
               <input
                 type="text"
                 value={node.abrv}
                 onChange={(e) => {
-                  setBlocks((state) => {
-                    const newDaum = changeNodeAtPath({
-                      treeData: state,
-                      path,
-                      getNodeKey: ({ treeIndex }) => treeIndex,
-                      newNode: {
-                        ...node,
-                        abrv: e.target.value,
-                      },
-                    }) as IListBlocks[]
-                    return newDaum
-                  })
+                  const newBlocks = changeNodeAtPath({
+                    treeData: someOnlineAdvice.treeData,
+                    path,
+                    getNodeKey: ({ treeIndex }) => treeIndex,
+                    newNode: {
+                      ...node,
+                      abrv: e.target.value,
+                    },
+                  }) as IListBlocks[]
+                  dispatch(changeBlocks(newBlocks))
                 }}
               />
             </InputGroup>
