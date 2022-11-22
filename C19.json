@@ -194,22 +194,6 @@
         "rain": 0,
         "relativeHumidity": 81.55207
       }
-    },
-    {
-      "blockId": "0.v4u5pktlo8",
-      "name": "Guilheme",
-      "abrv": "Editar Abreviação",
-      "blockParent": "C19",
-      "leafParent": false,
-      "date": "2022-11-22T18:33:15.020Z",
-      "data": {
-        "windSpeed": 30,
-        "solarIrradiation": 57,
-        "temperature": 87,
-        "rain": 36,
-        "relativeHumidity": 44,
-        "atmosphericPressure": 24
-      }
     }
   ],
   "blockLeaf": [

@@ -30,15 +30,13 @@ const EditBlocks = () => {
     setSearchString(event.target.value)
   }, [])
 
-  const { data } = useGetBlocksQuery()
+  const { data: blocksData } = useGetBlocksQuery()
   const [blockDelete] = useDeleteBlocksMutation()
   const [createBlock] = useCreateBlocksMutation()
 
   useEffect(() => {
-    if (data) {
-      dispatch(changeBlocks(data))
-    }
-  }, [data, dispatch])
+    blocksData && dispatch(changeBlocks(blocksData))
+  }, [blocksData, dispatch])
 
   const someOnlineAdvice = {
     treeData: getTreeFromFlatData({
@@ -95,14 +93,14 @@ const EditBlocks = () => {
           data: block.data,
         })
         .then((res) => {
-          dispatch(changeBlocks(res.data))
+          console.log(res)
           expandAll()
         })
         .catch((err) => {
           console.log(err)
         })
     })
-  }, [dispatch, expandAll, flatData])
+  }, [expandAll, flatData])
 
   const onChange = (treeData: IListBlocks[]) => {
     dispatch(changeBlocks(treeData))
@@ -137,15 +135,7 @@ const EditBlocks = () => {
           relativeHumidity: Math.floor(Math.random() * 100),
           atmosphericPressure: Math.floor(Math.random() * 100),
         },
-      })
-        .unwrap()
-        .then((res: any) => {
-          dispatch(changeBlocks(res))
-          expandAll()
-        })
-        .catch((err: any) => {
-          console.log(err)
-        })
+      }).unwrap()
 
       const newBlocks = addNodeUnderParent({
         treeData: someOnlineAdvice.treeData,
@@ -173,7 +163,7 @@ const EditBlocks = () => {
       console.log(newBlocks)
       dispatch(changeBlocks(newBlocks))
     },
-    [createBlock, someOnlineAdvice.treeData, dispatch, expandAll],
+    [createBlock, someOnlineAdvice.treeData, dispatch],
   )
 
   return (
