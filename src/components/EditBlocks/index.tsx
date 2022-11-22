@@ -107,6 +107,7 @@ const EditBlocks = () => {
     },
     [blockDelete, dispatch, someOnlineAdvice.treeData],
   )
+
   const handleCreateBlock = useCallback(
     (node: any, path: number[]) => {
       createBlock({
@@ -153,6 +154,32 @@ const EditBlocks = () => {
       dispatch(changeBlocks(newBlocks))
     },
     [createBlock, someOnlineAdvice.treeData, dispatch],
+  )
+
+  const handleChangeName = useCallback(
+    (path: number[], node: any, e: any) => {
+      const newBlocks = changeNodeAtPath({
+        treeData: someOnlineAdvice.treeData,
+        path,
+        getNodeKey: ({ treeIndex }) => treeIndex,
+        newNode: { ...node, name: e.target.value },
+      }) as IListBlocks[]
+      dispatch(changeBlocks(newBlocks))
+    },
+    [dispatch, someOnlineAdvice.treeData],
+  )
+
+  const handleChangeAbrv = useCallback(
+    (path: number[], node: any, e: any) => {
+      const newBlocks = changeNodeAtPath({
+        treeData: someOnlineAdvice.treeData,
+        path,
+        getNodeKey: ({ treeIndex }) => treeIndex,
+        newNode: { ...node, abrv: e.target.value },
+      }) as IListBlocks[]
+      dispatch(changeBlocks(newBlocks))
+    },
+    [dispatch, someOnlineAdvice.treeData],
   )
 
   return (
@@ -224,32 +251,14 @@ const EditBlocks = () => {
                 type="text"
                 value={node.name}
                 onChange={(e) => {
-                  const newBlocks = changeNodeAtPath({
-                    treeData: someOnlineAdvice.treeData,
-                    path,
-                    getNodeKey: ({ treeIndex }) => treeIndex,
-                    newNode: {
-                      ...node,
-                      name: e.target.value,
-                    },
-                  }) as IListBlocks[]
-                  dispatch(changeBlocks(newBlocks))
+                  handleChangeName(path, node, e)
                 }}
               />
               <input
                 type="text"
                 value={node.abrv}
                 onChange={(e) => {
-                  const newBlocks = changeNodeAtPath({
-                    treeData: someOnlineAdvice.treeData,
-                    path,
-                    getNodeKey: ({ treeIndex }) => treeIndex,
-                    newNode: {
-                      ...node,
-                      abrv: e.target.value,
-                    },
-                  }) as IListBlocks[]
-                  dispatch(changeBlocks(newBlocks))
+                  handleChangeAbrv(path, node, e)
                 }}
               />
             </InputGroup>
