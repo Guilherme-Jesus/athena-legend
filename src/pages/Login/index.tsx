@@ -2,7 +2,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import zeusLogo from '../../assets/img/zeusDark.png'
+import zeusLogo from '../../assets/images/zeusDark.png'
 
 import { Button, Form } from 'react-bootstrap'
 import './login.scss'

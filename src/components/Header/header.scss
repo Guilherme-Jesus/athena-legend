@@ -1,6 +1,7 @@
 .header {
   background-color: #FF7F2F;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   height: 4.75rem;
 
@@ -14,15 +15,32 @@
   margin-top: -6px;
 }
 
+.navButtons {
+  position: absolute;
+  flex-direction: row;
+  left: 18rem;
+  top: 24px;
+}
+
+.linkContainer {
+  margin-right: 24px;
+ 
+&:active{
+  color: var(--bs-primary-dark);
+}
+}
+
 .buttonLogout{
 	text-decoration: none;
-	float: right;
-  padding: 12px;
-  margin: 15px;
+  margin-right: 48px;
   color: white;
-  width: 25px;
-  background-color: black;
-  transition: width .35s;
-  -webkit-transition: width .35s;
-  overflow: hidden
+  background-color: transparent;
+  border: 0;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
+ 
+
 }
+
