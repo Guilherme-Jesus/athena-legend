@@ -1,8 +1,11 @@
 import { Outlet } from 'react-router-dom'
+import { Header } from '../Header'
+import './innercontent.scss'
 
 const InnerContent = () => {
   return (
-    <div className="inner-content">
+    <div className="innercontent">
+      <Header />
       <Outlet />
     </div>
   )

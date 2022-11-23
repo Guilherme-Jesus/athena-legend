@@ -105,7 +105,7 @@ $font-family-sans-serif: "Roboto Condensed", Inter, Avenir, Helvetica, Arial,
   --bs-temperatureMin: #848ca8;
   --bs-wind-rgb: 156, 39, 176;
   --bs-wind: #9c27b0;
-
+  --bs-white: #fff !important;
   --cubic-bezier: cubic-bezier(0.47, 1.64, 0.41, 0.8);
   --spacer: 16px;
   --active-element-outline-width: 2px;
@@ -144,12 +144,12 @@ body {
 
 a,
 .btn-link {
-  color: var(--bs-primary-dark);
+  color: #ffffff;
   font-weight: 400;
-  // text-decoration: inherit;
-  text-underline-offset: 0.25rem;
+  text-decoration: inherit;
+  // text-underline-offset: 0.25rem;
   &:hover {
-    color: var(--bs-primary);
+    color: var(--bs-primary-dark);
   }
   &:not(.no-external)[rel*="noopener"] {
     padding-right: 0.625rem;

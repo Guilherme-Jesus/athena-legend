@@ -20,7 +20,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
             <Route path="/" element={<InnerContent />}>
               <Route path="/" element={<Navigate replace to="dashboard" />} />
               <Route path="dashboard" element={<App />} />
-              <Route path="/edit" element={<EditBlocks />} />
+              <Route path="edit" element={<EditBlocks />} />
             </Route>
           </Route>
           <Route path="login" element={<PublicRoutes />}>
