@@ -239,10 +239,9 @@ const EditBlocks = () => {
     const arrayCoord: any[] = []
     bounds.features.forEach((layer) => {
       layer.geometry.coordinates.forEach((feature) => {
-        const coordinates = feature.map((coord) => {
-          return [coord]
+        feature.forEach((coord) => {
+          arrayCoord.push(coord)
         })
-        arrayCoord.push(coordinates)
       })
     })
     return arrayCoord
