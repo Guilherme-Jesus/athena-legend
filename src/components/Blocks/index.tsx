@@ -200,7 +200,15 @@ const Blocks: React.FC<BlocksProps> = ({
     <ScrollContainer autoHide className="blocks-container">
       <div className="d-flex flex-column gap-3 px-3 pb-3">
         {isLoadingBlocks ? (
-          <div className="d-flex flex-column gap-3">
+          <div
+            className="d-flex flex-column gap-3"
+            tabIndex={0}
+            role="progressbar"
+            aria-busy="true"
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-valuetext="Carregando..."
+          >
             <span
               className="skeleton-box rounded-1 w-100"
               style={{ height: '13.75rem' }}
@@ -214,51 +222,55 @@ const Blocks: React.FC<BlocksProps> = ({
             ))}
           </div>
         ) : (
-          blocks.map((block) => (
-            <div
-              key={block.blockId}
-              role="button"
-              className={`block${
-                block.blockId === currentBlockId ? ' active' : ''
-              } rounded-1 d-flex flex-column p-2`}
-              onClick={() => handleBlockClick(block.blockId, block.leafParent)}
-            >
-              {block.blockId === currentBlockId ? (
-                <>
-                  <p className="block--header lh-1 mb-0">{block.name}</p>
-                  <ul className="block--body list-unstyled mb-0">
-                    <li className="d-flex align-items-baseline mt-1">
+          blocks
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .map((block) => (
+              <div
+                key={block.blockId}
+                role="button"
+                className={`block${
+                  block.blockId === currentBlockId ? ' active' : ''
+                } rounded-1 d-flex flex-column p-2`}
+                onClick={() =>
+                  handleBlockClick(block.blockId, block.leafParent)
+                }
+              >
+                {block.blockId === currentBlockId ? (
+                  <>
+                    <p className="block--header lh-1 mb-0">{block.name}</p>
+                    <ul className="block--body list-unstyled mb-0">
+                      <li className="d-flex align-items-baseline mt-1">
+                        {displayRain(block.data.rain)}
+                      </li>
+                      <li className="d-flex align-items-baseline mt-1">
+                        {displayTemperature(block.data.temperature)}
+                      </li>
+                      <li className="d-flex align-items-baseline mt-1">
+                        {displayRelativeHumidity(block.data.relativeHumidity)}
+                      </li>
+                      <li className="d-flex align-items-baseline mt-1">
+                        {displayAtmosphericPressure(
+                          block.data.atmosphericPressure,
+                        )}
+                      </li>
+                      <li className="d-flex align-items-baseline mt-1">
+                        {displayWindSpeed(block.data.windSpeed)}
+                      </li>
+                      <li className="d-flex align-items-baseline mt-1">
+                        {displaySolarIrradiation(block.data.solarIrradiation)}
+                      </li>
+                    </ul>
+                  </>
+                ) : (
+                  <div className="block--header lh-1 d-flex flex-column gap-1">
+                    <span className="text-truncate w-100">{block.name}</span>
+                    <span className="d-flex align-items-baseline">
                       {displayRain(block.data.rain)}
-                    </li>
-                    <li className="d-flex align-items-baseline mt-1">
-                      {displayTemperature(block.data.temperature)}
-                    </li>
-                    <li className="d-flex align-items-baseline mt-1">
-                      {displayRelativeHumidity(block.data.relativeHumidity)}
-                    </li>
-                    <li className="d-flex align-items-baseline mt-1">
-                      {displayAtmosphericPressure(
-                        block.data.atmosphericPressure,
-                      )}
-                    </li>
-                    <li className="d-flex align-items-baseline mt-1">
-                      {displayWindSpeed(block.data.windSpeed)}
-                    </li>
-                    <li className="d-flex align-items-baseline mt-1">
-                      {displaySolarIrradiation(block.data.solarIrradiation)}
-                    </li>
-                  </ul>
-                </>
-              ) : (
-                <div className="block--header lh-1 d-flex flex-column gap-1">
-                  <span className="text-truncate w-100">{block.name}</span>
-                  <span className="d-flex align-items-baseline">
-                    {displayRain(block.data.rain)}
-                  </span>
-                </div>
-              )}
-            </div>
-          ))
+                    </span>
+                  </div>
+                )}
+              </div>
+            ))
         )}
       </div>
     </ScrollContainer>
