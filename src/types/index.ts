@@ -72,11 +72,17 @@ export type ITimeline = {
   name: string
 }
 
-// USERS
-export type IUsers = {
-  displayName: string
-  email: string
+export interface Geometry {
+  type: string
+  coordinates: number[][][]
+}
+export interface Feature {
+  type: string
+  geometry: Geometry
   id: string
-  phone: string
-  photoURL: string
+}
+
+export interface Root {
+  type: string
+  features: Feature[]
 }
