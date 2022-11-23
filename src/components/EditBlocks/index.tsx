@@ -88,26 +88,6 @@ const EditBlocks = () => {
     return hash
   }
 
-  const handleKmlForEach = () => {
-    const kl = bounds.features.map((feature) => {
-      const id = hashString(feature.id)
-      const features = feature.geometry.coordinates.map((coord) => {
-        const coordinates = coord.map((c) => {
-          return { lat: c[1], lng: c[0] }
-        })
-        return {
-          id: hashString(feature.id),
-          coordinates,
-        }
-      })
-      return {
-        id,
-        features,
-      }
-    })
-    console.log(kl)
-  }
-
   useEffect(() => {
     blocksData && dispatch(changeBlocks(blocksData))
   }, [blocksData, dispatch])
@@ -260,12 +240,16 @@ const EditBlocks = () => {
     bounds.features.forEach((layer) => {
       layer.geometry.coordinates.forEach((feature) => {
         const coordinates = feature.map((coord) => {
-          return [coord[1], coord[0]]
+          return [coord]
         })
         arrayCoord.push(coordinates)
       })
     })
     return arrayCoord
+  }, [bounds])
+
+  const arrayCentroid = useCallback(() => {
+    return bounds.features[0].geometry.coordinates[0][1]
   }, [bounds])
 
   return (
@@ -325,6 +309,7 @@ const EditBlocks = () => {
                     date: node.date,
                     data: node.data,
                     bounds: arrayCoords(),
+                    centroid: arrayCentroid(),
                   })
                 }}
               >
