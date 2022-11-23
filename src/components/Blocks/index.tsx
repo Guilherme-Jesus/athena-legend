@@ -178,7 +178,10 @@ const Blocks: React.FC<BlocksProps> = ({
             <use xlinkHref="#sunShine" transform="rotate(180)" />
             <use xlinkHref="#sunShine" transform="rotate(225)" />
             <use xlinkHref="#sunShine" transform="rotate(270)" />
-            <use xlinkHref="#sunShine" transform="rotate(315)" />
+            <use
+              xlinkHref="#sunShine"
+              transform="roexport default memo(Blocks)tate(315)"
+            />
           </g>
         </svg>
         <div>

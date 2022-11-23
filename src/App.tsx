@@ -3,7 +3,7 @@ import './app.scss'
 import axios from 'axios'
 import React, { memo, useCallback, useEffect, useState } from 'react'
 
-import { IListBlocks, IListBlocksLeaf } from './types'
+import { IListBlocks, IListBlocksLeaf, ITimeline } from './types'
 
 import Blocks from './components/Blocks'
 import Map from './components/Map'
@@ -13,6 +13,7 @@ const App: React.FC = (): React.ReactElement => {
   const [currentBlockId, setCurrentBlockId] = useState<string>('C19')
   const [blocks, setBlocks] = useState<IListBlocks[]>([])
   const [blockLeaves, setBlockLeaves] = useState<IListBlocksLeaf[]>([])
+  const [timelineData, setTimelineData] = useState<ITimeline[]>([])
 
   useEffect(() => {
     if (blocks.length === 0) {
@@ -45,6 +46,13 @@ const App: React.FC = (): React.ReactElement => {
       .catch((error) => console.log(error))
   }, [])
 
+  useEffect(() => {
+    axios
+      .get('http://localhost:7010/timeline')
+      .then((response) => setTimelineData(response.data))
+      .catch((error: any) => console.log(error))
+  }, [])
+
   const handleBlockClick = useCallback(
     (id: string, leaf: boolean): void => {
       if (currentBlockId !== id) {
@@ -54,8 +62,11 @@ const App: React.FC = (): React.ReactElement => {
       } else if (leaf) {
         setBlockLeaves(blockLeaves.filter((item) => item.blockParent === id))
       }
+      setTimelineData(timelineData.filter((item) => item.line))
+      // console.log(timelineData.filter((item) => item.blockId === id))
+      // console.log(id)
     },
-    [blockLeaves, blocks, currentBlockId],
+    [blockLeaves, blocks, currentBlockId, timelineData],
   )
 
   return (
@@ -66,7 +77,7 @@ const App: React.FC = (): React.ReactElement => {
         handleBlockClick={handleBlockClick}
       />
 
-      <Timeline />
+      <Timeline timelineData={timelineData} currentBlockId={currentBlockId} />
 
       <Map blockLeaves={blockLeaves} currentBlockId={currentBlockId} />
     </div>

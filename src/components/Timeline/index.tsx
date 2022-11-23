@@ -7,27 +7,36 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Keyboard, Mousewheel, Navigation } from 'swiper'
 import { format, isAfter, isBefore, isToday } from 'date-fns'
 
-import { apiFake } from '../../hooks/useRequestData'
-import { ILine } from '../../types'
+import { ILine, ITimeline } from '../../types'
 import { dataUnit, displayAlertName, displayData } from '../utils'
 
 import Button from 'react-bootstrap/Button'
 
-export const Timeline = (): React.ReactElement => {
+type TimelineProps = {
+  timelineData: ITimeline[]
+  currentBlockId: string
+}
+
+export const Timeline = ({
+  timelineData,
+  currentBlockId,
+}: TimelineProps): React.ReactElement => {
   const [showPrependButton, setShowPrependButton] = useState<boolean>(false)
-  const [timelineData, setTimelineData] = useState<ILine[]>([])
+  const [timelineTest, settimelineTest] = useState<ITimeline[]>([])
   const [timeline, setTimeline] = useState<ILine[]>([])
   const [daysToShow, setDaysToShow] = useState<number>(21) // 10 + hoje + 10
 
-  useEffect(() => {
-    apiFake
-      .get('/timeline')
-      .then((response) => setTimelineData(response.data[0].line))
-      .catch((error: any) => console.log(error))
-  }, [])
-
   useEffect(
-    () => setTimeline(timelineData.slice(-Math.abs(daysToShow))),
+    () => {
+      if (timelineData.length > 0) {
+        // setTimeline(timelineData[0].line.slice(-Math.abs(daysToShow)))
+        settimelineTest(
+          timelineData.filter((time) => time.blockId === currentBlockId),
+        )
+        setTimeline(timelineTest[0].line.slice(-Math.abs(daysToShow)))
+      }
+      console.log(timeline)
+    },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [timelineData],
   )
@@ -355,7 +364,7 @@ export const Timeline = (): React.ReactElement => {
   )
 
   const handlePrependDays = useCallback(() => {
-    setTimeline(timelineData.slice(-Math.abs(daysToShow) - 1))
+    setTimeline(timelineData[0].line.slice(-Math.abs(daysToShow) - 1))
     setDaysToShow(-Math.abs(daysToShow) - 1)
   }, [daysToShow, timelineData])
 
