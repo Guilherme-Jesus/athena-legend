@@ -255,6 +255,23 @@ const EditBlocks = () => {
     [dispatch, someOnlineAdvice.treeData],
   )
 
+  const arrayCoords = useCallback(() => {
+    const arrayCoord: any[] = []
+    layer.features.forEach((layer) => {
+      const features = layer.geometry.coordinates.map((feature) => {
+        const coordinates = feature.map((coord) => {
+          return {
+            lat: coord[1],
+            lng: coord[0],
+          }
+        })
+        arrayCoord.push(coordinates)
+      })
+      return features
+    })
+    return arrayCoord
+  }, [layer])
+
   return (
     <div style={{ height: 800, width: '100%' }}>
       <div
@@ -311,7 +328,7 @@ const EditBlocks = () => {
                     leafParent: true,
                     date: node.date,
                     data: node.data,
-                    layer,
+                    layer: arrayCoords(),
                   })
                 }}
               >
