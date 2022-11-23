@@ -1,6 +1,5 @@
 export type DataName =
   | 'atmosphericPressure'
-  | 'photoPeriod'
   | 'rain'
   | 'relativeHumidity'
   | 'solarRadiation'
@@ -81,10 +80,62 @@ export const getContrastYIQ = (
   replaceBlackColor?: string,
   replaceWhiteColor?: string,
 ): string => {
-  const r = parseInt(bgColor.substring(1, 3), 16)
-  const g = parseInt(bgColor.substring(3, 5), 16)
-  const b = parseInt(bgColor.substring(5, 7), 16)
+  let r = 0
+  let g = 0
+  let b = 0
+
+  // #xxxxxx
+  if (bgColor.includes('#')) {
+    r = parseInt(bgColor.substring(1, 3), 16)
+    g = parseInt(bgColor.substring(3, 5), 16)
+    b = parseInt(bgColor.substring(5, 7), 16)
+  }
+
+  // rgb(x, x, x)
+  if (bgColor.includes('rgb(')) {
+    const array = bgColor.replace('rgb(', '').replace(')', '')
+    r = Number(array.split(',')[0])
+    g = Number(array.split(',')[1])
+    b = Number(array.split(',')[2])
+  }
+
+  // var(--x)
+  if (bgColor.includes('var')) {
+    const getVar = getComputedStyle(document.documentElement)
+      .getPropertyValue(bgColor.replace('var(', '').replace(')', ''))
+      .trim()
+    // hex
+    if (getVar.includes('#')) {
+      r = parseInt(getVar.substring(1, 3), 16)
+      g = parseInt(getVar.substring(3, 5), 16)
+      b = parseInt(getVar.substring(5, 7), 16)
+    } else {
+      // x, x, x
+      r = Number(getVar.split(',')[0])
+      g = Number(getVar.split(',')[1])
+      b = Number(getVar.split(',')[2])
+    }
+  }
+
   const yiq = (r * 299 + g * 587 + b * 114) / 1000
 
-  return yiq >= 128 ? replaceBlackColor || '#000' : replaceWhiteColor || '#fff'
+  return yiq >= 128
+    ? replaceBlackColor || 'var(--bs-black)'
+    : replaceWhiteColor || 'var(--bs-white)'
+}
+
+export const displayAlertName = (alertType: string): string => {
+  switch (alertType) {
+    case 'rain':
+      return 'Chuva'
+    case 'frost':
+      return 'Geada'
+    case 'temperature':
+      return 'Temperatura'
+    case 'wind':
+      return 'Vento'
+    case 'spray':
+      return 'Janela de pulverização'
+  }
+  return ''
 }

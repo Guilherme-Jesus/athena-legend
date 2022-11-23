@@ -2,24 +2,27 @@
   --nav-link-size: calc(var(--spacer) * 6);
 
   display: grid;
-  grid-template-areas:  "nav header header"
-                        "nav blocks main"
-                        "nav blocks timeline";
-  grid-template-columns:  var(--nav-link-size)
-                          calc(var(--spacer) * 12)
-                          auto;
-  grid-template-rows: calc(var(--spacer) * 2.375 + var(--spacer) * 1.5 * 2)
-                      auto
-                      calc(var(--spacer) * 15);
+  grid-template-areas:
+    "nav header header"
+    "nav blocks main"
+    "nav blocks timeline";
+  grid-template-columns:
+    var(--nav-link-size)
+    calc(var(--spacer) * 12)
+    auto;
+  grid-template-rows:
+    calc(var(--spacer) * 2.375 + var(--spacer) * 1.5 * 2)
+    auto
+    calc(var(--spacer) * 14.25);
   min-height: 100vh;
 
   header {
-    background-color: #eee;
+    background-color: var(--bs-light);
     grid-area: header;
   }
 
   nav {
-    background-color: #eee;
+    background-color: var(--bs-light);
     display: flex;
     flex-direction: column;
     grid-area: nav;
