@@ -305,6 +305,12 @@ const EditBlocks = () => {
                 onClick={() => {
                   axios.post(`http://localhost:7010/blockLeaf/`, {
                     blockId: node.blockId,
+                    name: node.name,
+                    abrv: node.abrv,
+                    blockParent: node.blockParent,
+                    leafParent: true,
+                    date: node.date,
+                    data: node.data,
                     layer,
                   })
                 }}
