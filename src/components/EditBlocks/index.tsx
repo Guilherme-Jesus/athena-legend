@@ -21,10 +21,10 @@ import {
 } from '../../app/services/blocks'
 import { changeBlocks } from '../../features/blocks/blockSlice'
 import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelector'
-import { IListBlocks } from '../../types'
+import { IListBlocks, Root } from '../../types'
 
 const EditBlocks = () => {
-  const [layer, setLayer] = useState(null)
+  const [layer, setLayer] = useState<Root>()
   const { blocks } = useAppSelector((state) => state.blockSlice)
   const dispatch = useAppDispatch()
 
@@ -85,6 +85,26 @@ const EditBlocks = () => {
       hash |= 0 // Convert to 32bit integer
     }
     return hash
+  }
+
+  const handleKmlForEach = () => {
+    const kl = layer.features.map((feature) => {
+      const id = hashString(feature.id)
+      const features = feature.geometry.coordinates.map((coord) => {
+        const coordinates = coord.map((c) => {
+          return { lat: c[1], lng: c[0] }
+        })
+        return {
+          id: hashString(feature.id),
+          coordinates,
+        }
+      })
+      return {
+        id,
+        features,
+      }
+    })
+    console.log(kl)
   }
 
   useEffect(() => {
