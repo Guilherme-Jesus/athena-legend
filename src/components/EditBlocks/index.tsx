@@ -240,7 +240,7 @@ const EditBlocks = () => {
     bounds.features.forEach((layer) => {
       layer.geometry.coordinates.forEach((feature) => {
         feature.forEach((coord) => {
-          arrayCoord.push(coord)
+          arrayCoord.push([coord[0], coord[1]])
         })
       })
     })
