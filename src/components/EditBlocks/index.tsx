@@ -22,6 +22,7 @@ import {
 import { changeBlocks } from '../../features/blocks/blockSlice'
 import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelector'
 import { IListBlocks, Root } from '../../types'
+import axios from 'axios'
 
 const EditBlocks = () => {
   const [layer, setLayer] = useState<Root>()
@@ -300,6 +301,16 @@ const EditBlocks = () => {
           buttons: [
             <ButtonGroup key={node.blockId}>
               <input type="file" onChange={handleFileSelection} />
+              <Button
+                onClick={() => {
+                  axios.post(`http://localhost:7010/blockLeaf/`, {
+                    blockId: node.blockId,
+                    layer,
+                  })
+                }}
+              >
+                Upload
+              </Button>
               <Button
                 variant="primary"
                 onClick={() => {
