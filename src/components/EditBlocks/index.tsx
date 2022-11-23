@@ -76,17 +76,17 @@ const EditBlocks = () => {
     return name.substring(lastDot + 1)
   }
 
-  const hashString = (str) => {
-    let hash = 0
-    let i
-    let chr
-    for (i = 0; i < Math.min(str.length, 255); i++) {
-      chr = str.charCodeAt(i)
-      hash = (hash << 5) - hash + chr
-      hash |= 0 // Convert to 32bit integer
-    }
-    return hash
-  }
+  // const hashString = (str) => {
+  //   let hash = 0
+  //   let i
+  //   let chr
+  //   for (i = 0; i < Math.min(str.length, 255); i++) {
+  //     chr = str.charCodeAt(i)
+  //     hash = (hash << 5) - hash + chr
+  //     hash |= 0 // Convert to 32bit integer
+  //   }
+  //   return hash
+  // }
 
   useEffect(() => {
     blocksData && dispatch(changeBlocks(blocksData))
@@ -235,22 +235,39 @@ const EditBlocks = () => {
     [dispatch, someOnlineAdvice.treeData],
   )
 
-  const arrayCoords = useCallback(() => {
-    const arrayCoord: any[] = []
-    bounds.features.forEach((layer) => {
-      layer.geometry.coordinates.forEach((feature) => {
-        feature.forEach((coord) => {
-          arrayCoord.push([coord[0], coord[1]])
+  const arrayCoords = useCallback(
+    (id: string) => {
+      const arrayCoord: any[] = []
+      bounds.features
+        .filter((feature) => feature.id === id)
+        .forEach((layer) => {
+          layer.geometry.coordinates.forEach((feature) => {
+            feature.forEach((coord) => {
+              arrayCoord.push([coord[0], coord[1]])
+            })
+          })
         })
-      })
-    })
-    return arrayCoord
-  }, [bounds])
+      return arrayCoord
+    },
+    [bounds],
+  )
 
-  const arrayCentroid = useCallback(() => {
-    return bounds.features[0].geometry.coordinates[0][1]
-  }, [bounds])
-
+  const arrayCentroid = useCallback(
+    (id: string) => {
+      const arrayCentroid: any[] = []
+      bounds.features
+        .filter((feature) => feature.id === id)
+        .forEach((layer) => {
+          layer.geometry.coordinates.forEach((feature) => {
+            feature.forEach((coord) => {
+              arrayCentroid.push([coord[0], coord[1]])
+            })
+          })
+        })
+      return arrayCentroid[0]
+    },
+    [bounds],
+  )
   return (
     <div style={{ height: 800, width: '100%' }}>
       <div
@@ -299,16 +316,18 @@ const EditBlocks = () => {
               <input type="file" onChange={handleFileSelection} />
               <Button
                 onClick={() => {
-                  axios.post(`http://localhost:7010/blockLeaf/`, {
-                    blockId: Math.random().toString(36),
-                    name: node.name,
-                    abrv: node.abrv,
-                    blockParent: node.blockId,
-                    leafParent: false,
-                    date: node.date,
-                    data: node.data,
-                    bounds: arrayCoords(),
-                    centroid: arrayCentroid(),
+                  bounds.features.forEach((feature) => {
+                    axios.post(`http://localhost:7010/blockLeaf/`, {
+                      blockId: feature.id,
+                      name: feature.properties.name,
+                      abrv: feature.properties.name,
+                      blockParent: node.blockId,
+                      leafParent: false,
+                      date: node.date,
+                      data: node.data,
+                      bounds: arrayCoords(feature.id),
+                      centroid: arrayCentroid(feature.id),
+                    })
                   })
                 }}
               >
