@@ -25,7 +25,7 @@ import { IListBlocks, Root } from '../../types'
 import axios from 'axios'
 
 const EditBlocks = () => {
-  const [layer, setLayer] = useState<Root>()
+  const [bounds, setBounds] = useState<Root>()
   const { blocks } = useAppSelector((state) => state.blockSlice)
   const dispatch = useAppDispatch()
 
@@ -55,7 +55,7 @@ const EditBlocks = () => {
         const json = JSON.parse(text as string)
         rewind(json, false)
         console.log(json)
-        setLayer(json)
+        setBounds(json)
       }
     }
 
@@ -67,7 +67,7 @@ const EditBlocks = () => {
     const converted = tj.kml(dom) // convert xml dom to geojson
     rewind(converted, false) // correct right hand rule
     console.log(converted)
-    setLayer(converted) // save converted geojson to hook state
+    setBounds(converted) // save converted geojson to hook state
   }
 
   const getFileExtension = (file) => {
@@ -89,7 +89,7 @@ const EditBlocks = () => {
   }
 
   const handleKmlForEach = () => {
-    const kl = layer.features.map((feature) => {
+    const kl = bounds.features.map((feature) => {
       const id = hashString(feature.id)
       const features = feature.geometry.coordinates.map((coord) => {
         const coordinates = coord.map((c) => {
@@ -188,7 +188,7 @@ const EditBlocks = () => {
         name: 'Nova Área',
         abrv: 'Editar Abreviação',
         blockParent: node.blockId,
-        leafParent: false,
+        leafParent: true,
         date: new Date(),
         data: {
           windSpeed: Math.floor(Math.random() * 100),
@@ -257,20 +257,16 @@ const EditBlocks = () => {
 
   const arrayCoords = useCallback(() => {
     const arrayCoord: any[] = []
-    layer.features.forEach((layer) => {
-      const features = layer.geometry.coordinates.map((feature) => {
+    bounds.features.forEach((layer) => {
+      layer.geometry.coordinates.forEach((feature) => {
         const coordinates = feature.map((coord) => {
-          return {
-            lat: coord[1],
-            lng: coord[0],
-          }
+          return [coord[1], coord[0]]
         })
         arrayCoord.push(coordinates)
       })
-      return features
     })
     return arrayCoord
-  }, [layer])
+  }, [bounds])
 
   return (
     <div style={{ height: 800, width: '100%' }}>
@@ -321,14 +317,14 @@ const EditBlocks = () => {
               <Button
                 onClick={() => {
                   axios.post(`http://localhost:7010/blockLeaf/`, {
-                    blockId: node.blockId,
+                    blockId: Math.random().toString(36),
                     name: node.name,
                     abrv: node.abrv,
-                    blockParent: node.blockParent,
-                    leafParent: true,
+                    blockParent: node.blockId,
+                    leafParent: false,
                     date: node.date,
                     data: node.data,
-                    layer: arrayCoords(),
+                    bounds: arrayCoords(),
                   })
                 }}
               >
