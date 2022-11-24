@@ -194,6 +194,25 @@
       "date": "2022-10-28T10:40:09.885091435Z",
       "leafParent": true,
       "blockId": "B3220"
+<<<<<<< HEAD
+=======
+    },
+    {
+      "name": "Nova Área",
+      "abrv": "Editar Abreviação",
+      "blockParent": "C19",
+      "data": {
+        "windSpeed": 84,
+        "solarIrradiation": 97,
+        "temperature": 4,
+        "rain": 9,
+        "relativeHumidity": 82,
+        "atmosphericPressure": 81
+      },
+      "date": "2022-11-22T20:32:42.747Z",
+      "leafParent": false,
+      "blockId": "0.mm6ue2szft"
+>>>>>>> feature/fix-design
     }
   ],
   "blockLeaf": [

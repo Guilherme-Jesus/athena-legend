@@ -12,7 +12,13 @@ import * as tj from '@mapbox/togeojson'
 import rewind from '@mapbox/geojson-rewind'
 
 import { useCallback, useEffect, useState } from 'react'
-import { Button, ButtonGroup, FormControl, InputGroup } from 'react-bootstrap'
+import {
+  Button,
+  ButtonGroup,
+  FormControl,
+  Image,
+  InputGroup,
+} from 'react-bootstrap'
 import {
   useCreateBlocksMutation,
   useDeleteBlocksMutation,
@@ -23,6 +29,12 @@ import { changeBlocks } from '../../features/blocks/blockSlice'
 import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelector'
 import { IListBlocks, Root } from '../../types'
 import axios from 'axios'
+
+// Estilo
+import './edit.scss'
+
+// Icones
+import { MdSearch } from 'react-icons/md'
 
 const EditBlocks = () => {
   const [bounds, setBounds] = useState<Root>()
@@ -269,37 +281,41 @@ const EditBlocks = () => {
     [bounds],
   )
   return (
-    <div style={{ height: 800, width: '100%' }}>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginBottom: 10,
-        }}
-      >
+    <div className="containerEdit">
+      <div>
         {blocks.length > 0 && (
-          <div>
-            <Button onClick={expandAll}>Expandir</Button>
-            <Button onClick={collapseAll}>Recolher</Button>
-            <Button
-              onClick={() => {
-                handleSave()
-              }}
-            >
-              Salvar
-            </Button>
+          <div className="headerContainer">
+            <span className="textHeader">Gerencie seus Blocos:</span>
+            <div className="searchContainer">
+              <input
+                type="text"
+                value={searchString}
+                onChange={handleSearchStringChange}
+                placeholder="Pesquisar por fazendas"
+                className="inputSearch"
+              />
+              <MdSearch size={20} />
+            </div>
+            <div className="buttonsContainer">
+              <Button onClick={expandAll} className="buttonHeader">
+                Expandir
+              </Button>
+              <Button onClick={collapseAll} className="buttonHeader">
+                Recolher
+              </Button>
+              <Button
+                onClick={() => {
+                  handleSave()
+                }}
+                className="buttonHeader"
+              >
+                Salvar
+              </Button>
+            </div>
           </div>
         )}
       </div>
-      <div>
-        <input
-          type="text"
-          value={searchString}
-          onChange={handleSearchStringChange}
-          placeholder="Pesquisar"
-        />
-      </div>
+
       <SortableTree
         searchQuery={searchString}
         searchFocusOffset={searchFocusIndex}
