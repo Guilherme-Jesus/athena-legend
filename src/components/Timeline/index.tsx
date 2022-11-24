@@ -357,7 +357,7 @@ export const Timeline = ({
   const handlePrependDays = useCallback(() => {
     setTimeline(timelineData.slice(-Math.abs(daysToShow) - 1))
     setDaysToShow(-Math.abs(daysToShow) - 1)
-  }, [daysToShow, timelineData])
+  }, [daysToShow, setTimeline, timelineData])
 
   console.log(timelineData)
 
