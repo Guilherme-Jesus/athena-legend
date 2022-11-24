@@ -8,6 +8,9 @@ import SortableTree, {
 } from '@nosferatu500/react-sortable-tree'
 import '@nosferatu500/react-sortable-tree/style.css'
 
+import * as tj from '@mapbox/togeojson'
+import rewind from '@mapbox/geojson-rewind'
+
 import { useCallback, useEffect, useState } from 'react'
 import { Button, ButtonGroup, FormControl, InputGroup } from 'react-bootstrap'
 import {
@@ -18,10 +21,11 @@ import {
 } from '../../app/services/blocks'
 import { changeBlocks } from '../../features/blocks/blockSlice'
 import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelector'
-import { IListBlocks } from '../../types'
-import KmlReader from './KmlReader'
+import { IListBlocks, Root } from '../../types'
+import axios from 'axios'
 
 const EditBlocks = () => {
+  const [bounds, setBounds] = useState<Root>()
   const { blocks } = useAppSelector((state) => state.blockSlice)
   const dispatch = useAppDispatch()
 
@@ -35,6 +39,54 @@ const EditBlocks = () => {
   const [blockDelete] = useDeleteBlocksMutation()
   const [createBlock] = useCreateBlocksMutation()
   const [updateBlock] = useUpdateBlocksMutation()
+
+  const handleFileSelection = (event) => {
+    const file = event.target.files[0] // get file
+    console.log(file)
+    const ext = getFileExtension(file)
+    const reader = new FileReader()
+
+    // on load file end, parse the text read
+    reader.onloadend = (event) => {
+      const text = event.target.result
+      if (ext === 'kml') {
+        parseTextAsKml(text)
+      } else {
+        const json = JSON.parse(text as string)
+        rewind(json, false)
+        console.log(json)
+        setBounds(json)
+      }
+    }
+
+    reader.readAsText(file) // start reading file
+  }
+
+  const parseTextAsKml = (text) => {
+    const dom = new DOMParser().parseFromString(text, 'text/xml') // create xml dom object
+    const converted = tj.kml(dom) // convert xml dom to geojson
+    rewind(converted, false) // correct right hand rule
+    console.log(converted)
+    setBounds(converted) // save converted geojson to hook state
+  }
+
+  const getFileExtension = (file) => {
+    const name = file.name
+    const lastDot = name.lastIndexOf('.')
+    return name.substring(lastDot + 1)
+  }
+
+  // const hashString = (str) => {
+  //   let hash = 0
+  //   let i
+  //   let chr
+  //   for (i = 0; i < Math.min(str.length, 255); i++) {
+  //     chr = str.charCodeAt(i)
+  //     hash = (hash << 5) - hash + chr
+  //     hash |= 0 // Convert to 32bit integer
+  //   }
+  //   return hash
+  // }
 
   useEffect(() => {
     blocksData && dispatch(changeBlocks(blocksData))
@@ -116,7 +168,7 @@ const EditBlocks = () => {
         name: 'Nova Área',
         abrv: 'Editar Abreviação',
         blockParent: node.blockId,
-        leafParent: false,
+        leafParent: true,
         date: new Date(),
         data: {
           windSpeed: Math.floor(Math.random() * 100),
@@ -183,6 +235,39 @@ const EditBlocks = () => {
     [dispatch, someOnlineAdvice.treeData],
   )
 
+  const arrayCoords = useCallback(
+    (id: string) => {
+      const arrayCoord: any[] = []
+      bounds.features
+        .filter((feature) => feature.id === id)
+        .forEach((layer) => {
+          layer.geometry.coordinates.forEach((feature) => {
+            feature.forEach((coord) => {
+              arrayCoord.push([coord[0], coord[1]])
+            })
+          })
+        })
+      return arrayCoord
+    },
+    [bounds],
+  )
+
+  const arrayCentroid = useCallback(
+    (id: string) => {
+      const arrayCentroid: any[] = []
+      bounds.features
+        .filter((feature) => feature.id === id)
+        .forEach((layer) => {
+          layer.geometry.coordinates.forEach((feature) => {
+            feature.forEach((coord) => {
+              arrayCentroid.push([coord[0], coord[1]])
+            })
+          })
+        })
+      return arrayCentroid[0]
+    },
+    [bounds],
+  )
   return (
     <div style={{ height: 800, width: '100%' }}>
       <div
@@ -228,7 +313,26 @@ const EditBlocks = () => {
         generateNodeProps={({ node, path }) => ({
           buttons: [
             <ButtonGroup key={node.blockId}>
-              <KmlReader />
+              <input type="file" onChange={handleFileSelection} />
+              <Button
+                onClick={() => {
+                  bounds.features.forEach((feature) => {
+                    axios.post(`http://localhost:7010/blockLeaf/`, {
+                      blockId: feature.id,
+                      name: feature.properties.name,
+                      abrv: feature.properties.name,
+                      blockParent: node.blockId,
+                      leafParent: false,
+                      date: node.date,
+                      data: node.data,
+                      bounds: arrayCoords(feature.id),
+                      centroid: arrayCentroid(feature.id),
+                    })
+                  })
+                }}
+              >
+                Upload
+              </Button>
               <Button
                 variant="primary"
                 onClick={() => {

@@ -71,12 +71,30 @@ export type ITimeline = {
   line: ILine[]
   name: string
 }
+export interface StyleMapHash {
+  normal: string
+  highlight: string
+}
 
-// USERS
-export type IUsers = {
-  displayName: string
-  email: string
+export interface Properties {
+  name: string
+  styleUrl: string
+  styleMapHash: StyleMapHash
+}
+
+export interface Geometry {
+  type: string
+  coordinates: number[][][]
+}
+
+export interface Feature {
+  type: string
+  geometry: Geometry
+  properties: Properties
   id: string
-  phone: string
-  photoURL: string
+}
+
+export interface Root {
+  type: string
+  features: Feature[]
 }
