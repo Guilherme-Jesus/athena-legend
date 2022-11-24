@@ -140411,7 +140411,7 @@
           "date": "2022-10-30T20:59:00-03:00",
           "temperatureMin": "17.530375",
           "temperatureMax": "35.524243",
-          "rain": "4.695407",
+          "rain": "8",
           "rainProbability": "88.426580",
           "rainPrediction": "R",
           "alerts": [
@@ -140814,7 +140814,7 @@
           "date": "2022-10-30T20:59:00-03:00",
           "temperatureMin": "17.530375",
           "temperatureMax": "35.524243",
-          "rain": "4.695407",
+          "rain": "15",
           "rainProbability": "88.426580",
           "rainPrediction": "R",
           "alerts": [
