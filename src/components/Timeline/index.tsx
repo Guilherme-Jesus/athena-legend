@@ -2,29 +2,28 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import './timeline.scss'
 
-import React, { memo, useCallback, useEffect, useState } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Keyboard, Mousewheel, Navigation } from 'swiper'
 import { format, isAfter, isBefore, isToday } from 'date-fns'
+import React, { memo, useCallback, useEffect, useState } from 'react'
+import { Keyboard, Mousewheel, Navigation } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { apiFake } from '../../hooks/useRequestData'
-import { ILine } from '../../types'
+import { ILine, ITimeline } from '../../types'
 import { dataUnit, displayAlertName, displayData } from '../utils'
 
 import Button from 'react-bootstrap/Button'
 
-export const Timeline = (): React.ReactElement => {
+export const Timeline = ({
+  timelineData,
+  timeline,
+  setTimeline,
+}: {
+  timelineData: ITimeline[]
+  setTimelineData: React.Dispatch<React.SetStateAction<ITimeline[]>>
+  timeline: ITimeline[]
+  setTimeline: React.Dispatch<React.SetStateAction<ITimeline[]>>
+}): React.ReactElement => {
   const [showPrependButton, setShowPrependButton] = useState<boolean>(false)
-  const [timelineData, setTimelineData] = useState<ILine[]>([])
-  const [timeline, setTimeline] = useState<ILine[]>([])
   const [daysToShow, setDaysToShow] = useState<number>(21) // 10 + hoje + 10
-
-  useEffect(() => {
-    apiFake
-      .get('/timeline')
-      .then((response) => setTimelineData(response.data[0].line))
-      .catch((error: any) => console.log(error))
-  }, [])
 
   useEffect(
     () => setTimeline(timelineData.slice(-Math.abs(daysToShow))),
@@ -359,6 +358,8 @@ export const Timeline = (): React.ReactElement => {
     setDaysToShow(-Math.abs(daysToShow) - 1)
   }, [daysToShow, timelineData])
 
+  console.log(timelineData)
+
   return (
     <div className="timeline-container position-relative">
       {timeline.length === 0 ? (
@@ -408,83 +409,49 @@ export const Timeline = (): React.ReactElement => {
               </Button>
             </SwiperSlide>
           )}
-          {timeline.map((day, index) => (
-            <SwiperSlide key={index} className={dayContainerClasses(day)}>
-              {displayDate(day.date)}
-              {displayRain(day)}
-              {displayAllOtherData(day)}
-              {day.alerts && (
-                <div className="alerts-container position-absolute">
-                  {day.alerts.map((alert, alertIndex) => (
-                    <div
-                      key={alertIndex}
-                      className="alert-container d-flex flex-column justify-content-center h-100"
-                    >
-                      {/* <svg
-                        viewBox="0 0 64 64"
-                        width="48"
-                        height="48"
-                        className="mb-1 mx-auto"
-                      >
-                        <g fill="var(--bs-dark)">
-                          <path d="M13,34.6c0.1,0.3,3.5,8.1,8.8,10.9c1.5,0.8,3.1,1.2,4.7,1.2c1.2,0,2.4-0.2,3.6-0.6V62h3.8V46.1c1.2,0.4,2.4,0.6,3.6,0.6 c1.7,0,3.3-0.4,4.7-1.2c5.3-2.8,8.7-10.6,8.8-10.9c0.4-1,0-2.1-1-2.5c-0.1-0.1-0.3-0.1-0.4-0.1c-0.4-0.1-8.7-1.5-14,1.3 c-1.5,0.8-2.7,1.9-3.6,3.3c-0.9-1.4-2.2-2.5-3.6-3.3c-5.3-2.8-13.6-1.4-14-1.3c-1,0.2-1.7,1.2-1.5,2.2C12.9,34.3,12.9,34.4,13,34.6z  M37.4,36.6c2.6-1.4,6.4-1.4,8.9-1.2c-1.3,2.4-3.5,5.5-6,6.8c-2.6,1.4-5.2,0.5-6.5-0.1C34.1,40.6,34.8,38,37.4,36.6z M26.6,36.6 c2.6,1.4,3.3,4,3.5,5.4c-1.3,0.6-3.8,1.5-6.4,0.1c-2.6-1.4-4.7-4.6-5.9-6.8C20.2,35.2,24,35.2,26.6,36.6z" />
-                          <g fillOpacity={0.5}>
-                            <circle cx={31.8} cy={12.9} r={1.2} />
-                            <circle cx={34.3} cy={17.7} r={1.2} />
-                            <circle cx={31.8} cy={22.4} r={1.2} />
-                            <circle cx={29.4} cy={17.7} r={1.2} />
-                            <circle cx={27} cy={22.4} r={1.2} />
-                            <circle cx={36.7} cy={22.4} r={1.2} />
-                            <circle cx={31.8} cy={8} r={1.2} />
-                            <circle cx={29.4} cy={27.5} r={1.2} />
-                            <circle cx={24.5} cy={27.5} r={1.2} />
-                            <circle cx={34.3} cy={27.5} r={1.2} />
-                            <circle cx={39.2} cy={27.5} r={1.2} />
-                          </g>
-                        </g>
-                        <line
-                          stroke="var(--bs-red)"
-                          strokeWidth={4}
-                          x1={52.5}
-                          y1={11.5}
-                          x2={11.5}
-                          y2={52.5}
-                        />
-                        <circle
-                          fill="none"
-                          stroke="var(--bs-red)"
-                          strokeWidth={4}
-                          r={30}
-                          transform="translate(32, 32)"
-                        />
-                      </svg> */}
-                      <svg
-                        viewBox="0 0 512 512"
-                        width="32"
-                        height="32"
-                        className="mb-2 mx-auto"
-                      >
-                        <path d="M460.6,343.4l20.1-13.3l-14.2-21.3l-32.2,21.5l-23.7-11.9l43.9-26.3l-13.2-21.9l-57.9,34.8l-24-12l43.9-26.3 c3.8-2.3,6.1-6.5,6.1-11c0-4.4-2.5-8.6-6.3-11l-43.9-26.3l24-12l57.9,34.8l13.2-21.9l-43.9-26.3l23.7-11.9l32.2,21.5l14.2-21.3 l-20.1-13.3l31.4-15.8l-11.5-22.9l-32.6,16.3v-30.5h-25.6v43.3l-25.6,12.8v-56.1h-25.6v68.8l-25.6,12.8V128c0-4.8-2.6-9.1-6.8-11.3 c-4.2-2.2-9.3-2-13.2,0.7l-56.8,37.9v-34l72.1-60.1l-16.4-19.7l-55.8,46.4V56.6l34.7-34.7L285.3,3.8l-16.6,16.6V0h-25.6v20.1 L226.6,3.5l-18.1,18.1l34.7,34.7v31.3l-55.8-46.4l-16.4,19.7L243,121v34l-56.8-37.9c-3.9-2.6-9-2.9-13.2-0.7 c-4.2,2.3-6.8,6.6-6.8,11.3v68.8l-25.6-12.8V115h-25.6v56.1l-25.6-12.8V115H64v30.5l-32.6-16.3l-11.5,22.9l31.4,15.9l-20.1,13.3 l14.2,21.3l32.2-21.5l23.7,11.9l-43.9,26.3l13,22l57.9-34.8l24,12l-43.9,26.3c-3.8,2.3-6.1,6.5-6.1,11c0,4.4,2.5,8.6,6.3,11 l43.9,26.5l-24,12l-57.9-34.8l-13.2,21.9l43.9,26.5l-23.7,11.9l-32.2-21.5l-14.2,21.3l20.1,13.3l-31.4,15.8l11.6,23.1l32.6-16.3 v30.5h25.6v-43.3l25.6-12.8v56.1h25.6v-68.8l25.6-12.8V384c0,4.8,2.6,9.1,6.8,11.3c4.2,2.2,9.3,2,13.2-0.7l56.8-37.9v34l-72.1,60.1 l16.4,19.7l55.8-46.4v31.3l-34.7,34.7l18.1,18.1l16.6-16.6V512h25.6v-20.3l16.6,16.6l18.1-18.1l-34.7-34.7v-31.3l55.8,46.4 l16.4-19.7L269,390.7v-34l56.8,37.9c2.1,1.4,4.6,2.1,7,2.1c2.1,0,4-0.5,6-1.6c4.2-2.3,6.8-6.6,6.8-11.3V315l25.6,12.8v68.8h25.6 v-56.1l25.6,12.8v43.3h25.6v-30.5l32.6,16.3l11.6-23.2L460.6,343.4z M179.8,279.5L140,255.8l39.8-23.7l47.6,23.7L179.8,279.5z M243.2,325.7l-51.2,34.2v-57.8l51.2-25.6V325.7z M243.2,235.1l-51.2-25.6v-57.8l51.2,34.2V235.1z M268.7,185.9l51.2-34.2v57.8 l-51.2,25.6V185.9z M320,359.8l-51.2-34.2v-49.2l51.2,25.6V359.8z M332.1,279.5l-47.6-23.7l47.6-23.7l39.8,23.7L332.1,279.5z" />
-                      </svg>
+          {timeline.map((item) => (
+            <div key={item.blockId}>
+              {item.line.map((day, index) => (
+                <SwiperSlide key={index} className={dayContainerClasses(day)}>
+                  {displayDate(day.date)}
+                  {displayRain(day)}
+                  {displayAllOtherData(day)}
+                  {day.alerts && (
+                    <div className="alerts-container position-absolute">
+                      {day.alerts.map((alert, alertIndex) => (
+                        <div
+                          key={alertIndex}
+                          className="alert-container d-flex flex-column justify-content-center h-100"
+                        >
+                          <svg
+                            viewBox="0 0 512 512"
+                            width="32"
+                            height="32"
+                            className="mb-2 mx-auto"
+                          >
+                            <path d="M460.6,343.4l20.1-13.3l-14.2-21.3l-32.2,21.5l-23.7-11.9l43.9-26.3l-13.2-21.9l-57.9,34.8l-24-12l43.9-26.3 c3.8-2.3,6.1-6.5,6.1-11c0-4.4-2.5-8.6-6.3-11l-43.9-26.3l24-12l57.9,34.8l13.2-21.9l-43.9-26.3l23.7-11.9l32.2,21.5l14.2-21.3 l-20.1-13.3l31.4-15.8l-11.5-22.9l-32.6,16.3v-30.5h-25.6v43.3l-25.6,12.8v-56.1h-25.6v68.8l-25.6,12.8V128c0-4.8-2.6-9.1-6.8-11.3 c-4.2-2.2-9.3-2-13.2,0.7l-56.8,37.9v-34l72.1-60.1l-16.4-19.7l-55.8,46.4V56.6l34.7-34.7L285.3,3.8l-16.6,16.6V0h-25.6v20.1 L226.6,3.5l-18.1,18.1l34.7,34.7v31.3l-55.8-46.4l-16.4,19.7L243,121v34l-56.8-37.9c-3.9-2.6-9-2.9-13.2-0.7 c-4.2,2.3-6.8,6.6-6.8,11.3v68.8l-25.6-12.8V115h-25.6v56.1l-25.6-12.8V115H64v30.5l-32.6-16.3l-11.5,22.9l31.4,15.9l-20.1,13.3 l14.2,21.3l32.2-21.5l23.7,11.9l-43.9,26.3l13,22l57.9-34.8l24,12l-43.9,26.3c-3.8,2.3-6.1,6.5-6.1,11c0,4.4,2.5,8.6,6.3,11 l43.9,26.5l-24,12l-57.9-34.8l-13.2,21.9l43.9,26.5l-23.7,11.9l-32.2-21.5l-14.2,21.3l20.1,13.3l-31.4,15.8l11.6,23.1l32.6-16.3 v30.5h25.6v-43.3l25.6-12.8v56.1h25.6v-68.8l25.6-12.8V384c0,4.8,2.6,9.1,6.8,11.3c4.2,2.2,9.3,2,13.2-0.7l56.8-37.9v34l-72.1,60.1 l16.4,19.7l55.8-46.4v31.3l-34.7,34.7l18.1,18.1l16.6-16.6V512h25.6v-20.3l16.6,16.6l18.1-18.1l-34.7-34.7v-31.3l55.8,46.4 l16.4-19.7L269,390.7v-34l56.8,37.9c2.1,1.4,4.6,2.1,7,2.1c2.1,0,4-0.5,6-1.6c4.2-2.3,6.8-6.6,6.8-11.3V315l25.6,12.8v68.8h25.6 v-56.1l25.6,12.8v43.3h25.6v-30.5l32.6,16.3l11.6-23.2L460.6,343.4z M179.8,279.5L140,255.8l39.8-23.7l47.6,23.7L179.8,279.5z M243.2,325.7l-51.2,34.2v-57.8l51.2-25.6V325.7z M243.2,235.1l-51.2-25.6v-57.8l51.2,34.2V235.1z M268.7,185.9l51.2-34.2v57.8 l-51.2,25.6V185.9z M320,359.8l-51.2-34.2v-49.2l51.2,25.6V359.8z M332.1,279.5l-47.6-23.7l47.6-23.7l39.8,23.7L332.1,279.5z" />
+                          </svg>
 
-                      <h4 className="h6 fw-bold lh-1 mb-0">
-                        {displayAlertName(alert.type)}
-                      </h4>
-                      <small>nível {alert.level}</small>
-                      <small>
-                        {format(new Date(alert.start), 'HH:mm')} às{' '}
-                        {format(new Date(alert.finish), 'HH:mm')}
-                      </small>
-                      {alert.info !== 'none' && (
-                        <small className="text-start lh-1 p-2">
-                          {alert.info}
-                        </small>
-                      )}
+                          <h4 className="h6 fw-bold lh-1 mb-0">
+                            {displayAlertName(alert.type)}
+                          </h4>
+                          <small>nível {alert.level}</small>
+                          <small>
+                            {format(new Date(alert.start), 'HH:mm')} às{' '}
+                            {format(new Date(alert.finish), 'HH:mm')}
+                          </small>
+                          {alert.info !== 'none' && (
+                            <small className="text-start lh-1 p-2">
+                              {alert.info}
+                            </small>
+                          )}
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              )}
-            </SwiperSlide>
+                  )}
+                </SwiperSlide>
+              ))}
+            </div>
           ))}
         </Swiper>
       )}
