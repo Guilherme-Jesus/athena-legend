@@ -200,7 +200,7 @@ const EditBlocks = () => {
       <div>
         {blocks.length > 0 && (
           <div className="headerContainer">
-            <span>Gerencie seus Blocos:</span>
+            <span className="textHeader">Gerencie seus Blocos:</span>
             <div className="searchContainer">
               <input
                 type="text"
