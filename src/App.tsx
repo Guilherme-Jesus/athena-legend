@@ -14,6 +14,7 @@ const App: React.FC = (): React.ReactElement => {
   const [blocks, setBlocks] = useState<IListBlocks[]>([])
   const [blockLeaves, setBlockLeaves] = useState<IListBlocksLeaf[]>([])
   const [timelineData, setTimelineData] = useState<ITimeline[]>([])
+  const [timeline, setTimeline] = useState<ITimeline[]>([])
 
   useEffect(() => {
     if (blocks.length === 0) {
@@ -56,14 +57,16 @@ const App: React.FC = (): React.ReactElement => {
   const handleBlockClick = useCallback(
     (id: string, leaf: boolean): void => {
       if (currentBlockId !== id) {
+        setTimeline(timelineData.filter((item) => item.blockId === id))
         setCurrentBlockId(id)
       } else if (!leaf) {
         setBlocks(blocks.filter((item) => item.blockParent === id))
       } else if (leaf) {
         setBlockLeaves(blockLeaves.filter((item) => item.blockParent === id))
+        setTimeline(timelineData.filter((item) => item.blockId === id))
       }
     },
-    [blockLeaves, blocks, currentBlockId],
+    [blockLeaves, blocks, currentBlockId, timelineData],
   )
 
   return (
@@ -74,7 +77,11 @@ const App: React.FC = (): React.ReactElement => {
         handleBlockClick={handleBlockClick}
       />
 
-      <Timeline timelineData={timelineData} />
+      <Timeline
+        timelineData={timelineData}
+        timeline={timeline}
+        setTimeline={setTimeline}
+      />
 
       <Map blockLeaves={blockLeaves} currentBlockId={currentBlockId} />
     </div>
