@@ -6,7 +6,7 @@
                         "nav blocks main"
                         "nav blocks timeline";
   grid-template-columns:  var(--nav-link-size)
-                          calc(var(--spacer) * 14)
+                          calc(var(--spacer) * 10)
                           auto;
   grid-template-rows: calc(12px)
                       auto
