@@ -12,18 +12,16 @@ import { dataUnit, displayAlertName, displayData } from '../utils'
 
 import Button from 'react-bootstrap/Button'
 
+interface ITimelineProps {
+  timelineData: ITimeline[]
+}
+
 export const Timeline = ({
   timelineData,
-  timeline,
-  setTimeline,
-}: {
-  timelineData: ITimeline[]
-  setTimelineData: React.Dispatch<React.SetStateAction<ITimeline[]>>
-  timeline: ITimeline[]
-  setTimeline: React.Dispatch<React.SetStateAction<ITimeline[]>>
-}): React.ReactElement => {
+}: ITimelineProps): React.ReactElement => {
   const [showPrependButton, setShowPrependButton] = useState<boolean>(false)
   const [daysToShow, setDaysToShow] = useState<number>(21) // 10 + hoje + 10
+  const [timeline, setTimeline] = useState<ITimeline[]>([])
 
   useEffect(
     () => setTimeline(timelineData.slice(-Math.abs(daysToShow))),
