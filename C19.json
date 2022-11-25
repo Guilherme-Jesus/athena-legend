@@ -143180,6 +143180,50 @@
       "name": "Fazenda Santa Lúcia",
       "line": [
         {
+          "date": "2022-11-10T20:59:00-03:00",
+          "temperatureAverage": "23.408871",
+          "temperatureMin": "18.902381",
+          "temperatureMax": "30.051905",
+          "relativeHumidity": "82.321016",
+          "solarIrradiation": "4164.180138",
+          "rain": "0.377821",
+          "windSpeed": "6.039167",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-11T20:59:00-03:00",
+          "temperatureAverage": "23.408871",
+          "temperatureMin": "18.902381",
+          "temperatureMax": "30.051905",
+          "relativeHumidity": "82.321016",
+          "solarIrradiation": "4164.180138",
+          "rain": "0.377821",
+          "windSpeed": "6.039167",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-12T20:59:00-03:00",
+          "temperatureAverage": "23.408871",
+          "temperatureMin": "18.902381",
+          "temperatureMax": "30.051905",
+          "relativeHumidity": "82.321016",
+          "solarIrradiation": "4164.180138",
+          "rain": "0.377821",
+          "windSpeed": "6.039167",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-13T20:59:00-03:00",
+          "temperatureAverage": "23.408871",
+          "temperatureMin": "18.902381",
+          "temperatureMax": "30.051905",
+          "relativeHumidity": "82.321016",
+          "solarIrradiation": "4164.180138",
+          "rain": "0.377821",
+          "windSpeed": "6.039167",
+          "alerts": null
+        },
+        {
           "date": "2022-11-14T20:59:00-03:00",
           "temperatureAverage": "23.408871",
           "temperatureMin": "18.902381",
