@@ -50,9 +50,15 @@ const App: React.FC = (): React.ReactElement => {
   useEffect(() => {
     axios
       .get('http://localhost:7010/timeline')
-      .then((response) => setTimelineData(response.data))
+      .then((response) =>
+        setTimelineData(
+          response.data.filter(
+            (item: ITimeline) => item.blockId === currentBlockId,
+          ),
+        ),
+      )
       .catch((error: any) => console.log(error))
-  }, [])
+  }, [currentBlockId])
 
   const handleBlockClick = useCallback(
     (id: string, leaf: boolean): void => {
