@@ -53,7 +53,8 @@ const App: React.FC = (): React.ReactElement => {
       .then((response) =>
         setTimelineData(
           response.data.filter(
-            (item: ITimeline) => item.blockId === currentBlockId,
+            (item: ITimeline) =>
+              item.blockId === currentBlockId && currentBlockId !== 'C19',
           ),
         ),
       )
