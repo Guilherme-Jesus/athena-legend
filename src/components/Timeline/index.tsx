@@ -411,7 +411,7 @@ export const Timeline = ({
             </SwiperSlide>
           )}
           {timeline.map((item) => (
-            <div key={item.blockId}>
+            <div key={item.name}>
               {item.line.map((day, index) => (
                 <SwiperSlide key={index} className={dayContainerClasses(day)}>
                   {displayDate(day.date)}
