@@ -139973,6 +139973,10 @@
         {
           "date": "2022-10-28T20:59:00-03:00",
           "temperatureMin": "18.114219",
+          "temperatureAverage": "24.248028",
+          "relativeHumidity": "79.377291",
+          "solarIrradiation": "4982.041412",
+          "windSpeed": "5.293100",
           "temperatureMax": "36.060316",
           "rain": "3.701584",
           "rainProbability": "31.756896",
@@ -140375,9 +140379,13 @@
       "line": [
         {
           "date": "2022-10-28T20:59:00-03:00",
+          "temperatureAverage": "24.248028",
           "temperatureMin": "18.114219",
           "temperatureMax": "36.060316",
+          "relativeHumidity": "79.377291",
+          "solarIrradiation": "4982.041412",
           "rain": "3.701584",
+          "windSpeed": "5.293100",
           "rainProbability": "31.756896",
           "rainPrediction": "U",
           "alerts": [
@@ -140774,6 +140782,4056 @@
     },
     {
       "blockId": "B3220",
+      "name": "Unidade padrão",
+      "line": [
+        {
+          "date": "2022-10-28T20:59:00-03:00",
+          "temperatureMin": "18.114219",
+          "temperatureMax": "36.060316",
+          "rain": "3.701584",
+          "rainProbability": "31.756896",
+          "rainPrediction": "U",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-18T20:59:00-03:00",
+              "finish": "2022-11-19T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-29T20:59:00-03:00",
+          "temperatureMin": "18.591910",
+          "temperatureMax": "35.093530",
+          "rain": "6.013287",
+          "rainProbability": "83.144873",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-19T20:59:00-03:00",
+              "finish": "2022-11-20T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-30T20:59:00-03:00",
+          "temperatureMin": "17.530375",
+          "temperatureMax": "35.524243",
+          "rain": "15",
+          "rainProbability": "88.426580",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-20T20:59:00-03:00",
+              "finish": "2022-11-21T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-31T20:59:00-03:00",
+          "temperatureMin": "17.845544",
+          "temperatureMax": "35.021786",
+          "rain": "3.959279",
+          "rainProbability": "70.042394",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-21T20:59:00-03:00",
+              "finish": "2022-11-22T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-01T20:59:00-03:00",
+          "temperatureMin": "18.356589",
+          "temperatureMax": "34.650007",
+          "rain": "6.732847",
+          "rainProbability": "73.202497",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-22T20:59:00-03:00",
+              "finish": "2022-11-23T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-02T20:59:00-03:00",
+          "temperatureMin": "18.773475",
+          "temperatureMax": "34.396016",
+          "rain": "14.196469",
+          "rainProbability": "88.194233",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-23T20:59:00-03:00",
+              "finish": "2022-11-24T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-03T20:59:00-03:00",
+          "temperatureMin": "18.620151",
+          "temperatureMax": "33.774099",
+          "rain": "13.662539",
+          "rainProbability": "88.905924",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-04T20:59:00-03:00",
+          "temperatureMin": "18.210293",
+          "temperatureMax": "33.572047",
+          "rain": "12.412722",
+          "rainProbability": "88.522957",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-05T20:59:00-03:00",
+          "temperatureMin": "18.343900",
+          "temperatureMax": "33.344953",
+          "rain": "9.724428",
+          "rainProbability": "78.959005",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-06T20:59:00-03:00",
+          "temperatureMin": "18.120143",
+          "temperatureMax": "33.741686",
+          "rain": "7.323094",
+          "rainProbability": "64.337168",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-07T20:59:00-03:00",
+          "temperatureAverage": "25.935400",
+          "temperatureMin": "16.040000",
+          "temperatureMax": "34.020000",
+          "relativeHumidity": "47.870883",
+          "solarIrradiation": "5891.280000",
+          "rain": "0.000846",
+          "windSpeed": "7.720417",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-08T20:59:00-03:00",
+          "temperatureAverage": "24.404933",
+          "temperatureMin": "17.530000",
+          "temperatureMax": "34.840000",
+          "relativeHumidity": "61.078901",
+          "solarIrradiation": "5221.260000",
+          "rain": "11.738356",
+          "windSpeed": "5.850000",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-09T20:59:00-03:00",
+          "temperatureAverage": "27.117441",
+          "temperatureMin": "19.780000",
+          "temperatureMax": "35.710000",
+          "relativeHumidity": "62.308797",
+          "solarIrradiation": "6205.680000",
+          "rain": "0.006642",
+          "windSpeed": "7.896667",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-10T20:59:00-03:00",
+          "temperatureAverage": "25.557855",
+          "temperatureMin": "19.910000",
+          "temperatureMax": "34.790000",
+          "relativeHumidity": "66.657278",
+          "solarIrradiation": "3761.880000",
+          "rain": "1.052895",
+          "windSpeed": "7.668333",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-11T20:59:00-03:00",
+          "temperatureAverage": "22.283375",
+          "temperatureMin": "17.480000",
+          "temperatureMax": "34.190000",
+          "relativeHumidity": "83.128566",
+          "solarIrradiation": "3727.200000",
+          "rain": "10.159982",
+          "windSpeed": "7.865833",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-12T20:59:00-03:00",
+          "temperatureAverage": "23.219969",
+          "temperatureMin": "17.470000",
+          "temperatureMax": "30.500000",
+          "relativeHumidity": "82.834497",
+          "solarIrradiation": "3875.160000",
+          "rain": "0.004573",
+          "windSpeed": "5.258750",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-13T20:59:00-03:00",
+          "temperatureAverage": "25.504175",
+          "temperatureMin": "19.300000",
+          "temperatureMax": "34.230000",
+          "relativeHumidity": "73.336837",
+          "solarIrradiation": "5700.240000",
+          "rain": "0.000000",
+          "windSpeed": "6.337500",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-14T20:59:00-03:00",
+          "temperatureAverage": "24.358846",
+          "temperatureMin": "20.120000",
+          "temperatureMax": "32.160000",
+          "relativeHumidity": "76.959206",
+          "solarIrradiation": "4795.920000",
+          "rain": "9.373776",
+          "windSpeed": "6.848333",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-15T20:59:00-03:00",
+          "temperatureAverage": "25.332393",
+          "temperatureMin": "20.670000",
+          "temperatureMax": "30.920000",
+          "relativeHumidity": "72.410291",
+          "solarIrradiation": "4188.120000",
+          "rain": "0.002880",
+          "windSpeed": "5.889583",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-16T20:59:00-03:00",
+          "temperatureAverage": "25.816397",
+          "temperatureMin": "17.950000",
+          "temperatureMax": "34.220000",
+          "relativeHumidity": "54.650150",
+          "solarIrradiation": "7191.600000",
+          "rain": "0.000000",
+          "windSpeed": "5.716667",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-17T10:17:07.032368-03:00",
+          "temperatureAverage": "22.693090",
+          "temperatureMin": "16.150000",
+          "temperatureMax": "30.460000",
+          "relativeHumidity": "54.492554",
+          "solarIrradiation": "2223.209111",
+          "rain": "0.000000",
+          "windSpeed": "5.207922",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-18T20:59:00-03:00",
+          "temperatureMin": "17.890157",
+          "temperatureMax": "36.595264",
+          "rain": "3.714013",
+          "rainProbability": "31.550386",
+          "rainPrediction": "U",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-18T20:59:00-03:00",
+              "finish": "2022-11-19T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-19T20:59:00-03:00",
+          "temperatureMin": "18.584852",
+          "temperatureMax": "35.746782",
+          "rain": "6.098865",
+          "rainProbability": "82.077283",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-19T20:59:00-03:00",
+              "finish": "2022-11-20T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-20T20:59:00-03:00",
+          "temperatureMin": "17.633900",
+          "temperatureMax": "35.992995",
+          "rain": "4.603604",
+          "rainProbability": "88.200197",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-20T20:59:00-03:00",
+              "finish": "2022-11-21T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-21T20:59:00-03:00",
+          "temperatureMin": "17.893561",
+          "temperatureMax": "35.445647",
+          "rain": "4.000000",
+          "rainProbability": "68.732002",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-21T20:59:00-03:00",
+              "finish": "2022-11-22T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-22T20:59:00-03:00",
+          "temperatureMin": "18.601701",
+          "temperatureMax": "35.039208",
+          "rain": "6.746213",
+          "rainProbability": "72.880077",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-22T20:59:00-03:00",
+              "finish": "2022-11-23T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-23T20:59:00-03:00",
+          "temperatureMin": "18.832766",
+          "temperatureMax": "34.919321",
+          "rain": "14.292626",
+          "rainProbability": "88.494493",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-23T20:59:00-03:00",
+              "finish": "2022-11-24T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-24T20:59:00-03:00",
+          "temperatureMin": "18.606439",
+          "temperatureMax": "34.218186",
+          "rain": "13.617051",
+          "rainProbability": "88.244712",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-25T20:59:00-03:00",
+          "temperatureMin": "18.184283",
+          "temperatureMax": "34.092995",
+          "rain": "12.415917",
+          "rainProbability": "88.472908",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-26T20:59:00-03:00",
+          "temperatureMin": "18.446779",
+          "temperatureMax": "33.711747",
+          "rain": "9.649817",
+          "rainProbability": "78.106094",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-27T20:59:00-03:00",
+          "temperatureMin": "18.126326",
+          "temperatureMax": "34.119321",
+          "rain": "7.356256",
+          "rainProbability": "64.068172",
+          "rainPrediction": "R",
+          "alerts": null
+        }
+      ]
+    },
+    {
+      "blockId": "F2987",
+      "name": "Fazenda São Pedro",
+      "line": [
+        {
+          "date": "2022-10-28T20:59:00-03:00",
+          "temperatureAverage": "24.248028",
+          "temperatureMin": "18.114219",
+          "temperatureMax": "36.060316",
+          "relativeHumidity": "79.377291",
+          "solarIrradiation": "4982.041412",
+          "rain": "3.701584",
+          "windSpeed": "5.293100",
+          "rainProbability": "31.756896",
+          "rainPrediction": "U",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-18T20:59:00-03:00",
+              "finish": "2022-11-19T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-29T20:59:00-03:00",
+          "temperatureMin": "18.591910",
+          "temperatureMax": "35.093530",
+          "rain": "6.013287",
+          "rainProbability": "83.144873",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-19T20:59:00-03:00",
+              "finish": "2022-11-20T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-30T20:59:00-03:00",
+          "temperatureMin": "17.530375",
+          "temperatureMax": "35.524243",
+          "rain": "8",
+          "rainProbability": "88.426580",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-20T20:59:00-03:00",
+              "finish": "2022-11-21T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-31T20:59:00-03:00",
+          "temperatureMin": "17.845544",
+          "temperatureMax": "35.021786",
+          "rain": "3.959279",
+          "rainProbability": "70.042394",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-21T20:59:00-03:00",
+              "finish": "2022-11-22T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-01T20:59:00-03:00",
+          "temperatureMin": "18.356589",
+          "temperatureMax": "34.650007",
+          "rain": "6.732847",
+          "rainProbability": "73.202497",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-22T20:59:00-03:00",
+              "finish": "2022-11-23T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-02T20:59:00-03:00",
+          "temperatureMin": "18.773475",
+          "temperatureMax": "34.396016",
+          "rain": "14.196469",
+          "rainProbability": "88.194233",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-23T20:59:00-03:00",
+              "finish": "2022-11-24T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-03T20:59:00-03:00",
+          "temperatureMin": "18.620151",
+          "temperatureMax": "33.774099",
+          "rain": "13.662539",
+          "rainProbability": "88.905924",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-04T20:59:00-03:00",
+          "temperatureMin": "18.210293",
+          "temperatureMax": "33.572047",
+          "rain": "12.412722",
+          "rainProbability": "88.522957",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-05T20:59:00-03:00",
+          "temperatureMin": "18.343900",
+          "temperatureMax": "33.344953",
+          "rain": "9.724428",
+          "rainProbability": "78.959005",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-06T20:59:00-03:00",
+          "temperatureMin": "18.120143",
+          "temperatureMax": "33.741686",
+          "rain": "7.323094",
+          "rainProbability": "64.337168",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-07T20:59:00-03:00",
+          "temperatureAverage": "25.935400",
+          "temperatureMin": "16.040000",
+          "temperatureMax": "34.020000",
+          "relativeHumidity": "47.870883",
+          "solarIrradiation": "5891.280000",
+          "rain": "0.000846",
+          "windSpeed": "7.720417",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-08T20:59:00-03:00",
+          "temperatureAverage": "24.404933",
+          "temperatureMin": "17.530000",
+          "temperatureMax": "34.840000",
+          "relativeHumidity": "61.078901",
+          "solarIrradiation": "5221.260000",
+          "rain": "11.738356",
+          "windSpeed": "5.850000",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-09T20:59:00-03:00",
+          "temperatureAverage": "27.117441",
+          "temperatureMin": "19.780000",
+          "temperatureMax": "35.710000",
+          "relativeHumidity": "62.308797",
+          "solarIrradiation": "6205.680000",
+          "rain": "0.006642",
+          "windSpeed": "7.896667",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-10T20:59:00-03:00",
+          "temperatureAverage": "25.557855",
+          "temperatureMin": "19.910000",
+          "temperatureMax": "34.790000",
+          "relativeHumidity": "66.657278",
+          "solarIrradiation": "3761.880000",
+          "rain": "1.052895",
+          "windSpeed": "7.668333",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-11T20:59:00-03:00",
+          "temperatureAverage": "22.283375",
+          "temperatureMin": "17.480000",
+          "temperatureMax": "34.190000",
+          "relativeHumidity": "83.128566",
+          "solarIrradiation": "3727.200000",
+          "rain": "10.159982",
+          "windSpeed": "7.865833",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-12T20:59:00-03:00",
+          "temperatureAverage": "23.219969",
+          "temperatureMin": "17.470000",
+          "temperatureMax": "30.500000",
+          "relativeHumidity": "82.834497",
+          "solarIrradiation": "3875.160000",
+          "rain": "0.004573",
+          "windSpeed": "5.258750",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-13T20:59:00-03:00",
+          "temperatureAverage": "25.504175",
+          "temperatureMin": "19.300000",
+          "temperatureMax": "34.230000",
+          "relativeHumidity": "73.336837",
+          "solarIrradiation": "5700.240000",
+          "rain": "0.000000",
+          "windSpeed": "6.337500",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-14T20:59:00-03:00",
+          "temperatureAverage": "24.358846",
+          "temperatureMin": "20.120000",
+          "temperatureMax": "32.160000",
+          "relativeHumidity": "76.959206",
+          "solarIrradiation": "4795.920000",
+          "rain": "9.373776",
+          "windSpeed": "6.848333",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-15T20:59:00-03:00",
+          "temperatureAverage": "25.332393",
+          "temperatureMin": "20.670000",
+          "temperatureMax": "30.920000",
+          "relativeHumidity": "72.410291",
+          "solarIrradiation": "4188.120000",
+          "rain": "0.002880",
+          "windSpeed": "5.889583",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-16T20:59:00-03:00",
+          "temperatureAverage": "25.816397",
+          "temperatureMin": "17.950000",
+          "temperatureMax": "34.220000",
+          "relativeHumidity": "54.650150",
+          "solarIrradiation": "7191.600000",
+          "rain": "0.000000",
+          "windSpeed": "5.716667",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-17T10:17:07.032368-03:00",
+          "temperatureAverage": "22.693090",
+          "temperatureMin": "16.150000",
+          "temperatureMax": "30.460000",
+          "relativeHumidity": "54.492554",
+          "solarIrradiation": "2223.209111",
+          "rain": "0.000000",
+          "windSpeed": "5.207922",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-18T20:59:00-03:00",
+          "temperatureMin": "17.890157",
+          "temperatureMax": "36.595264",
+          "rain": "3.714013",
+          "rainProbability": "31.550386",
+          "rainPrediction": "U",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-18T20:59:00-03:00",
+              "finish": "2022-11-19T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-19T20:59:00-03:00",
+          "temperatureMin": "18.584852",
+          "temperatureMax": "35.746782",
+          "rain": "6.098865",
+          "rainProbability": "82.077283",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-19T20:59:00-03:00",
+              "finish": "2022-11-20T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-20T20:59:00-03:00",
+          "temperatureMin": "17.633900",
+          "temperatureMax": "35.992995",
+          "rain": "4.603604",
+          "rainProbability": "88.200197",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-20T20:59:00-03:00",
+              "finish": "2022-11-21T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-21T20:59:00-03:00",
+          "temperatureMin": "17.893561",
+          "temperatureMax": "35.445647",
+          "rain": "4.000000",
+          "rainProbability": "68.732002",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-21T20:59:00-03:00",
+              "finish": "2022-11-22T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-22T20:59:00-03:00",
+          "temperatureMin": "18.601701",
+          "temperatureMax": "35.039208",
+          "rain": "6.746213",
+          "rainProbability": "72.880077",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-22T20:59:00-03:00",
+              "finish": "2022-11-23T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-23T20:59:00-03:00",
+          "temperatureMin": "18.832766",
+          "temperatureMax": "34.919321",
+          "rain": "14.292626",
+          "rainProbability": "88.494493",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-23T20:59:00-03:00",
+              "finish": "2022-11-24T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-24T20:59:00-03:00",
+          "temperatureMin": "18.606439",
+          "temperatureMax": "34.218186",
+          "rain": "13.617051",
+          "rainProbability": "88.244712",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-25T20:59:00-03:00",
+          "temperatureMin": "18.184283",
+          "temperatureMax": "34.092995",
+          "rain": "12.415917",
+          "rainProbability": "88.472908",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-26T20:59:00-03:00",
+          "temperatureMin": "18.446779",
+          "temperatureMax": "33.711747",
+          "rain": "9.649817",
+          "rainProbability": "78.106094",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-27T20:59:00-03:00",
+          "temperatureMin": "18.126326",
+          "temperatureMax": "34.119321",
+          "rain": "7.356256",
+          "rainProbability": "64.068172",
+          "rainPrediction": "R",
+          "alerts": null
+        }
+      ]
+    },
+    {
+      "blockId": "B3218",
+      "name": "Unidade padrão",
+      "line": [
+        {
+          "date": "2022-10-28T20:59:00-03:00",
+          "temperatureMin": "18.114219",
+          "temperatureMax": "36.060316",
+          "rain": "3.701584",
+          "rainProbability": "31.756896",
+          "rainPrediction": "U",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-18T20:59:00-03:00",
+              "finish": "2022-11-19T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-29T20:59:00-03:00",
+          "temperatureMin": "18.591910",
+          "temperatureMax": "35.093530",
+          "rain": "6.013287",
+          "rainProbability": "83.144873",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-19T20:59:00-03:00",
+              "finish": "2022-11-20T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-30T20:59:00-03:00",
+          "temperatureMin": "17.530375",
+          "temperatureMax": "35.524243",
+          "rain": "15",
+          "rainProbability": "88.426580",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-20T20:59:00-03:00",
+              "finish": "2022-11-21T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-31T20:59:00-03:00",
+          "temperatureMin": "17.845544",
+          "temperatureMax": "35.021786",
+          "rain": "3.959279",
+          "rainProbability": "70.042394",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-21T20:59:00-03:00",
+              "finish": "2022-11-22T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-01T20:59:00-03:00",
+          "temperatureMin": "18.356589",
+          "temperatureMax": "34.650007",
+          "rain": "6.732847",
+          "rainProbability": "73.202497",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-22T20:59:00-03:00",
+              "finish": "2022-11-23T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-02T20:59:00-03:00",
+          "temperatureMin": "18.773475",
+          "temperatureMax": "34.396016",
+          "rain": "14.196469",
+          "rainProbability": "88.194233",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-23T20:59:00-03:00",
+              "finish": "2022-11-24T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-03T20:59:00-03:00",
+          "temperatureMin": "18.620151",
+          "temperatureMax": "33.774099",
+          "rain": "13.662539",
+          "rainProbability": "88.905924",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-04T20:59:00-03:00",
+          "temperatureMin": "18.210293",
+          "temperatureMax": "33.572047",
+          "rain": "12.412722",
+          "rainProbability": "88.522957",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-05T20:59:00-03:00",
+          "temperatureMin": "18.343900",
+          "temperatureMax": "33.344953",
+          "rain": "9.724428",
+          "rainProbability": "78.959005",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-06T20:59:00-03:00",
+          "temperatureMin": "18.120143",
+          "temperatureMax": "33.741686",
+          "rain": "7.323094",
+          "rainProbability": "64.337168",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-07T20:59:00-03:00",
+          "temperatureAverage": "25.935400",
+          "temperatureMin": "16.040000",
+          "temperatureMax": "34.020000",
+          "relativeHumidity": "47.870883",
+          "solarIrradiation": "5891.280000",
+          "rain": "0.000846",
+          "windSpeed": "7.720417",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-08T20:59:00-03:00",
+          "temperatureAverage": "24.404933",
+          "temperatureMin": "17.530000",
+          "temperatureMax": "34.840000",
+          "relativeHumidity": "61.078901",
+          "solarIrradiation": "5221.260000",
+          "rain": "11.738356",
+          "windSpeed": "5.850000",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-09T20:59:00-03:00",
+          "temperatureAverage": "27.117441",
+          "temperatureMin": "19.780000",
+          "temperatureMax": "35.710000",
+          "relativeHumidity": "62.308797",
+          "solarIrradiation": "6205.680000",
+          "rain": "0.006642",
+          "windSpeed": "7.896667",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-10T20:59:00-03:00",
+          "temperatureAverage": "25.557855",
+          "temperatureMin": "19.910000",
+          "temperatureMax": "34.790000",
+          "relativeHumidity": "66.657278",
+          "solarIrradiation": "3761.880000",
+          "rain": "1.052895",
+          "windSpeed": "7.668333",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-11T20:59:00-03:00",
+          "temperatureAverage": "22.283375",
+          "temperatureMin": "17.480000",
+          "temperatureMax": "34.190000",
+          "relativeHumidity": "83.128566",
+          "solarIrradiation": "3727.200000",
+          "rain": "10.159982",
+          "windSpeed": "7.865833",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-12T20:59:00-03:00",
+          "temperatureAverage": "23.219969",
+          "temperatureMin": "17.470000",
+          "temperatureMax": "30.500000",
+          "relativeHumidity": "82.834497",
+          "solarIrradiation": "3875.160000",
+          "rain": "0.004573",
+          "windSpeed": "5.258750",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-13T20:59:00-03:00",
+          "temperatureAverage": "25.504175",
+          "temperatureMin": "19.300000",
+          "temperatureMax": "34.230000",
+          "relativeHumidity": "73.336837",
+          "solarIrradiation": "5700.240000",
+          "rain": "0.000000",
+          "windSpeed": "6.337500",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-14T20:59:00-03:00",
+          "temperatureAverage": "24.358846",
+          "temperatureMin": "20.120000",
+          "temperatureMax": "32.160000",
+          "relativeHumidity": "76.959206",
+          "solarIrradiation": "4795.920000",
+          "rain": "9.373776",
+          "windSpeed": "6.848333",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-15T20:59:00-03:00",
+          "temperatureAverage": "25.332393",
+          "temperatureMin": "20.670000",
+          "temperatureMax": "30.920000",
+          "relativeHumidity": "72.410291",
+          "solarIrradiation": "4188.120000",
+          "rain": "0.002880",
+          "windSpeed": "5.889583",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-16T20:59:00-03:00",
+          "temperatureAverage": "25.816397",
+          "temperatureMin": "17.950000",
+          "temperatureMax": "34.220000",
+          "relativeHumidity": "54.650150",
+          "solarIrradiation": "7191.600000",
+          "rain": "0.000000",
+          "windSpeed": "5.716667",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-17T10:17:07.032368-03:00",
+          "temperatureAverage": "22.693090",
+          "temperatureMin": "16.150000",
+          "temperatureMax": "30.460000",
+          "relativeHumidity": "54.492554",
+          "solarIrradiation": "2223.209111",
+          "rain": "0.000000",
+          "windSpeed": "5.207922",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-18T20:59:00-03:00",
+          "temperatureMin": "17.890157",
+          "temperatureMax": "36.595264",
+          "rain": "3.714013",
+          "rainProbability": "31.550386",
+          "rainPrediction": "U",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-18T20:59:00-03:00",
+              "finish": "2022-11-19T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-19T20:59:00-03:00",
+          "temperatureMin": "18.584852",
+          "temperatureMax": "35.746782",
+          "rain": "6.098865",
+          "rainProbability": "82.077283",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-19T20:59:00-03:00",
+              "finish": "2022-11-20T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-20T20:59:00-03:00",
+          "temperatureMin": "17.633900",
+          "temperatureMax": "35.992995",
+          "rain": "4.603604",
+          "rainProbability": "88.200197",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-20T20:59:00-03:00",
+              "finish": "2022-11-21T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-21T20:59:00-03:00",
+          "temperatureMin": "17.893561",
+          "temperatureMax": "35.445647",
+          "rain": "4.000000",
+          "rainProbability": "68.732002",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-21T20:59:00-03:00",
+              "finish": "2022-11-22T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-22T20:59:00-03:00",
+          "temperatureMin": "18.601701",
+          "temperatureMax": "35.039208",
+          "rain": "6.746213",
+          "rainProbability": "72.880077",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-22T20:59:00-03:00",
+              "finish": "2022-11-23T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-23T20:59:00-03:00",
+          "temperatureMin": "18.832766",
+          "temperatureMax": "34.919321",
+          "rain": "14.292626",
+          "rainProbability": "88.494493",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-23T20:59:00-03:00",
+              "finish": "2022-11-24T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-24T20:59:00-03:00",
+          "temperatureMin": "18.606439",
+          "temperatureMax": "34.218186",
+          "rain": "13.617051",
+          "rainProbability": "88.244712",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-25T20:59:00-03:00",
+          "temperatureMin": "18.184283",
+          "temperatureMax": "34.092995",
+          "rain": "12.415917",
+          "rainProbability": "88.472908",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-26T20:59:00-03:00",
+          "temperatureMin": "18.446779",
+          "temperatureMax": "33.711747",
+          "rain": "9.649817",
+          "rainProbability": "78.106094",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-27T20:59:00-03:00",
+          "temperatureMin": "18.126326",
+          "temperatureMax": "34.119321",
+          "rain": "7.356256",
+          "rainProbability": "64.068172",
+          "rainPrediction": "R",
+          "alerts": null
+        }
+      ]
+    },
+    {
+      "blockId": "F2990",
+      "name": "Fazenda São Francisco",
+      "line": [
+        {
+          "date": "2022-10-28T20:59:00-03:00",
+          "temperatureAverage": "24.248028",
+          "temperatureMin": "18.114219",
+          "temperatureMax": "36.060316",
+          "relativeHumidity": "79.377291",
+          "solarIrradiation": "4982.041412",
+          "rain": "3.701584",
+          "windSpeed": "5.293100",
+          "rainProbability": "31.756896",
+          "rainPrediction": "U",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-18T20:59:00-03:00",
+              "finish": "2022-11-19T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-29T20:59:00-03:00",
+          "temperatureMin": "18.591910",
+          "temperatureMax": "35.093530",
+          "rain": "6.013287",
+          "rainProbability": "83.144873",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-19T20:59:00-03:00",
+              "finish": "2022-11-20T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-30T20:59:00-03:00",
+          "temperatureMin": "17.530375",
+          "temperatureMax": "35.524243",
+          "rain": "8",
+          "rainProbability": "88.426580",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-20T20:59:00-03:00",
+              "finish": "2022-11-21T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-31T20:59:00-03:00",
+          "temperatureMin": "17.845544",
+          "temperatureMax": "35.021786",
+          "rain": "3.959279",
+          "rainProbability": "70.042394",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-21T20:59:00-03:00",
+              "finish": "2022-11-22T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-01T20:59:00-03:00",
+          "temperatureMin": "18.356589",
+          "temperatureMax": "34.650007",
+          "rain": "6.732847",
+          "rainProbability": "73.202497",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-22T20:59:00-03:00",
+              "finish": "2022-11-23T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-02T20:59:00-03:00",
+          "temperatureMin": "18.773475",
+          "temperatureMax": "34.396016",
+          "rain": "14.196469",
+          "rainProbability": "88.194233",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-23T20:59:00-03:00",
+              "finish": "2022-11-24T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-03T20:59:00-03:00",
+          "temperatureMin": "18.620151",
+          "temperatureMax": "33.774099",
+          "rain": "13.662539",
+          "rainProbability": "88.905924",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-04T20:59:00-03:00",
+          "temperatureMin": "18.210293",
+          "temperatureMax": "33.572047",
+          "rain": "12.412722",
+          "rainProbability": "88.522957",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-05T20:59:00-03:00",
+          "temperatureMin": "18.343900",
+          "temperatureMax": "33.344953",
+          "rain": "9.724428",
+          "rainProbability": "78.959005",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-06T20:59:00-03:00",
+          "temperatureMin": "18.120143",
+          "temperatureMax": "33.741686",
+          "rain": "7.323094",
+          "rainProbability": "64.337168",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-07T20:59:00-03:00",
+          "temperatureAverage": "25.935400",
+          "temperatureMin": "16.040000",
+          "temperatureMax": "34.020000",
+          "relativeHumidity": "47.870883",
+          "solarIrradiation": "5891.280000",
+          "rain": "0.000846",
+          "windSpeed": "7.720417",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-08T20:59:00-03:00",
+          "temperatureAverage": "24.404933",
+          "temperatureMin": "17.530000",
+          "temperatureMax": "34.840000",
+          "relativeHumidity": "61.078901",
+          "solarIrradiation": "5221.260000",
+          "rain": "11.738356",
+          "windSpeed": "5.850000",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-09T20:59:00-03:00",
+          "temperatureAverage": "27.117441",
+          "temperatureMin": "19.780000",
+          "temperatureMax": "35.710000",
+          "relativeHumidity": "62.308797",
+          "solarIrradiation": "6205.680000",
+          "rain": "0.006642",
+          "windSpeed": "7.896667",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-10T20:59:00-03:00",
+          "temperatureAverage": "25.557855",
+          "temperatureMin": "19.910000",
+          "temperatureMax": "34.790000",
+          "relativeHumidity": "66.657278",
+          "solarIrradiation": "3761.880000",
+          "rain": "1.052895",
+          "windSpeed": "7.668333",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-11T20:59:00-03:00",
+          "temperatureAverage": "22.283375",
+          "temperatureMin": "17.480000",
+          "temperatureMax": "34.190000",
+          "relativeHumidity": "83.128566",
+          "solarIrradiation": "3727.200000",
+          "rain": "10.159982",
+          "windSpeed": "7.865833",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-12T20:59:00-03:00",
+          "temperatureAverage": "23.219969",
+          "temperatureMin": "17.470000",
+          "temperatureMax": "30.500000",
+          "relativeHumidity": "82.834497",
+          "solarIrradiation": "3875.160000",
+          "rain": "0.004573",
+          "windSpeed": "5.258750",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-13T20:59:00-03:00",
+          "temperatureAverage": "25.504175",
+          "temperatureMin": "19.300000",
+          "temperatureMax": "34.230000",
+          "relativeHumidity": "73.336837",
+          "solarIrradiation": "5700.240000",
+          "rain": "0.000000",
+          "windSpeed": "6.337500",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-14T20:59:00-03:00",
+          "temperatureAverage": "24.358846",
+          "temperatureMin": "20.120000",
+          "temperatureMax": "32.160000",
+          "relativeHumidity": "76.959206",
+          "solarIrradiation": "4795.920000",
+          "rain": "9.373776",
+          "windSpeed": "6.848333",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-15T20:59:00-03:00",
+          "temperatureAverage": "25.332393",
+          "temperatureMin": "20.670000",
+          "temperatureMax": "30.920000",
+          "relativeHumidity": "72.410291",
+          "solarIrradiation": "4188.120000",
+          "rain": "0.002880",
+          "windSpeed": "5.889583",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-16T20:59:00-03:00",
+          "temperatureAverage": "25.816397",
+          "temperatureMin": "17.950000",
+          "temperatureMax": "34.220000",
+          "relativeHumidity": "54.650150",
+          "solarIrradiation": "7191.600000",
+          "rain": "0.000000",
+          "windSpeed": "5.716667",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-17T10:17:07.032368-03:00",
+          "temperatureAverage": "22.693090",
+          "temperatureMin": "16.150000",
+          "temperatureMax": "30.460000",
+          "relativeHumidity": "54.492554",
+          "solarIrradiation": "2223.209111",
+          "rain": "0.000000",
+          "windSpeed": "5.207922",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-18T20:59:00-03:00",
+          "temperatureMin": "17.890157",
+          "temperatureMax": "36.595264",
+          "rain": "3.714013",
+          "rainProbability": "31.550386",
+          "rainPrediction": "U",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-18T20:59:00-03:00",
+              "finish": "2022-11-19T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-19T20:59:00-03:00",
+          "temperatureMin": "18.584852",
+          "temperatureMax": "35.746782",
+          "rain": "6.098865",
+          "rainProbability": "82.077283",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-19T20:59:00-03:00",
+              "finish": "2022-11-20T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-20T20:59:00-03:00",
+          "temperatureMin": "17.633900",
+          "temperatureMax": "35.992995",
+          "rain": "4.603604",
+          "rainProbability": "88.200197",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-20T20:59:00-03:00",
+              "finish": "2022-11-21T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-21T20:59:00-03:00",
+          "temperatureMin": "17.893561",
+          "temperatureMax": "35.445647",
+          "rain": "4.000000",
+          "rainProbability": "68.732002",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-21T20:59:00-03:00",
+              "finish": "2022-11-22T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-22T20:59:00-03:00",
+          "temperatureMin": "18.601701",
+          "temperatureMax": "35.039208",
+          "rain": "6.746213",
+          "rainProbability": "72.880077",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-22T20:59:00-03:00",
+              "finish": "2022-11-23T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-23T20:59:00-03:00",
+          "temperatureMin": "18.832766",
+          "temperatureMax": "34.919321",
+          "rain": "14.292626",
+          "rainProbability": "88.494493",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-23T20:59:00-03:00",
+              "finish": "2022-11-24T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-24T20:59:00-03:00",
+          "temperatureMin": "18.606439",
+          "temperatureMax": "34.218186",
+          "rain": "13.617051",
+          "rainProbability": "88.244712",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-25T20:59:00-03:00",
+          "temperatureMin": "18.184283",
+          "temperatureMax": "34.092995",
+          "rain": "12.415917",
+          "rainProbability": "88.472908",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-26T20:59:00-03:00",
+          "temperatureMin": "18.446779",
+          "temperatureMax": "33.711747",
+          "rain": "9.649817",
+          "rainProbability": "78.106094",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-27T20:59:00-03:00",
+          "temperatureMin": "18.126326",
+          "temperatureMax": "34.119321",
+          "rain": "7.356256",
+          "rainProbability": "64.068172",
+          "rainPrediction": "R",
+          "alerts": null
+        }
+      ]
+    },
+    {
+      "blockId": "B3221",
+      "name": "Unidade padrão",
+      "line": [
+        {
+          "date": "2022-10-28T20:59:00-03:00",
+          "temperatureMin": "18.114219",
+          "temperatureMax": "36.060316",
+          "rain": "3.701584",
+          "rainProbability": "31.756896",
+          "rainPrediction": "U",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-18T20:59:00-03:00",
+              "finish": "2022-11-19T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-29T20:59:00-03:00",
+          "temperatureMin": "18.591910",
+          "temperatureMax": "35.093530",
+          "rain": "6.013287",
+          "rainProbability": "83.144873",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-19T20:59:00-03:00",
+              "finish": "2022-11-20T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-30T20:59:00-03:00",
+          "temperatureMin": "17.530375",
+          "temperatureMax": "35.524243",
+          "rain": "15",
+          "rainProbability": "88.426580",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-20T20:59:00-03:00",
+              "finish": "2022-11-21T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-31T20:59:00-03:00",
+          "temperatureMin": "17.845544",
+          "temperatureMax": "35.021786",
+          "rain": "3.959279",
+          "rainProbability": "70.042394",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-21T20:59:00-03:00",
+              "finish": "2022-11-22T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-01T20:59:00-03:00",
+          "temperatureMin": "18.356589",
+          "temperatureMax": "34.650007",
+          "rain": "6.732847",
+          "rainProbability": "73.202497",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-22T20:59:00-03:00",
+              "finish": "2022-11-23T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-02T20:59:00-03:00",
+          "temperatureMin": "18.773475",
+          "temperatureMax": "34.396016",
+          "rain": "14.196469",
+          "rainProbability": "88.194233",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-23T20:59:00-03:00",
+              "finish": "2022-11-24T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-03T20:59:00-03:00",
+          "temperatureMin": "18.620151",
+          "temperatureMax": "33.774099",
+          "rain": "13.662539",
+          "rainProbability": "88.905924",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-04T20:59:00-03:00",
+          "temperatureMin": "18.210293",
+          "temperatureMax": "33.572047",
+          "rain": "12.412722",
+          "rainProbability": "88.522957",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-05T20:59:00-03:00",
+          "temperatureMin": "18.343900",
+          "temperatureMax": "33.344953",
+          "rain": "9.724428",
+          "rainProbability": "78.959005",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-06T20:59:00-03:00",
+          "temperatureMin": "18.120143",
+          "temperatureMax": "33.741686",
+          "rain": "7.323094",
+          "rainProbability": "64.337168",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-07T20:59:00-03:00",
+          "temperatureAverage": "25.935400",
+          "temperatureMin": "16.040000",
+          "temperatureMax": "34.020000",
+          "relativeHumidity": "47.870883",
+          "solarIrradiation": "5891.280000",
+          "rain": "0.000846",
+          "windSpeed": "7.720417",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-08T20:59:00-03:00",
+          "temperatureAverage": "24.404933",
+          "temperatureMin": "17.530000",
+          "temperatureMax": "34.840000",
+          "relativeHumidity": "61.078901",
+          "solarIrradiation": "5221.260000",
+          "rain": "11.738356",
+          "windSpeed": "5.850000",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-09T20:59:00-03:00",
+          "temperatureAverage": "27.117441",
+          "temperatureMin": "19.780000",
+          "temperatureMax": "35.710000",
+          "relativeHumidity": "62.308797",
+          "solarIrradiation": "6205.680000",
+          "rain": "0.006642",
+          "windSpeed": "7.896667",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-10T20:59:00-03:00",
+          "temperatureAverage": "25.557855",
+          "temperatureMin": "19.910000",
+          "temperatureMax": "34.790000",
+          "relativeHumidity": "66.657278",
+          "solarIrradiation": "3761.880000",
+          "rain": "1.052895",
+          "windSpeed": "7.668333",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-11T20:59:00-03:00",
+          "temperatureAverage": "22.283375",
+          "temperatureMin": "17.480000",
+          "temperatureMax": "34.190000",
+          "relativeHumidity": "83.128566",
+          "solarIrradiation": "3727.200000",
+          "rain": "10.159982",
+          "windSpeed": "7.865833",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-12T20:59:00-03:00",
+          "temperatureAverage": "23.219969",
+          "temperatureMin": "17.470000",
+          "temperatureMax": "30.500000",
+          "relativeHumidity": "82.834497",
+          "solarIrradiation": "3875.160000",
+          "rain": "0.004573",
+          "windSpeed": "5.258750",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-13T20:59:00-03:00",
+          "temperatureAverage": "25.504175",
+          "temperatureMin": "19.300000",
+          "temperatureMax": "34.230000",
+          "relativeHumidity": "73.336837",
+          "solarIrradiation": "5700.240000",
+          "rain": "0.000000",
+          "windSpeed": "6.337500",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-14T20:59:00-03:00",
+          "temperatureAverage": "24.358846",
+          "temperatureMin": "20.120000",
+          "temperatureMax": "32.160000",
+          "relativeHumidity": "76.959206",
+          "solarIrradiation": "4795.920000",
+          "rain": "9.373776",
+          "windSpeed": "6.848333",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-15T20:59:00-03:00",
+          "temperatureAverage": "25.332393",
+          "temperatureMin": "20.670000",
+          "temperatureMax": "30.920000",
+          "relativeHumidity": "72.410291",
+          "solarIrradiation": "4188.120000",
+          "rain": "0.002880",
+          "windSpeed": "5.889583",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-16T20:59:00-03:00",
+          "temperatureAverage": "25.816397",
+          "temperatureMin": "17.950000",
+          "temperatureMax": "34.220000",
+          "relativeHumidity": "54.650150",
+          "solarIrradiation": "7191.600000",
+          "rain": "0.000000",
+          "windSpeed": "5.716667",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-17T10:17:07.032368-03:00",
+          "temperatureAverage": "22.693090",
+          "temperatureMin": "16.150000",
+          "temperatureMax": "30.460000",
+          "relativeHumidity": "54.492554",
+          "solarIrradiation": "2223.209111",
+          "rain": "0.000000",
+          "windSpeed": "5.207922",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-18T20:59:00-03:00",
+          "temperatureMin": "17.890157",
+          "temperatureMax": "36.595264",
+          "rain": "3.714013",
+          "rainProbability": "31.550386",
+          "rainPrediction": "U",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-18T20:59:00-03:00",
+              "finish": "2022-11-19T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-19T20:59:00-03:00",
+          "temperatureMin": "18.584852",
+          "temperatureMax": "35.746782",
+          "rain": "6.098865",
+          "rainProbability": "82.077283",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-19T20:59:00-03:00",
+              "finish": "2022-11-20T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-20T20:59:00-03:00",
+          "temperatureMin": "17.633900",
+          "temperatureMax": "35.992995",
+          "rain": "4.603604",
+          "rainProbability": "88.200197",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-20T20:59:00-03:00",
+              "finish": "2022-11-21T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-21T20:59:00-03:00",
+          "temperatureMin": "17.893561",
+          "temperatureMax": "35.445647",
+          "rain": "4.000000",
+          "rainProbability": "68.732002",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-21T20:59:00-03:00",
+              "finish": "2022-11-22T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-22T20:59:00-03:00",
+          "temperatureMin": "18.601701",
+          "temperatureMax": "35.039208",
+          "rain": "6.746213",
+          "rainProbability": "72.880077",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-22T20:59:00-03:00",
+              "finish": "2022-11-23T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-23T20:59:00-03:00",
+          "temperatureMin": "18.832766",
+          "temperatureMax": "34.919321",
+          "rain": "14.292626",
+          "rainProbability": "88.494493",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-23T20:59:00-03:00",
+              "finish": "2022-11-24T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-24T20:59:00-03:00",
+          "temperatureMin": "18.606439",
+          "temperatureMax": "34.218186",
+          "rain": "13.617051",
+          "rainProbability": "88.244712",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-25T20:59:00-03:00",
+          "temperatureMin": "18.184283",
+          "temperatureMax": "34.092995",
+          "rain": "12.415917",
+          "rainProbability": "88.472908",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-26T20:59:00-03:00",
+          "temperatureMin": "18.446779",
+          "temperatureMax": "33.711747",
+          "rain": "9.649817",
+          "rainProbability": "78.106094",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-27T20:59:00-03:00",
+          "temperatureMin": "18.126326",
+          "temperatureMax": "34.119321",
+          "rain": "7.356256",
+          "rainProbability": "64.068172",
+          "rainPrediction": "R",
+          "alerts": null
+        }
+      ]
+    },
+    {
+      "blockId": "F2985",
+      "name": "Fazenda Santa Fé",
+      "line": [
+        {
+          "date": "2022-10-28T20:59:00-03:00",
+          "temperatureAverage": "24.248028",
+          "temperatureMin": "18.114219",
+          "temperatureMax": "36.060316",
+          "relativeHumidity": "79.377291",
+          "solarIrradiation": "4982.041412",
+          "rain": "3.701584",
+          "windSpeed": "5.293100",
+          "rainProbability": "31.756896",
+          "rainPrediction": "U",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-18T20:59:00-03:00",
+              "finish": "2022-11-19T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-29T20:59:00-03:00",
+          "temperatureMin": "18.591910",
+          "temperatureMax": "35.093530",
+          "rain": "6.013287",
+          "rainProbability": "83.144873",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-19T20:59:00-03:00",
+              "finish": "2022-11-20T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-30T20:59:00-03:00",
+          "temperatureMin": "17.530375",
+          "temperatureMax": "35.524243",
+          "rain": "8",
+          "rainProbability": "88.426580",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-20T20:59:00-03:00",
+              "finish": "2022-11-21T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-31T20:59:00-03:00",
+          "temperatureMin": "17.845544",
+          "temperatureMax": "35.021786",
+          "rain": "3.959279",
+          "rainProbability": "70.042394",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-21T20:59:00-03:00",
+              "finish": "2022-11-22T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-01T20:59:00-03:00",
+          "temperatureMin": "18.356589",
+          "temperatureMax": "34.650007",
+          "rain": "6.732847",
+          "rainProbability": "73.202497",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-22T20:59:00-03:00",
+              "finish": "2022-11-23T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-02T20:59:00-03:00",
+          "temperatureMin": "18.773475",
+          "temperatureMax": "34.396016",
+          "rain": "14.196469",
+          "rainProbability": "88.194233",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-23T20:59:00-03:00",
+              "finish": "2022-11-24T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-03T20:59:00-03:00",
+          "temperatureMin": "18.620151",
+          "temperatureMax": "33.774099",
+          "rain": "13.662539",
+          "rainProbability": "88.905924",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-04T20:59:00-03:00",
+          "temperatureMin": "18.210293",
+          "temperatureMax": "33.572047",
+          "rain": "12.412722",
+          "rainProbability": "88.522957",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-05T20:59:00-03:00",
+          "temperatureMin": "18.343900",
+          "temperatureMax": "33.344953",
+          "rain": "9.724428",
+          "rainProbability": "78.959005",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-06T20:59:00-03:00",
+          "temperatureMin": "18.120143",
+          "temperatureMax": "33.741686",
+          "rain": "7.323094",
+          "rainProbability": "64.337168",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-07T20:59:00-03:00",
+          "temperatureAverage": "25.935400",
+          "temperatureMin": "16.040000",
+          "temperatureMax": "34.020000",
+          "relativeHumidity": "47.870883",
+          "solarIrradiation": "5891.280000",
+          "rain": "0.000846",
+          "windSpeed": "7.720417",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-08T20:59:00-03:00",
+          "temperatureAverage": "24.404933",
+          "temperatureMin": "17.530000",
+          "temperatureMax": "34.840000",
+          "relativeHumidity": "61.078901",
+          "solarIrradiation": "5221.260000",
+          "rain": "11.738356",
+          "windSpeed": "5.850000",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-09T20:59:00-03:00",
+          "temperatureAverage": "27.117441",
+          "temperatureMin": "19.780000",
+          "temperatureMax": "35.710000",
+          "relativeHumidity": "62.308797",
+          "solarIrradiation": "6205.680000",
+          "rain": "0.006642",
+          "windSpeed": "7.896667",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-10T20:59:00-03:00",
+          "temperatureAverage": "25.557855",
+          "temperatureMin": "19.910000",
+          "temperatureMax": "34.790000",
+          "relativeHumidity": "66.657278",
+          "solarIrradiation": "3761.880000",
+          "rain": "1.052895",
+          "windSpeed": "7.668333",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-11T20:59:00-03:00",
+          "temperatureAverage": "22.283375",
+          "temperatureMin": "17.480000",
+          "temperatureMax": "34.190000",
+          "relativeHumidity": "83.128566",
+          "solarIrradiation": "3727.200000",
+          "rain": "10.159982",
+          "windSpeed": "7.865833",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-12T20:59:00-03:00",
+          "temperatureAverage": "23.219969",
+          "temperatureMin": "17.470000",
+          "temperatureMax": "30.500000",
+          "relativeHumidity": "82.834497",
+          "solarIrradiation": "3875.160000",
+          "rain": "0.004573",
+          "windSpeed": "5.258750",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-13T20:59:00-03:00",
+          "temperatureAverage": "25.504175",
+          "temperatureMin": "19.300000",
+          "temperatureMax": "34.230000",
+          "relativeHumidity": "73.336837",
+          "solarIrradiation": "5700.240000",
+          "rain": "0.000000",
+          "windSpeed": "6.337500",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-14T20:59:00-03:00",
+          "temperatureAverage": "24.358846",
+          "temperatureMin": "20.120000",
+          "temperatureMax": "32.160000",
+          "relativeHumidity": "76.959206",
+          "solarIrradiation": "4795.920000",
+          "rain": "9.373776",
+          "windSpeed": "6.848333",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-15T20:59:00-03:00",
+          "temperatureAverage": "25.332393",
+          "temperatureMin": "20.670000",
+          "temperatureMax": "30.920000",
+          "relativeHumidity": "72.410291",
+          "solarIrradiation": "4188.120000",
+          "rain": "0.002880",
+          "windSpeed": "5.889583",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-16T20:59:00-03:00",
+          "temperatureAverage": "25.816397",
+          "temperatureMin": "17.950000",
+          "temperatureMax": "34.220000",
+          "relativeHumidity": "54.650150",
+          "solarIrradiation": "7191.600000",
+          "rain": "0.000000",
+          "windSpeed": "5.716667",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-17T10:17:07.032368-03:00",
+          "temperatureAverage": "22.693090",
+          "temperatureMin": "16.150000",
+          "temperatureMax": "30.460000",
+          "relativeHumidity": "54.492554",
+          "solarIrradiation": "2223.209111",
+          "rain": "0.000000",
+          "windSpeed": "5.207922",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-18T20:59:00-03:00",
+          "temperatureMin": "17.890157",
+          "temperatureMax": "36.595264",
+          "rain": "3.714013",
+          "rainProbability": "31.550386",
+          "rainPrediction": "U",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-18T20:59:00-03:00",
+              "finish": "2022-11-19T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-19T20:59:00-03:00",
+          "temperatureMin": "18.584852",
+          "temperatureMax": "35.746782",
+          "rain": "6.098865",
+          "rainProbability": "82.077283",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-19T20:59:00-03:00",
+              "finish": "2022-11-20T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-20T20:59:00-03:00",
+          "temperatureMin": "17.633900",
+          "temperatureMax": "35.992995",
+          "rain": "4.603604",
+          "rainProbability": "88.200197",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-20T20:59:00-03:00",
+              "finish": "2022-11-21T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-21T20:59:00-03:00",
+          "temperatureMin": "17.893561",
+          "temperatureMax": "35.445647",
+          "rain": "4.000000",
+          "rainProbability": "68.732002",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-21T20:59:00-03:00",
+              "finish": "2022-11-22T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-22T20:59:00-03:00",
+          "temperatureMin": "18.601701",
+          "temperatureMax": "35.039208",
+          "rain": "6.746213",
+          "rainProbability": "72.880077",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-22T20:59:00-03:00",
+              "finish": "2022-11-23T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-23T20:59:00-03:00",
+          "temperatureMin": "18.832766",
+          "temperatureMax": "34.919321",
+          "rain": "14.292626",
+          "rainProbability": "88.494493",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-23T20:59:00-03:00",
+              "finish": "2022-11-24T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-24T20:59:00-03:00",
+          "temperatureMin": "18.606439",
+          "temperatureMax": "34.218186",
+          "rain": "13.617051",
+          "rainProbability": "88.244712",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-25T20:59:00-03:00",
+          "temperatureMin": "18.184283",
+          "temperatureMax": "34.092995",
+          "rain": "12.415917",
+          "rainProbability": "88.472908",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-26T20:59:00-03:00",
+          "temperatureMin": "18.446779",
+          "temperatureMax": "33.711747",
+          "rain": "9.649817",
+          "rainProbability": "78.106094",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-27T20:59:00-03:00",
+          "temperatureMin": "18.126326",
+          "temperatureMax": "34.119321",
+          "rain": "7.356256",
+          "rainProbability": "64.068172",
+          "rainPrediction": "R",
+          "alerts": null
+        }
+      ]
+    },
+    {
+      "blockId": "B3216",
+      "name": "Unidade padrão",
+      "line": [
+        {
+          "date": "2022-10-28T20:59:00-03:00",
+          "temperatureMin": "18.114219",
+          "temperatureMax": "36.060316",
+          "rain": "3.701584",
+          "rainProbability": "31.756896",
+          "rainPrediction": "U",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-18T20:59:00-03:00",
+              "finish": "2022-11-19T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-29T20:59:00-03:00",
+          "temperatureMin": "18.591910",
+          "temperatureMax": "35.093530",
+          "rain": "6.013287",
+          "rainProbability": "83.144873",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-19T20:59:00-03:00",
+              "finish": "2022-11-20T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-30T20:59:00-03:00",
+          "temperatureMin": "17.530375",
+          "temperatureMax": "35.524243",
+          "rain": "15",
+          "rainProbability": "88.426580",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-20T20:59:00-03:00",
+              "finish": "2022-11-21T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-31T20:59:00-03:00",
+          "temperatureMin": "17.845544",
+          "temperatureMax": "35.021786",
+          "rain": "3.959279",
+          "rainProbability": "70.042394",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-21T20:59:00-03:00",
+              "finish": "2022-11-22T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-01T20:59:00-03:00",
+          "temperatureMin": "18.356589",
+          "temperatureMax": "34.650007",
+          "rain": "6.732847",
+          "rainProbability": "73.202497",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-22T20:59:00-03:00",
+              "finish": "2022-11-23T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-02T20:59:00-03:00",
+          "temperatureMin": "18.773475",
+          "temperatureMax": "34.396016",
+          "rain": "14.196469",
+          "rainProbability": "88.194233",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-23T20:59:00-03:00",
+              "finish": "2022-11-24T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-03T20:59:00-03:00",
+          "temperatureMin": "18.620151",
+          "temperatureMax": "33.774099",
+          "rain": "13.662539",
+          "rainProbability": "88.905924",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-04T20:59:00-03:00",
+          "temperatureMin": "18.210293",
+          "temperatureMax": "33.572047",
+          "rain": "12.412722",
+          "rainProbability": "88.522957",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-05T20:59:00-03:00",
+          "temperatureMin": "18.343900",
+          "temperatureMax": "33.344953",
+          "rain": "9.724428",
+          "rainProbability": "78.959005",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-06T20:59:00-03:00",
+          "temperatureMin": "18.120143",
+          "temperatureMax": "33.741686",
+          "rain": "7.323094",
+          "rainProbability": "64.337168",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-07T20:59:00-03:00",
+          "temperatureAverage": "25.935400",
+          "temperatureMin": "16.040000",
+          "temperatureMax": "34.020000",
+          "relativeHumidity": "47.870883",
+          "solarIrradiation": "5891.280000",
+          "rain": "0.000846",
+          "windSpeed": "7.720417",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-08T20:59:00-03:00",
+          "temperatureAverage": "24.404933",
+          "temperatureMin": "17.530000",
+          "temperatureMax": "34.840000",
+          "relativeHumidity": "61.078901",
+          "solarIrradiation": "5221.260000",
+          "rain": "11.738356",
+          "windSpeed": "5.850000",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-09T20:59:00-03:00",
+          "temperatureAverage": "27.117441",
+          "temperatureMin": "19.780000",
+          "temperatureMax": "35.710000",
+          "relativeHumidity": "62.308797",
+          "solarIrradiation": "6205.680000",
+          "rain": "0.006642",
+          "windSpeed": "7.896667",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-10T20:59:00-03:00",
+          "temperatureAverage": "25.557855",
+          "temperatureMin": "19.910000",
+          "temperatureMax": "34.790000",
+          "relativeHumidity": "66.657278",
+          "solarIrradiation": "3761.880000",
+          "rain": "1.052895",
+          "windSpeed": "7.668333",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-11T20:59:00-03:00",
+          "temperatureAverage": "22.283375",
+          "temperatureMin": "17.480000",
+          "temperatureMax": "34.190000",
+          "relativeHumidity": "83.128566",
+          "solarIrradiation": "3727.200000",
+          "rain": "10.159982",
+          "windSpeed": "7.865833",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-12T20:59:00-03:00",
+          "temperatureAverage": "23.219969",
+          "temperatureMin": "17.470000",
+          "temperatureMax": "30.500000",
+          "relativeHumidity": "82.834497",
+          "solarIrradiation": "3875.160000",
+          "rain": "0.004573",
+          "windSpeed": "5.258750",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-13T20:59:00-03:00",
+          "temperatureAverage": "25.504175",
+          "temperatureMin": "19.300000",
+          "temperatureMax": "34.230000",
+          "relativeHumidity": "73.336837",
+          "solarIrradiation": "5700.240000",
+          "rain": "0.000000",
+          "windSpeed": "6.337500",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-14T20:59:00-03:00",
+          "temperatureAverage": "24.358846",
+          "temperatureMin": "20.120000",
+          "temperatureMax": "32.160000",
+          "relativeHumidity": "76.959206",
+          "solarIrradiation": "4795.920000",
+          "rain": "9.373776",
+          "windSpeed": "6.848333",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-15T20:59:00-03:00",
+          "temperatureAverage": "25.332393",
+          "temperatureMin": "20.670000",
+          "temperatureMax": "30.920000",
+          "relativeHumidity": "72.410291",
+          "solarIrradiation": "4188.120000",
+          "rain": "0.002880",
+          "windSpeed": "5.889583",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-16T20:59:00-03:00",
+          "temperatureAverage": "25.816397",
+          "temperatureMin": "17.950000",
+          "temperatureMax": "34.220000",
+          "relativeHumidity": "54.650150",
+          "solarIrradiation": "7191.600000",
+          "rain": "0.000000",
+          "windSpeed": "5.716667",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-17T10:17:07.032368-03:00",
+          "temperatureAverage": "22.693090",
+          "temperatureMin": "16.150000",
+          "temperatureMax": "30.460000",
+          "relativeHumidity": "54.492554",
+          "solarIrradiation": "2223.209111",
+          "rain": "0.000000",
+          "windSpeed": "5.207922",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-18T20:59:00-03:00",
+          "temperatureMin": "17.890157",
+          "temperatureMax": "36.595264",
+          "rain": "3.714013",
+          "rainProbability": "31.550386",
+          "rainPrediction": "U",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-18T20:59:00-03:00",
+              "finish": "2022-11-19T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-19T20:59:00-03:00",
+          "temperatureMin": "18.584852",
+          "temperatureMax": "35.746782",
+          "rain": "6.098865",
+          "rainProbability": "82.077283",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-19T20:59:00-03:00",
+              "finish": "2022-11-20T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-20T20:59:00-03:00",
+          "temperatureMin": "17.633900",
+          "temperatureMax": "35.992995",
+          "rain": "4.603604",
+          "rainProbability": "88.200197",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-20T20:59:00-03:00",
+              "finish": "2022-11-21T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-21T20:59:00-03:00",
+          "temperatureMin": "17.893561",
+          "temperatureMax": "35.445647",
+          "rain": "4.000000",
+          "rainProbability": "68.732002",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-21T20:59:00-03:00",
+              "finish": "2022-11-22T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-22T20:59:00-03:00",
+          "temperatureMin": "18.601701",
+          "temperatureMax": "35.039208",
+          "rain": "6.746213",
+          "rainProbability": "72.880077",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-22T20:59:00-03:00",
+              "finish": "2022-11-23T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-23T20:59:00-03:00",
+          "temperatureMin": "18.832766",
+          "temperatureMax": "34.919321",
+          "rain": "14.292626",
+          "rainProbability": "88.494493",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-23T20:59:00-03:00",
+              "finish": "2022-11-24T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-24T20:59:00-03:00",
+          "temperatureMin": "18.606439",
+          "temperatureMax": "34.218186",
+          "rain": "13.617051",
+          "rainProbability": "88.244712",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-25T20:59:00-03:00",
+          "temperatureMin": "18.184283",
+          "temperatureMax": "34.092995",
+          "rain": "12.415917",
+          "rainProbability": "88.472908",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-26T20:59:00-03:00",
+          "temperatureMin": "18.446779",
+          "temperatureMax": "33.711747",
+          "rain": "9.649817",
+          "rainProbability": "78.106094",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-27T20:59:00-03:00",
+          "temperatureMin": "18.126326",
+          "temperatureMax": "34.119321",
+          "rain": "7.356256",
+          "rainProbability": "64.068172",
+          "rainPrediction": "R",
+          "alerts": null
+        }
+      ]
+    },
+    {
+      "blockId": "F2988",
+      "name": "Fazenda VS",
+      "line": [
+        {
+          "date": "2022-10-28T20:59:00-03:00",
+          "temperatureAverage": "24.248028",
+          "temperatureMin": "18.114219",
+          "temperatureMax": "36.060316",
+          "relativeHumidity": "79.377291",
+          "solarIrradiation": "4982.041412",
+          "rain": "3.701584",
+          "windSpeed": "5.293100",
+          "rainProbability": "31.756896",
+          "rainPrediction": "U",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-18T20:59:00-03:00",
+              "finish": "2022-11-19T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-29T20:59:00-03:00",
+          "temperatureMin": "18.591910",
+          "temperatureMax": "35.093530",
+          "rain": "6.013287",
+          "rainProbability": "83.144873",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-19T20:59:00-03:00",
+              "finish": "2022-11-20T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-30T20:59:00-03:00",
+          "temperatureMin": "17.530375",
+          "temperatureMax": "35.524243",
+          "rain": "8",
+          "rainProbability": "88.426580",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-20T20:59:00-03:00",
+              "finish": "2022-11-21T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-31T20:59:00-03:00",
+          "temperatureMin": "17.845544",
+          "temperatureMax": "35.021786",
+          "rain": "3.959279",
+          "rainProbability": "70.042394",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-21T20:59:00-03:00",
+              "finish": "2022-11-22T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-01T20:59:00-03:00",
+          "temperatureMin": "18.356589",
+          "temperatureMax": "34.650007",
+          "rain": "6.732847",
+          "rainProbability": "73.202497",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-22T20:59:00-03:00",
+              "finish": "2022-11-23T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-02T20:59:00-03:00",
+          "temperatureMin": "18.773475",
+          "temperatureMax": "34.396016",
+          "rain": "14.196469",
+          "rainProbability": "88.194233",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-23T20:59:00-03:00",
+              "finish": "2022-11-24T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-03T20:59:00-03:00",
+          "temperatureMin": "18.620151",
+          "temperatureMax": "33.774099",
+          "rain": "13.662539",
+          "rainProbability": "88.905924",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-04T20:59:00-03:00",
+          "temperatureMin": "18.210293",
+          "temperatureMax": "33.572047",
+          "rain": "12.412722",
+          "rainProbability": "88.522957",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-05T20:59:00-03:00",
+          "temperatureMin": "18.343900",
+          "temperatureMax": "33.344953",
+          "rain": "9.724428",
+          "rainProbability": "78.959005",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-06T20:59:00-03:00",
+          "temperatureMin": "18.120143",
+          "temperatureMax": "33.741686",
+          "rain": "7.323094",
+          "rainProbability": "64.337168",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-07T20:59:00-03:00",
+          "temperatureAverage": "25.935400",
+          "temperatureMin": "16.040000",
+          "temperatureMax": "34.020000",
+          "relativeHumidity": "47.870883",
+          "solarIrradiation": "5891.280000",
+          "rain": "0.000846",
+          "windSpeed": "7.720417",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-08T20:59:00-03:00",
+          "temperatureAverage": "24.404933",
+          "temperatureMin": "17.530000",
+          "temperatureMax": "34.840000",
+          "relativeHumidity": "61.078901",
+          "solarIrradiation": "5221.260000",
+          "rain": "11.738356",
+          "windSpeed": "5.850000",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-09T20:59:00-03:00",
+          "temperatureAverage": "27.117441",
+          "temperatureMin": "19.780000",
+          "temperatureMax": "35.710000",
+          "relativeHumidity": "62.308797",
+          "solarIrradiation": "6205.680000",
+          "rain": "0.006642",
+          "windSpeed": "7.896667",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-10T20:59:00-03:00",
+          "temperatureAverage": "25.557855",
+          "temperatureMin": "19.910000",
+          "temperatureMax": "34.790000",
+          "relativeHumidity": "66.657278",
+          "solarIrradiation": "3761.880000",
+          "rain": "1.052895",
+          "windSpeed": "7.668333",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-11T20:59:00-03:00",
+          "temperatureAverage": "22.283375",
+          "temperatureMin": "17.480000",
+          "temperatureMax": "34.190000",
+          "relativeHumidity": "83.128566",
+          "solarIrradiation": "3727.200000",
+          "rain": "10.159982",
+          "windSpeed": "7.865833",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-12T20:59:00-03:00",
+          "temperatureAverage": "23.219969",
+          "temperatureMin": "17.470000",
+          "temperatureMax": "30.500000",
+          "relativeHumidity": "82.834497",
+          "solarIrradiation": "3875.160000",
+          "rain": "0.004573",
+          "windSpeed": "5.258750",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-13T20:59:00-03:00",
+          "temperatureAverage": "25.504175",
+          "temperatureMin": "19.300000",
+          "temperatureMax": "34.230000",
+          "relativeHumidity": "73.336837",
+          "solarIrradiation": "5700.240000",
+          "rain": "0.000000",
+          "windSpeed": "6.337500",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-14T20:59:00-03:00",
+          "temperatureAverage": "24.358846",
+          "temperatureMin": "20.120000",
+          "temperatureMax": "32.160000",
+          "relativeHumidity": "76.959206",
+          "solarIrradiation": "4795.920000",
+          "rain": "9.373776",
+          "windSpeed": "6.848333",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-15T20:59:00-03:00",
+          "temperatureAverage": "25.332393",
+          "temperatureMin": "20.670000",
+          "temperatureMax": "30.920000",
+          "relativeHumidity": "72.410291",
+          "solarIrradiation": "4188.120000",
+          "rain": "0.002880",
+          "windSpeed": "5.889583",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-16T20:59:00-03:00",
+          "temperatureAverage": "25.816397",
+          "temperatureMin": "17.950000",
+          "temperatureMax": "34.220000",
+          "relativeHumidity": "54.650150",
+          "solarIrradiation": "7191.600000",
+          "rain": "0.000000",
+          "windSpeed": "5.716667",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-17T10:17:07.032368-03:00",
+          "temperatureAverage": "22.693090",
+          "temperatureMin": "16.150000",
+          "temperatureMax": "30.460000",
+          "relativeHumidity": "54.492554",
+          "solarIrradiation": "2223.209111",
+          "rain": "0.000000",
+          "windSpeed": "5.207922",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-18T20:59:00-03:00",
+          "temperatureMin": "17.890157",
+          "temperatureMax": "36.595264",
+          "rain": "3.714013",
+          "rainProbability": "31.550386",
+          "rainPrediction": "U",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-18T20:59:00-03:00",
+              "finish": "2022-11-19T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-19T20:59:00-03:00",
+          "temperatureMin": "18.584852",
+          "temperatureMax": "35.746782",
+          "rain": "6.098865",
+          "rainProbability": "82.077283",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-19T20:59:00-03:00",
+              "finish": "2022-11-20T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-20T20:59:00-03:00",
+          "temperatureMin": "17.633900",
+          "temperatureMax": "35.992995",
+          "rain": "4.603604",
+          "rainProbability": "88.200197",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-20T20:59:00-03:00",
+              "finish": "2022-11-21T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-21T20:59:00-03:00",
+          "temperatureMin": "17.893561",
+          "temperatureMax": "35.445647",
+          "rain": "4.000000",
+          "rainProbability": "68.732002",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-21T20:59:00-03:00",
+              "finish": "2022-11-22T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-22T20:59:00-03:00",
+          "temperatureMin": "18.601701",
+          "temperatureMax": "35.039208",
+          "rain": "6.746213",
+          "rainProbability": "72.880077",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-22T20:59:00-03:00",
+              "finish": "2022-11-23T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-23T20:59:00-03:00",
+          "temperatureMin": "18.832766",
+          "temperatureMax": "34.919321",
+          "rain": "14.292626",
+          "rainProbability": "88.494493",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-23T20:59:00-03:00",
+              "finish": "2022-11-24T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-24T20:59:00-03:00",
+          "temperatureMin": "18.606439",
+          "temperatureMax": "34.218186",
+          "rain": "13.617051",
+          "rainProbability": "88.244712",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-25T20:59:00-03:00",
+          "temperatureMin": "18.184283",
+          "temperatureMax": "34.092995",
+          "rain": "12.415917",
+          "rainProbability": "88.472908",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-26T20:59:00-03:00",
+          "temperatureMin": "18.446779",
+          "temperatureMax": "33.711747",
+          "rain": "9.649817",
+          "rainProbability": "78.106094",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-27T20:59:00-03:00",
+          "temperatureMin": "18.126326",
+          "temperatureMax": "34.119321",
+          "rain": "7.356256",
+          "rainProbability": "64.068172",
+          "rainPrediction": "R",
+          "alerts": null
+        }
+      ]
+    },
+    {
+      "blockId": "B3219",
+      "name": "Unidade padrão",
+      "line": [
+        {
+          "date": "2022-10-28T20:59:00-03:00",
+          "temperatureMin": "18.114219",
+          "temperatureMax": "36.060316",
+          "rain": "3.701584",
+          "rainProbability": "31.756896",
+          "rainPrediction": "U",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-18T20:59:00-03:00",
+              "finish": "2022-11-19T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-29T20:59:00-03:00",
+          "temperatureMin": "18.591910",
+          "temperatureMax": "35.093530",
+          "rain": "6.013287",
+          "rainProbability": "83.144873",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-19T20:59:00-03:00",
+              "finish": "2022-11-20T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-30T20:59:00-03:00",
+          "temperatureMin": "17.530375",
+          "temperatureMax": "35.524243",
+          "rain": "15",
+          "rainProbability": "88.426580",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-20T20:59:00-03:00",
+              "finish": "2022-11-21T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-31T20:59:00-03:00",
+          "temperatureMin": "17.845544",
+          "temperatureMax": "35.021786",
+          "rain": "3.959279",
+          "rainProbability": "70.042394",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-21T20:59:00-03:00",
+              "finish": "2022-11-22T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-01T20:59:00-03:00",
+          "temperatureMin": "18.356589",
+          "temperatureMax": "34.650007",
+          "rain": "6.732847",
+          "rainProbability": "73.202497",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-22T20:59:00-03:00",
+              "finish": "2022-11-23T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-02T20:59:00-03:00",
+          "temperatureMin": "18.773475",
+          "temperatureMax": "34.396016",
+          "rain": "14.196469",
+          "rainProbability": "88.194233",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-23T20:59:00-03:00",
+              "finish": "2022-11-24T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-03T20:59:00-03:00",
+          "temperatureMin": "18.620151",
+          "temperatureMax": "33.774099",
+          "rain": "13.662539",
+          "rainProbability": "88.905924",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-04T20:59:00-03:00",
+          "temperatureMin": "18.210293",
+          "temperatureMax": "33.572047",
+          "rain": "12.412722",
+          "rainProbability": "88.522957",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-05T20:59:00-03:00",
+          "temperatureMin": "18.343900",
+          "temperatureMax": "33.344953",
+          "rain": "9.724428",
+          "rainProbability": "78.959005",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-06T20:59:00-03:00",
+          "temperatureMin": "18.120143",
+          "temperatureMax": "33.741686",
+          "rain": "7.323094",
+          "rainProbability": "64.337168",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-07T20:59:00-03:00",
+          "temperatureAverage": "25.935400",
+          "temperatureMin": "16.040000",
+          "temperatureMax": "34.020000",
+          "relativeHumidity": "47.870883",
+          "solarIrradiation": "5891.280000",
+          "rain": "0.000846",
+          "windSpeed": "7.720417",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-08T20:59:00-03:00",
+          "temperatureAverage": "24.404933",
+          "temperatureMin": "17.530000",
+          "temperatureMax": "34.840000",
+          "relativeHumidity": "61.078901",
+          "solarIrradiation": "5221.260000",
+          "rain": "11.738356",
+          "windSpeed": "5.850000",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-09T20:59:00-03:00",
+          "temperatureAverage": "27.117441",
+          "temperatureMin": "19.780000",
+          "temperatureMax": "35.710000",
+          "relativeHumidity": "62.308797",
+          "solarIrradiation": "6205.680000",
+          "rain": "0.006642",
+          "windSpeed": "7.896667",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-10T20:59:00-03:00",
+          "temperatureAverage": "25.557855",
+          "temperatureMin": "19.910000",
+          "temperatureMax": "34.790000",
+          "relativeHumidity": "66.657278",
+          "solarIrradiation": "3761.880000",
+          "rain": "1.052895",
+          "windSpeed": "7.668333",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-11T20:59:00-03:00",
+          "temperatureAverage": "22.283375",
+          "temperatureMin": "17.480000",
+          "temperatureMax": "34.190000",
+          "relativeHumidity": "83.128566",
+          "solarIrradiation": "3727.200000",
+          "rain": "10.159982",
+          "windSpeed": "7.865833",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-12T20:59:00-03:00",
+          "temperatureAverage": "23.219969",
+          "temperatureMin": "17.470000",
+          "temperatureMax": "30.500000",
+          "relativeHumidity": "82.834497",
+          "solarIrradiation": "3875.160000",
+          "rain": "0.004573",
+          "windSpeed": "5.258750",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-13T20:59:00-03:00",
+          "temperatureAverage": "25.504175",
+          "temperatureMin": "19.300000",
+          "temperatureMax": "34.230000",
+          "relativeHumidity": "73.336837",
+          "solarIrradiation": "5700.240000",
+          "rain": "0.000000",
+          "windSpeed": "6.337500",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-14T20:59:00-03:00",
+          "temperatureAverage": "24.358846",
+          "temperatureMin": "20.120000",
+          "temperatureMax": "32.160000",
+          "relativeHumidity": "76.959206",
+          "solarIrradiation": "4795.920000",
+          "rain": "9.373776",
+          "windSpeed": "6.848333",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-15T20:59:00-03:00",
+          "temperatureAverage": "25.332393",
+          "temperatureMin": "20.670000",
+          "temperatureMax": "30.920000",
+          "relativeHumidity": "72.410291",
+          "solarIrradiation": "4188.120000",
+          "rain": "0.002880",
+          "windSpeed": "5.889583",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-16T20:59:00-03:00",
+          "temperatureAverage": "25.816397",
+          "temperatureMin": "17.950000",
+          "temperatureMax": "34.220000",
+          "relativeHumidity": "54.650150",
+          "solarIrradiation": "7191.600000",
+          "rain": "0.000000",
+          "windSpeed": "5.716667",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-17T10:17:07.032368-03:00",
+          "temperatureAverage": "22.693090",
+          "temperatureMin": "16.150000",
+          "temperatureMax": "30.460000",
+          "relativeHumidity": "54.492554",
+          "solarIrradiation": "2223.209111",
+          "rain": "0.000000",
+          "windSpeed": "5.207922",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-18T20:59:00-03:00",
+          "temperatureMin": "17.890157",
+          "temperatureMax": "36.595264",
+          "rain": "3.714013",
+          "rainProbability": "31.550386",
+          "rainPrediction": "U",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-18T20:59:00-03:00",
+              "finish": "2022-11-19T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-19T20:59:00-03:00",
+          "temperatureMin": "18.584852",
+          "temperatureMax": "35.746782",
+          "rain": "6.098865",
+          "rainProbability": "82.077283",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-19T20:59:00-03:00",
+              "finish": "2022-11-20T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-20T20:59:00-03:00",
+          "temperatureMin": "17.633900",
+          "temperatureMax": "35.992995",
+          "rain": "4.603604",
+          "rainProbability": "88.200197",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-20T20:59:00-03:00",
+              "finish": "2022-11-21T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-21T20:59:00-03:00",
+          "temperatureMin": "17.893561",
+          "temperatureMax": "35.445647",
+          "rain": "4.000000",
+          "rainProbability": "68.732002",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-21T20:59:00-03:00",
+              "finish": "2022-11-22T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-22T20:59:00-03:00",
+          "temperatureMin": "18.601701",
+          "temperatureMax": "35.039208",
+          "rain": "6.746213",
+          "rainProbability": "72.880077",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-22T20:59:00-03:00",
+              "finish": "2022-11-23T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-23T20:59:00-03:00",
+          "temperatureMin": "18.832766",
+          "temperatureMax": "34.919321",
+          "rain": "14.292626",
+          "rainProbability": "88.494493",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-23T20:59:00-03:00",
+              "finish": "2022-11-24T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-24T20:59:00-03:00",
+          "temperatureMin": "18.606439",
+          "temperatureMax": "34.218186",
+          "rain": "13.617051",
+          "rainProbability": "88.244712",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-25T20:59:00-03:00",
+          "temperatureMin": "18.184283",
+          "temperatureMax": "34.092995",
+          "rain": "12.415917",
+          "rainProbability": "88.472908",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-26T20:59:00-03:00",
+          "temperatureMin": "18.446779",
+          "temperatureMax": "33.711747",
+          "rain": "9.649817",
+          "rainProbability": "78.106094",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-27T20:59:00-03:00",
+          "temperatureMin": "18.126326",
+          "temperatureMax": "34.119321",
+          "rain": "7.356256",
+          "rainProbability": "64.068172",
+          "rainPrediction": "R",
+          "alerts": null
+        }
+      ]
+    },
+    {
+      "blockId": "F2986",
+      "name": "Fazenda Santa Lúcia",
+      "line": [
+        {
+          "date": "2022-10-28T20:59:00-03:00",
+          "temperatureAverage": "24.248028",
+          "temperatureMin": "18.114219",
+          "temperatureMax": "36.060316",
+          "relativeHumidity": "79.377291",
+          "solarIrradiation": "4982.041412",
+          "rain": "3.701584",
+          "windSpeed": "5.293100",
+          "rainProbability": "31.756896",
+          "rainPrediction": "U",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-18T20:59:00-03:00",
+              "finish": "2022-11-19T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-29T20:59:00-03:00",
+          "temperatureMin": "18.591910",
+          "temperatureMax": "35.093530",
+          "rain": "6.013287",
+          "rainProbability": "83.144873",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-19T20:59:00-03:00",
+              "finish": "2022-11-20T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-30T20:59:00-03:00",
+          "temperatureMin": "17.530375",
+          "temperatureMax": "35.524243",
+          "rain": "8",
+          "rainProbability": "88.426580",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-20T20:59:00-03:00",
+              "finish": "2022-11-21T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-10-31T20:59:00-03:00",
+          "temperatureMin": "17.845544",
+          "temperatureMax": "35.021786",
+          "rain": "3.959279",
+          "rainProbability": "70.042394",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-21T20:59:00-03:00",
+              "finish": "2022-11-22T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-01T20:59:00-03:00",
+          "temperatureMin": "18.356589",
+          "temperatureMax": "34.650007",
+          "rain": "6.732847",
+          "rainProbability": "73.202497",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-22T20:59:00-03:00",
+              "finish": "2022-11-23T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-02T20:59:00-03:00",
+          "temperatureMin": "18.773475",
+          "temperatureMax": "34.396016",
+          "rain": "14.196469",
+          "rainProbability": "88.194233",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-23T20:59:00-03:00",
+              "finish": "2022-11-24T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-03T20:59:00-03:00",
+          "temperatureMin": "18.620151",
+          "temperatureMax": "33.774099",
+          "rain": "13.662539",
+          "rainProbability": "88.905924",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-04T20:59:00-03:00",
+          "temperatureMin": "18.210293",
+          "temperatureMax": "33.572047",
+          "rain": "12.412722",
+          "rainProbability": "88.522957",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-05T20:59:00-03:00",
+          "temperatureMin": "18.343900",
+          "temperatureMax": "33.344953",
+          "rain": "9.724428",
+          "rainProbability": "78.959005",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-06T20:59:00-03:00",
+          "temperatureMin": "18.120143",
+          "temperatureMax": "33.741686",
+          "rain": "7.323094",
+          "rainProbability": "64.337168",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-07T20:59:00-03:00",
+          "temperatureAverage": "25.935400",
+          "temperatureMin": "16.040000",
+          "temperatureMax": "34.020000",
+          "relativeHumidity": "47.870883",
+          "solarIrradiation": "5891.280000",
+          "rain": "0.000846",
+          "windSpeed": "7.720417",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-08T20:59:00-03:00",
+          "temperatureAverage": "24.404933",
+          "temperatureMin": "17.530000",
+          "temperatureMax": "34.840000",
+          "relativeHumidity": "61.078901",
+          "solarIrradiation": "5221.260000",
+          "rain": "11.738356",
+          "windSpeed": "5.850000",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-09T20:59:00-03:00",
+          "temperatureAverage": "27.117441",
+          "temperatureMin": "19.780000",
+          "temperatureMax": "35.710000",
+          "relativeHumidity": "62.308797",
+          "solarIrradiation": "6205.680000",
+          "rain": "0.006642",
+          "windSpeed": "7.896667",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-10T20:59:00-03:00",
+          "temperatureAverage": "25.557855",
+          "temperatureMin": "19.910000",
+          "temperatureMax": "34.790000",
+          "relativeHumidity": "66.657278",
+          "solarIrradiation": "3761.880000",
+          "rain": "1.052895",
+          "windSpeed": "7.668333",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-11T20:59:00-03:00",
+          "temperatureAverage": "22.283375",
+          "temperatureMin": "17.480000",
+          "temperatureMax": "34.190000",
+          "relativeHumidity": "83.128566",
+          "solarIrradiation": "3727.200000",
+          "rain": "10.159982",
+          "windSpeed": "7.865833",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-12T20:59:00-03:00",
+          "temperatureAverage": "23.219969",
+          "temperatureMin": "17.470000",
+          "temperatureMax": "30.500000",
+          "relativeHumidity": "82.834497",
+          "solarIrradiation": "3875.160000",
+          "rain": "0.004573",
+          "windSpeed": "5.258750",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-13T20:59:00-03:00",
+          "temperatureAverage": "25.504175",
+          "temperatureMin": "19.300000",
+          "temperatureMax": "34.230000",
+          "relativeHumidity": "73.336837",
+          "solarIrradiation": "5700.240000",
+          "rain": "0.000000",
+          "windSpeed": "6.337500",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-14T20:59:00-03:00",
+          "temperatureAverage": "24.358846",
+          "temperatureMin": "20.120000",
+          "temperatureMax": "32.160000",
+          "relativeHumidity": "76.959206",
+          "solarIrradiation": "4795.920000",
+          "rain": "9.373776",
+          "windSpeed": "6.848333",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-15T20:59:00-03:00",
+          "temperatureAverage": "25.332393",
+          "temperatureMin": "20.670000",
+          "temperatureMax": "30.920000",
+          "relativeHumidity": "72.410291",
+          "solarIrradiation": "4188.120000",
+          "rain": "0.002880",
+          "windSpeed": "5.889583",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-16T20:59:00-03:00",
+          "temperatureAverage": "25.816397",
+          "temperatureMin": "17.950000",
+          "temperatureMax": "34.220000",
+          "relativeHumidity": "54.650150",
+          "solarIrradiation": "7191.600000",
+          "rain": "0.000000",
+          "windSpeed": "5.716667",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-17T10:17:07.032368-03:00",
+          "temperatureAverage": "22.693090",
+          "temperatureMin": "16.150000",
+          "temperatureMax": "30.460000",
+          "relativeHumidity": "54.492554",
+          "solarIrradiation": "2223.209111",
+          "rain": "0.000000",
+          "windSpeed": "5.207922",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-18T20:59:00-03:00",
+          "temperatureMin": "17.890157",
+          "temperatureMax": "36.595264",
+          "rain": "3.714013",
+          "rainProbability": "31.550386",
+          "rainPrediction": "U",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-18T20:59:00-03:00",
+              "finish": "2022-11-19T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-19T20:59:00-03:00",
+          "temperatureMin": "18.584852",
+          "temperatureMax": "35.746782",
+          "rain": "6.098865",
+          "rainProbability": "82.077283",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-19T20:59:00-03:00",
+              "finish": "2022-11-20T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-20T20:59:00-03:00",
+          "temperatureMin": "17.633900",
+          "temperatureMax": "35.992995",
+          "rain": "4.603604",
+          "rainProbability": "88.200197",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-20T20:59:00-03:00",
+              "finish": "2022-11-21T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-21T20:59:00-03:00",
+          "temperatureMin": "17.893561",
+          "temperatureMax": "35.445647",
+          "rain": "4.000000",
+          "rainProbability": "68.732002",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-21T20:59:00-03:00",
+              "finish": "2022-11-22T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-22T20:59:00-03:00",
+          "temperatureMin": "18.601701",
+          "temperatureMax": "35.039208",
+          "rain": "6.746213",
+          "rainProbability": "72.880077",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-22T20:59:00-03:00",
+              "finish": "2022-11-23T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-23T20:59:00-03:00",
+          "temperatureMin": "18.832766",
+          "temperatureMax": "34.919321",
+          "rain": "14.292626",
+          "rainProbability": "88.494493",
+          "rainPrediction": "R",
+          "alerts": [
+            {
+              "type": "frost",
+              "info": "none",
+              "level": 1,
+              "start": "2022-11-23T20:59:00-03:00",
+              "finish": "2022-11-24T20:59:00-03:00"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-24T20:59:00-03:00",
+          "temperatureMin": "18.606439",
+          "temperatureMax": "34.218186",
+          "rain": "13.617051",
+          "rainProbability": "88.244712",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-25T20:59:00-03:00",
+          "temperatureMin": "18.184283",
+          "temperatureMax": "34.092995",
+          "rain": "12.415917",
+          "rainProbability": "88.472908",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-26T20:59:00-03:00",
+          "temperatureMin": "18.446779",
+          "temperatureMax": "33.711747",
+          "rain": "9.649817",
+          "rainProbability": "78.106094",
+          "rainPrediction": "R",
+          "alerts": null
+        },
+        {
+          "date": "2022-11-27T20:59:00-03:00",
+          "temperatureMin": "18.126326",
+          "temperatureMax": "34.119321",
+          "rain": "7.356256",
+          "rainProbability": "64.068172",
+          "rainPrediction": "R",
+          "alerts": null
+        }
+      ]
+    },
+    {
+      "blockId": "B3217",
       "name": "Unidade padrão",
       "line": [
         {
