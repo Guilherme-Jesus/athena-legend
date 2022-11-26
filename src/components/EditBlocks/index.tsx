@@ -8,7 +8,7 @@ import '@nosferatu500/react-sortable-tree/style.css'
 
 import rewind from '@mapbox/geojson-rewind'
 import * as tj from '@mapbox/togeojson'
-import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap'
+import { Button } from 'reactstrap'
 
 import axios from 'axios'
 import { useCallback, useEffect, useState } from 'react'
@@ -36,7 +36,6 @@ const EditBlocks = () => {
 
   const [searchString, setSearchString] = useState<string>('')
   const [searchFocusIndex, setSearchFocusIndex] = useState<number>(0)
-  const [modal, setModal] = useState(false)
   const handleSearchStringChange = useCallback((event: any) => {
     setSearchString(event.target.value)
   }, [])
@@ -45,8 +44,6 @@ const EditBlocks = () => {
   const [blockDelete] = useDeleteBlocksMutation()
   const [createBlock] = useCreateBlocksMutation()
   const [updateBlock] = useUpdateBlocksMutation()
-
-  const toggle = () => setModal(!modal)
 
   const handleFileSelection = (event) => {
     const file = event.target.files[0] // get file
@@ -334,28 +331,15 @@ const EditBlocks = () => {
               >
                 Criar
               </Button>
-              <Button color="danger" onClick={toggle}>
-                Remover
+
+              <Button
+                color="primary"
+                onClick={() => {
+                  handleRemove(node.blockId)
+                }}
+              >
+                Excluir
               </Button>
-              <Modal isOpen={modal} toggle={toggle}>
-                <ModalHeader toggle={toggle}>
-                  Deseja realmente remover o bloco?
-                </ModalHeader>
-                <ModalBody>{node.name}</ModalBody>
-                <ModalFooter>
-                  <Button
-                    color="primary"
-                    onClick={() => {
-                      handleRemove(node.blockId)
-                    }}
-                  >
-                    Excluir
-                  </Button>
-                  <Button color="secondary" onClick={toggle}>
-                    Cancelar
-                  </Button>
-                </ModalFooter>
-              </Modal>
             </ButtonGroup>,
           ],
           title: (
