@@ -174,7 +174,7 @@ const EditBlocks = () => {
   )
 
   const handleCreateBlock = useCallback(
-    (node: any, path: number[]) => {
+    (node: any) => {
       createBlock({
         blockId: Math.random().toString(36),
         name: 'Nova Área',
@@ -191,34 +191,9 @@ const EditBlocks = () => {
           atmosphericPressure: Math.floor(Math.random() * 100),
         },
       }).unwrap()
-
-      const newBlocks = addNodeUnderParent({
-        treeData: someOnlineAdvice.treeData,
-        parentKey: path[path.length - 1],
-        expandParent: true,
-        getNodeKey: ({ treeIndex }) => treeIndex,
-        newNode: {
-          blockId: Math.random().toString(36),
-          name: 'Nova Área',
-          abrv: 'Editar Abreviação',
-          blockParent: node.blockId,
-          leafParent: false,
-          date: new Date(),
-          data: {
-            windSpeed: Math.floor(Math.random() * 100),
-            solarIrradiation: Math.floor(Math.random() * 100),
-            temperature: Math.floor(Math.random() * 100),
-            rain: Math.floor(Math.random() * 100),
-            relativeHumidity: Math.floor(Math.random() * 100),
-            atmosphericPressure: Math.floor(Math.random() * 100),
-          },
-        },
-        addAsFirstChild: true,
-      }).treeData as IListBlocks[]
-      console.log(newBlocks)
-      dispatch(changeBlocks(newBlocks))
+      dispatch(changeBlocks(blocksData))
     },
-    [createBlock, someOnlineAdvice.treeData, dispatch],
+    [createBlock, dispatch, blocksData],
   )
 
   const handleChangeName = useCallback(
@@ -363,7 +338,7 @@ const EditBlocks = () => {
               <Button
                 variant="primary"
                 onClick={() => {
-                  handleCreateBlock(node, path)
+                  handleCreateBlock(node)
                 }}
               >
                 Criar
