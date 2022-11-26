@@ -161,25 +161,20 @@ const EditBlocks = () => {
   }
 
   const handleRemove = useCallback(
-    (path: number[], blockId: string) => {
-      const newBlocks = removeNodeAtPath({
-        treeData: someOnlineAdvice.treeData,
-        path,
-        getNodeKey: ({ treeIndex }) => treeIndex,
-      }) as IListBlocks[]
-      dispatch(changeBlocks(newBlocks))
+    (blockId: string) => {
       blockDelete(blockId)
+      dispatch(changeBlocks(blocksData))
     },
-    [blockDelete, dispatch, someOnlineAdvice.treeData],
+    [blockDelete, blocksData, dispatch],
   )
 
   const handleCreateBlock = useCallback(
-    (node: any) => {
+    (blockId: string) => {
       createBlock({
         blockId: Math.random().toString(36),
         name: 'Nova Área',
         abrv: 'Editar Abreviação',
-        blockParent: node.blockId,
+        blockParent: blockId,
         leafParent: true,
         date: new Date(),
         data: {
@@ -338,7 +333,7 @@ const EditBlocks = () => {
               <Button
                 variant="primary"
                 onClick={() => {
-                  handleCreateBlock(node)
+                  handleCreateBlock(node.blockId)
                 }}
               >
                 Criar
@@ -346,7 +341,7 @@ const EditBlocks = () => {
               <Button
                 variant="secondary"
                 onClick={() => {
-                  handleRemove(path, node.blockId)
+                  handleRemove(node.blockId)
                 }}
               >
                 Remover
