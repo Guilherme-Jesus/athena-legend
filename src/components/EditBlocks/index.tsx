@@ -344,6 +344,17 @@ const EditBlocks = () => {
                       bounds: arrayCoords(feature.id),
                       centroid: arrayCentroid(feature.id),
                     })
+                    axios.post(`http://localhost:7010/historical/`, {
+                      blockId: feature.id,
+                      name: feature.properties.name,
+                      abrv: feature.properties.name,
+                      blockParent: node.blockId,
+                      leafParent: false,
+                      date: node.date,
+                      data: node.data,
+                      bounds: arrayCoords(feature.id),
+                      centroid: arrayCentroid(feature.id),
+                    })
                   })
                 }}
               >

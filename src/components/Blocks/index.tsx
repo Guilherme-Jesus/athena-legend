@@ -222,55 +222,51 @@ const Blocks: React.FC<BlocksProps> = ({
             ))}
           </div>
         ) : (
-          blocks
-            .sort((a, b) => a.name.localeCompare(b.name))
-            .map((block) => (
-              <div
-                key={block.blockId}
-                role="button"
-                className={`block${
-                  block.blockId === currentBlockId ? ' active' : ''
-                } rounded-1 d-flex flex-column p-2`}
-                onClick={() =>
-                  handleBlockClick(block.blockId, block.leafParent)
-                }
-              >
-                {block.blockId === currentBlockId ? (
-                  <>
-                    <p className="block--header lh-1 mb-0">{block.name}</p>
-                    <ul className="block--body list-unstyled mb-0">
-                      <li className="d-flex align-items-baseline mt-1">
-                        {displayRain(block.data.rain)}
-                      </li>
-                      <li className="d-flex align-items-baseline mt-1">
-                        {displayTemperature(block.data.temperature)}
-                      </li>
-                      <li className="d-flex align-items-baseline mt-1">
-                        {displayRelativeHumidity(block.data.relativeHumidity)}
-                      </li>
-                      <li className="d-flex align-items-baseline mt-1">
-                        {displayAtmosphericPressure(
-                          block.data.atmosphericPressure,
-                        )}
-                      </li>
-                      <li className="d-flex align-items-baseline mt-1">
-                        {displayWindSpeed(block.data.windSpeed)}
-                      </li>
-                      <li className="d-flex align-items-baseline mt-1">
-                        {displaySolarIrradiation(block.data.solarIrradiation)}
-                      </li>
-                    </ul>
-                  </>
-                ) : (
-                  <div className="block--header lh-1 d-flex flex-column gap-1">
-                    <span className="text-truncate w-100">{block.name}</span>
-                    <span className="d-flex align-items-baseline">
+          blocks.map((block) => (
+            <div
+              key={block.blockId}
+              role="button"
+              className={`block${
+                block.blockId === currentBlockId ? ' active' : ''
+              } rounded-1 d-flex flex-column p-2`}
+              onClick={() => handleBlockClick(block.blockId, block.leafParent)}
+            >
+              {block.blockId === currentBlockId ? (
+                <>
+                  <p className="block--header lh-1 mb-0">{block.name}</p>
+                  <ul className="block--body list-unstyled mb-0">
+                    <li className="d-flex align-items-baseline mt-1">
                       {displayRain(block.data.rain)}
-                    </span>
-                  </div>
-                )}
-              </div>
-            ))
+                    </li>
+                    <li className="d-flex align-items-baseline mt-1">
+                      {displayTemperature(block.data.temperature)}
+                    </li>
+                    <li className="d-flex align-items-baseline mt-1">
+                      {displayRelativeHumidity(block.data.relativeHumidity)}
+                    </li>
+                    <li className="d-flex align-items-baseline mt-1">
+                      {displayAtmosphericPressure(
+                        block.data.atmosphericPressure,
+                      )}
+                    </li>
+                    <li className="d-flex align-items-baseline mt-1">
+                      {displayWindSpeed(block.data.windSpeed)}
+                    </li>
+                    <li className="d-flex align-items-baseline mt-1">
+                      {displaySolarIrradiation(block.data.solarIrradiation)}
+                    </li>
+                  </ul>
+                </>
+              ) : (
+                <div className="block--header lh-1 d-flex flex-column gap-1">
+                  <span className="text-truncate w-100">{block.name}</span>
+                  <span className="d-flex align-items-baseline">
+                    {displayRain(block.data.rain)}
+                  </span>
+                </div>
+              )}
+            </div>
+          ))
         )}
       </div>
     </ScrollContainer>

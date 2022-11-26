@@ -53,23 +53,48 @@ export type IForecast = {
   present?: IPastAndPresent
 }
 
-type ILineAlerts = {
+// type ILineAlerts = {
+//   finish: Date
+//   info: string
+//   level: number
+//   start: Date
+//   type: string
+// }
+
+// export type ILine = IPastAndPresent &
+//   IFuture & {
+//     alerts: ILineAlerts[] | null
+//   }
+
+// export type ITimeline = {
+//   blockId: string
+//   line: ILine[]
+//   name: string
+// }
+export interface Alert {
   finish: Date
   info: string
   level: number
   start: Date
   type: string
 }
-
-export type ILine = IPastAndPresent &
-  IFuture & {
-    alerts: ILineAlerts[] | null
-  }
-
-export type ITimeline = {
+export interface ILine {
+  date: Date
+  temperatureMax: number
+  temperatureMin: number
+  rain: number
+  rainPrediction: string
+  rainProbability: number
+  alerts: Alert[]
+  relativeHumidity: number
+  solarIrradiation: number
+  temperatureAverage: number
+  windSpeed: number
+}
+export interface ITimeline {
   blockId: string
-  line: ILine[]
   name: string
+  line: ILine[]
 }
 export interface StyleMapHash {
   normal: string
