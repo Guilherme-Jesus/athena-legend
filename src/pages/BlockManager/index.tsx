@@ -28,6 +28,7 @@ import './edit.scss'
 // Icones
 import { MdSearch } from 'react-icons/md'
 import RemoveBlocks from '../../components/Blocks/RemoveBlocks'
+import CreateBlock from '../../components/Blocks/CreateBlock'
 
 const EditBlocks = () => {
   const [bounds, setBounds] = useState<Root>()
@@ -41,7 +42,6 @@ const EditBlocks = () => {
   }, [])
 
   const { data: blocksData } = useGetBlocksQuery()
-  // const [blockDelete] = useDeleteBlocksMutation()
   const [createBlock] = useCreateBlocksMutation()
   const [updateBlock] = useUpdateBlocksMutation()
 
@@ -153,14 +153,6 @@ const EditBlocks = () => {
     dispatch(changeBlocks(treeData))
   }
 
-  // const handleRemove = useCallback(
-  //   (blockId: string) => {
-  //     blockDelete(blockId)
-  //     dispatch(changeBlocks(blocksData))
-  //   },
-  //   [blockDelete, blocksData, dispatch],
-  // )
-
   const handleCreateBlock = useCallback(
     (blockId: string) => {
       createBlock({
@@ -179,9 +171,8 @@ const EditBlocks = () => {
           atmosphericPressure: Math.floor(Math.random() * 100),
         },
       }).unwrap()
-      dispatch(changeBlocks(blocksData))
     },
-    [createBlock, dispatch, blocksData],
+    [createBlock],
   )
 
   const handleChangeName = useCallback(
@@ -335,6 +326,11 @@ const EditBlocks = () => {
                 blockId={node.blockId}
                 name={node.name}
                 blockParent={node.blockParent}
+              />
+              <CreateBlock
+                blockId={node.blockId}
+                data={node.data}
+                date={node.date}
               />
             </ButtonGroup>,
           ],
