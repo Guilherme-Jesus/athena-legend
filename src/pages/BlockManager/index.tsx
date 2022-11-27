@@ -337,11 +337,7 @@ const EditBlocks = () => {
                 name={node.name}
                 blockParent={node.blockParent}
               />
-              <CreateBlock
-                blockId={node.blockId}
-                data={node.data}
-                date={node.date}
-              />
+              <CreateBlock blockId={node.blockId} />
             </ButtonGroup>,
           ],
           title: (

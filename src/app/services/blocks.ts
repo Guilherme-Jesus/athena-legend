@@ -1,5 +1,5 @@
-import { IListBlocks, IListBlocksLeaf } from './../../types/index'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
+import { IListBlocks } from './../../types/index'
 
 export const blocksApi = createApi({
   reducerPath: 'blocksApi',
@@ -18,23 +18,6 @@ export const blocksApi = createApi({
 
       providesTags: ['Blocks'],
     }),
-    createBlockHistorical: builder.mutation<IListBlocksLeaf, IListBlocksLeaf>({
-      query: (body) => ({
-        url: '/historical',
-        method: 'POST',
-        body,
-      }),
-      invalidatesTags: ['Blocks'],
-    }),
-    createBlockLeaf: builder.mutation<IListBlocksLeaf, IListBlocksLeaf>({
-      query: (body) => ({
-        url: '/blockLeaf',
-        method: 'POST',
-        body,
-      }),
-      invalidatesTags: ['Blocks'],
-    }),
-
     createBlocks: builder.mutation<IListBlocks, IListBlocks>({
       // propriedade mutation é a url que será chamada para criar um usuário novo, é usado mutation porque é uma alteração no banco de dados
       query: (user) => ({
@@ -68,6 +51,4 @@ export const {
   useCreateBlocksMutation,
   useUpdateBlocksMutation,
   useDeleteBlocksMutation,
-  useCreateBlockHistoricalMutation,
-  useCreateBlockLeafMutation,
 } = blocksApi
