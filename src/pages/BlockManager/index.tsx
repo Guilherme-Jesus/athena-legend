@@ -234,6 +234,39 @@ const EditBlocks = () => {
     },
     [bounds],
   )
+
+  const handleCreateKml = useCallback(
+    (blockId: string) => {
+      bounds.features.forEach((feature) => {
+        const newLeaf = {
+          blockId: feature.id,
+          name: feature.properties.name,
+          abrv: feature.properties.name,
+          blockParent: blockId,
+          leafParent: true,
+          date: new Date(),
+          data: {
+            windSpeed: Math.floor(Math.random() * 100),
+            solarIrradiation: Math.floor(Math.random() * 100),
+            temperature: Math.floor(Math.random() * 100),
+            rain: Math.floor(Math.random() * 100),
+            relativeHumidity: Math.floor(Math.random() * 100),
+            atmosphericPressure: Math.floor(Math.random() * 100),
+          },
+          bounds: arrayCoords(feature.id),
+          centroid: arrayCentroid(feature.id),
+        }
+        axios.post(`http://localhost:7010/blockLeaf/`, {
+          ...newLeaf,
+        })
+        axios.post(`http://localhost:7010/historical/`, {
+          ...newLeaf,
+        })
+      })
+    },
+    [arrayCentroid, arrayCoords, bounds],
+  )
+
   return (
     <div className="containerEdit">
       <div>
@@ -286,30 +319,7 @@ const EditBlocks = () => {
               <input type="file" onChange={handleFileSelection} />
               <Button
                 onClick={() => {
-                  bounds.features.forEach((feature) => {
-                    axios.post(`http://localhost:7010/blockLeaf/`, {
-                      blockId: feature.id,
-                      name: feature.properties.name,
-                      abrv: feature.properties.name,
-                      blockParent: node.blockId,
-                      leafParent: false,
-                      date: node.date,
-                      data: node.data,
-                      bounds: arrayCoords(feature.id),
-                      centroid: arrayCentroid(feature.id),
-                    })
-                    axios.post(`http://localhost:7010/historical/`, {
-                      blockId: feature.id,
-                      name: feature.properties.name,
-                      abrv: feature.properties.name,
-                      blockParent: node.blockId,
-                      leafParent: false,
-                      date: node.date,
-                      data: node.data,
-                      bounds: arrayCoords(feature.id),
-                      centroid: arrayCentroid(feature.id),
-                    })
-                  })
+                  handleCreateKml(node.blockId)
                 }}
               >
                 Upload
