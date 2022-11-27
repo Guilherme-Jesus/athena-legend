@@ -96,7 +96,7 @@ function CreateBlock({ blockId }: Props) {
           name: feature.properties.name,
           abrv: feature.properties.name,
           blockParent: blockId,
-          leafParent: true,
+          leafParent: false,
           date: new Date(),
           data: {
             windSpeed: Math.floor(Math.random() * 100),
