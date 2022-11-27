@@ -11,7 +11,6 @@ import { Button } from 'reactstrap'
 import { useCallback, useEffect, useState } from 'react'
 import { ButtonGroup, FormControl, InputGroup } from 'react-bootstrap'
 import {
-  useCreateBlocksMutation,
   useGetBlocksQuery,
   useUpdateBlocksMutation,
 } from '../../app/services/blocks'
@@ -38,7 +37,6 @@ const EditBlocks = () => {
   }, [])
 
   const { data: blocksData } = useGetBlocksQuery()
-  const [createBlock] = useCreateBlocksMutation()
   const [updateBlock] = useUpdateBlocksMutation()
 
   useEffect(() => {
@@ -89,13 +87,9 @@ const EditBlocks = () => {
 
   const handleSave = useCallback(() => {
     flatData.forEach((block) => {
-      if (block.blockId === '0') {
-        createBlock(block as IListBlocks)
-      } else {
-        updateBlock(block as IListBlocks)
-      }
+      updateBlock(block as IListBlocks)
     })
-  }, [createBlock, flatData, updateBlock])
+  }, [flatData, updateBlock])
 
   const onChange = (treeData: IListBlocks[]) => {
     dispatch(changeBlocks(treeData))
