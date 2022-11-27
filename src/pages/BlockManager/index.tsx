@@ -168,6 +168,11 @@ const EditBlocks = () => {
         searchFocusOffset={searchFocusIndex}
         treeData={someOnlineAdvice.treeData}
         canDrag={({ node }) => node.blockParent !== '0'}
+        onDragStateChanged={({ isDragging }) => {
+          if (!isDragging) {
+            handleSave()
+          }
+        }}
         onChange={onChange}
         searchFinishCallback={(matches) =>
           setSearchFocusIndex(
