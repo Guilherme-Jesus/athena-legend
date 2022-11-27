@@ -427,7 +427,7 @@ const Map: React.FC<MapProps> = ({
   const getLegendTemplate = useCallback(
     (sensorName: string, unit: string, grades: number[]): string => {
       let template = `<div class='my-legend'>
-    <div class='legend-title'>${sensorName}</div>
+    <div class='legend-title'>${sensorName} (${unit.trim()})</div>
     <div class='legend-scale'>
       <ul class='legend-labels'>`
       grades.forEach(
