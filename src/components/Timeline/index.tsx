@@ -360,7 +360,7 @@ export const Timeline = (): React.ReactElement => {
   }, [daysToShow, timelineData])
 
   return (
-    <div className="timeline-container position-relative">
+    <div className="timeline-container">
       {timeline.length === 0 ? (
         <div
           className="p-3 overflow-hidden h-100"
