@@ -7,7 +7,7 @@ import { Login } from './pages/Login'
 import PrivateRoute from './config/AuthRoute/PrivateRoute'
 import InnerContent from './components/InnerContent'
 import PublicRoutes from './config/AuthRoute/PublicRoute'
-import EditBlocks from './components/EditBlocks'
+import EditBlocks from './pages/BlockManager'
 import { Provider } from 'react-redux'
 import store from './app/store'
 

@@ -40,6 +40,7 @@
     "react-leaflet": "^4.1.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.3",
+    "reactstrap": "^9.1.5",
     "sass": "^1.56.1",
     "swiper": "^8.4.4"
   },
