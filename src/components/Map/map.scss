@@ -3,8 +3,11 @@
 .map-container {
   background-color: #eee;
   border-radius: calc(var(--spacer) / 2) 0 0 calc(var(--spacer) / 2);
-  grid-area: main;
-  overflow: hidden;
+  display: flex;
+  width: 91em;
+  height: 40rem;
+  border-radius: 4px;
+
   &:not(.map-loading) {
     border-radius: calc(var(--spacer) / 2);
     position: relative;

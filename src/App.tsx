@@ -87,13 +87,16 @@ const App: React.FC = (): React.ReactElement => {
       </div>
 
       <div className="MapTimeline">
-        <Timeline
-          timelineData={timelineData}
-          timeline={timeline}
-          setTimeline={setTimeline}
-        />
-
-        <Map blockLeaves={blockLeaves} currentBlockId={currentBlockId} />
+        <div className="map">
+          <Map blockLeaves={blockLeaves} currentBlockId={currentBlockId} />
+        </div>
+        <div className="timeline">
+          <Timeline
+            timelineData={timelineData}
+            timeline={timeline}
+            setTimeline={setTimeline}
+          />
+        </div>
       </div>
     </div>
   )
