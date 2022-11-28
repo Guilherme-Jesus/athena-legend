@@ -78,26 +78,19 @@ const App: React.FC = (): React.ReactElement => {
 
   return (
     <div className="App">
-      <div className="blocksApp">
-        <Blocks
-          blocks={blocks}
-          currentBlockId={currentBlockId}
-          handleBlockClick={handleBlockClick}
-        />
-      </div>
+      <Blocks
+        blocks={blocks}
+        currentBlockId={currentBlockId}
+        handleBlockClick={handleBlockClick}
+      />
 
-      <div className="MapTimeline">
-        <div className="map">
-          <Map blockLeaves={blockLeaves} currentBlockId={currentBlockId} />
-        </div>
-        <div className="timeline">
-          <Timeline
-            timelineData={timelineData}
-            timeline={timeline}
-            setTimeline={setTimeline}
-          />
-        </div>
-      </div>
+      <Timeline
+        timelineData={timelineData}
+        timeline={timeline}
+        setTimeline={setTimeline}
+      />
+
+      <Map blockLeaves={blockLeaves} currentBlockId={currentBlockId} />
     </div>
   )
 }

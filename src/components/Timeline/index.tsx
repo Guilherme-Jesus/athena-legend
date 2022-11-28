@@ -366,7 +366,7 @@ export const Timeline = ({
   }, [daysToShow, timelineData])
 
   return (
-    <div className="timeline-container">
+    <div className="timeline-container position-relative">
       {line.length === 0 ? (
         <div
           className="p-3 overflow-hidden h-100"
