@@ -2,35 +2,39 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import './timeline.scss'
 
-import React, { memo, useCallback, useEffect, useState } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Keyboard, Mousewheel, Navigation } from 'swiper'
 import { format, isAfter, isBefore, isToday } from 'date-fns'
+import React, { memo, useCallback, useEffect, useState } from 'react'
+import { Keyboard, Mousewheel, Navigation } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { apiFake } from '../../hooks/useRequestData'
-import { ILine } from '../../types'
+import { ILine, ITimeline } from '../../types'
 import { dataUnit, displayAlertName, displayData } from '../utils'
 
 import Button from 'react-bootstrap/Button'
 
-export const Timeline = (): React.ReactElement => {
-  const [showPrependButton, setShowPrependButton] = useState<boolean>(false)
-  const [timelineData, setTimelineData] = useState<ILine[]>([])
-  const [timeline, setTimeline] = useState<ILine[]>([])
-  const [daysToShow, setDaysToShow] = useState<number>(21) // 10 + hoje + 10
+interface ITimelineProps {
+  timelineData: ITimeline[]
+  timeline: ITimeline[]
+  setTimeline: React.Dispatch<React.SetStateAction<ITimeline[]>>
+}
 
-  useEffect(() => {
-    apiFake
-      .get('/timeline')
-      .then((response) => setTimelineData(response.data[0].line))
-      .catch((error: any) => console.log(error))
-  }, [])
+export const Timeline = ({
+  timelineData,
+  timeline,
+  setTimeline,
+}: ITimelineProps): React.ReactElement => {
+  const [showPrependButton, setShowPrependButton] = useState<boolean>(false)
+  const [daysToShow, setDaysToShow] = useState<number>(21) // 10 + hoje + 10
+  const [line, setLine] = useState<ILine[]>([])
 
   useEffect(
-    () => setTimeline(timelineData.slice(-Math.abs(daysToShow))),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [timelineData],
+    () =>
+      timelineData.forEach((item) => {
+        setLine(item.line.slice(-Math.abs(daysToShow) - 1))
+      }),
+    [timelineData, daysToShow],
   )
+  console.log(line)
 
   const dayContainerClasses = useCallback((item: ILine): string => {
     let classes = 'day-container rounded-1 d-flex flex-column p-2'
@@ -355,13 +359,15 @@ export const Timeline = (): React.ReactElement => {
   )
 
   const handlePrependDays = useCallback(() => {
-    setTimeline(timelineData.slice(-Math.abs(daysToShow) - 1))
-    setDaysToShow(-Math.abs(daysToShow) - 1)
+    timelineData.forEach((item) => {
+      setLine(item.line.slice(-Math.abs(daysToShow) - 1))
+      setDaysToShow(-Math.abs(daysToShow) - 1)
+    })
   }, [daysToShow, timelineData])
 
   return (
     <div className="timeline-container position-relative">
-      {timeline.length === 0 ? (
+      {line.length === 0 ? (
         <div
           className="p-3 overflow-hidden h-100"
           tabIndex={0}
@@ -388,7 +394,7 @@ export const Timeline = (): React.ReactElement => {
         <Swiper
           modules={[Keyboard, Mousewheel, Navigation]}
           slidesPerView={'auto'}
-          initialSlide={timeline.length / 4 + 1} // ???
+          initialSlide={line.length / 4 + 1} // ???
           spaceBetween={16}
           keyboard={{ enabled: true }}
           mousewheel={true}
@@ -397,7 +403,7 @@ export const Timeline = (): React.ReactElement => {
           onReachBeginning={() => setShowPrependButton(true)}
           className="px-5 py-3 h-100"
         >
-          {showPrependButton && timeline.length < timelineData.length && (
+          {showPrependButton && timeline.length < line.length && (
             <SwiperSlide className="day-container rounded-1 d-flex">
               <Button
                 variant="link"
@@ -408,7 +414,7 @@ export const Timeline = (): React.ReactElement => {
               </Button>
             </SwiperSlide>
           )}
-          {timeline.map((day, index) => (
+          {line.map((day, index) => (
             <SwiperSlide key={index} className={dayContainerClasses(day)}>
               {displayDate(day.date)}
               {displayRain(day)}
@@ -420,44 +426,6 @@ export const Timeline = (): React.ReactElement => {
                       key={alertIndex}
                       className="alert-container d-flex flex-column justify-content-center h-100"
                     >
-                      {/* <svg
-                        viewBox="0 0 64 64"
-                        width="48"
-                        height="48"
-                        className="mb-1 mx-auto"
-                      >
-                        <g fill="var(--bs-dark)">
-                          <path d="M13,34.6c0.1,0.3,3.5,8.1,8.8,10.9c1.5,0.8,3.1,1.2,4.7,1.2c1.2,0,2.4-0.2,3.6-0.6V62h3.8V46.1c1.2,0.4,2.4,0.6,3.6,0.6 c1.7,0,3.3-0.4,4.7-1.2c5.3-2.8,8.7-10.6,8.8-10.9c0.4-1,0-2.1-1-2.5c-0.1-0.1-0.3-0.1-0.4-0.1c-0.4-0.1-8.7-1.5-14,1.3 c-1.5,0.8-2.7,1.9-3.6,3.3c-0.9-1.4-2.2-2.5-3.6-3.3c-5.3-2.8-13.6-1.4-14-1.3c-1,0.2-1.7,1.2-1.5,2.2C12.9,34.3,12.9,34.4,13,34.6z  M37.4,36.6c2.6-1.4,6.4-1.4,8.9-1.2c-1.3,2.4-3.5,5.5-6,6.8c-2.6,1.4-5.2,0.5-6.5-0.1C34.1,40.6,34.8,38,37.4,36.6z M26.6,36.6 c2.6,1.4,3.3,4,3.5,5.4c-1.3,0.6-3.8,1.5-6.4,0.1c-2.6-1.4-4.7-4.6-5.9-6.8C20.2,35.2,24,35.2,26.6,36.6z" />
-                          <g fillOpacity={0.5}>
-                            <circle cx={31.8} cy={12.9} r={1.2} />
-                            <circle cx={34.3} cy={17.7} r={1.2} />
-                            <circle cx={31.8} cy={22.4} r={1.2} />
-                            <circle cx={29.4} cy={17.7} r={1.2} />
-                            <circle cx={27} cy={22.4} r={1.2} />
-                            <circle cx={36.7} cy={22.4} r={1.2} />
-                            <circle cx={31.8} cy={8} r={1.2} />
-                            <circle cx={29.4} cy={27.5} r={1.2} />
-                            <circle cx={24.5} cy={27.5} r={1.2} />
-                            <circle cx={34.3} cy={27.5} r={1.2} />
-                            <circle cx={39.2} cy={27.5} r={1.2} />
-                          </g>
-                        </g>
-                        <line
-                          stroke="var(--bs-red)"
-                          strokeWidth={4}
-                          x1={52.5}
-                          y1={11.5}
-                          x2={11.5}
-                          y2={52.5}
-                        />
-                        <circle
-                          fill="none"
-                          stroke="var(--bs-red)"
-                          strokeWidth={4}
-                          r={30}
-                          transform="translate(32, 32)"
-                        />
-                      </svg> */}
                       <svg
                         viewBox="0 0 512 512"
                         width="32"

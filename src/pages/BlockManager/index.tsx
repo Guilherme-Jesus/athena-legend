@@ -1,25 +1,30 @@
 import SortableTree, {
-  addNodeUnderParent,
   changeNodeAtPath,
   getFlatDataFromTree,
   getTreeFromFlatData,
-  removeNodeAtPath,
   toggleExpandedForAll,
 } from '@nosferatu500/react-sortable-tree'
 import '@nosferatu500/react-sortable-tree/style.css'
 
+import { Button } from 'reactstrap'
+
 import { useCallback, useEffect, useState } from 'react'
-import { Button, ButtonGroup, FormControl, InputGroup } from 'react-bootstrap'
+import { ButtonGroup, FormControl, InputGroup } from 'react-bootstrap'
 import {
-  useCreateBlocksMutation,
-  useDeleteBlocksMutation,
   useGetBlocksQuery,
   useUpdateBlocksMutation,
 } from '../../app/services/blocks'
 import { changeBlocks } from '../../features/blocks/blockSlice'
 import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelector'
 import { IListBlocks } from '../../types'
-import KmlReader from './KmlReader'
+
+// Estilo
+import './edit.scss'
+
+// Icones
+import { MdSearch } from 'react-icons/md'
+import CreateBlock from '../../components/Blocks/CreateBlock'
+import RemoveBlocks from '../../components/Blocks/RemoveBlocks'
 
 const EditBlocks = () => {
   const { blocks } = useAppSelector((state) => state.blockSlice)
@@ -32,8 +37,6 @@ const EditBlocks = () => {
   }, [])
 
   const { data: blocksData } = useGetBlocksQuery()
-  const [blockDelete] = useDeleteBlocksMutation()
-  const [createBlock] = useCreateBlocksMutation()
   const [updateBlock] = useUpdateBlocksMutation()
 
   useEffect(() => {
@@ -84,78 +87,13 @@ const EditBlocks = () => {
 
   const handleSave = useCallback(() => {
     flatData.forEach((block) => {
-      if (block.blockId === '0') {
-        createBlock(block as IListBlocks)
-      } else {
-        updateBlock(block as IListBlocks)
-      }
+      updateBlock(block as IListBlocks)
     })
-  }, [createBlock, flatData, updateBlock])
+  }, [flatData, updateBlock])
 
   const onChange = (treeData: IListBlocks[]) => {
     dispatch(changeBlocks(treeData))
   }
-
-  const handleRemove = useCallback(
-    (path: number[], blockId: string) => {
-      const newBlocks = removeNodeAtPath({
-        treeData: someOnlineAdvice.treeData,
-        path,
-        getNodeKey: ({ treeIndex }) => treeIndex,
-      }) as IListBlocks[]
-      dispatch(changeBlocks(newBlocks))
-      blockDelete(blockId)
-    },
-    [blockDelete, dispatch, someOnlineAdvice.treeData],
-  )
-
-  const handleCreateBlock = useCallback(
-    (node: any, path: number[]) => {
-      createBlock({
-        blockId: Math.random().toString(36),
-        name: 'Nova Área',
-        abrv: 'Editar Abreviação',
-        blockParent: node.blockId,
-        leafParent: false,
-        date: new Date(),
-        data: {
-          windSpeed: Math.floor(Math.random() * 100),
-          solarIrradiation: Math.floor(Math.random() * 100),
-          temperature: Math.floor(Math.random() * 100),
-          rain: Math.floor(Math.random() * 100),
-          relativeHumidity: Math.floor(Math.random() * 100),
-          atmosphericPressure: Math.floor(Math.random() * 100),
-        },
-      }).unwrap()
-
-      const newBlocks = addNodeUnderParent({
-        treeData: someOnlineAdvice.treeData,
-        parentKey: path[path.length - 1],
-        expandParent: true,
-        getNodeKey: ({ treeIndex }) => treeIndex,
-        newNode: {
-          blockId: Math.random().toString(36),
-          name: 'Nova Área',
-          abrv: 'Editar Abreviação',
-          blockParent: node.blockId,
-          leafParent: false,
-          date: new Date(),
-          data: {
-            windSpeed: Math.floor(Math.random() * 100),
-            solarIrradiation: Math.floor(Math.random() * 100),
-            temperature: Math.floor(Math.random() * 100),
-            rain: Math.floor(Math.random() * 100),
-            relativeHumidity: Math.floor(Math.random() * 100),
-            atmosphericPressure: Math.floor(Math.random() * 100),
-          },
-        },
-        addAsFirstChild: true,
-      }).treeData as IListBlocks[]
-      console.log(newBlocks)
-      dispatch(changeBlocks(newBlocks))
-    },
-    [createBlock, someOnlineAdvice.treeData, dispatch],
-  )
 
   const handleChangeName = useCallback(
     (path: number[], node: any, e: any) => {
@@ -184,41 +122,51 @@ const EditBlocks = () => {
   )
 
   return (
-    <div style={{ height: 800, width: '100%' }}>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginBottom: 10,
-        }}
-      >
+    <div className="containerEdit">
+      <div>
         {blocks.length > 0 && (
-          <div>
-            <Button onClick={expandAll}>Expandir</Button>
-            <Button onClick={collapseAll}>Recolher</Button>
-            <Button
-              onClick={() => {
-                handleSave()
-              }}
-            >
-              Salvar
-            </Button>
+          <div className="headerContainer">
+            <span className="textHeader">Gerencie seus Blocos:</span>
+            <div className="searchContainer">
+              <input
+                type="text"
+                value={searchString}
+                onChange={handleSearchStringChange}
+                placeholder="Pesquisar por fazendas"
+                className="inputSearch"
+              />
+              <MdSearch size={20} />
+            </div>
+            <div className="buttonsContainer">
+              <Button onClick={expandAll} className="buttonHeader">
+                Expandir
+              </Button>
+              <Button onClick={collapseAll} className="buttonHeader">
+                Recolher
+              </Button>
+              <Button
+                onClick={() => {
+                  handleSave()
+                }}
+                className="buttonHeader"
+              >
+                Salvar
+              </Button>
+            </div>
           </div>
         )}
       </div>
-      <div>
-        <input
-          type="text"
-          value={searchString}
-          onChange={handleSearchStringChange}
-          placeholder="Pesquisar"
-        />
-      </div>
+
       <SortableTree
         searchQuery={searchString}
         searchFocusOffset={searchFocusIndex}
         treeData={someOnlineAdvice.treeData}
+        canDrag={({ node }) => node.blockParent !== '0'}
+        onDragStateChanged={({ isDragging }) => {
+          if (!isDragging) {
+            handleSave()
+          }
+        }}
         onChange={onChange}
         searchFinishCallback={(matches) =>
           setSearchFocusIndex(
@@ -228,23 +176,12 @@ const EditBlocks = () => {
         generateNodeProps={({ node, path }) => ({
           buttons: [
             <ButtonGroup key={node.blockId}>
-              <KmlReader />
-              <Button
-                variant="primary"
-                onClick={() => {
-                  handleCreateBlock(node, path)
-                }}
-              >
-                Criar
-              </Button>
-              <Button
-                variant="secondary"
-                onClick={() => {
-                  handleRemove(path, node.blockId)
-                }}
-              >
-                Remover
-              </Button>
+              <RemoveBlocks
+                blockId={node.blockId}
+                name={node.name}
+                blockParent={node.blockParent}
+              />
+              <CreateBlock blockId={node.blockId} />
             </ButtonGroup>,
           ],
           title: (

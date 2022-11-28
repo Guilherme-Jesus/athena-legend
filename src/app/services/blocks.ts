@@ -1,5 +1,5 @@
-import { IListBlocks } from './../../types/index'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
+import { IListBlocks } from './../../types/index'
 
 export const blocksApi = createApi({
   reducerPath: 'blocksApi',
@@ -46,7 +46,6 @@ export const blocksApi = createApi({
     }),
   }),
 })
-
 export const {
   useGetBlocksQuery,
   useCreateBlocksMutation,
