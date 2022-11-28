@@ -86,20 +86,15 @@ const App: React.FC = (): React.ReactElement => {
         />
       </div>
 
-<<<<<<< HEAD
-      <Timeline
-        timelineData={timelineData}
-        timeline={timeline}
-        setTimeline={setTimeline}
-      />
-
-      <Map blockLeaves={blockLeaves} currentBlockId={currentBlockId} />
-=======
       <div className="MapTimeline">
-        <Timeline />
+        <Timeline
+          timelineData={timelineData}
+          timeline={timeline}
+          setTimeline={setTimeline}
+        />
+
         <Map blockLeaves={blockLeaves} currentBlockId={currentBlockId} />
       </div>
->>>>>>> feature/design
     </div>
   )
 }
