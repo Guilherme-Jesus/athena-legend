@@ -67,20 +67,20 @@
       inset: 0; // calc(var(--spacer) * 3.375) 0 var(--spacer); // pra quando tiver campo de busca
       position: sticky;
       z-index: 1;
-      .block--header {
-        // margin-right: calc(var(--spacer) * -0.5);
-        // margin-left: calc(var(--spacer) * -0.5);
-        // padding-right: calc(var(--spacer) * 0.5);
-        // padding-bottom: calc(var(--spacer) * 0.5);
-        // padding-left: calc(var(--spacer) * 0.5);
-        position: relative;
-        &::after {
-          border-bottom: 1px solid rgba(var(--bs-dark-rgb), 0.1);
-          content: "";
-          inset: auto 0 0;
-          position: absolute;
-        }
-      }
+      // .block--header {
+      //   // margin-right: calc(var(--spacer) * -0.5);
+      //   // margin-left: calc(var(--spacer) * -0.5);
+      //   // padding-right: calc(var(--spacer) * 0.5);
+      //   // padding-bottom: calc(var(--spacer) * 0.5);
+      //   // padding-left: calc(var(--spacer) * 0.5);
+      //   position: relative;
+      //   &::after {
+      //     border-bottom: 1px solid rgba(var(--bs-dark-rgb), 0.1);
+      //     content: "";
+      //     inset: auto 0 0;
+      //     position: absolute;
+      //   }
+      // }
       // .block--header {
       //   color: var(--bs-white);
       // }
@@ -94,15 +94,15 @@
       // .block--body__unit {
       //   color: rgba(var(--bs-white-rgb), 0.6);
       // }
-      &::after {
-        border: (var(--active-element-outline-width)) solid var(--bs-primary);
-        border-radius: var(--bs-border-radius);
-        content: "";
-        inset: calc(var(--active-element-outline-width) * -1);
-        pointer-events: none;
-        position: absolute;
-        z-index: 1;
-      }
+      // &::after {
+      //   border: (var(--active-element-outline-width)) solid var(--bs-primary);
+      //   border-radius: var(--bs-border-radius);
+      //   content: "";
+      //   inset: calc(var(--active-element-outline-width) * -1);
+      //   pointer-events: none;
+      //   position: absolute;
+      //   z-index: 1;
+      // }
     }
   }
 }
@@ -113,7 +113,7 @@
 
   line-height: 1;
   margin-bottom: 0;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 20px;
 }
 
@@ -122,31 +122,57 @@
   position: sticky;
 
   inset: 0;
-  width: 26rem;
+  width: 22rem;
   height: max-content;
   z-index: 1;
   border-radius: 4px;
   border: 1px solid #e0e1e2;
   background-color: #fff;
   margin-top: 16px;
+  transition: 0.5s ease-in;
   &:hover{
     border: 1px solid #FF7F2F;
   }
 }
 
+.headerCardOpen{
+  display: flex;
+  align-items: baseline;
+}
+
 .itemsContainer {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
 
   // className="block--body list-unstyled mb-0"
 }
 
+
+.itemsHeader{
+  display: flex;
+  color: #C4C5C7;
+}
+
 .itemsWeather {
   display: flex;
-  align-items: baseline;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 1px;
+  line-height: 1;
 
   // d-flex align-items-baseline mt-1
+}
+.itemCardInside{
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+  margin-bottom: 16px;
+}
+
+.itensCards{
+  display: flex;
+  font-size: 12px;
 }
 
 //Blocos Fechados
@@ -156,24 +182,25 @@
   line-height: 1;
   border: 1px solid #e0e1e2;
   border-radius: 4px;
-  height: 7rem;
-  width: 26rem;
+  height: 5rem;
+  width: 22rem;
   padding: 6px;
   margin-right: 6px;
-  margin-top:  16px;
+  margin-top:  8px;
 
   .headerCardClosedInside {
     display: flex;
     text-overflow: ellipsis;
-    font-size: 24px;
+    font-size: 20px;
 
     // className="text-truncate w-100"
   }
   .infoCardClosed {
     display: flex;
-    font-size: 18px;
+    font-size: 14px;
     margin-top: 6px;
-    color: #c4c5c7;
+    color: #C4C5C7;
+    transition: 0.8s ease-in-out;
 
     // className="d-flex align-items-baseline"
   }
@@ -227,3 +254,19 @@
   // width: var(--spacer);
 }
 
+.separator{
+  display: flex;
+  border: 1px solid #999;
+  margin: 8px 8px 8px 8px;
+
+}
+
+.blockAreas{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  font-size: 12px;
+  color: #FF7F2F;
+  padding-right: 8px;
+  padding-bottom: 8px;
+}

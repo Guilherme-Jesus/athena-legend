@@ -4,9 +4,10 @@
   background-color: #eee;
   border-radius: calc(var(--spacer) / 2) 0 0 calc(var(--spacer) / 2);
   display: flex;
-  width: 91em;
-  height: 40rem;
+  width: 94rem;
+  height: 41rem;
   border-radius: 4px;
+  
 
   &:not(.map-loading) {
     border-radius: calc(var(--spacer) / 2);

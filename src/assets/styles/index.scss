@@ -145,30 +145,30 @@ body {
 //   }
 // }
 
-a,
-.btn-link {
-  color: #ffffff;
-  font-weight: 400;
-  text-decoration: inherit;
-  // text-underline-offset: 0.25rem;
-  &:hover {
-    color: var(--bs-primary-dark);
-  }
-  &:not(.no-external)[rel*="noopener"] {
-    padding-right: 0.625rem;
-    position: relative;
-    &::after {
-      background: url("../src/assets/images/ico-external-href.svg") no-repeat
-        center / contain;
-      content: "";
-      height: 0.5rem;
-      position: absolute;
-      right: 0;
-      top: 0.25rem;
-      width: 0.5rem;
-    }
-  }
-}
+// a,
+// .btn-link {
+//   color: #ffffff;
+//   font-weight: 400;
+//   text-decoration: inherit;
+//   // text-underline-offset: 0.25rem;
+//   &:hover {
+//     color: var(--bs-primary-dark);
+//   }
+//   &:not(.no-external)[rel*="noopener"] {
+//     padding-right: 0.625rem;
+//     position: relative;
+//     &::after {
+//       background: url("../src/assets/images/ico-external-href.svg") no-repeat
+//         center / contain;
+//       content: "";
+//       height: 0.5rem;
+//       position: absolute;
+//       right: 0;
+//       top: 0.25rem;
+//       width: 0.5rem;
+//     }
+//   }
+// }
 
 // @media (prefers-color-scheme: light) {
 //   :root {
@@ -219,9 +219,9 @@ a,
 
 // @import "bootstrap";
 
-#root {
-  height: 100vh;
-}
+// #root {
+//   height: 100vh;
+// }
 
 // _formitems.scss
 // a {
@@ -278,9 +278,9 @@ label {
 //   }
 // }
 
-.btn {
-  border-radius: var(--bs-border-radius-sm);
-}
+// .btn {
+//   border-radius: var(--bs-border-radius-sm);
+// }
 
 // .btn-primary {
 //   --bs-btn-color: var(--bs-white);
