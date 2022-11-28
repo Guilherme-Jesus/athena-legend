@@ -1,6 +1,5 @@
 .timeline-container {
   background-color: var(--bs-light);
-  grid-area: timeline;
   overflow: hidden;
   .day-container {
     background-image: linear-gradient(var(--bs-white), var(--bs-gray-400));
@@ -10,7 +9,6 @@
         rgba(var(--bs-black-rgb), 0.15),
       0 calc(var(--spacer) * 0.75) var(--spacer) rgba(var(--bs-black-rgb), 0.1);
     flex-basis: calc(var(--spacer) * 7.5);
-    position: relative;
     text-shadow: 0 1px 1px rgba(var(--bs-dark-rgb), 0.3);
     text-align: center;
     &:hover {

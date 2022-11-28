@@ -366,8 +366,13 @@ export const Timeline = ({
   }, [daysToShow, timelineData])
 
   return (
+<<<<<<< HEAD
     <div className="timeline-container position-relative">
       {line.length === 0 ? (
+=======
+    <div className="timeline-container">
+      {timeline.length === 0 ? (
+>>>>>>> feature/design
         <div
           className="p-3 overflow-hidden h-100"
           tabIndex={0}

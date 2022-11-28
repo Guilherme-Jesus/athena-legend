@@ -31,10 +31,17 @@ import { IListBlocks, Root } from '../../types'
 import axios from 'axios'
 
 // Estilo
-import './edit.scss'
+import './styles/editHeader.scss'
+import './styles/droppable.scss'
 
 // Icones
-import { MdSearch } from 'react-icons/md'
+import {
+  Trash,
+  MagnifyingGlass,
+  NotePencil,
+  UploadSimple,
+  FileSearch,
+} from 'phosphor-react'
 
 const EditBlocks = () => {
   const [bounds, setBounds] = useState<Root>()
@@ -281,6 +288,7 @@ const EditBlocks = () => {
     [bounds],
   )
   return (
+    // Header
     <div className="containerEdit">
       <div>
         {blocks.length > 0 && (
@@ -294,7 +302,7 @@ const EditBlocks = () => {
                 placeholder="Pesquisar por fazendas"
                 className="inputSearch"
               />
-              <MdSearch size={20} />
+              <MagnifyingGlass size={24} />
             </div>
             <div className="buttonsContainer">
               <Button onClick={expandAll} className="buttonHeader">
@@ -315,8 +323,9 @@ const EditBlocks = () => {
           </div>
         )}
       </div>
-
+      {/* Droppable */}
       <SortableTree
+        className="droppable"
         searchQuery={searchString}
         searchFocusOffset={searchFocusIndex}
         treeData={someOnlineAdvice.treeData}
@@ -329,8 +338,15 @@ const EditBlocks = () => {
         generateNodeProps={({ node, path }) => ({
           buttons: [
             <ButtonGroup key={node.blockId}>
-              <input type="file" onChange={handleFileSelection} />
-              <Button
+              <input
+                id="input-file"
+                type="file"
+                onChange={handleFileSelection}
+                className="inputFile"
+              />
+
+              <button
+                className="buttonBody"
                 onClick={() => {
                   bounds.features.forEach((feature) => {
                     axios.post(`http://localhost:7010/blockLeaf/`, {
@@ -358,29 +374,30 @@ const EditBlocks = () => {
                   })
                 }}
               >
-                Upload
-              </Button>
-              <Button
-                variant="primary"
+                <UploadSimple size={20} alt="Upload" />
+              </button>
+              <button
+                className="buttonBody"
                 onClick={() => {
                   handleCreateBlock(node, path)
                 }}
               >
-                Criar
-              </Button>
-              <Button
-                variant="secondary"
+                <NotePencil size={20} alt="Criar" />
+              </button>
+              <button
+                className="buttonBody"
                 onClick={() => {
                   handleRemove(path, node.blockId)
                 }}
               >
-                Remover
-              </Button>
+                <Trash size={20} alt="Excluir" />
+              </button>
             </ButtonGroup>,
           ],
           title: (
-            <InputGroup>
-              <FormControl
+            <div className="inputFormFarm">
+              <input
+                className="inputFarm"
                 placeholder="Nome"
                 aria-label="Nome"
                 aria-describedby="basic-addon1"
@@ -389,7 +406,8 @@ const EditBlocks = () => {
                   handleChangeName(path, node, e)
                 }}
               />
-              <FormControl
+              <input
+                className="inputAbrv"
                 placeholder="Abreviação"
                 aria-label="Abreviação"
                 aria-describedby="basic-addon1"
@@ -398,7 +416,7 @@ const EditBlocks = () => {
                   handleChangeAbrv(path, node, e)
                 }}
               />
-            </InputGroup>
+            </div>
           ),
         })}
       />

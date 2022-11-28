@@ -6,6 +6,7 @@ import { Scrollbars as ScrollContainer } from 'react-custom-scrollbars-2'
 
 import { IListBlocks } from '../../types'
 import { dataUnit, displayData } from '../utils'
+import PartlyCloud from '../../assets/images/partyCloud.svg'
 
 type BlocksProps = {
   blocks: IListBlocks[]
@@ -20,47 +21,43 @@ const Blocks: React.FC<BlocksProps> = ({
 }): React.ReactElement => {
   const [isLoadingBlocks, setIsLoadingBlocks] = useState<boolean>(false)
 
-  const displayRain = useCallback(
-    (rain: number): React.ReactElement => (
-      <>
-        <svg
-          className="block--body__icon"
-          viewBox="0 0 64 64"
-          aria-hidden="true"
-        >
-          <path d="M53.2,38H10.8C4.8,38,0,33.3,0,27.6c0-4.8,3.4-8.9,8.1-10.1c1.7-6.9,8.3-11.7,15.8-11.4c3.5-3.9,8.6-6.2,14-6.2 c5.4,0,10.5,2.2,14,6.1c3,3.3,4.5,7.3,4.6,11.6c4.4,1.4,7.5,5.3,7.5,9.9C64,33.3,59.2,38,53.2,38z M23.1,10.1 c-5.6,0-10.6,4-11.3,9.4l-0.2,1.6l-1.6,0.2C6.6,21.6,4,24.3,4,27.6c0,3.5,3.1,6.4,6.8,6.4h42.4c3.7,0,6.8-2.9,6.8-6.4 c0-3.2-2.5-5.9-5.8-6.3L52.3,21l0.2-1.9c0.4-3.8-0.9-7.4-3.5-10.3C46.2,5.8,42.2,4,37.9,4c-4.6,0-8.8,2-11.6,5.5l-0.7,0.9l-1.1-0.1 C24,10.2,23.6,10.1,23.1,10.1z" />
-          <path d="M33.7,40.6c-1-0.4-2,0.2-2.4,1.1l-6.1,16.6c-0.4,1,0.1,2.1,1.1,2.4c1,0.4,2-0.2,2.4-1.1L34.8,43C35.2,42,34.7,41,33.7,40.6z" />
-          <path d="M23.9,40.6c-1-0.4-2,0.2-2.4,1.1l-2.2,6c-0.4,1,0.1,2.1,1.1,2.4c1,0.4,2-0.2,2.4-1.1l2.2-6C25.4,42,24.9,41,23.9,40.6z" />
-          <path d="M38.9,53.4c-1-0.4-2,0.2-2.4,1.1l-2.5,7c-0.3,1,0.2,2.1,1.1,2.4s2-0.2,2.4-1.1l2.5-7C40.3,54.8,39.8,53.7,38.9,53.4z" />
-          <path d="M43.5,40.6c-1-0.4-2,0.2-2.4,1.1L39,47.5c-0.3,1,0.2,2.1,1.1,2.4s2-0.2,2.4-1.1l2.1-5.7C45,42,44.5,41,43.5,40.6z" />
-        </svg>
-        <div>
-          <span className="block--body__data h5 mb-0">
-            {displayData(rain, 1)}
-          </span>
-          <span className="block--body__unit">{dataUnit.rain}</span>
-        </div>
-      </>
-    ),
-    [],
-  )
+  // const displayRain = useCallback(
+  //   (rain: number): React.ReactElement => (
+  //     <div className="infoCardRain">
+  //       <svg
+  //         className="iconsCardsWeather"
+  //         viewBox="0 0 64 64"
+  //         aria-hidden="true"
+  //       >
+  //         <path d="M53.2,38H10.8C4.8,38,0,33.3,0,27.6c0-4.8,3.4-8.9,8.1-10.1c1.7-6.9,8.3-11.7,15.8-11.4c3.5-3.9,8.6-6.2,14-6.2 c5.4,0,10.5,2.2,14,6.1c3,3.3,4.5,7.3,4.6,11.6c4.4,1.4,7.5,5.3,7.5,9.9C64,33.3,59.2,38,53.2,38z M23.1,10.1 c-5.6,0-10.6,4-11.3,9.4l-0.2,1.6l-1.6,0.2C6.6,21.6,4,24.3,4,27.6c0,3.5,3.1,6.4,6.8,6.4h42.4c3.7,0,6.8-2.9,6.8-6.4 c0-3.2-2.5-5.9-5.8-6.3L52.3,21l0.2-1.9c0.4-3.8-0.9-7.4-3.5-10.3C46.2,5.8,42.2,4,37.9,4c-4.6,0-8.8,2-11.6,5.5l-0.7,0.9l-1.1-0.1 C24,10.2,23.6,10.1,23.1,10.1z" />
+  //         <path d="M33.7,40.6c-1-0.4-2,0.2-2.4,1.1l-6.1,16.6c-0.4,1,0.1,2.1,1.1,2.4c1,0.4,2-0.2,2.4-1.1L34.8,43C35.2,42,34.7,41,33.7,40.6z" />
+  //         <path d="M23.9,40.6c-1-0.4-2,0.2-2.4,1.1l-2.2,6c-0.4,1,0.1,2.1,1.1,2.4c1,0.4,2-0.2,2.4-1.1l2.2-6C25.4,42,24.9,41,23.9,40.6z" />
+  //         <path d="M38.9,53.4c-1-0.4-2,0.2-2.4,1.1l-2.5,7c-0.3,1,0.2,2.1,1.1,2.4s2-0.2,2.4-1.1l2.5-7C40.3,54.8,39.8,53.7,38.9,53.4z" />
+  //         <path d="M43.5,40.6c-1-0.4-2,0.2-2.4,1.1L39,47.5c-0.3,1,0.2,2.1,1.1,2.4s2-0.2,2.4-1.1l2.1-5.7C45,42,44.5,41,43.5,40.6z" />
+  //       </svg>
+  //       <div>
+  //         <span className="infoCardsOpen">{displayData(rain, 1)}</span>
+  //         <span className="infoBodyCard">{dataUnit.rain}</span>
+  //       </div>
+  //     </div>
+  //   ),
+  //   [],
+  // )
 
   const displayTemperature = useCallback(
     (temperature: number): React.ReactElement => {
       return (
         <>
           <svg
-            className="block--body__icon"
+            className="iconsCardsWeather"
             viewBox="0 0 290 290"
             aria-hidden="true"
           >
             <path d="M144.998,0.004 c-4.318,0-8.636,1.117-12.5,3.348c-7.728,4.462-12.5,12.727-12.5,21.65l0.164,182.652c-15.904,10.584-23.605,30.141-18.674,48.826 c5.195,19.686,23.025,33.461,43.385,33.518c20.359,0.056,38.266-13.619,43.57-33.275c5.038-18.669-2.549-38.364-18.418-49.051 l-0.025-182.676c-0.001-8.923-4.773-17.187-12.5-21.648C153.637,1.117,149.319,0,145.001,0L144.998,0.004z M144.998,10.002 c2.588,0,5.176,0.672,7.5,2.014c4.648,2.684,7.5,7.623,7.5,12.99v5h-5c-6.762-0.096-6.762,10.096,0,10H160v10h-5.004 c-6.762-0.096-6.762,10.096,0,10h5.006v10h-5.006c-6.762-0.096-6.762,10.096,0,10h5.008l0.019,130.264 c0,1.785,0.952,3.435,2.498,4.328c13.729,7.941,20.402,24.203,16.266,39.527c-4.137,15.33-18.01,25.925-33.889,25.881 c-15.878-0.044-29.692-10.718-33.744-26.07c-4.052-15.353,2.697-31.451,16.486-39.324c1.56-0.891,2.523-2.549,2.521-4.346 l-0.166-185.264c0-5.365,2.853-10.303,7.5-12.986c2.324-1.342,4.912-2.014,7.5-2.014H144.998z M144.922,91.498 c-2.759,0.042-4.963,2.311-4.924,5.07v129.098c-8.821,2.278-14.989,10.229-15,19.34c0,11.046,8.954,20,20,20l0,0 c11.046,0,20-8.954,20-20l0,0c-0.007-9.114-6.175-17.071-15-19.35V96.568c0.039-2.761-2.168-5.031-4.93-5.07 C145.02,91.497,144.971,91.497,144.922,91.498z" />
           </svg>
           <div>
-            <span className="block--body__data h5 mb-0">
-              {displayData(temperature, 1)}
-            </span>
-            <span className="block--body__unit">{dataUnit.temperature}</span>
+            <span className="infoCardsOpen">{displayData(temperature, 1)}</span>
+            <span className="infoBodyCard">{dataUnit.temperature}</span>
           </div>
         </>
       )
@@ -72,7 +69,7 @@ const Blocks: React.FC<BlocksProps> = ({
     (relativeHumidity: number): React.ReactElement => (
       <>
         <svg
-          className="block--body__icon"
+          className="iconsCardsWeather"
           viewBox="0 0 512 512"
           aria-hidden="true"
         >
@@ -80,10 +77,8 @@ const Blocks: React.FC<BlocksProps> = ({
           <path d="M135,271.8c0-17.6,5.7-32.3,17-44c11.4-11.7,25.8-17.5,43.5-17.5c14.2,0,25.2,3.6,32.8,10.9c7.6,7.3,11.4,17.8,11.4,31.5 c0,7.5-1.5,15.6-4.6,24.4c-3,8.8-7.2,16.4-12.5,22.9c-5.6,7-12.2,12.2-19.7,15.6c-7.5,3.5-16,5.2-25.3,5.2 c-13.7,0-24.3-4.4-31.6-13.1C138.7,299.1,135,287.1,135,271.8z M197.5,262.4c0-9-0.8-15.8-2.3-20.5c-1.5-4.7-3.7-7-6.6-7 c-3.9,0-7,2.8-9.2,8.5c-2.2,5.7-3.3,13.3-3.3,23c0,8.3,0.9,15.3,2.8,21.1c1.9,5.8,4.4,8.6,7.6,8.6c3.6,0,6.3-3,8.1-8.9 C196.6,281.4,197.5,273.1,197.5,262.4z M279.4,205.7c6.3,1,12.6,3.3,19.1,6.7c6.4,3.5,12.1,7.8,17,12.8 c-13.6,31.5-28.4,62.8-44.6,93.8c-16.2,31-35.4,64.7-57.6,101.2c-5.4-1.2-10.4-2.9-15-5.2c-4.6-2.3-9.2-5.4-14-9.3 c20.3-34.6,39.1-69.8,56.2-105.7C257.6,264.1,270.6,232.7,279.4,205.7z M272.3,365.9c0-17.6,5.7-32.3,17-44 c11.4-11.7,25.8-17.5,43.5-17.5c14.2,0,25.2,3.6,32.8,10.9c7.6,7.3,11.4,17.8,11.4,31.5c0,7.5-1.5,15.6-4.6,24.4 c-3,8.8-7.2,16.4-12.5,22.9c-5.6,7-12.2,12.2-19.7,15.6c-7.5,3.5-16,5.2-25.3,5.2c-13.7,0-24.3-4.4-31.6-13.1 C276,393.1,272.3,381.1,272.3,365.9z M334.8,356.5c0-9-0.8-15.8-2.3-20.5c-1.5-4.7-3.7-7-6.6-7c-3.9,0-7,2.8-9.2,8.5 c-2.2,5.7-3.3,13.3-3.3,23c0,8.3,0.9,15.3,2.8,21.1c1.9,5.8,4.4,8.6,7.6,8.6c3.6,0,6.3-3,8.1-8.9 C333.9,375.5,334.8,367.1,334.8,356.5z" />
         </svg>
         <div>
-          <span className="block--body__data h5 mb-0">
-            {displayData(relativeHumidity)}
-          </span>
-          <span className="block--body__unit">{dataUnit.relativeHumidity}</span>
+          <span className="infoCardsOpen">{displayData(relativeHumidity)}</span>
+          <span className="infoBodyCard">{dataUnit.relativeHumidity}</span>
         </div>
       </>
     ),
@@ -95,7 +90,7 @@ const Blocks: React.FC<BlocksProps> = ({
       return (
         <>
           <svg
-            className="block--body__icon"
+            className="iconsCardsWeather"
             viewBox="0 0 512 512"
             aria-hidden="true"
           >
@@ -115,11 +110,11 @@ const Blocks: React.FC<BlocksProps> = ({
             </g>
           </svg>
           <div>
-            <span className="block--body__data h5 mb-0">
+            <span className="infoCardsOpen">
               {displayData(atmosphericPressure, 1)}
             </span>
             {atmosphericPressure !== undefined && (
-              <span className="block--body__unit">
+              <span className="infoBodyCard">
                 {dataUnit.atmosphericPressure}
               </span>
             )}
@@ -137,7 +132,7 @@ const Blocks: React.FC<BlocksProps> = ({
       return (
         <>
           <svg
-            className="block--body__icon"
+            className="iconsCardsWeather"
             viewBox="0 0 512 512"
             aria-hidden="true"
           >
@@ -148,11 +143,11 @@ const Blocks: React.FC<BlocksProps> = ({
             <path d="M0,181.3c0,8.3,6.6,15,15,15h20.2c8.3,0,15-6.6,15-15c0-8.3-6.6-15-15-15H15C6.6,166.3,0,173,0,181.3z" />
           </svg>
           <div>
-            <span className="block--body__data h5 mb-0">
+            <span className="infoCardsOpen">
               {hasSpeed ? displayData(windSpeed, 1) : '--'}
             </span>
             {hasSpeed && (
-              <span className="block--body__unit">{dataUnit.windSpeed}</span>
+              <span className="infoBodyCard">{dataUnit.windSpeed}</span>
             )}
           </div>
         </>
@@ -165,7 +160,7 @@ const Blocks: React.FC<BlocksProps> = ({
     (solarIrradiation?: number): React.ReactElement => (
       <>
         <svg
-          className="block--body__icon"
+          className="iconsCardsWeather"
           viewBox="0 0 512 512"
           aria-hidden="true"
         >
@@ -182,11 +177,9 @@ const Blocks: React.FC<BlocksProps> = ({
           </g>
         </svg>
         <div>
-          <span className="block--body__data h5 mb-0">
-            {displayData(solarIrradiation)}
-          </span>
+          <span className="infoCardsOpen">{displayData(solarIrradiation)}</span>
           {solarIrradiation !== undefined && (
-            <span className="block--body__unit">{dataUnit.solarRadiation}</span>
+            <span className="infoBodyCard">{dataUnit.solarRadiation}</span>
           )}
         </div>
       </>
@@ -197,8 +190,11 @@ const Blocks: React.FC<BlocksProps> = ({
   useEffect(() => setIsLoadingBlocks(blocks.length === 0), [blocks.length])
 
   return (
-    <ScrollContainer autoHide className="blocks-container">
-      <div className="d-flex flex-column gap-3 px-3 pb-3">
+    <ScrollContainer
+      autoHide
+      style={{ height: '90vh', width: '60rem', marginLeft: '24px' }}
+    >
+      <div>
         {isLoadingBlocks ? (
           <div
             className="d-flex flex-column gap-3"
@@ -222,51 +218,60 @@ const Blocks: React.FC<BlocksProps> = ({
             ))}
           </div>
         ) : (
-          blocks.map((block) => (
-            <div
-              key={block.blockId}
-              role="button"
-              className={`block${
-                block.blockId === currentBlockId ? ' active' : ''
-              } rounded-1 d-flex flex-column p-2`}
-              onClick={() => handleBlockClick(block.blockId, block.leafParent)}
-            >
-              {block.blockId === currentBlockId ? (
-                <>
-                  <p className="block--header lh-1 mb-0">{block.name}</p>
-                  <ul className="block--body list-unstyled mb-0">
-                    <li className="d-flex align-items-baseline mt-1">
-                      {displayRain(block.data.rain)}
-                    </li>
-                    <li className="d-flex align-items-baseline mt-1">
-                      {displayTemperature(block.data.temperature)}
-                    </li>
-                    <li className="d-flex align-items-baseline mt-1">
-                      {displayRelativeHumidity(block.data.relativeHumidity)}
-                    </li>
-                    <li className="d-flex align-items-baseline mt-1">
-                      {displayAtmosphericPressure(
-                        block.data.atmosphericPressure,
-                      )}
-                    </li>
-                    <li className="d-flex align-items-baseline mt-1">
-                      {displayWindSpeed(block.data.windSpeed)}
-                    </li>
-                    <li className="d-flex align-items-baseline mt-1">
-                      {displaySolarIrradiation(block.data.solarIrradiation)}
-                    </li>
-                  </ul>
-                </>
-              ) : (
-                <div className="block--header lh-1 d-flex flex-column gap-1">
-                  <span className="text-truncate w-100">{block.name}</span>
-                  <span className="d-flex align-items-baseline">
-                    {displayRain(block.data.rain)}
-                  </span>
-                </div>
-              )}
-            </div>
-          ))
+          blocks
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .map((block) => (
+              <div
+                key={block.blockId}
+                role="button"
+                className={`block${
+                  block.blockId === currentBlockId ? ' activeCard' : ''
+                }`}
+                onClick={() =>
+                  handleBlockClick(block.blockId, block.leafParent)
+                }
+              >
+                {block.blockId === currentBlockId ? (
+                  <>
+                    <p className="nameFarm">{block.name}</p>
+                    <ul className="itemsContainer">
+                      <li className="itemsWeather">{block.data.rain}mm</li>
+                      <li className="itemsWeather">
+                        {displayTemperature(block.data.temperature)}
+                      </li>
+                      <li className="itemsWeather">
+                        {displayRelativeHumidity(block.data.relativeHumidity)}
+                      </li>
+                      <li className="itemsWeather">
+                        {displayAtmosphericPressure(
+                          block.data.atmosphericPressure,
+                        )}
+                      </li>
+                      <li className="itemsWeather">
+                        {displayWindSpeed(block.data.windSpeed)}
+                      </li>
+                      <li className="itemsWeather">
+                        {displaySolarIrradiation(block.data.solarIrradiation)}
+                      </li>
+                    </ul>
+                  </>
+                ) : (
+                  <div className="headerCardClosed">
+                    <div>
+                      <img src={PartlyCloud} alt="" className="iconCards" />
+                    </div>
+                    <div>
+                      <span className="headerCardClosedInside">
+                        {block.name}
+                      </span>
+                      <span className="infoCardClosed">
+                        {block.data.rain}mm
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))
         )}
       </div>
     </ScrollContainer>

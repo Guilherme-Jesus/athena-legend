@@ -78,12 +78,15 @@ const App: React.FC = (): React.ReactElement => {
 
   return (
     <div className="App">
-      <Blocks
-        blocks={blocks}
-        currentBlockId={currentBlockId}
-        handleBlockClick={handleBlockClick}
-      />
+      <div className="blocksApp">
+        <Blocks
+          blocks={blocks}
+          currentBlockId={currentBlockId}
+          handleBlockClick={handleBlockClick}
+        />
+      </div>
 
+<<<<<<< HEAD
       <Timeline
         timelineData={timelineData}
         timeline={timeline}
@@ -91,6 +94,12 @@ const App: React.FC = (): React.ReactElement => {
       />
 
       <Map blockLeaves={blockLeaves} currentBlockId={currentBlockId} />
+=======
+      <div className="MapTimeline">
+        <Timeline />
+        <Map blockLeaves={blockLeaves} currentBlockId={currentBlockId} />
+      </div>
+>>>>>>> feature/design
     </div>
   )
 }

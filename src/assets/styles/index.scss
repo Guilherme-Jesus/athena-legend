@@ -109,7 +109,7 @@ $font-family-sans-serif: "Roboto Condensed", Inter, Avenir, Helvetica, Arial,
   --cubic-bezier: cubic-bezier(0.47, 1.64, 0.41, 0.8);
   --spacer: 16px;
   --active-element-outline-width: 2px;
-
+  
   // -moz-osx-font-smoothing: grayscale;
   // -webkit-font-smoothing: antialiased;
   // -webkit-text-size-adjust: 100%;
@@ -120,6 +120,8 @@ $font-family-sans-serif: "Roboto Condensed", Inter, Avenir, Helvetica, Arial,
   // font-synthesis: none;
   // text-rendering: optimizeLegibility;
 }
+
+
 
 html {
   font-size: 16px;
@@ -132,6 +134,7 @@ body {
   cursor: default;
   min-height: 100vh;
   min-width: 320px;
+  background-color: #F5F6F6;
 
   @include noselect;
 }

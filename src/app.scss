@@ -1,17 +1,33 @@
 .App {
-  --nav-link-size: calc(0px);
+  display: flex;
+  overflow-y: hidden;
+  
+  // flex-direction: column;
+  .blocksApp{
+    display: flex;
+    height: 90vh;
+    width: 28rem;
+ 
+  }
 
-  display: grid;
-  grid-template-areas:  "nav header header"
-                        "nav blocks main"
-                        "nav blocks timeline";
-  grid-template-columns:  var(--nav-link-size)
-                          calc(var(--spacer) * 14)
-                          auto;
-  grid-template-rows: calc(12px)
-                      auto
-                      calc(var(--spacer) * 15);
-  min-height: 92vh;
+  .MapTimeline{
+    display: flex;
+    flex-direction: column;
+  }
+  // --nav-link-size: calc(0px);
+
+
+  // display: grid;
+  // grid-template-areas:  "nav header header"
+  //                       "nav blocks main"
+  //                       "nav blocks timeline";
+  // grid-template-columns:  var(--nav-link-size)
+  //                         calc(var(--spacer) * 27)
+  //                         auto;
+  // grid-template-rows: calc(12px)
+  //                     auto
+  //                     calc(var(--spacer) * 15);
+  // min-height: 92vh;
 
   
 
@@ -28,3 +44,4 @@
     // CSS do mapa está dentro do próprio componente
   } */
 }
+
