@@ -2,18 +2,14 @@
   --nav-link-size: calc(0px);
 
   display: grid;
-  grid-template-areas:  "nav header header"
-                        "nav blocks main"
-                        "nav blocks timeline";
-  grid-template-columns:  var(--nav-link-size)
-                          calc(var(--spacer) * 14)
-                          auto;
-  grid-template-rows: calc(12px)
-                      auto
-                      calc(var(--spacer) * 15);
+  grid-template-areas: "nav header header"
+    "nav blocks main"
+    "nav blocks timeline";
+  grid-template-columns: var(--nav-link-size) calc(var(--spacer) * 14) auto;
+  grid-template-rows: calc(12px) auto calc(var(--spacer) * 15);
   min-height: 92vh;
 
-  
+
 
 
   /* .blocks-container {
