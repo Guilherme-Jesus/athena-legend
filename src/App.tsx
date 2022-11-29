@@ -9,7 +9,7 @@ import Blocks from './components/Blocks'
 import Map from './components/Map'
 import Timeline from './components/Timeline'
 import { Breadcrumb } from 'react-bootstrap'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const App: React.FC = (): React.ReactElement => {
   const [currentBlockId, setCurrentBlockId] = useState<string>('C19')
@@ -90,9 +90,7 @@ const App: React.FC = (): React.ReactElement => {
 
       <div className="MapTimeline">
         <Breadcrumb className="breadcrumbLink">
-          <Breadcrumb.Item href="/" className="breadcrumbText">
-            Inicio
-          </Breadcrumb.Item>
+          <Breadcrumb.Item>Inicio</Breadcrumb.Item>
           <Breadcrumb.Item href="/" className="breadcrumbText">
             Fazenda Santa Fé
           </Breadcrumb.Item>

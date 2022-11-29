@@ -16,7 +16,7 @@
 
     .timeline {
       display: flex;
-      height: 13rem;
+      height: 20%;
       width: 94rem;
     }
   }
@@ -27,13 +27,19 @@
   content: ">" !important;
 }
 
-a {
-  text-decoration: none !important;
-  color: #ff7f2f !important;
-}
+
 
 .breadcrumbLink{
   display: flex;
   margin-top: 16px;
   line-height: 1;
+  .breadcrumbText{
+    text-decoration: none;
+    color: #ff7f2f;
+  }
+}
+
+a
+{
+  text-decoration: none;
 }

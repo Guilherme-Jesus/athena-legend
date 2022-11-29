@@ -19,10 +19,11 @@ import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelector'
 import { IListBlocks } from '../../types'
 
 // Estilo
-import './edit.scss'
+import './styles/edit.scss'
+import './styles/droppable.scss'
 
 // Icones
-import { MdSearch } from 'react-icons/md'
+import { MagnifyingGlass } from 'phosphor-react'
 import CreateBlock from '../../components/Blocks/CreateBlock'
 import RemoveBlocks from '../../components/Blocks/RemoveBlocks'
 
@@ -135,7 +136,7 @@ const EditBlocks = () => {
                 placeholder="Pesquisar por fazendas"
                 className="inputSearch"
               />
-              <MdSearch size={20} />
+              <MagnifyingGlass size={24} />
             </div>
             <div className="buttonsContainer">
               <Button onClick={expandAll} className="buttonHeader">
@@ -185,26 +186,32 @@ const EditBlocks = () => {
             </ButtonGroup>,
           ],
           title: (
-            <InputGroup>
-              <FormControl
-                placeholder="Nome"
-                aria-label="Nome"
-                aria-describedby="basic-addon1"
-                value={node.name}
-                onChange={(e) => {
-                  handleChangeName(path, node, e)
-                }}
-              />
-              <FormControl
-                placeholder="Abreviação"
-                aria-label="Abreviação"
-                aria-describedby="basic-addon1"
-                value={node.abrv}
-                onChange={(e) => {
-                  handleChangeAbrv(path, node, e)
-                }}
-              />
-            </InputGroup>
+            <div className="inputFormFarm">
+              <div>
+                <input
+                  className="inputFarm"
+                  placeholder="Nome"
+                  aria-label="Nome"
+                  aria-describedby="basic-addon1"
+                  value={node.name}
+                  onChange={(e) => {
+                    handleChangeName(path, node, e)
+                  }}
+                />
+              </div>
+              <div>
+                <input
+                  className="inputAbrv"
+                  placeholder="Abreviação"
+                  aria-label="Abreviação"
+                  aria-describedby="basic-addon1"
+                  value={node.abrv}
+                  onChange={(e) => {
+                    handleChangeAbrv(path, node, e)
+                  }}
+                />
+              </div>
+            </div>
           ),
         })}
       />

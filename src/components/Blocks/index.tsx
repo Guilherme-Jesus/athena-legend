@@ -1,4 +1,4 @@
-import './blocks.scss'
+import './styles/blocks.scss'
 
 import React, { memo, useCallback, useEffect, useState } from 'react'
 
@@ -12,7 +12,7 @@ import Irradiation from '../../assets/icons/sunIrr.svg'
 import Thermometer from '../../assets/icons/thermometer.svg'
 import Humidity from '../../assets/icons/humidity.svg'
 import Arrow from '../../assets/icons/arrowRight.svg'
-import { Button } from 'react-bootstrap'
+import { MagnifyingGlass } from 'phosphor-react'
 
 type BlocksProps = {
   blocks: IListBlocks[]
@@ -35,6 +35,10 @@ const Blocks: React.FC<BlocksProps> = ({
       style={{ height: '88vh', width: '52rem', marginLeft: '24px' }}
     >
       <div>
+        <div>
+          <input type="text" placeholder="Pesquise por fazendas..." />
+          <MagnifyingGlass size={24} />
+        </div>
         {isLoadingBlocks ? (
           <div
             className="d-flex flex-column gap-3"
