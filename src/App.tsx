@@ -53,13 +53,22 @@ const App: React.FC = (): React.ReactElement => {
       .get('http://localhost:7010/timeline')
       .then((response) => {
         setTimelineData(response.data)
+        setTimeline(
+          response.data.filter(
+            (item) =>
+              item.blockId === currentBlockId && currentBlockId !== 'C19',
+          ),
+        )
+        console.log(response.data)
       })
       .catch((error: any) => console.log(error))
-  }, [])
+  }, [currentBlockId])
 
   const handleBlockClick = useCallback(
     (id: string, leaf: boolean): void => {
       if (currentBlockId !== id) {
+        console.log('timelineData', timelineData)
+        console.log('id:', id)
         setTimeline(timelineData.filter((item) => item.blockId === id))
         setCurrentBlockId(id)
       } else if (!leaf) {
