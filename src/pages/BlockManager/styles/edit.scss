@@ -17,7 +17,8 @@
 
 
 
-  .btn-primary {
+
+  .btn-secondary {
     background-color: #ffffff;
     padding: 10px 24px 10px 24px;
 
@@ -64,16 +65,36 @@
   background-color: #e0e1e2;
   padding-right: 16px;
 }
+.SearchIcon{
+  display: flex;
+}
 
 .buttonHeader {
   display: flex;
   margin-right: 24px;
 }
-@media (max-width: 900px){
+@media (max-width: 1048px){
 .headerContainer{
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+.textHeader{
+  display: flex;
+  margin-bottom: 16px;
 }
 
+.searchContainer{
+  display: flex;
+  margin-bottom: 24px;
+}
 
+.btn-secondary {
+  display: flex;
+  &:hover {
+    background-color: #ff7f2f;
+    color: #ffffff;
+  }
+}
 }

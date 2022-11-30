@@ -9,7 +9,7 @@ import '@nosferatu500/react-sortable-tree/style.css'
 import { Button } from 'reactstrap'
 
 import { useCallback, useEffect, useState } from 'react'
-import { ButtonGroup, FormControl, InputGroup } from 'react-bootstrap'
+import { ButtonGroup } from 'react-bootstrap'
 import {
   useGetBlocksQuery,
   useUpdateBlocksMutation,
@@ -17,15 +17,15 @@ import {
 import { changeBlocks } from '../../features/blocks/blockSlice'
 import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelector'
 import { IListBlocks } from '../../types'
-
-// Estilo
-import './edit.scss'
-import './droppable.scss'
-
-// Icones
-import { MdSearch } from 'react-icons/md'
 import CreateBlock from '../../components/Blocks/CreateBlock'
 import RemoveBlocks from '../../components/Blocks/RemoveBlocks'
+
+// Estilo
+import './styles/edit.scss'
+import './styles/droppable.scss'
+
+// Icones
+import { MagnifyingGlass } from 'phosphor-react'
 
 const EditBlocks = () => {
   const { blocks } = useAppSelector((state) => state.blockSlice)
@@ -136,7 +136,7 @@ const EditBlocks = () => {
                 placeholder="Pesquisar por fazendas"
                 className="inputSearch"
               />
-              <MdSearch size={20} />
+              <MagnifyingGlass size={20} className="SearchIcon" />
             </div>
             <div className="buttonsContainer">
               <Button onClick={expandAll} className="buttonHeader">
@@ -159,6 +159,7 @@ const EditBlocks = () => {
       </div>
 
       <SortableTree
+        className="draganddrop"
         searchQuery={searchString}
         searchFocusOffset={searchFocusIndex}
         treeData={someOnlineAdvice.treeData}

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react'
 import {
   Nav,
@@ -13,6 +14,7 @@ import {
   SVGLogout,
   NavLogoHome,
   NavLogoBlocos,
+  NavLogoImg,
 } from './Header.elements'
 import { List, X } from 'phosphor-react'
 import ZeusLogo from '../../assets/images/logo.svg'
@@ -48,7 +50,7 @@ const Navbar = () => {
     <Nav>
       <NavbarContainer>
         <NavLogo to="/">
-          <img src={ZeusLogo} alt="" />
+          <NavLogoImg src={ZeusLogo} alt="" />
         </NavLogo>
         <MobileIcon onClick={handleClick}>
           {click ? <X /> : <List />}
