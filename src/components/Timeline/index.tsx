@@ -29,12 +29,11 @@ export const Timeline = ({
 
   useEffect(
     () =>
-      timelineData.forEach((item) => {
+      timeline.forEach((item) => {
         setLine(item.line.slice(-Math.abs(daysToShow) - 1))
       }),
-    [timelineData, daysToShow],
+    [timeline, daysToShow],
   )
-  console.log(line)
 
   const dayContainerClasses = useCallback((item: ILine): string => {
     let classes = 'day-container rounded-1 d-flex flex-column p-2'
@@ -359,11 +358,11 @@ export const Timeline = ({
   )
 
   const handlePrependDays = useCallback(() => {
-    timelineData.forEach((item) => {
+    timeline.forEach((item) => {
       setLine(item.line.slice(-Math.abs(daysToShow) - 1))
       setDaysToShow(-Math.abs(daysToShow) - 1)
     })
-  }, [daysToShow, timelineData])
+  }, [daysToShow, timeline])
 
   return (
     <div className="timeline-container">
