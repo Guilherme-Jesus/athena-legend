@@ -11,7 +11,8 @@ import {
   NavBtnLink,
   Button,
   SVGLogout,
-  NavLogoItem,
+  NavLogoHome,
+  NavLogoBlocos,
 } from './Header.elements'
 import { List, X } from 'phosphor-react'
 import ZeusLogo from '../../assets/images/logo.svg'
@@ -56,20 +57,19 @@ const Navbar = () => {
         <NavMenu onClick={handleClick} click={click}>
           <NavItem>
             <NavLinks to="/">
-              <NavLogoItem src="" alt="" />
-              <span>Home</span>
+              <NavLogoHome weight="fill" />
+              Início
             </NavLinks>
-            <NavLinks to="/edit">Blocos</NavLinks>
+            <NavLinks to="/edit">
+              <NavLogoBlocos weight="fill" />
+              Blocos
+            </NavLinks>
           </NavItem>
           <NavItemBtn>
             <NavBtnLink>
               <Button onClick={logout}>
-                <SVGLogout
-                  src={Signout}
-                  alt=""
-                  style={{ marginRight: '8px' }}
-                />
-                <span>Sair</span>
+                <SVGLogout />
+                Sair
               </Button>
             </NavBtnLink>
           </NavItemBtn>

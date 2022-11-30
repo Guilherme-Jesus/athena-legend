@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Link, NavLink } from 'react-router-dom'
+import { SquaresFour, House, SignOut } from 'phosphor-react'
 
 export const Nav = styled.div`
   background: #ff7f2f;
@@ -15,16 +16,19 @@ export const Nav = styled.div`
 
 export const NavbarContainer = styled.div`
   display: flex;
-  /* justify-content: space-between; */
+
   height: 80px;
   z-index: 1;
   width: 100%;
-  max-width: 1300px;
+  max-width: 81.25rem;
   margin-right: auto;
   padding-right: 50px;
-  padding-left: 50px;
+  padding-left: 20px;
   @media screen and (max-width: 960px) {
-    padding-right: 30px;
+    display: flex;
+    margin-left: 40px;
+    flex-direction: row-reverse;
+    justify-content: space-between;
   }
 `
 
@@ -32,7 +36,6 @@ export const NavLogo = styled(Link)`
   display: flex;
   color: #fff;
   justify-self: flex-start;
-  background-color: green;
   cursor: pointer;
   text-decoration: none;
   font-size: 2rem;
@@ -43,10 +46,10 @@ export const NavLogo = styled(Link)`
 export const MobileIcon = styled.div`
   display: none;
   @media screen and (max-width: 960px) {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
+    display: flex;
+    justify-content: end;
+    align-items: start;
+    margin-bottom: 16px;
     transform: translate(-100%, 40%);
     font-size: 1.8rem;
     cursor: pointer;
@@ -65,12 +68,12 @@ export const NavMenu = styled.div<NavMenuProps>`
   text-align: center;
   z-index: 999;
   @media screen and (max-width: 960px) {
-    width: 60%;
-    height: 82vh;
+    width: 12rem;
+    height: 91vh;
     position: absolute;
     display: flex;
     flex-direction: column;
-
+    box-shadow: 4px 4px 16px 0px rgba(0, 0, 0, 0.4);
     top: 80px;
     z-index: 999;
     left: ${({ click }) => (click ? 0 : '-100%')};
@@ -95,13 +98,6 @@ export const NavItem = styled.span`
   }
 `
 
-export const NavLogoItem = styled.img`
-  display: none;
-  @media screen and (max-width: 960px) {
-    display: flex;
-  }
-`
-
 export const NavLinks = styled(NavLink)`
   color: #fff;
   display: flex;
@@ -110,17 +106,15 @@ export const NavLinks = styled(NavLink)`
   padding: 0 1rem;
   height: 100%;
   &:hover {
-    border-bottom: 2px solid #9c4d1d;
   }
 
   @media screen and (max-width: 960px) {
-    /* text-align: center; */
+    color: #ff7f2f;
 
     margin-top: 1rem;
-    align-items: start;
+    align-items: center;
     width: 100%;
     height: 4rem;
-    /* display: table; */
     &:hover {
       color: #9c4d1d;
       transition: all 0.1s ease;
@@ -137,7 +131,6 @@ export const NavItemBtn = styled.div`
     bottom: 0;
     justify-content: center;
     align-items: center;
-    background-color: green;
     width: 100%;
     /* height: 1px; */
   }
@@ -153,9 +146,7 @@ export const NavBtnLink = styled.div`
   width: 100%;
   border: none;
   outline: none;
-  &:hover {
-    color: #9c4d1d;
-  }
+
   @media screen and (max-width: 960px) {
     position: absolute;
     bottom: 0;
@@ -175,17 +166,45 @@ export const Button = styled.button`
   align-items: center;
   justify-content: center;
   display: flex;
+
+  &:hover {
+    color: #9c4d1d;
+  }
   @media screen and (max-width: 960px) {
     color: #ff7f2f;
     justify-content: center;
     align-items: center;
+    &:hover {
+      transition: all 0.1s ease;
+    }
   }
 `
-export const SVGLogout = styled.img`
+export const SVGLogout = styled(SignOut)`
   fill: #ffffff;
+  margin-right: 8px;
   @media screen and (max-width: 960px) {
     margin-bottom: 2px;
-    filter: invert(50%) sepia(1%) saturate(64%) hue-rotate(246deg)
-      brightness(102%) contrast(143%);
+  }
+`
+export const NavLogoHome = styled(House)`
+  display: none;
+  @media screen and (max-width: 960px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4px;
+    margin-right: 8px;
+    font-size: 22px;
+  }
+`
+export const NavLogoBlocos = styled(SquaresFour)`
+  display: none;
+  @media screen and (max-width: 960px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4px;
+    margin-right: 8px;
+    font-size: 22px;
   }
 `
