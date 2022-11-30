@@ -4,7 +4,7 @@ import React, { memo, useCallback, useEffect, useMemo, useState } from 'react'
 import * as L from 'leaflet'
 
 import useRequestData from '../../hooks/useRequestData'
-import { IListBlocks, IListBlocksLeaf } from '../../types'
+import { IListBlocks, IListBlocksLeaf, ITimeline } from '../../types'
 import { dataUnit, displayData, getContrastYIQ } from '../utils'
 
 import Dropdown from 'react-bootstrap/Dropdown'
@@ -13,11 +13,17 @@ import DropdownButton from 'react-bootstrap/DropdownButton'
 type MapProps = {
   blockLeaves: IListBlocksLeaf[]
   currentBlockId: string
+  timelineData: ITimeline[]
+  setTimeline: React.Dispatch<React.SetStateAction<ITimeline[]>>
+  setCurrentBlockId: React.Dispatch<React.SetStateAction<string>>
 }
 
 const Map: React.FC<MapProps> = ({
   blockLeaves,
   currentBlockId,
+  timelineData,
+  setTimeline,
+  setCurrentBlockId,
 }): React.ReactElement => {
   const [initialPosition] = useState<L.LatLngExpression>([-15.77972, -47.92972])
   const [layerView, setLayerView] = useState<string>('Normal')
@@ -519,7 +525,13 @@ const Map: React.FC<MapProps> = ({
           weight: 2,
         })
           .addTo(map)
-          .bindPopup(getInfoWindowTemplate(item)),
+          .bindPopup(getInfoWindowTemplate(item))
+          .on('click', () => {
+            console.log('click', currentBlockId, 'item:', item.blockId)
+            setTimeline(
+              timelineData.filter((data) => data.blockId === item.blockId),
+            )
+          }),
       )
 
     if (layerView === 'Chuva')
