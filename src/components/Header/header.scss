@@ -24,9 +24,14 @@
 
 .linkContainer {
   margin-right: 24px;
+  text-decoration: none;
+  color: #fff !important;
+  &:hover{
+    color: #bd652f !important;
+  }
  
 &:active{
-  color: var(--bs-primary-dark);
+  color: var(--bs-primary-dark) !important;
 }
 }
 

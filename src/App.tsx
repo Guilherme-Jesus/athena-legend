@@ -5,9 +5,9 @@ import React, { memo, useCallback, useEffect, useState } from 'react'
 
 import { IListBlocks, IListBlocksLeaf, ITimeline } from './types'
 
-import Blocks from './components/Blocks'
 import Map from './components/Map'
 import Timeline from './components/Timeline'
+import Blocks from './components/Blocks'
 
 const App: React.FC = (): React.ReactElement => {
   const [currentBlockId, setCurrentBlockId] = useState<string>('C19')
@@ -50,24 +50,29 @@ const App: React.FC = (): React.ReactElement => {
   useEffect(() => {
     axios
       .get('http://localhost:7010/timeline')
-      .then((response) =>
-        setTimelineData(
+      .then((response) => {
+        setTimelineData(response.data)
+        setTimeline(
           response.data.filter(
-            (item: ITimeline) =>
+            (item) =>
               item.blockId === currentBlockId && currentBlockId !== 'C19',
           ),
-        ),
-      )
+        )
+        console.log(response.data)
+      })
       .catch((error: any) => console.log(error))
   }, [currentBlockId])
 
   const handleBlockClick = useCallback(
     (id: string, leaf: boolean): void => {
       if (currentBlockId !== id) {
+        console.log('timelineData', timelineData)
+        console.log('id:', id)
         setTimeline(timelineData.filter((item) => item.blockId === id))
         setCurrentBlockId(id)
       } else if (!leaf) {
         setBlocks(blocks.filter((item) => item.blockParent === id))
+        setTimeline(timelineData.filter((item) => item.blockId === id))
       } else if (leaf) {
         setBlockLeaves(blockLeaves.filter((item) => item.blockParent === id))
         setTimeline(timelineData.filter((item) => item.blockId === id))
@@ -84,13 +89,18 @@ const App: React.FC = (): React.ReactElement => {
         handleBlockClick={handleBlockClick}
       />
 
+      <Map
+        blockLeaves={blockLeaves}
+        currentBlockId={currentBlockId}
+        timelineData={timelineData}
+        setTimeline={setTimeline}
+        setCurrentBlockId={setCurrentBlockId}
+      />
       <Timeline
         timelineData={timelineData}
         timeline={timeline}
         setTimeline={setTimeline}
       />
-
-      <Map blockLeaves={blockLeaves} currentBlockId={currentBlockId} />
     </div>
   )
 }

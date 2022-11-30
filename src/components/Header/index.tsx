@@ -31,10 +31,11 @@ export function Header() {
           </NavLink>
           {/* <NavLink to="/dashboard">Dashboard</NavLink> */}
         </span>
-        <span className="linkContainer">
+        <span>
           <NavLink
             to="/edit"
             style={({ isActive }) => (isActive ? activeStyle : undefined)}
+            className="linkContainer"
           >
             Editar
           </NavLink>
