@@ -20,6 +20,7 @@ import { IListBlocks } from '../../types'
 
 // Estilo
 import './edit.scss'
+import './droppable.scss'
 
 // Icones
 import { MdSearch } from 'react-icons/md'
@@ -185,8 +186,9 @@ const EditBlocks = () => {
             </ButtonGroup>,
           ],
           title: (
-            <InputGroup>
-              <FormControl
+            <div className="inputFormFarm">
+              <input
+                className="inputFarm"
                 placeholder="Nome"
                 aria-label="Nome"
                 aria-describedby="basic-addon1"
@@ -195,7 +197,8 @@ const EditBlocks = () => {
                   handleChangeName(path, node, e)
                 }}
               />
-              <FormControl
+              <input
+                className="inputAbrv"
                 placeholder="Abreviação"
                 aria-label="Abreviação"
                 aria-describedby="basic-addon1"
@@ -204,7 +207,7 @@ const EditBlocks = () => {
                   handleChangeAbrv(path, node, e)
                 }}
               />
-            </InputGroup>
+            </div>
           ),
         })}
       />

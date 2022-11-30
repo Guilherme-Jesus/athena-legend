@@ -821,7 +821,7 @@ const Map: React.FC<MapProps> = ({
           ))}
         </DropdownButton>
       )}
-      <div id="map" className="h-100 w-100" />
+      <div id="map" className="h-100 w-100 zIndex0" />
     </div>
   )
 }

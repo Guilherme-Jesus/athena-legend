@@ -79,6 +79,7 @@
     color: var(--bs-dark);
     font: 0.75rem var(--bs-font-sans-serif);
     padding: calc(var(--spacer) / 2);
+    display: none;
 
     .color-container {
       height: var(--spacer);

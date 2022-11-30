@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Button, Modal } from 'react-bootstrap'
-import { MdDeleteForever } from 'react-icons/md'
+import { Trash } from 'phosphor-react'
 import { useDeleteBlocksMutation } from '../../../app/services/blocks'
 
 type Props = {
@@ -27,9 +27,9 @@ function RemoveBlocks({ blockParent, blockId, name }: Props) {
   return (
     <>
       {blockParent !== '0' && (
-        <Button variant="primary" onClick={handleShow}>
-          <MdDeleteForever />
-        </Button>
+        <button className="buttonBody" onClick={handleShow}>
+          <Trash size={20} alt="Excluir" />
+        </button>
       )}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
