@@ -1,0 +1,15 @@
+.buttonBody {
+  display: flex;
+  border: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  padding: 4px;
+  color: #ff7f2f;
+  transition: 0.2s;
+  &:hover {
+    background-color: #ff7f2f;
+    color: #fff;
+    border-radius: 4px;
+  }
+}

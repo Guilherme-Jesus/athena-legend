@@ -3,8 +3,9 @@ import * as tj from '@mapbox/togeojson'
 import axios from 'axios'
 import { useCallback, useState } from 'react'
 import { Button, Form, Modal } from 'react-bootstrap'
-import { MdAdd } from 'react-icons/md'
 import { Root } from '../../../types'
+import '../styles/buttons.scss'
+import { NotePencil } from 'phosphor-react'
 type Props = {
   blockId: string
 }
@@ -149,9 +150,9 @@ function CreateBlock({ blockId }: Props) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        <MdAdd />
-      </Button>
+      <button className="buttonBody" onClick={handleShow}>
+        <NotePencil size={20} alt="Criar" />
+      </button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Criar Bloco</Modal.Title>
