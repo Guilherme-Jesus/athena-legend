@@ -113,6 +113,7 @@ export const NavLinks = styled(NavLink)`
   padding: 0 1rem;
   height: 100%;
   &:hover {
+    color: #c45600;
   }
 
   @media screen and (max-width: 960px) {

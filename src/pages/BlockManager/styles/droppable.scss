@@ -39,18 +39,18 @@
 }
 .inputFarm {
   display: flex;
-  // width: 15rem;
+  width: 15rem;
   background-color: #eee;
   border-left: 3px solid #ff7f2f;
 
   border: 0;
   color: #000;
-  transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in;
   &:focus {
     background-color: #fff;
     border-left: 3px solid #ff7f2f;
     outline: none;
-    width: 24rem;
+    width: 20rem;
     padding: 6px;
     transition: 0.2s ease-in;
   }
