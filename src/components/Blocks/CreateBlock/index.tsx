@@ -6,6 +6,7 @@ import { Button, Form, Modal } from 'react-bootstrap'
 import { Root } from '../../../types'
 import '../styles/buttons.scss'
 import { NotePencil } from 'phosphor-react'
+import './create.scss'
 type Props = {
   blockId: string
 }
@@ -154,7 +155,7 @@ function CreateBlock({ blockId }: Props) {
         <NotePencil size={20} alt="Criar" />
       </button>
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
+        <Modal.Header closeButton style={{ display: 'flex' }}>
           <Modal.Title>Criar Bloco</Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -164,6 +165,7 @@ function CreateBlock({ blockId }: Props) {
               <Form.Control
                 type="text"
                 placeholder="Nome do Bloco"
+                className="inputForm"
                 onChange={(e) => setName(e.target.value)}
               />
             </Form.Group>
@@ -172,11 +174,12 @@ function CreateBlock({ blockId }: Props) {
               <Form.Control
                 type="text"
                 placeholder="Abreviação do Bloco"
+                className="inputForm"
                 onChange={(e) => setAbrv(e.target.value)}
               />
             </Form.Group>
             <Form.Group controlId="formFileSm" className="mb-3">
-              <Form.Label>
+              <Form.Label className="formLabelBottom">
                 Selecione o arquivo com as coordenadas do Bloco (KML)
               </Form.Label>
               <Form.Control
@@ -188,11 +191,16 @@ function CreateBlock({ blockId }: Props) {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button
+            variant="secondary"
+            className="buttonClose"
+            onClick={handleClose}
+          >
             Fechar
           </Button>
           <Button
             variant="primary"
+            className="buttonConfirm"
             onClick={() => handleCreateBlockAndKml(blockId)}
           >
             Criar Bloco

@@ -1,0 +1,37 @@
+.inputForm {
+  display: flex;
+  border: 1px solid #999;
+  align-items: center;
+  margin-bottom: 8px;
+  transition: 0.2s;
+  &:focus{
+    border-left: 3px solid #ff7f2f;
+    background-color: #ddd;
+
+  }
+}
+
+.formLabelBottom{
+  display: flex;
+  margin-top: 14px;
+}
+
+.buttonConfirm{
+  display: flex;
+  background-color: orange;
+  border: 0;
+  &:hover{
+    background-color: #FF7F2F;
+  }
+}
+
+.buttonClose{
+  display: flex;
+  background-color: transparent;
+  border: 1px solid #999;
+  color: #999;
+  &:hover{
+    background-color: #999;
+    color: #222;
+  }
+}

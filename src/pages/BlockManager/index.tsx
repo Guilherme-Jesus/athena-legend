@@ -24,9 +24,6 @@ import RemoveBlocks from '../../components/Blocks/RemoveBlocks'
 import './styles/edit.scss'
 import './styles/droppable.scss'
 
-// Icones
-import { MagnifyingGlass } from 'phosphor-react'
-
 const EditBlocks = () => {
   const { blocks } = useAppSelector((state) => state.blockSlice)
   const dispatch = useAppDispatch()
@@ -128,16 +125,15 @@ const EditBlocks = () => {
         {blocks.length > 0 && (
           <div className="headerContainer">
             <span className="textHeader">Gerencie seus Blocos:</span>
-            <div className="searchContainer">
+            <form className="searchContainer">
               <input
-                type="text"
+                type="search"
                 value={searchString}
                 onChange={handleSearchStringChange}
                 placeholder="Pesquisar por fazendas"
                 className="inputSearch"
               />
-              <MagnifyingGlass size={20} className="SearchIcon" />
-            </div>
+            </form>
             <div className="buttonsContainer">
               <Button onClick={expandAll} className="buttonHeader">
                 Expandir

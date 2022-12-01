@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Button, Modal } from 'react-bootstrap'
 import { Trash } from 'phosphor-react'
 import { useDeleteBlocksMutation } from '../../../app/services/blocks'
+import './remove.scss'
 
 type Props = {
   blockId: string
@@ -31,7 +32,7 @@ function RemoveBlocks({ blockParent, blockId, name }: Props) {
           <Trash size={20} alt="Excluir" />
         </button>
       )}
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} dialogClassName="RemoveModal">
         <Modal.Header closeButton>
           <Modal.Title>Deseja realmente excluir o bloco?</Modal.Title>
         </Modal.Header>
@@ -40,10 +41,18 @@ function RemoveBlocks({ blockParent, blockId, name }: Props) {
           relacionados a ele serão excluídos.
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button
+            variant="secondary"
+            className="closeButtonRemove"
+            onClick={handleClose}
+          >
             Fechar
           </Button>
-          <Button variant="primary" onClick={handleDelete}>
+          <Button
+            variant="danger"
+            className="removeButton"
+            onClick={handleDelete}
+          >
             Excluir Bloco
           </Button>
         </Modal.Footer>
