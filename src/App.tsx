@@ -1,7 +1,7 @@
 import './app.scss'
 
 import axios from 'axios'
-import React, { memo, useCallback, useEffect, useState } from 'react'
+import React, { memo, useCallback, useEffect, useMemo, useState } from 'react'
 
 import { IListBlocks, IListBlocksLeaf, ITimeline } from './types'
 
@@ -12,27 +12,31 @@ import Timeline from './components/Timeline'
 
 const App: React.FC = (): React.ReactElement => {
   const [currentBlockId, setCurrentBlockId] = useState<string>('C19')
-  const [blocks, setBlocks] = useState<IListBlocks[]>([])
   const [blockLeaves, setBlockLeaves] = useState<IListBlocksLeaf[]>([])
   const [timelineData, setTimelineData] = useState<ITimeline[]>([])
   const [timeline, setTimeline] = useState<ITimeline[]>([])
 
+  const [blocks, setBlocks] = useState<IListBlocks[]>([])
+  const [array, setArray] = useState<IListBlocks[]>([])
+  const [blockUx, setBlockUx] = useState<IListBlocks[]>([])
+
   useEffect(() => {
     if (blocks.length === 0) {
-      fetch('http://localhost:7010/blocks', {
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-      })
-        .then((response) => response.json())
-        .then((response) =>
+      axios
+        .get('http://localhost:7010/blocks', {
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+        })
+        .then((response) => {
+          setArray(response.data)
           setBlocks(
-            response.filter(
+            response.data.filter(
               (block: IListBlocks) => currentBlockId === block.blockParent,
             ),
-          ),
-        )
+          )
+        })
     } else {
       setCurrentBlockId(blocks[0].blockId)
     }
@@ -59,19 +63,19 @@ const App: React.FC = (): React.ReactElement => {
               item.blockId === currentBlockId && currentBlockId !== 'C19',
           ),
         )
-        console.log(response.data)
       })
       .catch((error: any) => console.log(error))
   }, [currentBlockId])
 
   const handleBlockClick = useCallback(
     (id: string, leaf: boolean): void => {
+      const lk = blocks.filter((block) => block.blockId === id && id !== 'C19')
       if (currentBlockId !== id) {
-        console.log('timelineData', timelineData)
-        console.log('id:', id)
         setTimeline(timelineData.filter((item) => item.blockId === id))
         setCurrentBlockId(id)
       } else if (!leaf) {
+        blockUx.push(lk as unknown as IListBlocks)
+        console.log(blockUx)
         setBlocks(blocks.filter((item) => item.blockParent === id))
         setTimeline(timelineData.filter((item) => item.blockId === id))
       } else if (leaf) {
@@ -79,7 +83,16 @@ const App: React.FC = (): React.ReactElement => {
         setTimeline(timelineData.filter((item) => item.blockId === id))
       }
     },
-    [blockLeaves, blocks, currentBlockId, timelineData],
+    [blockLeaves, blockUx, blocks, currentBlockId, timelineData],
+  )
+
+  const handleBlockBack = useCallback(
+    (block: IListBlocks) => {
+      setBlocks(array.filter((item) => item.blockParent === block.blockParent))
+      setCurrentBlockId(block.blockId)
+      blockUx.splice(blockUx.length - 1, 1)
+    },
+    [array, blockUx],
   )
 
   return (
@@ -94,16 +107,22 @@ const App: React.FC = (): React.ReactElement => {
 
       <div className="MapTimeline">
         <Breadcrumb className="breadcrumbLink">
-          <Breadcrumb.Item href="/" className="breadcrumbText">
-            Inicio
-          </Breadcrumb.Item>
-          <Breadcrumb.Item href="/" className="breadcrumbText">
-            Fazenda Santa Fé
-          </Breadcrumb.Item>
-          <Breadcrumb.Item href="/" className="breadcrumbText">
-            Unidade Padrão
-          </Breadcrumb.Item>
+          {
+            (console.log(blockUx),
+            blockUx.map((block, index) => (
+              <>
+                <Breadcrumb.Item
+                  key={block[index].blockId}
+                  // active
+                  onClick={() => handleBlockBack(block[index])}
+                >
+                  {block[index].name}
+                </Breadcrumb.Item>
+              </>
+            )))
+          }
         </Breadcrumb>
+
         <div className="map">
           <Map
             blockLeaves={blockLeaves}
