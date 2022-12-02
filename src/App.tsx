@@ -69,31 +69,36 @@ const App: React.FC = (): React.ReactElement => {
 
   const handleBlockClick = useCallback(
     (id: string, leaf: boolean): void => {
-      const lk = blocks.filter((block) => block.blockId === id && id !== 'C19')
+      const filteredBlocks = blocks.filter(
+        (block) => block.blockId === id && id !== 'C19',
+      )
       if (currentBlockId !== id) {
         setTimeline(timelineData.filter((item) => item.blockId === id))
         setCurrentBlockId(id)
       } else if (!leaf) {
-        blockUx.push(lk as unknown as IListBlocks)
+        blockUx.push(...filteredBlocks)
         console.log(blockUx)
         setBlocks(blocks.filter((item) => item.blockParent === id))
         setTimeline(timelineData.filter((item) => item.blockId === id))
       } else if (leaf) {
-        setBlockLeaves(blockLeaves.filter((item) => item.blockParent === id))
-        setTimeline(timelineData.filter((item) => item.blockId === id))
+        blockLeaves.forEach((item) => {
+          if (item.blockId === id) {
+            setTimeline(timelineData.filter((item) => item.blockId === id))
+            setBlockLeaves(blockLeaves.filter((item) => item.blockId !== id))
+          }
+        })
       }
     },
     [blockLeaves, blockUx, blocks, currentBlockId, timelineData],
   )
 
-  const handleBlockBack = useCallback(
-    (block: IListBlocks) => {
-      setBlocks(array.filter((item) => item.blockParent === block.blockParent))
-      setCurrentBlockId(block.blockId)
-      blockUx.splice(blockUx.length - 1, 1)
-    },
-    [array, blockUx],
-  )
+  const handleBlockBack = useCallback(() => {
+    const lastBlock = blockUx.pop()
+    setBlocks(
+      array.filter((item) => item.blockParent === lastBlock.blockParent),
+    )
+    setCurrentBlockId(lastBlock.blockId)
+  }, [array, blockUx])
 
   return (
     <div className="App">
@@ -107,20 +112,13 @@ const App: React.FC = (): React.ReactElement => {
 
       <div className="MapTimeline">
         <Breadcrumb className="breadcrumbLink">
-          {
-            (console.log(blockUx),
-            blockUx.map((block, index) => (
-              <>
-                <Breadcrumb.Item
-                  key={block[index].blockId}
-                  // active
-                  onClick={() => handleBlockBack(block[index])}
-                >
-                  {block[index].name}
-                </Breadcrumb.Item>
-              </>
-            )))
-          }
+          {blockUx.map((block) => (
+            <>
+              <Breadcrumb.Item key={block.blockId} onClick={handleBlockBack}>
+                {block.name}
+              </Breadcrumb.Item>
+            </>
+          ))}
         </Breadcrumb>
 
         <div className="map">
