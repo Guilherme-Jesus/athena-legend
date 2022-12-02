@@ -14,3 +14,16 @@
     background-color: #BA1A1A;
   }
 }
+
+.RemoveModal{
+  display: flex;
+  width: 90%;
+}
+
+@media screen and (max-width: 960px) {
+  .RemoveModal{
+    display: flex;
+    width: 90%;
+  }
+
+}

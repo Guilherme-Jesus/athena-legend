@@ -113,3 +113,18 @@
     }
   }
 }
+
+.blocksRow{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-bottom: 14px;
+  padding-left: 14px;
+  padding-right: 14px;
+  @media screen and (max-width: 960px) {
+    display: flex;
+    flex-direction: row;
+  }
+
+  // d-flex flex-column gap-3 px-3 pb-3
+}

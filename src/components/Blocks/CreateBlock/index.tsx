@@ -154,7 +154,7 @@ function CreateBlock({ blockId }: Props) {
       <button className="buttonBody" onClick={handleShow}>
         <NotePencil size={20} alt="Criar" />
       </button>
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} className="createModalContainer">
         <Modal.Header closeButton style={{ display: 'flex' }}>
           <Modal.Title>Criar Bloco</Modal.Title>
         </Modal.Header>

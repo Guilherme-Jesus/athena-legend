@@ -78,8 +78,14 @@
 
 @media (max-width: 1048px){
   .draganddrop{
-    width: auto;
+    width: 100%;
     height: auto;
+    overflow-x: auto;
+  }
+
+  ;.rst__rowWrapper{
+    display: flex;
+    width: auto;
   }
   .inputFormFarm{
     display: flex;

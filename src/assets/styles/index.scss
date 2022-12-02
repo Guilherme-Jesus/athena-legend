@@ -133,7 +133,7 @@ html {
 body {
   cursor: default;
   min-height: 100vh;
-  min-width: 320px;
+  min-width: 400px;
   background-color: #F5F6F6;
 
   @include noselect;
@@ -387,3 +387,4 @@ iframe {
     transform: translateX(100%);
   }
 }
+

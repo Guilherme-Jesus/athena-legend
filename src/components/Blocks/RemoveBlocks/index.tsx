@@ -32,7 +32,7 @@ function RemoveBlocks({ blockParent, blockId, name }: Props) {
           <Trash size={20} alt="Excluir" />
         </button>
       )}
-      <Modal show={show} onHide={handleClose} dialogClassName="RemoveModal">
+      <Modal show={show} onHide={handleClose} className="RemoveModal">
         <Modal.Header closeButton>
           <Modal.Title>Deseja realmente excluir o bloco?</Modal.Title>
         </Modal.Header>
