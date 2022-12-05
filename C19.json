@@ -194,22 +194,6 @@
       "date": "2022-10-28T10:40:09.885091435Z",
       "leafParent": true,
       "blockId": "B3220"
-    },
-    {
-      "blockId": "0.1x0xxp38zv4",
-      "name": "teste1",
-      "abrv": "teste2",
-      "blockParent": "B3216",
-      "leafParent": true,
-      "date": "2022-12-02T13:59:40.287Z",
-      "data": {
-        "windSpeed": 70,
-        "solarIrradiation": 59,
-        "temperature": 83,
-        "rain": 55,
-        "relativeHumidity": 26,
-        "atmosphericPressure": 59
-      }
     }
   ],
   "blockLeaf": [
