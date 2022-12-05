@@ -14,15 +14,15 @@ import {
   useGetBlocksQuery,
   useUpdateBlocksMutation,
 } from '../../app/services/blocks'
+import CreateBlock from '../../components/Blocks/CreateBlock'
+import RemoveBlocks from '../../components/Blocks/RemoveBlocks'
 import { changeBlocks } from '../../features/blocks/blockSlice'
 import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelector'
 import { IListBlocks } from '../../types'
-import CreateBlock from '../../components/Blocks/CreateBlock'
-import RemoveBlocks from '../../components/Blocks/RemoveBlocks'
 
 // Estilo
-import './styles/edit.scss'
 import './styles/droppable.scss'
+import './styles/edit.scss'
 
 const EditBlocks = () => {
   const { blocks } = useAppSelector((state) => state.blockSlice)
@@ -119,13 +119,6 @@ const EditBlocks = () => {
     setSearchString(event.target.value)
   }, [])
 
-  const customSearchMethod = useCallback(
-    ({ node, searchQuery }) =>
-      searchQuery &&
-      node.name.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1,
-    [],
-  )
-
   const customSearchMethod = ({ node, searchQuery }) =>
     searchQuery &&
     node.name
@@ -173,7 +166,6 @@ const EditBlocks = () => {
         className="draganddrop"
         searchMethod={customSearchMethod}
         searchQuery={searchString}
-        searchMethod={customSearchMethod}
         searchFocusOffset={searchFocusIndex}
         treeData={someOnlineAdvice.treeData}
         canDrag={({ node }) => node.blockParent !== '0'}
