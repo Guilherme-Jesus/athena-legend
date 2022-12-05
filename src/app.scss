@@ -10,6 +10,13 @@
   grid-template-rows: calc(30px) auto calc(var(--spacer) * 15);
   min-height: 92vh;
 
+  @media screen and (max-width: 960px) {
+
+    grid-template-columns: var(--nav-link-size) calc(var(--spacer) * 14) auto;
+    grid-template-rows: max-content auto calc(var(--spacer) * 15);
+    min-height: 91vh;
+  }
+
   /* .blocks-container {
     // CSS dos blocos está dentro do próprio componente
   } */
@@ -28,7 +35,8 @@
 
 .breadcrumbLink {
   display: flex;
-  width: max-content;
+  width: fit-content;
+  height: fit-content;
   margin-top: 8px;
   margin-left: 16px;
   margin-right: 10px;
