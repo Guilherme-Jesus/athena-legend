@@ -114,15 +114,19 @@ const App: React.FC = (): React.ReactElement => {
         setTimeline={setTimeline}
         setCurrentBlockId={setCurrentBlockId}
       />
-      <Breadcrumb className="breadcrumbLink">
+      <div className="breadcrumbLink">
         {blockUx.map((block) => (
           <>
-            <BreadcrumbItem key={block.blockId} onClick={handleBlockBack}>
+            <span
+              className="itemMain"
+              key={block.blockId}
+              onClick={handleBlockBack}
+            >
               {block.name}
-            </BreadcrumbItem>
+            </span>
           </>
         ))}
-      </Breadcrumb>
+      </div>
       <Timeline
         timelineData={timelineData}
         timeline={timeline}

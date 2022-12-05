@@ -2,15 +2,13 @@
   --nav-link-size: calc(0px);
 
   display: grid;
-  grid-template-areas: "nav header header"
+  grid-template-areas:
+    "nav header header"
     "nav blocks main"
     "nav blocks timeline";
   grid-template-columns: var(--nav-link-size) calc(var(--spacer) * 14) auto;
   grid-template-rows: calc(30px) auto calc(var(--spacer) * 15);
   min-height: 92vh;
-
-
-
 
   /* .blocks-container {
     // CSS dos blocos está dentro do próprio componente
@@ -26,20 +24,28 @@
 }
 
 //Breadcrumb
-.breadcrumb-item + .breadcrumb-item::before {
-  content: ">" !important;
-}
 
-a {
-  text-decoration: none !important;
-  color: #ff7f2f !important;
-}
 
-.breadcrumbLink{
+.breadcrumbLink {
   display: flex;
   width: max-content;
   margin-top: 8px;
   margin-left: 14px;
   margin-right: 10px;
   line-height: 1;
+}
+
+.itemMain{
+  display: flex;
+  color: #ff7f2f;
+  cursor: pointer;
+  &:hover{
+    color: #c45600;
+  }
+}
+.itemMain + .itemMain::before {
+  content: ">" !important;
+  color: #000;
+  padding-left: 4px;
+  padding-right: 4px;
 }
