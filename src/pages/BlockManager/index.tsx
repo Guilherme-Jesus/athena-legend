@@ -119,6 +119,10 @@ const EditBlocks = () => {
     [dispatch, someOnlineAdvice.treeData],
   )
 
+  const customSearchMethod = ({ node, searchQuery }) =>
+    searchQuery &&
+    node.name.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1
+
   return (
     <div className="containerEdit">
       <div>
@@ -157,6 +161,7 @@ const EditBlocks = () => {
       <SortableTree
         className="draganddrop"
         searchQuery={searchString}
+        searchMethod={customSearchMethod}
         searchFocusOffset={searchFocusIndex}
         treeData={someOnlineAdvice.treeData}
         canDrag={({ node }) => node.blockParent !== '0'}
