@@ -6,7 +6,7 @@
     "nav blocks main"
     "nav blocks timeline";
   grid-template-columns: var(--nav-link-size) calc(var(--spacer) * 14) auto;
-  grid-template-rows: calc(12px) auto calc(var(--spacer) * 15);
+  grid-template-rows: calc(30px) auto calc(var(--spacer) * 15);
   min-height: 92vh;
 
 
@@ -23,4 +23,23 @@
   /* .map-container {
     // CSS do mapa está dentro do próprio componente
   } */
+}
+
+//Breadcrumb
+.breadcrumb-item + .breadcrumb-item::before {
+  content: ">" !important;
+}
+
+a {
+  text-decoration: none !important;
+  color: #ff7f2f !important;
+}
+
+.breadcrumbLink{
+  display: flex;
+  width: max-content;
+  margin-top: 8px;
+  margin-left: 14px;
+  margin-right: 10px;
+  line-height: 1;
 }

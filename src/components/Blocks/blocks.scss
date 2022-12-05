@@ -128,3 +128,20 @@
 
   // d-flex flex-column gap-3 px-3 pb-3
 }
+
+//Breadcrumb
+.breadcrumb-item + .breadcrumb-item::before {
+  content: ">" !important;
+}
+
+a {
+  text-decoration: none !important;
+  color: #ff7f2f !important;
+}
+
+.breadcrumbLink{
+  display: flex;
+  margin-left: 14px;
+  margin-right: 10px;
+  line-height: 1;
+}
