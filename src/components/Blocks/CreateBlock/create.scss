@@ -37,9 +37,29 @@
 }
 
 @media screen and (max-width: 960px) {
-  .createModalContainer{
+  // .createModalContainer{
+  //   display: flex;
+  //   width: 90%;
+  // }
+
+
+  .modal-open{
     display: flex;
-    width: 90%;
+    width: 100%;
+    height: 80%;
   }
+
+  .modal-content{
+    display: flex;
+    
+  }
+
+  .fade{
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+
+
 }
 
