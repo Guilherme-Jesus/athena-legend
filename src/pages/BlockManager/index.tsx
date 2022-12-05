@@ -121,7 +121,11 @@ const EditBlocks = () => {
 
   const customSearchMethod = ({ node, searchQuery }) =>
     searchQuery &&
-    node.name.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1
+    node.name
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .indexOf(searchQuery.toLowerCase()) > -1
 
   return (
     <div className="containerEdit">
