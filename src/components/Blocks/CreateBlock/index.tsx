@@ -1,17 +1,18 @@
 import rewind from '@mapbox/geojson-rewind'
 import * as tj from '@mapbox/togeojson'
 import axios from 'axios'
+import { NotePencil } from 'phosphor-react'
 import { useCallback, useState } from 'react'
 import { Button, Form, Modal } from 'react-bootstrap'
 import { Root } from '../../../types'
 import '../styles/buttons.scss'
-import { NotePencil } from 'phosphor-react'
 import './create.scss'
 type Props = {
   blockId: string
+  leafParent: boolean
 }
 
-function CreateBlock({ blockId }: Props) {
+function CreateBlock({ blockId, leafParent }: Props) {
   const [bounds, setBounds] = useState<Root>()
 
   const [show, setShow] = useState(false)
@@ -123,13 +124,13 @@ function CreateBlock({ blockId }: Props) {
   )
 
   const handleCreateBlockAndKml = useCallback(
-    (blockId: string) => {
+    (blockId: string, leafParent: boolean) => {
       const newBlock = {
         blockId: Math.random().toString(36),
         name,
         abrv,
         blockParent: blockId,
-        leafParent: true,
+        leafParent,
         date: new Date(),
         data: {
           windSpeed: Math.floor(Math.random() * 100),
@@ -140,17 +141,23 @@ function CreateBlock({ blockId }: Props) {
           atmosphericPressure: Math.floor(Math.random() * 100),
         },
       }
-      axios
-        .post(`http://localhost:7010/blocks/`, {
-          ...newBlock,
-        })
-        .then((response) => {
-          if (bounds !== undefined) {
+      if (bounds) {
+        axios
+          .post(`http://localhost:7010/blocks/`, {
+            ...newBlock,
+            leafParent: true,
+          })
+          .then((response) => {
             handleCreateKml(response.data.blockId)
-          }
+          })
+        setShow(false)
+      } else {
+        axios.post(`http://localhost:7010/blocks/`, {
+          ...newBlock,
+          leafParent: false,
         })
-
-      setShow(false)
+        setShow(false)
+      }
     },
     [abrv, bounds, handleCreateKml, name],
   )
@@ -212,7 +219,7 @@ function CreateBlock({ blockId }: Props) {
           <Button
             variant="primary"
             className="buttonConfirm"
-            onClick={() => handleCreateBlockAndKml(blockId)}
+            onClick={() => handleCreateBlockAndKml(blockId, leafParent)}
           >
             Criar Bloco
           </Button>

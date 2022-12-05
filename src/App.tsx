@@ -5,7 +5,6 @@ import React, { memo, useCallback, useEffect, useState } from 'react'
 
 import { IListBlocks, IListBlocksLeaf, ITimeline } from './types'
 
-import { Breadcrumb, BreadcrumbItem } from 'react-bootstrap'
 import Blocks from './components/Blocks'
 import Map from './components/Map'
 import Timeline from './components/Timeline'
