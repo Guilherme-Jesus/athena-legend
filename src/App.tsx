@@ -16,23 +16,26 @@ const App: React.FC = (): React.ReactElement => {
   const [blockLeaves, setBlockLeaves] = useState<IListBlocksLeaf[]>([])
   const [timelineData, setTimelineData] = useState<ITimeline[]>([])
   const [timeline, setTimeline] = useState<ITimeline[]>([])
+  const [array, setArray] = useState<IListBlocks[]>([])
+  const [blockUx, setBlockUx] = useState<IListBlocks[]>([])
 
   useEffect(() => {
     if (blocks.length === 0) {
-      fetch('http://localhost:7010/blocks', {
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-      })
-        .then((response) => response.json())
-        .then((response) =>
+      axios
+        .get('http://localhost:7010/blocks', {
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+        })
+        .then((response) => {
+          setArray(response.data)
           setBlocks(
-            response.filter(
+            response.data.filter(
               (block: IListBlocks) => currentBlockId === block.blockParent,
             ),
-          ),
-        )
+          )
+        })
     } else {
       setCurrentBlockId(blocks[0].blockId)
     }
@@ -59,28 +62,42 @@ const App: React.FC = (): React.ReactElement => {
               item.blockId === currentBlockId && currentBlockId !== 'C19',
           ),
         )
-        console.log(response.data)
       })
       .catch((error: any) => console.log(error))
   }, [currentBlockId])
 
   const handleBlockClick = useCallback(
     (id: string, leaf: boolean): void => {
+      const filteredBlocks = blocks.filter(
+        (block) => block.blockId === id && id !== 'C19',
+      )
       if (currentBlockId !== id) {
-        console.log('timelineData', timelineData)
-        console.log('id:', id)
         setTimeline(timelineData.filter((item) => item.blockId === id))
         setCurrentBlockId(id)
       } else if (!leaf) {
+        blockUx.push(...filteredBlocks)
+        console.log(blockUx)
         setBlocks(blocks.filter((item) => item.blockParent === id))
         setTimeline(timelineData.filter((item) => item.blockId === id))
       } else if (leaf) {
-        setBlockLeaves(blockLeaves.filter((item) => item.blockParent === id))
-        setTimeline(timelineData.filter((item) => item.blockId === id))
+        blockLeaves.forEach((item) => {
+          if (item.blockId === id) {
+            setTimeline(timelineData.filter((item) => item.blockId === id))
+            setBlockLeaves(blockLeaves.filter((item) => item.blockId !== id))
+          }
+        })
       }
     },
-    [blockLeaves, blocks, currentBlockId, timelineData],
+    [blockLeaves, blockUx, blocks, currentBlockId, timelineData],
   )
+
+  const handleBlockBack = useCallback(() => {
+    const lastBlock = blockUx.pop()
+    setBlocks(
+      array.filter((item) => item.blockParent === lastBlock.blockParent),
+    )
+    setCurrentBlockId(lastBlock.blockId)
+  }, [array, blockUx])
 
   return (
     <div className="App">
@@ -98,9 +115,13 @@ const App: React.FC = (): React.ReactElement => {
         setCurrentBlockId={setCurrentBlockId}
       />
       <Breadcrumb className="breadcrumbLink">
-        <BreadcrumbItem>Inicio</BreadcrumbItem>
-        <BreadcrumbItem>Fazenda São João</BreadcrumbItem>
-        <BreadcrumbItem>Unidade Padrão</BreadcrumbItem>
+        {blockUx.map((block) => (
+          <>
+            <BreadcrumbItem key={block.blockId} onClick={handleBlockBack}>
+              {block.name}
+            </BreadcrumbItem>
+          </>
+        ))}
       </Breadcrumb>
       <Timeline
         timelineData={timelineData}
