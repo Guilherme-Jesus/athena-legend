@@ -140,13 +140,19 @@ function CreateBlock({ blockId }: Props) {
           atmosphericPressure: Math.floor(Math.random() * 100),
         },
       }
-      axios.post(`http://localhost:7010/blocks/`, {
-        ...newBlock,
-      })
+      axios
+        .post(`http://localhost:7010/blocks/`, {
+          ...newBlock,
+        })
+        .then((response) => {
+          if (bounds !== undefined) {
+            handleCreateKml(response.data.blockId)
+          }
+        })
+
       setShow(false)
-      handleCreateKml(newBlock.blockId)
     },
-    [abrv, handleCreateKml, name],
+    [abrv, bounds, handleCreateKml, name],
   )
 
   return (

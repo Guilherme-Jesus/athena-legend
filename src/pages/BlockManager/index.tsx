@@ -14,15 +14,15 @@ import {
   useGetBlocksQuery,
   useUpdateBlocksMutation,
 } from '../../app/services/blocks'
+import CreateBlock from '../../components/Blocks/CreateBlock'
+import RemoveBlocks from '../../components/Blocks/RemoveBlocks'
 import { changeBlocks } from '../../features/blocks/blockSlice'
 import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelector'
 import { IListBlocks } from '../../types'
-import CreateBlock from '../../components/Blocks/CreateBlock'
-import RemoveBlocks from '../../components/Blocks/RemoveBlocks'
 
 // Estilo
-import './styles/edit.scss'
 import './styles/droppable.scss'
+import './styles/edit.scss'
 
 const EditBlocks = () => {
   const { blocks } = useAppSelector((state) => state.blockSlice)
@@ -30,9 +30,6 @@ const EditBlocks = () => {
 
   const [searchString, setSearchString] = useState<string>('')
   const [searchFocusIndex, setSearchFocusIndex] = useState<number>(0)
-  const handleSearchStringChange = useCallback((event: any) => {
-    setSearchString(event.target.value)
-  }, [])
 
   const { data: blocksData } = useGetBlocksQuery()
   const [updateBlock] = useUpdateBlocksMutation()
@@ -118,6 +115,17 @@ const EditBlocks = () => {
     },
     [dispatch, someOnlineAdvice.treeData],
   )
+  const handleSearchStringChange = useCallback((event: any) => {
+    setSearchString(event.target.value)
+  }, [])
+
+  const customSearchMethod = ({ node, searchQuery }) =>
+    searchQuery &&
+    node.name
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .indexOf(searchQuery.toLowerCase()) > -1
 
   return (
     <div className="containerEdit">
@@ -156,6 +164,7 @@ const EditBlocks = () => {
 
       <SortableTree
         className="draganddrop"
+        searchMethod={customSearchMethod}
         searchQuery={searchString}
         searchFocusOffset={searchFocusIndex}
         treeData={someOnlineAdvice.treeData}
