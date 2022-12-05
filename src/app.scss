@@ -41,6 +41,13 @@
   margin-left: 16px;
   margin-right: 10px;
   line-height: 1;
+
+
+  @media screen and (max-width: 960px) {
+
+    width: fit-content;
+    height: max-content;
+  }
 }
 
 .itemMain{
