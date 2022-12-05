@@ -30,9 +30,6 @@ const EditBlocks = () => {
 
   const [searchString, setSearchString] = useState<string>('')
   const [searchFocusIndex, setSearchFocusIndex] = useState<number>(0)
-  const handleSearchStringChange = useCallback((event: any) => {
-    setSearchString(event.target.value)
-  }, [])
 
   const { data: blocksData } = useGetBlocksQuery()
   const [updateBlock] = useUpdateBlocksMutation()
@@ -118,6 +115,16 @@ const EditBlocks = () => {
     },
     [dispatch, someOnlineAdvice.treeData],
   )
+  const handleSearchStringChange = useCallback((event: any) => {
+    setSearchString(event.target.value)
+  }, [])
+
+  const customSearchMethod = useCallback(
+    ({ node, searchQuery }) =>
+      searchQuery &&
+      node.name.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1,
+    [],
+  )
 
   return (
     <div className="containerEdit">
@@ -156,6 +163,7 @@ const EditBlocks = () => {
 
       <SortableTree
         className="draganddrop"
+        searchMethod={customSearchMethod}
         searchQuery={searchString}
         searchFocusOffset={searchFocusIndex}
         treeData={someOnlineAdvice.treeData}
