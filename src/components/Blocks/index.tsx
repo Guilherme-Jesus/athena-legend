@@ -6,7 +6,6 @@ import { Scrollbars as ScrollContainer } from 'react-custom-scrollbars-2'
 
 import { IListBlocks } from '../../types'
 import { dataUnit, displayData } from '../utils'
-import { Breadcrumb, BreadcrumbItem } from 'react-bootstrap'
 
 type BlocksProps = {
   blocks: IListBlocks[]
