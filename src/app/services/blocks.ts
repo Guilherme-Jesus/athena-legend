@@ -31,7 +31,7 @@ export const blocksApi = createApi({
       // propriedade mutation é a url que será chamada para atualizar dados de um usuário.
       query: ({ blockId, ...rest }) => ({
         url: `/blocks/${blockId}`,
-        method: 'PUT',
+        method: 'PATCH',
         body: rest,
       }),
       invalidatesTags: ['Blocks'],
