@@ -17,15 +17,15 @@ import {
 import CreateBlock from '../../components/Blocks/CreateBlock'
 import RemoveBlocks from '../../components/Blocks/RemoveBlocks'
 import { changeBlocks } from '../../features/blocks/blockSlice'
-import {
-  useAppDispatch,
-  useAppSelector,
-} from '../../app/hooks/useTypedSelector'
 import { IListBlocks } from '../../types'
 
 // Estilo
 import './styles/droppable.scss'
 import './styles/edit.scss'
+import {
+  useAppDispatch,
+  useAppSelector,
+} from '../../app/hooks/useTypedSelector'
 
 const EditBlocks = () => {
   const { blocks } = useAppSelector((state) => state.blockSlice)
