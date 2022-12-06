@@ -140,12 +140,12 @@
 .MapInfoContainer {
   display: flex;
   flex-direction: column;
-  width: 9.75rem;
+  width: max-content;
   height: max-content;
   background-color: #E9F1FF;
   border-radius: 4px;
   @media screen and (max-width: 960px) {
-    width: 8rem;
+    width: 7rem;
   }
 }
 .TitleBox {
@@ -177,13 +177,20 @@
   justify-content: space-between;
   align-items: center;
   @media screen and (max-width: 960px) {
-    justify-content: start;
+    justify-content: space-between;
   }
+
+}
+
+.divInfo{
+  display: flex;
+  justify-content: start;
 
 }
 
 .descriptionInfo {
   display: flex;
+  align-items: center;
   @media screen and (max-width: 960px) {
     display: none;
   }
@@ -192,4 +199,6 @@
 .infoDisplay {
   display: flex;
   font-weight: 700;
+  justify-content: end;
+  margin-left: 4px;
 }

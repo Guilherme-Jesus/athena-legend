@@ -212,49 +212,84 @@ const Map: React.FC<MapProps> = ({
     </div>
     <div class='infoInsideBox'>
     <div class='infoWeather'>
+    <div  class='divInfo'>
     <img src=${Rain} alt='' class='iconStyle'/>
-    <span class='descriptionInfo'>Chuva:</span><span class='infoDisplay'>${displayData(
+    <span class='descriptionInfo'>Chuva:</span>
+    </div>
+    <div>
+    <span class='infoDisplay'>${displayData(
       item.data.rain,
       1,
       dataUnit.rain,
     )}</span>
     </div>
+
+    </div>
    <div class='infoWeather'>
+   <div class='divInfo'>
    <img src=${Humidity} alt='' class='iconStyle'/>
 
-   <span class='descriptionInfo'>Umidade: </span><span class='infoDisplay'>${displayData(
+   <span class='descriptionInfo'>Umidade: </span>
+   </div>
+   
+   <div>
+   <span class='infoDisplay'>${displayData(
      item.data.relativeHumidity,
      1,
      dataUnit.relativeHumidity,
    )}</span>
    </div>
+ 
+   </div>
     <div class='infoWeather'>
+
+    <div class='divInfo'>
     <img src=${Thermometer} alt='' class='iconStyle'/>
 
-    <span class='descriptionInfo'>Temp.: </span><span class='infoDisplay'>${displayData(
+    <span class='descriptionInfo'>Temp.: </span>
+    </div>
+    <div>
+    <span class='infoDisplay'>${displayData(
       item.data.temperature,
       0,
       dataUnit.temperature,
     )}</span>
     </div>
+
+    </div>
  
     <div class='infoWeather'>
+    <div class='divInfo'>
     <img src=${Wind} alt='' class='iconStyle'/>
 
-    <span class='descriptionInfo'>Vento: </span> <span class='infoDisplay'>${displayData(
+    <span class='descriptionInfo'>Vento: </span> 
+    </div>
+
+    <div>
+    <span class='infoDisplay'>${displayData(
       item.data.windSpeed,
       1,
       dataUnit.windSpeed,
-    )}</span></div>
+    )}</span>
+    </div>
+</div>
    
       <div class='infoWeather'>
+
+      <div  class='divInfo'>
       <img src=${Sun} alt='' class='iconStyle'/>
 
-      <span class='descriptionInfo'>Rad.: </span><span class='infoDisplay'>${displayData(
+      <span class='descriptionInfo'>Rad.: </span>
+      </div>
+
+      <div>
+      <span class='infoDisplay'>${displayData(
         item.data.solarIrradiation,
         0,
         dataUnit.solarRadiation,
       )}</span>
+      </div>
+
       </div>
 
    
