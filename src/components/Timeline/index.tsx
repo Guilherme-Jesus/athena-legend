@@ -393,7 +393,7 @@ export const Timeline = ({
         <Swiper
           modules={[Keyboard, Mousewheel, Navigation]}
           slidesPerView={'auto'}
-          initialSlide={line.length / 4 + 1} // ???
+          initialSlide={line.length / 4} // ???
           spaceBetween={16}
           keyboard={{ enabled: true }}
           mousewheel={true}
