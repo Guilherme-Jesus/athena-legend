@@ -72,7 +72,6 @@
     width: calc(var(--spacer) * 1.75); // 24px;
   }
 
-
   .my-legend .legend-title {
     text-align: center;
     margin-bottom: 8px;
@@ -129,4 +128,58 @@
   //     width: calc(var(--spacer) * 2);
   //   }
   // }
+}
+
+//InfoBoxMap
+
+.MapInfoContainer {
+  display: flex;
+  flex-direction: column;
+  width: 9.75rem;
+  height: max-content;
+}
+.TitleBox {
+  display: flex;
+  font-weight: 700;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #999;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  background-color: #999;
+  border-radius: 4px;
+}
+
+.iconStyle {
+  display: flex;
+  width: 30px;
+  height: 30px;
+}
+
+.infoInsideBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.infoWeather {
+  display: flex;
+  margin-bottom: 5px;
+  justify-content: space-between;
+  align-items: center;
+  @media screen and (max-width: 960px) {
+    justify-content: start;
+  }
+
+}
+
+.descriptionInfo {
+  display: flex;
+  @media screen and (max-width: 960px) {
+    display: none;
+  }
+}
+
+.infoDisplay {
+  display: flex;
+  font-weight: 700;
 }
