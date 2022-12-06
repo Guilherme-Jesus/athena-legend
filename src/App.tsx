@@ -115,15 +115,13 @@ const App: React.FC = (): React.ReactElement => {
       />
       <div className="breadcrumbLink">
         {blockUx.map((block) => (
-          <>
-            <span
-              className="itemMain"
-              key={block.blockId}
-              onClick={handleBlockBack}
-            >
-              {block.name}
-            </span>
-          </>
+          <span
+            className="itemMain"
+            key={block.blockId}
+            onClick={handleBlockBack}
+          >
+            {block.name}
+          </span>
         ))}
       </div>
       <Timeline
