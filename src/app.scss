@@ -11,9 +11,8 @@
   min-height: 92vh;
 
   @media screen and (max-width: 960px) {
-
-    grid-template-columns: var(--nav-link-size) calc(var(--spacer) * 14) auto;
-    grid-template-rows: max-content auto calc(var(--spacer) * 15);
+    grid-template-columns: var(--nav-link-size) calc(var(--spacer) * 12) auto;
+    grid-template-rows: max-content auto calc(var(--spacer) * 13.5);
     min-height: 91vh;
   }
 
@@ -44,7 +43,7 @@
 
 
   @media screen and (max-width: 960px) {
-
+    margin-top: 4px;
     width: fit-content;
     height: max-content;
   }
