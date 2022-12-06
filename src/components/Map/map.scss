@@ -137,6 +137,9 @@
   flex-direction: column;
   width: 9.75rem;
   height: max-content;
+  @media screen and (max-width: 960px) {
+    width: 8rem;
+  }
 }
 .TitleBox {
   display: flex;
