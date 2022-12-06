@@ -17,7 +17,10 @@ import {
 import CreateBlock from '../../components/Blocks/CreateBlock'
 import RemoveBlocks from '../../components/Blocks/RemoveBlocks'
 import { changeBlocks } from '../../features/blocks/blockSlice'
-import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelector'
+import {
+  useAppDispatch,
+  useAppSelector,
+} from '../../app/hooks/useTypedSelector'
 import { IListBlocks } from '../../types'
 
 // Estilo

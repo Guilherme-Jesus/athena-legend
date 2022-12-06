@@ -1,9 +1,13 @@
 import rewind from '@mapbox/geojson-rewind'
 import * as tj from '@mapbox/togeojson'
-import axios from 'axios'
 import { NotePencil } from 'phosphor-react'
 import { useCallback, useState } from 'react'
 import { Button, Form, Modal } from 'react-bootstrap'
+import {
+  useCreateBlockLeafMutation,
+  useCreateBlocksMutation,
+  useCreateHistoricalMutation,
+} from '../../../app/services/blocks'
 import { Root } from '../../../types'
 import '../styles/buttons.scss'
 import './create.scss'
@@ -21,6 +25,10 @@ function CreateBlock({ blockId, leafParent }: Props) {
 
   const [name, setName] = useState('')
   const [abrv, setAbrv] = useState('')
+
+  const [createBlocks] = useCreateBlocksMutation()
+  const [createLeaf] = useCreateBlockLeafMutation()
+  const [createHistorical] = useCreateHistoricalMutation()
 
   const handleFileSelection = (event) => {
     const file = event.target.files[0] // get file
@@ -112,15 +120,18 @@ function CreateBlock({ blockId, leafParent }: Props) {
           bounds: arrayCoords(feature.id),
           centroid: arrayCentroid(feature.id),
         }
-        axios.post(`http://localhost:7010/blockLeaf/`, {
-          ...newLeaf,
-        })
-        axios.post(`http://localhost:7010/historical/`, {
-          ...newLeaf,
-        })
+        createLeaf({ ...newLeaf }).unwrap()
+        createHistorical({ ...newLeaf }).unwrap()
+
+        // axios.post(`http://localhost:7010/blockLeaf/`, {
+        //   ...newLeaf,
+        // })
+        // axios.post(`http://localhost:7010/historical/`, {
+        //   ...newLeaf,
+        // })
       })
     },
-    [arrayCentroid, arrayCoords, bounds],
+    [arrayCentroid, arrayCoords, bounds, createHistorical, createLeaf],
   )
 
   const handleCreateBlockAndKml = useCallback(
@@ -142,24 +153,28 @@ function CreateBlock({ blockId, leafParent }: Props) {
         },
       }
       if (bounds) {
-        axios
-          .post(`http://localhost:7010/blocks/`, {
-            ...newBlock,
-            leafParent: true,
-          })
+        createBlocks({ ...newBlock, leafParent: true })
+          .unwrap()
+          // axios
+          //   .post(`http://localhost:7010/blocks/`, {
+          //     ...newBlock,
+          //     leafParent: true,
+          //   })
           .then((response) => {
-            handleCreateKml(response.data.blockId)
+            handleCreateKml(response.blockId)
           })
         setShow(false)
       } else {
-        axios.post(`http://localhost:7010/blocks/`, {
-          ...newBlock,
-          leafParent: false,
-        })
+        createBlocks({ ...newBlock, leafParent: false }).unwrap()
+
+        // axios.post(`http://localhost:7010/blocks/`, {
+        //   ...newBlock,
+        //   leafParent: false,
+        // })
         setShow(false)
       }
     },
-    [abrv, bounds, handleCreateKml, name],
+    [abrv, bounds, createBlocks, handleCreateKml, name],
   )
 
   return (
