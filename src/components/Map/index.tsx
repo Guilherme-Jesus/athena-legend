@@ -40,12 +40,7 @@ const Map: React.FC<MapProps> = ({
   const { data: blockLeavesHistorical } =
     useRequestData<IListBlocksLeaf[]>('/historical')
 
-  const layerViews = [
-    'Normal',
-    'Chuva',
-    'Temperatura',
-    'Umidade relativa do ar',
-  ]
+  const layerViews = ['Normal', 'Chuva', 'Temperatura', 'Umi. rel. do ar']
 
   const rainGrades = [0, 5, 10, 50, 100, 200]
   const temperatureGrades = [5, 10, 20, 30, 40]
@@ -240,7 +235,7 @@ const Map: React.FC<MapProps> = ({
       item.data.temperature,
       0,
       dataUnit.temperature,
-    )}<</span>
+    )}</span>
     </div>
  
     <div class='infoWeather'>
@@ -250,7 +245,7 @@ const Map: React.FC<MapProps> = ({
       item.data.windSpeed,
       1,
       dataUnit.windSpeed,
-    )}<</span></div>
+    )}</span></div>
    
       <div class='infoWeather'>
       <img src=${Sun} alt='' class='iconStyle'/>
@@ -259,7 +254,7 @@ const Map: React.FC<MapProps> = ({
         item.data.solarIrradiation,
         0,
         dataUnit.solarRadiation,
-      )}<</span>
+      )}</span>
       </div>
 
    
@@ -444,7 +439,7 @@ const Map: React.FC<MapProps> = ({
         legend.addTo(map)
       })
 
-    if (layerView === 'Umidade relativa do ar')
+    if (layerView === 'Umi. rel. do ar')
       blockLeavesHistorical?.forEach((item) => {
         L.polygon(getBounds(item.bounds) as L.LatLngExpression[], {
           color: 'var(--bs-white)',

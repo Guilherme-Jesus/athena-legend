@@ -31,18 +31,23 @@
       align-items: center;
       display: flex;
       justify-content: space-between;
+      color: #FF7F2F;
       text-align: start;
-      width: calc(var(--spacer) * 11.5);
+      width: calc(var(--spacer) * 9);
 
       &.btn-sm {
         width: calc(var(--spacer) * 9.5);
+        
       }
 
       &::after {
         margin: 0;
       }
+     
     }
   }
+
+ 
 
   // Leaflet plugin
   .leaflet-popup-content {
