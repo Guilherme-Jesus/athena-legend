@@ -1,5 +1,5 @@
 type SensorData = {
-  atmosphericPressure: number
+  atmosphericPressure?: number
   rain: number
   relativeHumidity: number
   solarIrradiation: number
@@ -13,9 +13,10 @@ export type IListBlocks = {
   blockId: string
   blockParent: string
   data: SensorData
-  date: Date
+  date: Date | string
   leafParent: boolean
   name: string
+  timezoneOffset?: number
 }
 
 export type IListBlocksLeaf = IListBlocks & {

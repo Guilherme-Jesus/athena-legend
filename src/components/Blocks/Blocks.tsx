@@ -8,9 +8,9 @@ import { IListBlocks } from '../../types'
 import { dataUnit, displayData } from '../utils'
 
 type BlocksProps = {
-  blocks: IListBlocks[]
-  currentBlockId: string
-  handleBlockClick(id: string, leaf: boolean): void
+  blocks?: IListBlocks[]
+  currentBlockId?: string
+  handleBlockClick?(id: string, leaf: boolean): void
 }
 
 const Blocks: React.FC<BlocksProps> = ({

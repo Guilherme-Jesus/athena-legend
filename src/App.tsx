@@ -5,7 +5,7 @@ import React, { memo, useCallback, useEffect, useState } from 'react'
 
 import { IListBlocks, IListBlocksLeaf, ITimeline } from './types'
 
-import Blocks from './components/Blocks'
+import Blocks from './components/Blocks/Blocks'
 import Map from './components/Map'
 import Timeline from './components/Timeline'
 
